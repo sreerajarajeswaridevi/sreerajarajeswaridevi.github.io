@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-split-body [isLoading]=\"isLoading$\">\n  <div class=\"left-section\">\n    <div class=\"white px-4 section-header\">\n      <h3>EXPENSES LIST</h3>\n      <p class=\"grey-text pt-3\">Manage your Expenses</p>\n    </div>\n  </div>\n  <div class=\"right-section\">\n    <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 200px\">\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n        <span class=\"sr-only\">Loading...</span>\n      </div>\n    </div>\n  </div>\n</app-split-body>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-split-body [isLoading$]=\"isLoading$\">\n  <div class=\"left-section\">\n    <div class=\"white px-4 section-header\">\n      <h3>EXPENSES LIST</h3>\n      <p class=\"grey-text pt-3\">Manage your Expenses</p>\n    </div>\n  </div>\n  <div class=\"right-section\">\n    <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 200px\">\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n        <span class=\"sr-only\">Loading...</span>\n      </div>\n    </div>\n  </div>\n</app-split-body>\n\n");
 
 /***/ }),
 
