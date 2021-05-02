@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mdb-card class=\"mb-4\">\n  <mdb-card-body class=\"py-4\">\n    <div class=\"mb-5 back-button\" (click)=\"closeDetails()\">\n      <mdb-icon fas icon=\"arrow-left\" class=\"mr-2\"></mdb-icon>\n      <span>Back to user list</span>\n    </div>\n    <div class=\"d-flex flex-row justify-content-between flex-wrap\">\n      <div class=\"d-flex flex-row\">\n        <div class=\"mr-4\">\n          <img *ngIf=\"user.photoUrl\" src=\"{{ user.photoUrl }}\" height=\"90\" width=\"90\" class=\"rounded-circle z-depth-0\"\n            alt=\"avatar image\">\n        </div>\n\n        <div class=\"pt-2\">\n          <h4>{{ user.displayName }}</h4>\n          <div>\n            <span class=\"mr-2\">\n            </span>\n            <span>\n              <mdb-badge *ngIf=\"user.isAdmin\" color=\"purple\">Admin</mdb-badge>\n            </span>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"mt-3\">\n        <button *ngIf=\"!user.isAdmin\" mdbBtn outline=\"true\" color=\"red\" (click)=\"onAddAdmin()\">Add admin privileges</button>\n        <button *ngIf=\"user.isAdmin\" mdbBtn outline=\"true\" color=\"red\" (click)=\"onRemoveAdmin()\">Remove admin\n          privileges</button>\n      </div>\n    </div>\n\n    <hr class=\"my-5\">\n\n    <div class=\"d-flex flex-row align-items-center\">\n      <h4 class=\"mr-3\">Projects</h4>\n      <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"loadProjects()\">Load user projects</button>\n    </div>\n\n    <div *ngIf=\"userProjectsLoading\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 50px\">\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n        <span class=\"sr-only\">Loading...</span>\n      </div>\n    </div>\n\n\n    <hr class=\"my-5\">\n\n    <div class=\"d-flex flex-row align-items-center mb-4\">\n      <h4 class=\"mr-3\">Customers</h4>\n      <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"loadCustomers()\">Load user customers</button>\n    </div>\n\n    <div *ngIf=\"userCustomersLoading\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 50px\">\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n        <span class=\"sr-only\">Loading...</span>\n      </div>\n    </div>\n\n    <app-customers-list *ngIf=\"!userCustomersLoading && customers\" [customers]=\"customers\" (customerDeleted)=\"onCustomerDelete($event)\"></app-customers-list>\n  </mdb-card-body>\n</mdb-card>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mdb-card class=\"mb-4\">\r\n  <mdb-card-body class=\"py-4\">\r\n    <div class=\"mb-5 back-button\" (click)=\"closeDetails()\">\r\n      <mdb-icon fas icon=\"arrow-left\" class=\"mr-2\"></mdb-icon>\r\n      <span>Back to user list</span>\r\n    </div>\r\n    <div class=\"d-flex flex-row justify-content-between flex-wrap\">\r\n      <div class=\"d-flex flex-row\">\r\n        <div class=\"mr-4\">\r\n          <img *ngIf=\"user.photoUrl\" src=\"{{ user.photoUrl }}\" height=\"90\" width=\"90\" class=\"rounded-circle z-depth-0\"\r\n            alt=\"avatar image\">\r\n        </div>\r\n\r\n        <div class=\"pt-2\">\r\n          <h4>{{ user.displayName }}</h4>\r\n          <div>\r\n            <span class=\"mr-2\">\r\n            </span>\r\n            <span>\r\n              <mdb-badge *ngIf=\"user.isAdmin\" color=\"purple\">Admin</mdb-badge>\r\n            </span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"mt-3\">\r\n        <button *ngIf=\"!user.isAdmin\" mdbBtn outline=\"true\" color=\"red\" (click)=\"onAddAdmin()\">Add admin privileges</button>\r\n        <button *ngIf=\"user.isAdmin\" mdbBtn outline=\"true\" color=\"red\" (click)=\"onRemoveAdmin()\">Remove admin\r\n          privileges</button>\r\n      </div>\r\n    </div>\r\n\r\n    <hr class=\"my-5\">\r\n\r\n    <div class=\"d-flex flex-row align-items-center\">\r\n      <h4 class=\"mr-3\">Projects</h4>\r\n      <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"loadProjects()\">Load user projects</button>\r\n    </div>\r\n\r\n    <div *ngIf=\"userProjectsLoading\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 50px\">\r\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n        <span class=\"sr-only\">Loading...</span>\r\n      </div>\r\n    </div>\r\n\r\n\r\n    <hr class=\"my-5\">\r\n\r\n    <div class=\"d-flex flex-row align-items-center mb-4\">\r\n      <h4 class=\"mr-3\">Customers</h4>\r\n      <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"loadCustomers()\">Load user customers</button>\r\n    </div>\r\n\r\n    <div *ngIf=\"userCustomersLoading\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 50px\">\r\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n        <span class=\"sr-only\">Loading...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <app-customers-list *ngIf=\"!userCustomersLoading && customers\" [customers]=\"customers\" (customerDeleted)=\"onCustomerDelete($event)\"></app-customers-list>\r\n  </mdb-card-body>\r\n</mdb-card>\r\n");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mdb-card>\n  <mdb-card-body class=\"text-center py-4\">\n    <div>\n      <span class=\"float-left\">\n        <mdb-badge *ngIf=\"user.isAdmin\" color=\"purple\">Admin</mdb-badge>\n      </span>\n      <mdb-icon fas icon=\"ellipsis-v\" class=\"float-right grey-text\"></mdb-icon>\n    </div>\n    <div class=\"mt-5\">\n      <img *ngIf=\"user.photoUrl\" src=\"{{ user.photoUrl }}\" height=\"90\" width=\"90\" class=\"rounded-circle z-depth-0\" alt=\"avatar image\">\n    </div>\n    <div class=\"mt-3\">\n      {{ user.displayName }}\n    </div>\n    <div class=\"d-flex flex-column\">\n      <button class=\"mt-3\" mdbBtn color=\"danger\" size=\"sm\" (click)=\"removeAdminPrivileges()\" *ngIf=\"user.isAdmin\">Remove\n        admin privileges</button>\n      <button class=\"mt-3\" mdbBtn color=\"danger\" size=\"sm\" (click)=\"addAdminPrivileges()\" *ngIf=\"!user.isAdmin\">Add\n        admin privileges</button>\n      <button class=\"mt-2\" mdbBtn color=\"primary\" size=\"sm\" (click)=\"selectUser()\">Manage content</button>\n    </div>\n  </mdb-card-body>\n</mdb-card>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mdb-card>\r\n  <mdb-card-header class=\"text-center bg-primary white-text\">\r\n    {{ user?.temple }}\r\n    VKSR Temple\r\n  </mdb-card-header>\r\n  <mdb-card-body class=\"text-center py-2\">\r\n    <div>\r\n      <span class=\"float-left\">\r\n        <mdb-badge *ngIf=\"user.role\" [color]=\"getColor(user.role)\">{{ user.role }}</mdb-badge>\r\n      </span>\r\n      <mdb-icon fas icon=\"trash\" class=\"float-right delete grey-text\" (click)=\"deleteUser()\" alt=\"Delete user\"></mdb-icon>\r\n    </div>\r\n    <div class=\"mt-5\">\r\n      <img *ngIf=\"user.avatar\" src=\"{{ user.avatar }}\" height=\"90\" width=\"90\" class=\"rounded-circle z-depth-0\" alt=\"avatar image\">\r\n    </div>\r\n    <div class=\"mt-3\">\r\n      {{ user.first_name }} {{ user.last_name }}\r\n    </div>\r\n    <p class=\"grey-text small\">{{user.email}}</p>\r\n  </mdb-card-body>\r\n</mdb-card>\r\n");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"users-list d-flex flex-wrap\">\n  <div class=\"user\" *ngFor=\"let user of users; trackBy: trackByFn\">\n    <app-user [user]=\"user\" (userSelected)=\"onUserSelected($event)\" (addAdmin)=\"onAddAdmin($event)\" (removeAdmin)=\"onRemoveAdmin($event)\"></app-user>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"users-list d-flex flex-wrap\">\r\n  <div class=\"user\" *ngFor=\"let user of users; trackBy: trackByFn\">\r\n    <app-user [user]=\"user\" (userSelected)=\"onUserSelected($event)\" (addAdmin)=\"onAddAdmin($event)\" (removeUser)=\"onDeleteUser($event)\"></app-user>\r\n  </div>\r\n  <div class=\"user\">\r\n    <mdb-card class=\"flex-wrap py-2 add-card h-100\" (click)=\"onAddUser($event)\">\r\n      <mdb-card-body class=\"text-center my-4 py-4 d-flex flex-column align-items-center justify-content-center\">\r\n        <div class=\"my-4\">\r\n          <mdb-icon fas icon=\"plus\" class=\"float-right mt-1 add fa-lg grey-text\" alt=\"Add user\"></mdb-icon>\r\n        </div>\r\n        <p class=\"grey-text\">Add User</p>\r\n      </mdb-card-body>\r\n    </mdb-card>\r\n  </div>\r\n  \r\n</div>\r\n");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white px-4 section-header\">\n  <h3>Admin panel</h3>\n  <p class=\"grey-text pt-3\">Change settings for every user in your application</p>\n</div>\n\n<div *ngIf=\"usersListLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 300px\">\n  <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</div>\n\n<div *ngIf=\"!(usersListLoading$ | async)\" class=\"container-fluid mt-3 pb-5\">\n  <app-users-list *ngIf=\"!selectedUser\" [users]=\"users$ | async\" (userSelected)=\"onUserSelect($event)\" (addAdmin)=\"addAdminPrivileges($event)\"\n    (removeAdmin)=\"removeAdminPrivileges($event)\"></app-users-list>\n  <app-user-detail\n    *ngIf=\"selectedUser\"\n    [user]=\"selectedUser$ | async\"\n    [customers]=\"userCustomers$ | async\"\n    [userProjectsLoading]=\"userProjectsLoading$ | async\"\n    [userCustomersLoading]=\"userCustomersLoading$ | async\"\n    (detailsClosed)=\"onDetailsClose()\"\n    (projectsLoad)=\"onProjectsLoad()\"\n    (customersLoad)=\"onCustomersLoad()\"\n    (projectDeleted)=\"onProjectDelete($event)\"\n    (customerDeleted)=\"onCustomerDelete($event)\"\n    (addAdmin)=\"addAdminPrivileges($event)\"\n    (removeAdmin)=\"removeAdminPrivileges($event)\"></app-user-detail>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white p-4\">\r\n  <h3>Admin panel</h3>\r\n  <p class=\"grey-text pt-3\">Change settings for every user in your application</p>\r\n</div>\r\n\r\n<div *ngIf=\"usersListLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 300px\">\r\n  <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n    <span class=\"sr-only\">Loading...</span>\r\n  </div>\r\n</div>\r\n\r\n<div *ngIf=\"!(usersListLoading$ | async)\" class=\"container-fluid mt-3 pb-5\">\r\n  <app-users-list *ngIf=\"!selectedUser\" [users]=\"users$ | async\" (addUser)=\"openAddUserModal($event)\"\r\n    (deleteUser)=\"onDeleteUser($event)\"></app-users-list>\r\n  \r\n    <!-- <app-user-detail\r\n    *ngIf=\"selectedUser\"\r\n    [user]=\"selectedUser$ | async\"\r\n    [customers]=\"userCustomers$ | async\"\r\n    [userProjectsLoading]=\"userProjectsLoading$ | async\"\r\n    [userCustomersLoading]=\"userCustomersLoading$ | async\"\r\n    (detailsClosed)=\"onDetailsClose()\"\r\n    (projectsLoad)=\"onProjectsLoad()\"\r\n    (customersLoad)=\"onCustomersLoad()\"\r\n    (projectDeleted)=\"onProjectDelete($event)\"\r\n    (customerDeleted)=\"onCustomerDelete($event)\"\r\n    (addAdmin)=\"addAdminPrivileges($event)\"\r\n    (removeAdmin)=\"removeAdminPrivileges($event)\"></app-user-detail> -->\r\n</div>\r\n");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<header>\n  <app-header [user]=\"user$ | async\" [isLoggedIn]=\"isLoggedIn$ | async\" [isLoading]=\"isLoading$ | async\" [isAdmin]=\"isAdmin$ | async\"\n    (logout)=\"onLogout($event)\"></app-header>\n</header>\n\n<main>\n  <router-outlet></router-outlet>\n</main>\n\n<!-- <footer class=\"app-footer\" [ngClass]=\"{'footer-absolute': (isLoggedIn$ | async) || (isLoading$ | async)}\">\n  <app-footer></app-footer>\n</footer> -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<header>\r\n  <app-header [user]=\"user$ | async\" [isLoggedIn]=\"isLoggedIn$ | async\" [isLoading]=\"isLoading$ | async\" [isAdmin]=\"isAdmin$ | async\"\r\n    (logout)=\"onLogout($event)\"></app-header>\r\n</header>\r\n\r\n<main>\r\n  <router-outlet></router-outlet>\r\n</main>\r\n\r\n<!-- <footer class=\"app-footer\" [ngClass]=\"{'footer-absolute': (isLoggedIn$ | async) || (isLoading$ | async)}\">\r\n  <app-footer></app-footer>\r\n</footer> -->\r\n");
 
 /***/ }),
 
@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid full-page-container\">\n  <div class=\"row h-100 justify-content-center align-items-center\">\n    <div class=\"col-lg-4 col-sm-8 animated fadeIn\">\n      <!-- Material form login -->\n      <mdb-card class=\"z-depth-2\">\n\n        <div class=\"white text-center py-4\">\n          <h5>\n            <strong>Log in</strong>\n          </h5>\n        </div>\n\n\n        <!--Card content-->\n        <mdb-card-body class=\"px-lg-5 pt-0\">\n          <div *ngIf=\"error$ | async as error\" class=\"alert alert-danger\" role=\"alert\">\n            {{ error }}\n          </div>\n          <!-- Form -->\n          <form [formGroup]=\"loginForm\" class=\"text-center\" style=\"color: #757575;\">\n\n            <!-- Username -->\n            <div class=\"md-form\">\n              <input mdbValidate [validateSuccess]=\"false\" type=\"email\" id=\"username\" class=\"form-control\" formControlName=\"username\" mdbInput>\n              <label for=\"username\">Username</label>\n              <mdb-error *ngIf=\"username && username.invalid && (username.dirty || username.touched)\">Username is required</mdb-error>\n            </div>\n\n            <!-- Password -->\n            <div class=\"md-form\">\n              <input mdbValidate [validateSuccess]=\"false\" type=\"password\" id=\"password\" class=\"form-control\" formControlName=\"password\" mdbInput>\n              <label for=\"password\">Password</label>\n              <mdb-error *ngIf=\"password && password.invalid && (password.dirty || password.touched)\">Password is required</mdb-error>\n            </div>\n\n            <!-- Sign in button -->\n            <button mdbBtn color=\"primary\" block=\"true\" class=\"my-4 waves-effect z-depth-0\"\n              mdbWavesEffect type=\"submit\" (click)=\"onLogin()\">Log in</button>\n\n            <!-- Register -->\n            <!-- <p>Not a member?\n              <a routerLink=\"/register\">Register</a>\n            </p> -->\n\n            <!-- Social login -->\n            <!-- <p>or log in with:</p>\n            <a type=\"button\" class=\"mr-4\" (click)=\"onFacebookLogin('facebook')\">\n              <mdb-icon fab icon=\"facebook-f\"></mdb-icon>\n            </a>\n            <a type=\"button\" class=\"mr-4\" (click)=\"onTwitterLogin('twitter')\">\n              <mdb-icon fab icon=\"twitter\"></mdb-icon>\n            </a>\n            <a type=\"button\" (click)=\"onGoogleLogin('google')\">\n              <mdb-icon fab icon=\"google-plus-g\"></mdb-icon>\n            </a> -->\n          </form>\n          <!-- Form -->\n\n        </mdb-card-body>\n\n      </mdb-card>\n      <!-- Material form login -->\n    </div>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid full-page-container\">\r\n  <div class=\"row h-100 justify-content-center align-items-center\">\r\n    <div class=\"col-lg-4 col-sm-8 animated fadeIn\">\r\n      <!-- Material form login -->\r\n      <mdb-card class=\"z-depth-2\">\r\n\r\n        <div class=\"white text-center py-4\">\r\n          <h5>\r\n            <strong>Log in</strong>\r\n          </h5>\r\n        </div>\r\n\r\n\r\n        <!--Card content-->\r\n        <mdb-card-body class=\"px-lg-5 pt-0\">\r\n          <div *ngIf=\"error$ | async as error\" class=\"alert alert-danger\" role=\"alert\">\r\n            {{ error }}\r\n          </div>\r\n          <!-- Form -->\r\n          <form [formGroup]=\"loginForm\" class=\"text-center\" style=\"color: #757575;\">\r\n\r\n            <!-- Username -->\r\n            <div class=\"md-form\">\r\n              <input mdbValidate [validateSuccess]=\"false\" type=\"email\" id=\"username\" class=\"form-control\" formControlName=\"username\" mdbInput>\r\n              <label for=\"username\">Username</label>\r\n              <mdb-error *ngIf=\"username && username.invalid && (username.dirty || username.touched)\">Username is required</mdb-error>\r\n            </div>\r\n\r\n            <!-- Password -->\r\n            <div class=\"md-form\">\r\n              <input mdbValidate [validateSuccess]=\"false\" type=\"password\" id=\"password\" class=\"form-control\" formControlName=\"password\" mdbInput>\r\n              <label for=\"password\">Password</label>\r\n              <mdb-error *ngIf=\"password && password.invalid && (password.dirty || password.touched)\">Password is required</mdb-error>\r\n            </div>\r\n\r\n            <!-- Sign in button -->\r\n            <button mdbBtn color=\"primary\" block=\"true\" class=\"my-4 waves-effect z-depth-0\"\r\n              mdbWavesEffect type=\"submit\" (click)=\"onLogin()\">Log in</button>\r\n\r\n            <!-- Register -->\r\n            <!-- <p>Not a member?\r\n              <a routerLink=\"/register\">Register</a>\r\n            </p> -->\r\n\r\n            <!-- Social login -->\r\n            <!-- <p>or log in with:</p>\r\n            <a type=\"button\" class=\"mr-4\" (click)=\"onFacebookLogin('facebook')\">\r\n              <mdb-icon fab icon=\"facebook-f\"></mdb-icon>\r\n            </a>\r\n            <a type=\"button\" class=\"mr-4\" (click)=\"onTwitterLogin('twitter')\">\r\n              <mdb-icon fab icon=\"twitter\"></mdb-icon>\r\n            </a>\r\n            <a type=\"button\" (click)=\"onGoogleLogin('google')\">\r\n              <mdb-icon fab icon=\"google-plus-g\"></mdb-icon>\r\n            </a> -->\r\n          </form>\r\n          <!-- Form -->\r\n\r\n        </mdb-card-body>\r\n\r\n      </mdb-card>\r\n      <!-- Material form login -->\r\n    </div>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid full-page-container\">\n  <div class=\"row h-100 justify-content-center align-items-center\">\n    <div class=\"col-lg-4 col-sm-8 animated fadeIn\">\n      <!-- Material form login -->\n      <mdb-card class=\"z-depth-2\">\n\n        <div class=\"text-center py-4\">\n          <h5>\n            <strong>Register</strong>\n          </h5>\n        </div>\n\n\n        <!--Card content-->\n        <mdb-card-body class=\"px-lg-5 pt-0\">\n          <div *ngIf=\"error$ | async as error\" class=\"alert alert-danger\" role=\"alert\">\n            {{ error }}\n          </div>\n          <!-- Form -->\n          <form [formGroup]=\"registerForm\" class=\"text-center\" style=\"color: #757575;\">\n\n            <!-- Username -->\n            <div class=\"md-form\">\n              <input type=\"text\" id=\"username\" class=\"form-control\" formControlName=\"username\" mdbInput>\n              <label for=\"username\">Username</label>\n            </div>\n\n            <!-- Username -->\n            <div class=\"md-form\">\n              <input mdbValidate [validateSuccess]=\"false\" type=\"username\" id=\"username\" class=\"form-control\" formControlName=\"username\" mdbInput>\n              <label for=\"username\">Username</label>\n              <mdb-error *ngIf=\"username && username.invalid && (username.dirty || username.touched)\">Username is required</mdb-error>\n            </div>\n\n            <!-- Password -->\n            <div class=\"md-form\">\n              <input mdbValidate [validateSuccess]=\"false\" type=\"password\" id=\"password\" class=\"form-control\" formControlName=\"password\" mdbInput>\n              <label for=\"password\">Password</label>\n              <mdb-error *ngIf=\"password && password.invalid && password.errors && password.errors.required && (password.dirty || password.touched)\">Password is required</mdb-error>\n              <mdb-error *ngIf=\"password && password.invalid && password.errors && password.errors.minlength && (password.dirty || password.touched)\">Password must be at least 6 characters long</mdb-error>\n            </div>\n\n            <!-- Sign in button -->\n            <button mdbBtn color=\"primary\" block=\"true\" class=\"my-4 waves-effect z-depth-0\"\n              mdbWavesEffect type=\"submit\" (click)=\"onRegister()\">Register</button>\n\n            <!-- Register -->\n            <p>Already have an account?\n              <a routerLink=\"/login\">Log In</a>\n            </p>\n\n          </form>\n          <!-- Form -->\n\n        </mdb-card-body>\n\n      </mdb-card>\n      <!-- Material form login -->\n    </div>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid full-page-container\">\r\n  <div class=\"row h-100 justify-content-center align-items-center\">\r\n    <div class=\"col-lg-4 col-sm-8 animated fadeIn\">\r\n      <!-- Material form login -->\r\n      <mdb-card class=\"z-depth-2\">\r\n\r\n        <div class=\"text-center py-4\">\r\n          <h5>\r\n            <strong>Register</strong>\r\n          </h5>\r\n        </div>\r\n\r\n\r\n        <!--Card content-->\r\n        <mdb-card-body class=\"px-lg-5 pt-0\">\r\n          <div *ngIf=\"error$ | async as error\" class=\"alert alert-danger\" role=\"alert\">\r\n            {{ error }}\r\n          </div>\r\n          <!-- Form -->\r\n          <form [formGroup]=\"registerForm\" class=\"text-center\" style=\"color: #757575;\">\r\n\r\n            <!-- Username -->\r\n            <div class=\"md-form\">\r\n              <input type=\"text\" id=\"username\" class=\"form-control\" formControlName=\"username\" mdbInput>\r\n              <label for=\"username\">Username</label>\r\n            </div>\r\n\r\n            <!-- Username -->\r\n            <div class=\"md-form\">\r\n              <input mdbValidate [validateSuccess]=\"false\" type=\"username\" id=\"username\" class=\"form-control\" formControlName=\"username\" mdbInput>\r\n              <label for=\"username\">Username</label>\r\n              <mdb-error *ngIf=\"username && username.invalid && (username.dirty || username.touched)\">Username is required</mdb-error>\r\n            </div>\r\n\r\n            <!-- Password -->\r\n            <div class=\"md-form\">\r\n              <input mdbValidate [validateSuccess]=\"false\" type=\"password\" id=\"password\" class=\"form-control\" formControlName=\"password\" mdbInput>\r\n              <label for=\"password\">Password</label>\r\n              <mdb-error *ngIf=\"password && password.invalid && password.errors && password.errors.required && (password.dirty || password.touched)\">Password is required</mdb-error>\r\n              <mdb-error *ngIf=\"password && password.invalid && password.errors && password.errors.minlength && (password.dirty || password.touched)\">Password must be at least 6 characters long</mdb-error>\r\n            </div>\r\n\r\n            <!-- Sign in button -->\r\n            <button mdbBtn color=\"primary\" block=\"true\" class=\"my-4 waves-effect z-depth-0\"\r\n              mdbWavesEffect type=\"submit\" (click)=\"onRegister()\">Register</button>\r\n\r\n            <!-- Register -->\r\n            <p>Already have an account?\r\n              <a routerLink=\"/login\">Log In</a>\r\n            </p>\r\n\r\n          </form>\r\n          <!-- Form -->\r\n\r\n        </mdb-card-body>\r\n\r\n      </mdb-card>\r\n      <!-- Material form login -->\r\n    </div>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>\r\n");
 
 /***/ }),
 
@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<footer class=\"footer-copyright text-center text-white py-3 primary-color-dark darken-2\">\n  &copy; 2018 Copyright:\n  <a class=\"text-white\" href=\"https:/mdbootstrap.com/angular/\">MDBootstrap.com</a>\n</footer>");
+/* harmony default export */ __webpack_exports__["default"] = ("<footer class=\"footer-copyright text-center text-white py-3 primary-color-dark darken-2\">\r\n  &copy; 2018 Copyright:\r\n  <a class=\"text-white\" href=\"https:/mdbootstrap.com/angular/\">MDBootstrap.com</a>\r\n</footer>");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!--Navbar-->\n<mdb-navbar #navbar SideClass=\"navbar navbar-expand-md navbar-dark blue-gradient font-weight-bold z-depth-1 justify-content-between fixed-top\" [containerInside]=\"false\">\n\n  <!-- Navbar brand -->\n  <mdb-navbar-brand>\n      <a class=\"navbar-brand\" routerLink=\"/\">\n          <img src=\"https://mdbootstrap.com/img/Marketing/other/logo/logo-mdb-angular-small.png\" height=\"30\" alt=\"\">\n      </a>\n  </mdb-navbar-brand>\n\n  <!-- Collapsible content -->\n  <links>\n\n    <!-- Links -->\n    <ul class=\"navbar-nav mr-auto\">\n      <li *ngIf=\"isLoggedIn && !isLoading\" class=\"nav-item\">\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" mdbWavesEffect>Home<span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li *ngIf=\"isLoggedIn && !isLoading\" class=\"nav-item\">\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/poojas\" routerLinkActive=\"active\" mdbWavesEffect>Poojas</a>\n      </li>\n      <li *ngIf=\"isLoggedIn && !isLoading\" class=\"nav-item\">\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/expenses\" routerLinkActive=\"active\" mdbWavesEffect>Expenses</a>\n      </li>\n      <li *ngIf=\"isLoggedIn && !isLoading\" class=\"nav-item\">\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/donations\" routerLinkActive=\"active\" mdbWavesEffect>Donations</a>\n      </li>\n      <li *ngIf=\"isLoggedIn && !isLoading\" class=\"nav-item\">\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/profile\" routerLinkActive=\"active\" mdbWavesEffect>Profile</a>\n      </li>\n      <li *ngIf=\"isLoggedIn && !isLoading && isAdmin\" class=\"nav-item\">\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/admin-panel\" routerLinkActive=\"active\" mdbWavesEffect>Admin panel</a>\n      </li>\n    </ul>\n    <!-- Links -->\n\n    <!-- Search form -->\n    <!-- <ul class=\"navbar-nav\" *ngIf=\"!isLoggedIn && !isLoading\">\n      <li class=\"nav-item waves-light\">\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/login\" mdbWavesEffect>Login</a>\n      </li>\n      <li class=\"nav-item waves-light\">\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/register\" mdbWavesEffect>Register</a>\n      </li>\n    </ul> -->\n    <ul class=\"navbar-nav\" *ngIf=\"isLoggedIn && !isLoading\">\n      <li class=\"nav-link waves-light dropdown avatar p-0 avatar-dropdown\" mdbDropdown>\n        <a mdbDropdownToggle mdbWavesEffect type=\"button\" class=\"nav-link waves-light\" mdbWavesEffect>\n          <img *ngIf=\"user.photoUrl\" src=\"{{ user.photoUrl }}\" height=\"35\" width=\"35\" class=\"rounded-circle z-depth-0\" alt=\"avatar image\">\n        </a>\n          <div *dropdownMenu class=\"dropdown-menu dropdown-menu-right dropdown-primary\" role=\"menu\">\n              <div *ngIf=\"user.displayName\" class=\"text-center py-2 px-2\">{{ user.displayName }}</div>\n              <div *ngIf=\"!user.displayName\" class=\"text-center py-2 px-2\">Anonymous user</div>\n              <div class=\"divider dropdown-divider\"></div>\n              <a class=\"dropdown-item text-center waves-light\" mdbWavesEffect (click)=\"onLogout(); navbar.hide()\">Logout</a>\n          </div>\n      </li>\n      <li class=\"nav-item waves-light logout-button\">\n        <a class=\"nav-link waves-light\" mdbWavesEffect (click)=\"onLogout(); navbar.hide()\">Logout</a>\n      </li>\n    </ul>\n  </links>\n  <!-- Collapsible content -->\n\n</mdb-navbar>\n<!--/.Navbar-->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!--Navbar-->\r\n<mdb-navbar #navbar SideClass=\"navbar navbar-expand-md navbar-dark blue-gradient font-weight-bold z-depth-1 justify-content-between fixed-top\" [containerInside]=\"false\">\r\n\r\n  <!-- Navbar brand -->\r\n  <mdb-navbar-brand>\r\n      <a class=\"navbar-brand\" routerLink=\"/\">\r\n          <img src=\"https://mdbootstrap.com/img/Marketing/other/logo/logo-mdb-angular-small.png\" height=\"30\" alt=\"\">\r\n      </a>\r\n  </mdb-navbar-brand>\r\n\r\n  <!-- Collapsible content -->\r\n  <links>\r\n\r\n    <!-- Links -->\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li *ngIf=\"isLoggedIn && !isLoading\" class=\"nav-item\">\r\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\" mdbWavesEffect>Home<span class=\"sr-only\">(current)</span></a>\r\n      </li>\r\n      <li *ngIf=\"isLoggedIn && !isLoading\" class=\"nav-item\">\r\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/poojas\" routerLinkActive=\"active\" mdbWavesEffect>Poojas</a>\r\n      </li>\r\n      <li *ngIf=\"isLoggedIn && !isLoading\" class=\"nav-item\">\r\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/expenses\" routerLinkActive=\"active\" mdbWavesEffect>Expenses</a>\r\n      </li>\r\n      <li *ngIf=\"isLoggedIn && !isLoading\" class=\"nav-item\">\r\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/donations\" routerLinkActive=\"active\" mdbWavesEffect>Donations</a>\r\n      </li>\r\n      <li *ngIf=\"isLoggedIn && !isLoading\" class=\"nav-item\">\r\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/profile\" routerLinkActive=\"active\" mdbWavesEffect>Profile</a>\r\n      </li>\r\n      <li *ngIf=\"isLoggedIn && !isLoading && isAdmin\" class=\"nav-item\">\r\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/admin-panel\" routerLinkActive=\"active\" mdbWavesEffect>Admin panel</a>\r\n      </li>\r\n    </ul>\r\n    <!-- Links -->\r\n\r\n    <!-- Search form -->\r\n    <!-- <ul class=\"navbar-nav\" *ngIf=\"!isLoggedIn && !isLoading\">\r\n      <li class=\"nav-item waves-light\">\r\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/login\" mdbWavesEffect>Login</a>\r\n      </li>\r\n      <li class=\"nav-item waves-light\">\r\n        <a (click)=\"navbar.hide()\" class=\"nav-link waves-light\" routerLink=\"/register\" mdbWavesEffect>Register</a>\r\n      </li>\r\n    </ul> -->\r\n    <ul class=\"navbar-nav\" *ngIf=\"isLoggedIn && !isLoading\">\r\n      <li class=\"nav-link waves-light dropdown avatar p-0 avatar-dropdown\" mdbDropdown>\r\n        <a mdbDropdownToggle mdbWavesEffect type=\"button\" class=\"nav-link waves-light\" mdbWavesEffect>\r\n          <img *ngIf=\"user.photoUrl\" src=\"{{ user.photoUrl }}\" height=\"35\" width=\"35\" class=\"rounded-circle z-depth-0\" alt=\"avatar image\">\r\n        </a>\r\n          <div *dropdownMenu class=\"dropdown-menu dropdown-menu-right dropdown-primary\" role=\"menu\">\r\n              <div *ngIf=\"user.displayName\" class=\"text-center py-2 px-2\">{{ user.displayName }}</div>\r\n              <div *ngIf=\"!user.displayName\" class=\"text-center py-2 px-2\">Anonymous user</div>\r\n              <div class=\"divider dropdown-divider\"></div>\r\n              <a class=\"dropdown-item text-center waves-light\" mdbWavesEffect (click)=\"onLogout(); navbar.hide()\">Logout</a>\r\n          </div>\r\n      </li>\r\n      <li class=\"nav-item waves-light logout-button\">\r\n        <a class=\"nav-link waves-light\" mdbWavesEffect (click)=\"onLogout(); navbar.hide()\">Logout</a>\r\n      </li>\r\n    </ul>\r\n  </links>\r\n  <!-- Collapsible content -->\r\n\r\n</mdb-navbar>\r\n<!--/.Navbar-->\r\n");
 
 /***/ }),
 
@@ -139,7 +139,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"document-body\">\n    <app-login *ngIf=\"!(isLoggedIn$ | async)\"></app-login>\n    <app-dashboard *ngIf=\"(isLoggedIn$ | async)\"></app-dashboard>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"document-body\">\r\n    <app-login *ngIf=\"!(isLoggedIn$ | async)\"></app-login>\r\n    <app-dashboard *ngIf=\"(isLoggedIn$ | async)\"></app-dashboard>\r\n</div>");
 
 /***/ }),
 
@@ -152,7 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container py-5 pages\">\n  <div class=\"row\">\n    <div class=\"col-lg-6 col-sm-6\">\n      <mdb-card class=\"animated fadeIn mb-3\" borderColor=\"border-warning\">\n        <a routerLink=\"/poojas\" mdbBtn gradient=\"purple\">Poojas</a>\n      </mdb-card>\n    </div>\n\n    <div class=\"col-lg-6 col-sm-6\">\n      <mdb-card class=\"animated fadeIn mb-3\" borderColor=\"border-warning\">\n        <a routerLink=\"/expenses\" mdbBtn gradient=\"blue\">Expenses</a>\n      </mdb-card>\n    </div>\n  <!-- </div> -->\n  <!-- <div class=\"row\"> -->\n\n    <div class=\"col-lg-6 col-sm-6\">\n      <mdb-card class=\"animated fadeIn mb-3\" borderColor=\"border-warning\">\n        <a routerLink=\"/donations\" mdbBtn gradient=\"aqua\">Donations</a>\n      </mdb-card>\n    </div>\n\n    <div class=\"col-lg-6 col-sm-6\">\n      <mdb-card class=\"animated fadeIn mb-3\" borderColor=\"border-warning\">\n        <a routerLink=\"/profile\" mdbBtn gradient=\"purple\">Profile</a>\n      </mdb-card>\n    </div>\n\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container py-5 pages\">\r\n  <div class=\"row\">\r\n    <div class=\"col-lg-6 col-sm-6\">\r\n      <mdb-card class=\"animated fadeIn mb-3\" borderColor=\"border-warning\">\r\n        <a routerLink=\"/poojas\" mdbBtn gradient=\"purple\">Poojas</a>\r\n      </mdb-card>\r\n    </div>\r\n\r\n    <div class=\"col-lg-6 col-sm-6\">\r\n      <mdb-card class=\"animated fadeIn mb-3\" borderColor=\"border-warning\">\r\n        <a routerLink=\"/expenses\" mdbBtn gradient=\"blue\">Expenses</a>\r\n      </mdb-card>\r\n    </div>\r\n  <!-- </div> -->\r\n  <!-- <div class=\"row\"> -->\r\n\r\n    <div class=\"col-lg-6 col-sm-6\">\r\n      <mdb-card class=\"animated fadeIn mb-3\" borderColor=\"border-warning\">\r\n        <a routerLink=\"/donations\" mdbBtn gradient=\"aqua\">Donations</a>\r\n      </mdb-card>\r\n    </div>\r\n\r\n    <div class=\"col-lg-6 col-sm-6\">\r\n      <mdb-card class=\"animated fadeIn mb-3\" borderColor=\"border-warning\">\r\n        <a routerLink=\"/profile\" mdbBtn gradient=\"purple\">Profile</a>\r\n      </mdb-card>\r\n    </div>\r\n\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -165,7 +165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n  <div class=\"row \" >\n    <div class=\"col-md-8\">\n      <img src=\"https://mdbootstrap.com/img/Marketing/other/logo/logo-mdb-angular-small.png\" alt=\"Error 404\" class=\"img-fluid\">\n      <h2 class=\"h2-responsive mt-3 mb-2\">404. That's an error.</h2>\n      <h4>The requested URL was not found on this server.</h4>\n    </div>\n    <div class=\"col-md-4\">\n      <img src=\"https://mdbootstrap.com/img/Others/grafika404-bf.png\" alt=\"Error 404\" class=\"img-fluid\">\n    </div>\n  </div>\n  </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n  <div class=\"row \" >\r\n    <div class=\"col-md-8\">\r\n      <img src=\"https://mdbootstrap.com/img/Marketing/other/logo/logo-mdb-angular-small.png\" alt=\"Error 404\" class=\"img-fluid\">\r\n      <h2 class=\"h2-responsive mt-3 mb-2\">404. That's an error.</h2>\r\n      <h4>The requested URL was not found on this server.</h4>\r\n    </div>\r\n    <div class=\"col-md-4\">\r\n      <img src=\"https://mdbootstrap.com/img/Others/grafika404-bf.png\" alt=\"Error 404\" class=\"img-fluid\">\r\n    </div>\r\n  </div>\r\n  </div>");
 
 /***/ }),
 
@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid split-body\" *ngIf=\"!isLoading; else spinner\">\n    <div class=\"row\">\n        <div class=\"col-md-8 left-section\">\n            <ng-content select=\".left-section\"></ng-content>\n        </div>\n        <div class=\"col-md-4 right-section\">\n            <ng-content select=\".right-section\"></ng-content>\n        </div>\n    </div>\n</div>\n\n\n<ng-template #spinner>\n    <div class=\"container-fluid pt-5 pb-5\">\n        <div class=\"pt-3 pb-5\">\n            <div class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 200px\">\n                <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n                    <span class=\"sr-only\">Loading...</span>\n                </div>\n            </div>\n        </div>\n    </div>\n</ng-template>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid split-body\" *ngIf=\"!isLoading; else spinner\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-8 left-section\">\r\n            <ng-content select=\".left-section\"></ng-content>\r\n        </div>\r\n        <div class=\"col-md-4 right-section\">\r\n            <ng-content select=\".right-section\"></ng-content>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<ng-template #spinner>\r\n    <div class=\"container-fluid pt-5 pb-5\">\r\n        <div class=\"pt-3 pb-5\">\r\n            <div class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 200px\">\r\n                <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n                    <span class=\"sr-only\">Loading...</span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</ng-template>");
 
 /***/ }),
 
@@ -191,7 +191,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"modal-content\">\n  <div class=\"modal-header\">\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">×</span>\n    </button>\n    <h4 class=\"modal-title w-100\" id=\"myModalLabel\">Delete</h4>\n  </div>\n  <div class=\"modal-body\">\n    <p>Are you sure you want to delete this item?</p>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" mdbBtn color=\"white\" class=\"black-text waves-light\" aria-label=\"Close\" (click)=\"modalRef.hide()\"\n      mdbWavesEffect>Cancel</button>\n    <button type=\"button\" mdbBtn color=\"red\" class=\"waves-light\" mdbWavesEffect (click)=\"onDelete()\">Delete</button>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"modal-content\">\r\n  <div class=\"modal-header\">\r\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n      <span aria-hidden=\"true\">×</span>\r\n    </button>\r\n    <h4 class=\"modal-title w-100\" id=\"myModalLabel\">Delete</h4>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <p>Are you sure you want to delete this item?</p>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" mdbBtn color=\"white\" class=\"black-text waves-light\" aria-label=\"Close\" (click)=\"modalRef.hide()\"\r\n      mdbWavesEffect>Cancel</button>\r\n    <button type=\"button\" mdbBtn color=\"red\" class=\"waves-light\" mdbWavesEffect (click)=\"onDelete()\">Delete</button>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -204,7 +204,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"z-depth-1\">\n  <table class=\"table table-striped table-responsive-md btn-table\" mdbTable borderless=\"true\">\n    <thead style=\"background-color: transparent\">\n      <tr>\n        <th>Id</th>\n        <th>Name</th>\n        <th>Description</th>\n        <th>Actions</th>\n      </tr>\n    </thead>\n\n    <tbody>\n      <tr *ngFor=\"let customer of customers; trackBy: trackByFn\">\n        <th scope=\"row\">{{ customer.id }}</th>\n        <td>{{ customer.name }}</td>\n        <td>{{ customer.description }}</td>\n        <td>\n          <a (click)=\"onEdit(customer)\" class=\"mr-2\"><mdb-icon fas icon=\"edit\"></mdb-icon></a>\n          <a (click)=\"onDelete(customer)\"><mdb-icon fas icon=\"trash\"></mdb-icon></a>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"z-depth-1\">\r\n  <table class=\"table table-striped table-responsive-md btn-table\" mdbTable borderless=\"true\">\r\n    <thead style=\"background-color: transparent\">\r\n      <tr>\r\n        <th>Id</th>\r\n        <th>Name</th>\r\n        <th>Description</th>\r\n        <th>Actions</th>\r\n      </tr>\r\n    </thead>\r\n\r\n    <tbody>\r\n      <tr *ngFor=\"let customer of customers; trackBy: trackByFn\">\r\n        <th scope=\"row\">{{ customer.id }}</th>\r\n        <td>{{ customer.name }}</td>\r\n        <td>{{ customer.description }}</td>\r\n        <td>\r\n          <a (click)=\"onEdit(customer)\" class=\"mr-2\"><mdb-icon fas icon=\"edit\"></mdb-icon></a>\r\n          <a (click)=\"onDelete(customer)\"><mdb-icon fas icon=\"trash\"></mdb-icon></a>\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -217,7 +217,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"modal-content\">\n  <div class=\"modal-header\">\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">×</span>\n    </button>\n    <h4 class=\"modal-title w-100\" id=\"myModalLabel\">{{ heading }}</h4>\n  </div>\n  <div class=\"modal-body\">\n    <form #customerForm=\"ngForm\">\n      <div class=\"md-form\">\n        <input type=\"text\" id=\"id\" name=\"id\" class=\"form-control\" [(ngModel)]=\"customer.id\" mdbInput mdbValidate [validateSuccess]=\"false\" #id=\"ngModel\" required>\n        <label for=\"id\">Id</label>\n        <mdb-error *ngIf=\"id && id.invalid && (id.dirty || id.touched)\">Id is required</mdb-error>\n      </div>\n\n      <div class=\"md-form\">\n        <input type=\"text\" id=\"name\" name=\"name\" class=\"form-control\" [(ngModel)]=\"customer.name\" mdbInput mdbValidate [validateSuccess]=\"false\" #name=\"ngModel\" required>\n        <label for=\"name\">Name</label>\n        <mdb-error *ngIf=\"name && name.invalid && (name.dirty || name.touched)\">Name is required</mdb-error>\n      </div>\n\n      <div class=\"md-form\">\n        <textarea type=\"text\" id=\"description\" name=\"description\" class=\"md-textarea form-control\" [(ngModel)]=\"customer.description\" mdbInput mdbValidate [validateSuccess]=\"false\" #description=\"ngModel\" required></textarea>\n        <label for=\"description\">Description</label>\n        <mdb-error *ngIf=\"description && description.invalid && (description.dirty || description.touched)\">Description is required</mdb-error>\n      </div>\n    </form>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" mdbBtn color=\"white\" class=\"black-text waves-light\" aria-label=\"Close\" (click)=\"modalRef.hide()\"\n      mdbWavesEffect>Close</button>\n    <button type=\"button\" mdbBtn color=\"red\" class=\"relative waves-light\" mdbWavesEffect (click)=\"onSave()\">Save</button>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"modal-content\">\r\n  <div class=\"modal-header\">\r\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n      <span aria-hidden=\"true\">×</span>\r\n    </button>\r\n    <h4 class=\"modal-title w-100\" id=\"myModalLabel\">{{ heading }}</h4>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <form #customerForm=\"ngForm\">\r\n      <div class=\"md-form\">\r\n        <input type=\"text\" id=\"id\" name=\"id\" class=\"form-control\" [(ngModel)]=\"customer.id\" mdbInput mdbValidate [validateSuccess]=\"false\" #id=\"ngModel\" required>\r\n        <label for=\"id\">Id</label>\r\n        <mdb-error *ngIf=\"id && id.invalid && (id.dirty || id.touched)\">Id is required</mdb-error>\r\n      </div>\r\n\r\n      <div class=\"md-form\">\r\n        <input type=\"text\" id=\"name\" name=\"name\" class=\"form-control\" [(ngModel)]=\"customer.name\" mdbInput mdbValidate [validateSuccess]=\"false\" #name=\"ngModel\" required>\r\n        <label for=\"name\">Name</label>\r\n        <mdb-error *ngIf=\"name && name.invalid && (name.dirty || name.touched)\">Name is required</mdb-error>\r\n      </div>\r\n\r\n      <div class=\"md-form\">\r\n        <textarea type=\"text\" id=\"description\" name=\"description\" class=\"md-textarea form-control\" [(ngModel)]=\"customer.description\" mdbInput mdbValidate [validateSuccess]=\"false\" #description=\"ngModel\" required></textarea>\r\n        <label for=\"description\">Description</label>\r\n        <mdb-error *ngIf=\"description && description.invalid && (description.dirty || description.touched)\">Description is required</mdb-error>\r\n      </div>\r\n    </form>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" mdbBtn color=\"white\" class=\"black-text waves-light\" aria-label=\"Close\" (click)=\"modalRef.hide()\"\r\n      mdbWavesEffect>Close</button>\r\n    <button type=\"button\" mdbBtn color=\"red\" class=\"relative waves-light\" mdbWavesEffect (click)=\"onSave()\">Save</button>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -230,7 +230,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div mdbModal #basicModal=\"mdbModal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myBasicModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"basicModal.hide()\">\n          <span aria-hidden=\"true\">×</span>\n        </button>\n        <h4 class=\"modal-title w-100\" id=\"myModalLabel\">Modal title</h4>\n      </div>\n      <div class=\"modal-body\">\n        <form #poojasForm=\"ngForm\">\n          <div class=\"md-form\">\n            <input type=\"text\" id=\"id\" name=\"id\" class=\"form-control\" [(ngModel)]=\"poojas.id\" mdbInput mdbValidate [validateSuccess]=\"false\" #id=\"ngModel\" required>\n            <label for=\"id\">Id</label>\n            <mdb-error *ngIf=\"id && id.invalid && (id.dirty || id.touched)\">Id is required</mdb-error>\n          </div>\n    \n          <div class=\"md-form\">\n            <input type=\"text\" id=\"name\" name=\"name\" class=\"form-control\" [(ngModel)]=\"poojas.name\" mdbInput mdbValidate [validateSuccess]=\"false\" #name=\"ngModel\" required>\n            <label for=\"name\">Name</label>\n            <mdb-error *ngIf=\"name && name.invalid && (name.dirty || name.touched)\">Name is required</mdb-error>\n          </div>\n    \n          <div class=\"md-form\">\n            <textarea type=\"text\" id=\"description\" name=\"description\" class=\"md-textarea form-control\" [(ngModel)]=\"poojas.description\" mdbInput mdbValidate [validateSuccess]=\"false\" #description=\"ngModel\" required></textarea>\n            <label for=\"description\">Description</label>\n            <mdb-error *ngIf=\"description && description.invalid && (description.dirty || description.touched)\">Description is required</mdb-error>\n          </div>\n        </form>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" mdbBtn color=\"secondary\" class=\"waves-light\" aria-label=\"Close\" (click)=\"basicModal.hide()\" mdbWavesEffect>Close</button>\n        <button type=\"button\" mdbBtn color=\"primary\" class=\"relative waves-light\" mdbWavesEffect (click)=\"onSave()\">Save changes</button>\n      </div>\n    </div>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"modal-content\">\r\n  <div class=\"modal-header\">\r\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n      <span aria-hidden=\"true\">×</span>\r\n    </button>\r\n    <div class=\"d-flex flex-column\">\r\n      <h3 class=\"modal-title w-100\" id=\"myModalLabel\">{{ heading }}</h3>\r\n      <span class=\"price\">&#x20B9; {{ price }}</span>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <div class=\"left-section\">\r\n      <form #poojasForm=\"ngForm\">\r\n        <div class=\"md-form\">\r\n          <input type=\"text\" id=\"name\" name=\"name\" class=\"form-control\" [(ngModel)]=\"pooja.name\" mdbInput mdbValidate\r\n            [validateSuccess]=\"false\" #name=\"ngModel\" required>\r\n          <label for=\"name\">Name</label>\r\n          <mdb-error *ngIf=\"name && name.invalid && (name.dirty || name.touched)\">Name is required</mdb-error>\r\n        </div>\r\n\r\n        <div class=\"btn-toolbar star-container\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\r\n          <div class=\"md-form hidden\">\r\n            <input type=\"text\" id=\"star\" name=\"star\" class=\"form-control\" [(ngModel)]=\"pooja.star\" mdbInput mdbValidate\r\n              [validateSuccess]=\"false\" #star=\"ngModel\" required>\r\n            <label for=\"star\">Star</label>\r\n            <mdb-error *ngIf=\"star && star.invalid && (star.dirty || star.touched)\">Star is required</mdb-error>\r\n          </div>\r\n          <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\r\n              <button (click)=\"selectStar(star)\"\r\n              *ngFor=\"let star of starSigns\" mdbBtn type=\"button\" color=\"grey\" [outline]=\"star !== pooja.star\" [class.selected]=\"star === pooja.star\"\r\n               mdbWavesEffect>{{star}}</button>\r\n          </div>\r\n        </div>\r\n      </form>\r\n        <div class=\"md-form\">\r\n          <textarea type=\"text\" id=\"address\" name=\"address\" class=\"md-textarea form-control\"\r\n            [(ngModel)]=\"response.address\" mdbInput mdbValidate [validateSuccess]=\"false\"></textarea>\r\n          <label for=\"address\">Address (Optional)</label>\r\n        </div>\r\n  \r\n      \r\n    </div>\r\n    <div class=\"right-section\">\r\n      <mdb-card class=\"text-center\">\r\n        <mdb-card-header>\r\n          <div class=\"md-form phone\">\r\n            <input type=\"number\" id=\"phone\" name=\"phone\" class=\"form-control\" [(ngModel)]=\"response.phoneNumber\" mdbInput mdbValidate\r\n              [validateSuccess]=\"false\">\r\n            <label for=\"phone\">Phone Number(Optional)</label>\r\n          </div>\r\n        </mdb-card-header>\r\n        <mdb-card-body>\r\n          <table mdbTable small=\"true\" striped=\"true\">\r\n            <tbody>\r\n              <tr *ngFor=\"let item of response.persons\">\r\n                <th scope=\"row\">{{ item.name }}</th>\r\n                <td>{{ item.star }}</td>\r\n                <td>\r\n                  <mdb-icon fas icon=\"times\" class=\"float-right delete red-text\" (click)=\"deletePooja(item)\" alt=\"Delete\"></mdb-icon>\r\n                </td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n          <div class=\"p-4 d-flex flex-column justify-content-center align-items-center\" *ngIf=\"response.persons.length === 0\">\r\n            <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\r\n              <p class=\"grey-text\">No data added</p>\r\n          </div>\r\n        </mdb-card-body>\r\n        <mdb-card-footer *ngIf=\"response.persons.length\">\r\n          <span>Total Price: </span> <span class=\"price\">&#x20B9; {{response.totalPrice}}</span>\r\n        </mdb-card-footer>\r\n      </mdb-card>\r\n    </div>\r\n    \r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" mdbBtn class=\"waves-light\" color=\"secondary\" aria-label=\"Close\" (click)=\"addPerson()\"\r\n      mdbWavesEffect [disabled]=\"poojasForm?.invalid\">Add Person</button>\r\n\r\n      <div>\r\n        <button type=\"button\" mdbBtn class=\"waves-light\" aria-label=\"Close\" (click)=\"modalRef.hide()\"\r\n          mdbWavesEffect>Close</button>\r\n        <button type=\"button\" mdbBtn color=\"primary\" [disabled]=\"response.persons.length === 0 \" class=\"relative waves-light\" mdbWavesEffect (click)=\"onSave()\">Save\r\n          changes</button>\r\n\r\n      </div>\r\n\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -243,7 +243,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card text-center mt-1 mb-2\">\n    <ng-content select=\".card-header\"></ng-content>\n    <div class=\"card-body\">\n      <ng-content></ng-content>\n    </div>\n    <div class=\"card-footer text-muted\" *ngIf=\"footer\">{{ footer }}</div>\n  </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card text-center mt-1 mb-2\">\r\n    <ng-content select=\".card-header\"></ng-content>\r\n    <div class=\"card-body\">\r\n      <ng-content></ng-content>\r\n    </div>\r\n    <div class=\"card-footer text-muted\" *ngIf=\"footer\">{{ footer }}</div>\r\n  </div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/user-modal/user-modal.component.html":
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/user-modal/user-modal.component.html ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"modal-content\">\r\n  <div class=\"modal-header\">\r\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n      <span aria-hidden=\"true\">×</span>\r\n    </button>\r\n    <h4 class=\"modal-title w-100\" id=\"myModalLabel\">{{ heading }}</h4>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <form #userForm=\"ngForm\">\r\n\r\n      <div class=\"md-form\">\r\n        <input type=\"text\" id=\"username\" name=\"username\" class=\"form-control\" [(ngModel)]=\"user.username\" mdbInput mdbValidate [validateSuccess]=\"false\" #username=\"ngModel\" required>\r\n        <label for=\"username\">Username</label>\r\n        <mdb-error *ngIf=\"username && username.invalid && (username.dirty || username.touched)\">username is required</mdb-error>\r\n      </div>\r\n\r\n      <div class=\"md-form\">\r\n        <input type=\"text\" id=\"password\" name=\"password\" class=\"form-control\" [(ngModel)]=\"user.password\" mdbInput mdbValidate [validateSuccess]=\"false\" #password=\"ngModel\" required>\r\n        <label for=\"password\">password</label>\r\n        <mdb-error *ngIf=\"password && password.invalid && (password.dirty || password.touched)\">password is required</mdb-error>\r\n      </div>\r\n\r\n      <div class=\"md-form\">\r\n        <input type=\"email\" id=\"email\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$\" name=\"email\" class=\"form-control\" [(ngModel)]=\"user.email\" mdbInput mdbValidate [validateSuccess]=\"false\" #email=\"ngModel\" required>\r\n        <label for=\"email\">Email</label>\r\n        <mdb-error *ngIf=\"email && email.invalid && (email.dirty || email.touched)\">Email is required</mdb-error>\r\n      </div>\r\n\r\n      <div class=\"md-form\">\r\n        <input type=\"text\" id=\"temple\" name=\"temple\" class=\"form-control\" [(ngModel)]=\"user.temple\" mdbInput mdbValidate [validateSuccess]=\"false\" #temple=\"ngModel\" required>\r\n        <label for=\"temple\">Temple</label>\r\n        <mdb-error *ngIf=\"temple && temple.invalid && (temple.dirty || temple.touched)\">Temple is required</mdb-error>\r\n      </div>\r\n\r\n      <label for=\"role\">Role</label>\r\n      <div class=\"md-form mt-0\">\r\n        <select class=\"browser-default custom-select form-control pl-1\" type=\"select\" id=\"role\" name=\"role\" [(ngModel)]=\"user.role\" mdbSelect mdbValidate [validateSuccess]=\"false\" #role=\"ngModel\" required>\r\n          <option value=\"\" disabled selected hidden>Select user role</option>\r\n          <option value=\"'admin'\">admin</option>\r\n          <option value=\"'manager'\">manager</option>\r\n          <option value=\"'user'\">user</option>\r\n        </select>\r\n        <mdb-error *ngIf=\"role && role.invalid && (role.dirty || role.touched)\">role is required</mdb-error>\r\n    </div>\r\n\r\n\r\n\r\n    </form>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" mdbBtn color=\"white\" class=\"black-text waves-light\" aria-label=\"Close\" (click)=\"modalRef.hide()\"\r\n      mdbWavesEffect>Close</button>\r\n    <button type=\"button\" mdbBtn color=\"primary\" class=\"relative waves-light\" mdbWavesEffect (click)=\"onSave()\">Save</button>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -384,7 +397,7 @@ var AdminModule = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".back-button {\n  cursor: pointer;\n  font-size: 1.8rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vY29tcG9uZW50cy91c2VyLWRldGFpbC9DOlxca2lyYW5cXEF1ZGl0LVVJLUFuZ3VsYXIvc3JjXFxhcHBcXGFkbWluXFxjb21wb25lbnRzXFx1c2VyLWRldGFpbFxcdXNlci1kZXRhaWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FkbWluL2NvbXBvbmVudHMvdXNlci1kZXRhaWwvdXNlci1kZXRhaWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxlQUFBO0VBQ0EsaUJBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2NvbXBvbmVudHMvdXNlci1kZXRhaWwvdXNlci1kZXRhaWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYmFjay1idXR0b24ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIGZvbnQtc2l6ZTogMS44cmVtO1xufSIsIi5iYWNrLWJ1dHRvbiB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgZm9udC1zaXplOiAxLjhyZW07XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".back-button {\n  cursor: pointer;\n  font-size: 1.8rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vY29tcG9uZW50cy91c2VyLWRldGFpbC9DOlxcZ2l0IGNvZGVcXEF1ZGl0LVVJLUFuZ3VsYXIvc3JjXFxhcHBcXGFkbWluXFxjb21wb25lbnRzXFx1c2VyLWRldGFpbFxcdXNlci1kZXRhaWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FkbWluL2NvbXBvbmVudHMvdXNlci1kZXRhaWwvdXNlci1kZXRhaWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxlQUFBO0VBQ0EsaUJBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2NvbXBvbmVudHMvdXNlci1kZXRhaWwvdXNlci1kZXRhaWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYmFjay1idXR0b24ge1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICBmb250LXNpemU6IDEuOHJlbTtcclxufSIsIi5iYWNrLWJ1dHRvbiB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgZm9udC1zaXplOiAxLjhyZW07XG59Il19 */");
 
 /***/ }),
 
@@ -508,7 +521,7 @@ var UserDetailComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2NvbXBvbmVudHMvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".delete {\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vY29tcG9uZW50cy91c2VyL0M6XFxnaXQgY29kZVxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcYWRtaW5cXGNvbXBvbmVudHNcXHVzZXJcXHVzZXIuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FkbWluL2NvbXBvbmVudHMvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZUFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vY29tcG9uZW50cy91c2VyL3VzZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZGVsZXRlIHtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufSIsIi5kZWxldGUge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */");
 
 /***/ }),
 
@@ -541,6 +554,7 @@ var UserComponent = /** @class */ (function () {
         this.userSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.addAdmin = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.removeAdmin = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.removeUser = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     UserComponent.prototype.ngOnInit = function () {
     };
@@ -552,6 +566,19 @@ var UserComponent = /** @class */ (function () {
     };
     UserComponent.prototype.removeAdminPrivileges = function () {
         this.removeAdmin.emit(this.user);
+    };
+    UserComponent.prototype.deleteUser = function () {
+        this.removeUser.emit(this.user);
+    };
+    UserComponent.prototype.getColor = function (role) {
+        switch (role) {
+            case 'admin':
+                return 'red';
+            case 'manager':
+                return 'orange';
+            default:
+                return 'blue';
+        }
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -569,6 +596,10 @@ var UserComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
     ], UserComponent.prototype, "removeAdmin", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], UserComponent.prototype, "removeUser", void 0);
     UserComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-user',
@@ -594,7 +625,7 @@ var UserComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".users-list {\n  box-sizing: border-box;\n  justify-content: center;\n}\n\n.user {\n  width: 80%;\n  margin: 1rem;\n}\n\n@media (min-width: 768px) {\n  .user {\n    width: calc(50% - 2rem);\n  }\n\n  .users-list {\n    justify-content: normal;\n  }\n}\n\n@media (min-width: 992px) {\n  .user {\n    width: calc(33.3333% - 2rem);\n  }\n}\n\n@media (min-width: 1200px) {\n  .user {\n    width: calc(25% - 3rem);\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vY29tcG9uZW50cy91c2Vycy1saXN0L0M6XFxraXJhblxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcYWRtaW5cXGNvbXBvbmVudHNcXHVzZXJzLWxpc3RcXHVzZXJzLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FkbWluL2NvbXBvbmVudHMvdXNlcnMtbGlzdC91c2Vycy1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usc0JBQUE7RUFDQSx1QkFBQTtBQ0NGOztBREVBO0VBQ0UsVUFBQTtFQUNBLFlBQUE7QUNDRjs7QURFQTtFQUNFO0lBQ0ksdUJBQUE7RUNDSjs7RURFQTtJQUNJLHVCQUFBO0VDQ0o7QUFDRjs7QURFQTtFQUNFO0lBQ0ksNEJBQUE7RUNBSjtBQUNGOztBREdBO0VBQ0U7SUFDSSx1QkFBQTtFQ0RKO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9hZG1pbi9jb21wb25lbnRzL3VzZXJzLWxpc3QvdXNlcnMtbGlzdC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi51c2Vycy1saXN0IHtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG5cbi51c2VyIHtcbiAgd2lkdGg6IDgwJTtcbiAgbWFyZ2luOiAxcmVtO1xufVxuXG5AbWVkaWEgKG1pbi13aWR0aDogNzY4cHgpIHtcbiAgLnVzZXIge1xuICAgICAgd2lkdGg6IGNhbGMoNTAlIC0gMnJlbSk7XG4gIH1cblxuICAudXNlcnMtbGlzdCB7XG4gICAgICBqdXN0aWZ5LWNvbnRlbnQ6IG5vcm1hbDtcbiAgfVxufVxuXG5AbWVkaWEgKG1pbi13aWR0aDogOTkycHgpIHtcbiAgLnVzZXIge1xuICAgICAgd2lkdGg6IGNhbGMoMzMuMzMzMyUgLSAycmVtKTtcbiAgfVxufVxuXG5AbWVkaWEgKG1pbi13aWR0aDogMTIwMHB4KSB7XG4gIC51c2VyIHtcbiAgICAgIHdpZHRoOiBjYWxjKDI1JSAtIDNyZW0pO1xuICB9XG59IiwiLnVzZXJzLWxpc3Qge1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbn1cblxuLnVzZXIge1xuICB3aWR0aDogODAlO1xuICBtYXJnaW46IDFyZW07XG59XG5cbkBtZWRpYSAobWluLXdpZHRoOiA3NjhweCkge1xuICAudXNlciB7XG4gICAgd2lkdGg6IGNhbGMoNTAlIC0gMnJlbSk7XG4gIH1cblxuICAudXNlcnMtbGlzdCB7XG4gICAganVzdGlmeS1jb250ZW50OiBub3JtYWw7XG4gIH1cbn1cbkBtZWRpYSAobWluLXdpZHRoOiA5OTJweCkge1xuICAudXNlciB7XG4gICAgd2lkdGg6IGNhbGMoMzMuMzMzMyUgLSAycmVtKTtcbiAgfVxufVxuQG1lZGlhIChtaW4td2lkdGg6IDEyMDBweCkge1xuICAudXNlciB7XG4gICAgd2lkdGg6IGNhbGMoMjUlIC0gM3JlbSk7XG4gIH1cbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".users-list {\n  box-sizing: border-box;\n  justify-content: center;\n}\n\n.user {\n  width: 80%;\n  margin: 1rem;\n}\n\n.user .add-card:hover {\n  background-color: whitesmoke;\n  cursor: pointer;\n}\n\n@media (min-width: 768px) {\n  .user {\n    width: calc(50% - 2rem);\n  }\n\n  .users-list {\n    justify-content: normal;\n  }\n}\n\n@media (min-width: 992px) {\n  .user {\n    width: calc(33.3333% - 2rem);\n  }\n}\n\n@media (min-width: 1200px) {\n  .user {\n    width: calc(25% - 3rem);\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vY29tcG9uZW50cy91c2Vycy1saXN0L0M6XFxnaXQgY29kZVxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcYWRtaW5cXGNvbXBvbmVudHNcXHVzZXJzLWxpc3RcXHVzZXJzLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FkbWluL2NvbXBvbmVudHMvdXNlcnMtbGlzdC91c2Vycy1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usc0JBQUE7RUFDQSx1QkFBQTtBQ0NGOztBREVBO0VBQ0UsVUFBQTtFQUNBLFlBQUE7QUNDRjs7QURFSTtFQUNFLDRCQUFBO0VBQ0EsZUFBQTtBQ0FOOztBREtBO0VBQ0U7SUFDSSx1QkFBQTtFQ0ZKOztFREtBO0lBQ0ksdUJBQUE7RUNGSjtBQUNGOztBREtBO0VBQ0U7SUFDSSw0QkFBQTtFQ0hKO0FBQ0Y7O0FETUE7RUFDRTtJQUNJLHVCQUFBO0VDSko7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2NvbXBvbmVudHMvdXNlcnMtbGlzdC91c2Vycy1saXN0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnVzZXJzLWxpc3Qge1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuXHJcbi51c2VyIHtcclxuICB3aWR0aDogODAlO1xyXG4gIG1hcmdpbjogMXJlbTtcclxuXHJcbiAgLmFkZC1jYXJkIHtcclxuICAgICY6aG92ZXIge1xyXG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZXNtb2tlO1xyXG4gICAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgKG1pbi13aWR0aDogNzY4cHgpIHtcclxuICAudXNlciB7XHJcbiAgICAgIHdpZHRoOiBjYWxjKDUwJSAtIDJyZW0pO1xyXG4gIH1cclxuXHJcbiAgLnVzZXJzLWxpc3Qge1xyXG4gICAgICBqdXN0aWZ5LWNvbnRlbnQ6IG5vcm1hbDtcclxuICB9XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiA5OTJweCkge1xyXG4gIC51c2VyIHtcclxuICAgICAgd2lkdGg6IGNhbGMoMzMuMzMzMyUgLSAycmVtKTtcclxuICB9XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiAxMjAwcHgpIHtcclxuICAudXNlciB7XHJcbiAgICAgIHdpZHRoOiBjYWxjKDI1JSAtIDNyZW0pO1xyXG4gIH1cclxufSIsIi51c2Vycy1saXN0IHtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG5cbi51c2VyIHtcbiAgd2lkdGg6IDgwJTtcbiAgbWFyZ2luOiAxcmVtO1xufVxuLnVzZXIgLmFkZC1jYXJkOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGVzbW9rZTtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG5AbWVkaWEgKG1pbi13aWR0aDogNzY4cHgpIHtcbiAgLnVzZXIge1xuICAgIHdpZHRoOiBjYWxjKDUwJSAtIDJyZW0pO1xuICB9XG5cbiAgLnVzZXJzLWxpc3Qge1xuICAgIGp1c3RpZnktY29udGVudDogbm9ybWFsO1xuICB9XG59XG5AbWVkaWEgKG1pbi13aWR0aDogOTkycHgpIHtcbiAgLnVzZXIge1xuICAgIHdpZHRoOiBjYWxjKDMzLjMzMzMlIC0gMnJlbSk7XG4gIH1cbn1cbkBtZWRpYSAobWluLXdpZHRoOiAxMjAwcHgpIHtcbiAgLnVzZXIge1xuICAgIHdpZHRoOiBjYWxjKDI1JSAtIDNyZW0pO1xuICB9XG59Il19 */");
 
 /***/ }),
 
@@ -625,19 +656,19 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 var UsersListComponent = /** @class */ (function () {
     function UsersListComponent() {
         this.userSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.addAdmin = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.removeAdmin = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.addUser = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.deleteUser = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     UsersListComponent.prototype.ngOnInit = function () {
     };
     UsersListComponent.prototype.onUserSelected = function (user) {
         this.userSelected.emit(user);
     };
-    UsersListComponent.prototype.onAddAdmin = function (user) {
-        this.addAdmin.emit(user);
+    UsersListComponent.prototype.onAddUser = function (event) {
+        this.addUser.emit(event);
     };
-    UsersListComponent.prototype.onRemoveAdmin = function (user) {
-        this.removeAdmin.emit(user);
+    UsersListComponent.prototype.onDeleteUser = function (user) {
+        this.deleteUser.emit(user);
     };
     UsersListComponent.prototype.trackByFn = function (index) {
         return index;
@@ -653,11 +684,11 @@ var UsersListComponent = /** @class */ (function () {
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
-    ], UsersListComponent.prototype, "addAdmin", void 0);
+    ], UsersListComponent.prototype, "addUser", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
-    ], UsersListComponent.prototype, "removeAdmin", void 0);
+    ], UsersListComponent.prototype, "deleteUser", void 0);
     UsersListComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-users-list',
@@ -704,6 +735,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/fesm5/angular-bootstrap-md.js");
 /* harmony import */ var _shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../shared/components/confirm-modal/confirm-modal.component */ "./src/app/shared/components/confirm-modal/confirm-modal.component.ts");
+/* harmony import */ var src_app_shared_components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/components/user-modal/user-modal.component */ "./src/app/shared/components/user-modal/user-modal.component.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -716,6 +759,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -742,19 +786,6 @@ var AdminComponent = /** @class */ (function () {
         this.usersListLoading$ = this.store.select(_store_admin_selectors__WEBPACK_IMPORTED_MODULE_3__["getUsersListLoading"]);
         this.userProjectsLoading$ = this.store.select(_store_admin_selectors__WEBPACK_IMPORTED_MODULE_3__["getUserProjectsLoading"]);
         this.userCustomersLoading$ = this.store.select(_store_admin_selectors__WEBPACK_IMPORTED_MODULE_3__["getUserCustomersLoading"]);
-    };
-    AdminComponent.prototype.onUserSelect = function (user) {
-        this.uid = user.uid;
-        this.selectedUser = user;
-        this.selectedUser$ = this.store.select(_store_admin_selectors__WEBPACK_IMPORTED_MODULE_3__["getSelectedUser"], user.uid);
-        this.userCustomers$ = this.store.select(_store_admin_selectors__WEBPACK_IMPORTED_MODULE_3__["getUserCustomers"], user.uid).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (customers) {
-            if (customers && customers.length !== 0) {
-                return customers;
-            }
-            else {
-                return null;
-            }
-        }));
     };
     AdminComponent.prototype.onProjectsLoad = function () {
         this.store.dispatch(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["GetUserProjects"]({ uid: this.uid }));
@@ -793,14 +824,41 @@ var AdminComponent = /** @class */ (function () {
             }
         });
     };
+    AdminComponent.prototype.openAddUserModal = function () {
+        var _this = this;
+        this.modalRef = this.modalService.show(src_app_shared_components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_7__["UserModalComponent"], __assign({}, this.modalConfig, { data: {
+                heading: 'Add User'
+            } }));
+        this.modalRef.content.userData
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1))
+            .subscribe(function (user) {
+            if (user) {
+                _this.store.dispatch(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AddUser"]({
+                    user: user
+                }));
+            }
+        });
+    };
+    AdminComponent.prototype.openUserDeleteConfirmModal = function (user) {
+        var _this = this;
+        this.modalRef = this.modalService.show(_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmModalComponent"], this.modalConfig);
+        this.modalRef.content.confirmation
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1))
+            .subscribe(function (confirmation) {
+            if (confirmation) {
+                _this.store.dispatch(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["DeleteUser"]({ user: user }));
+            }
+        });
+    };
+    AdminComponent.prototype.onDeleteUser = function (user) {
+        console.log('user', user);
+        this.openUserDeleteConfirmModal(user);
+    };
     AdminComponent.prototype.onCustomerDelete = function (customer) {
         this.openCustomerConfirmModal(customer);
     };
     AdminComponent.prototype.onProjectDelete = function (project) {
         this.openProjectConfirmModal(project);
-    };
-    AdminComponent.prototype.addAdminPrivileges = function (user) {
-        this.store.dispatch(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AddAdminPrivileges"]({ userId: user.key }));
     };
     AdminComponent.prototype.removeAdminPrivileges = function (user) {
         this.store.dispatch(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["RemoveAdminPrivileges"]({ userId: user.key }));
@@ -825,18 +883,21 @@ var AdminComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/admin/services/admin.service.ts":
-/*!*************************************************!*\
-  !*** ./src/app/admin/services/admin.service.ts ***!
-  \*************************************************/
-/*! exports provided: AdminService */
+/***/ "./src/app/admin/guard/admin.guard.ts":
+/*!********************************************!*\
+  !*** ./src/app/admin/guard/admin.guard.ts ***!
+  \********************************************/
+/*! exports provided: AdminGuard */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminService", function() { return AdminService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminGuard", function() { return AdminGuard; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var src_app_auth_services_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/auth/services/auth.service */ "./src/app/auth/services/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -850,42 +911,125 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
-// import { AngularFireDatabase } from '@angular/fire/database';
 
-var AdminService = /** @class */ (function () {
-    function AdminService() {
-        this.selectedUser = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
-        this.selectedUser$ = this.selectedUser.asObservable();
+
+
+
+// import { AdminService } from '../services/admin.service';
+// import { AngularFireAuth } from '@angular/fire/auth';
+// import { take, switchMap, map, catchError } from 'rxjs/operators';
+var AdminGuard = /** @class */ (function () {
+    function AdminGuard(authService, router) {
+        this.authService = authService;
+        this.router = router;
     }
-    AdminService.prototype.getUsersList = function () {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(true);
+    AdminGuard.prototype.canActivate = function () {
+        var _this = this;
+        return this.authService.checkUserRole()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (isAdmin) {
+            if (isAdmin) {
+                return true;
+            }
+            else {
+                _this.router.navigateByUrl('login');
+                return false;
+            }
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function () {
+            _this.router.navigateByUrl('');
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(false);
+        }));
     };
-    AdminService.prototype.getUserProjects = function (uid) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(uid);
-    };
-    AdminService.prototype.getUserCustomers = function (uid) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(uid);
-    };
-    AdminService.prototype.checkAdminRole = function (uid) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(uid);
-    };
-    AdminService.prototype.deleteUserProject = function (uid, projectId) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([uid, projectId]);
-    };
-    AdminService.prototype.deleteUserCustomer = function (uid, customerId) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([uid, customerId]);
-    };
-    AdminService.prototype.addAdminPrivileges = function (uid) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(uid);
-    };
-    AdminService.prototype.removeAdminPrivileges = function (uid) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(uid);
-    };
-    AdminService = __decorate([
+    AdminGuard.ctorParameters = function () { return [
+        { type: src_app_auth_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] }
+    ]; };
+    AdminGuard = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [src_app_auth_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
+    ], AdminGuard);
+    return AdminGuard;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/services/admin.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/admin/services/admin.service.ts ***!
+  \*************************************************/
+/*! exports provided: AdminService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminService", function() { return AdminService; });
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+// import { AngularFireDatabase } from '@angular/fire/database';
+
+
+var AdminService = /** @class */ (function () {
+    function AdminService(http) {
+        this.http = http;
+        this.selectedUser = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.selectedUser$ = this.selectedUser.asObservable();
+    }
+    AdminService.prototype.getUsersList = function () {
+        // original users list api call goes here
+        return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].apiUrl + "/users?page=2");
+    };
+    AdminService.prototype.getUserProjects = function (uid) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(uid);
+    };
+    AdminService.prototype.getUserCustomers = function (uid) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(uid);
+    };
+    AdminService.prototype.checkAdminRole = function (uid) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(uid);
+    };
+    AdminService.prototype.deleteUserProject = function (uid, projectId) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])([uid, projectId]);
+    };
+    AdminService.prototype.deleteUserCustomer = function (uid, customerId) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])([uid, customerId]);
+    };
+    AdminService.prototype.deleteUser = function (user) {
+        console.log('deleted', user);
+        return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].apiUrl + "/users/2");
+    };
+    AdminService.prototype.addAdminPrivileges = function (uid) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(uid);
+    };
+    AdminService.prototype.removeAdminPrivileges = function (uid) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(uid);
+    };
+    AdminService.ctorParameters = function () { return [
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"] }
+    ]; };
+    AdminService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]])
     ], AdminService);
     return AdminService;
 }());
@@ -898,21 +1042,23 @@ var AdminService = /** @class */ (function () {
 /*!**********************************************!*\
   !*** ./src/app/admin/store/admin.actions.ts ***!
   \**********************************************/
-/*! exports provided: AdminActionTypes, GetUsersList, UsersListFetched, GetUserProjects, DeleteUserProject, UserProjectsLoaded, GetUserCustomers, DeleteUserCustomer, UserCustomersLoaded, AddAdminPrivileges, RemoveAdminPrivileges, AdminError */
+/*! exports provided: AdminActionTypes, GetUsersList, DeleteUser, AddUser, UsersListFetched, GetUserProjects, DeleteUserProject, AddAdminPrivileges, UserProjectsLoaded, GetUserCustomers, DeleteUserCustomer, UserCustomersLoaded, RemoveAdminPrivileges, AdminError */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminActionTypes", function() { return AdminActionTypes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetUsersList", function() { return GetUsersList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeleteUser", function() { return DeleteUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddUser", function() { return AddUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersListFetched", function() { return UsersListFetched; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetUserProjects", function() { return GetUserProjects; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeleteUserProject", function() { return DeleteUserProject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddAdminPrivileges", function() { return AddAdminPrivileges; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserProjectsLoaded", function() { return UserProjectsLoaded; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetUserCustomers", function() { return GetUserCustomers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeleteUserCustomer", function() { return DeleteUserCustomer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserCustomersLoaded", function() { return UserCustomersLoaded; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddAdminPrivileges", function() { return AddAdminPrivileges; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RemoveAdminPrivileges", function() { return RemoveAdminPrivileges; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminError", function() { return AdminError; });
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
@@ -921,7 +1067,9 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 var AdminActionTypes;
 (function (AdminActionTypes) {
     AdminActionTypes["GET_USERS_LIST"] = "[Admin] Get Users List";
+    AdminActionTypes["DELETE_USER"] = "[Admin] DELETE User";
     AdminActionTypes["USERS_LIST_FETCHED"] = "[Admin] Users list fetched";
+    AdminActionTypes["ADD_USER"] = "[Admin] Add User";
     AdminActionTypes["GET_USER_PROJECTS"] = "[Admin] Get user projects";
     AdminActionTypes["USERS_PROJECTS_LOADED"] = "[Admin] User projects loaded";
     AdminActionTypes["DELETE_USER_PROJECT"] = "[Admin] Delete user project";
@@ -937,6 +1085,22 @@ var GetUsersList = /** @class */ (function () {
         this.type = AdminActionTypes.GET_USERS_LIST;
     }
     return GetUsersList;
+}());
+
+var DeleteUser = /** @class */ (function () {
+    function DeleteUser(payload) {
+        this.payload = payload;
+        this.type = AdminActionTypes.DELETE_USER;
+    }
+    return DeleteUser;
+}());
+
+var AddUser = /** @class */ (function () {
+    function AddUser(payload) {
+        this.payload = payload;
+        this.type = AdminActionTypes.ADD_USER;
+    }
+    return AddUser;
 }());
 
 var UsersListFetched = /** @class */ (function () {
@@ -961,6 +1125,14 @@ var DeleteUserProject = /** @class */ (function () {
         this.type = AdminActionTypes.DELETE_USER_PROJECT;
     }
     return DeleteUserProject;
+}());
+
+var AddAdminPrivileges = /** @class */ (function () {
+    function AddAdminPrivileges(payload) {
+        this.payload = payload;
+        this.type = AdminActionTypes.ADD_ADMIN_PRIVILEGES;
+    }
+    return AddAdminPrivileges;
 }());
 
 var UserProjectsLoaded = /** @class */ (function () {
@@ -993,14 +1165,6 @@ var UserCustomersLoaded = /** @class */ (function () {
         this.type = AdminActionTypes.USERS_CUSTOMERS_LOADED;
     }
     return UserCustomersLoaded;
-}());
-
-var AddAdminPrivileges = /** @class */ (function () {
-    function AddAdminPrivileges(payload) {
-        this.payload = payload;
-        this.type = AdminActionTypes.ADD_ADMIN_PRIVILEGES;
-    }
-    return AddAdminPrivileges;
 }());
 
 var RemoveAdminPrivileges = /** @class */ (function () {
@@ -1039,6 +1203,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _services_admin_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/admin.service */ "./src/app/admin/services/admin.service.ts");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1057,67 +1222,48 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var AdminEffects = /** @class */ (function () {
-    function AdminEffects(actions$, adminService) {
+    function AdminEffects(actions$, adminService, toastr) {
         var _this = this;
         this.actions$ = actions$;
         this.adminService = adminService;
+        this.toastr = toastr;
         this.getUsersList$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminActionTypes"].GET_USERS_LIST), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(function () { return _this.adminService.getUsersList()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (users) {
-            var usersList = users.map(function (res) {
-                var key = res.payload.key;
-                var user = res.payload.val();
+            var usersList = users.data.map(function (res) {
                 return {
-                    key: key,
-                    uid: user.uid,
-                    displayName: user.displayName,
-                    username: user.username,
-                    photoUrl: user.photoUrl,
-                    isAdmin: user.isAdmin,
+                    id: res.id,
+                    email: res.email,
+                    first_name: res.first_name,
+                    last_name: res.last_name,
+                    avatar: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
+                    isAdmin: false,
+                    role: 'manager'
+                    // isAdmin: res.role === 'admin'    ********uncomment theesese these 2
+                    // role: res.role
                 };
             });
             return (new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["UsersListFetched"]({ usersList: usersList }));
-        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminError"]({ error: error })); })); }));
-        this.getUserProjects$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminActionTypes"].GET_USER_PROJECTS), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(function (payload) { return _this.adminService.getUserProjects(payload.uid)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (data) {
-            var projectsData = data.map(function (res) {
-                var key = res.payload.key;
-                var project = res.payload.val();
-                return {
-                    key: key || null,
-                    title: project.title || null,
-                    description: project.description || null,
-                    photoUrl: project.photoUrl || null
-                };
-            });
-            return (new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["UserProjectsLoaded"]({ uid: payload.uid, userProjects: projectsData }));
-        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminError"]({ error: error })); })); }));
-        this.deleteUserProject$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminActionTypes"].DELETE_USER_PROJECT), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(function (payload) { return _this.adminService.deleteUserProject(payload.userId, payload.projectId)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminError"]({ error: error })); })); }));
-        this.getUserCustomers$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminActionTypes"].GET_USER_CUSTOMERS), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(function (payload) { return _this.adminService.getUserCustomers(payload.uid)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (data) {
-            var customersData = data.map(function (res) {
-                var key = res.payload.key;
-                var customer = res.payload.val();
-                return {
-                    key: key,
-                    id: customer.id,
-                    name: customer.name,
-                    description: customer.description
-                };
-            });
-            return (new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["UserCustomersLoaded"]({ uid: payload.uid, userCustomers: customersData }));
-        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminError"]({ error: error })); })); }));
-        this.deleteUserCustomer$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminActionTypes"].DELETE_USER_CUSTOMER), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(function (payload) { return _this.adminService.deleteUserCustomer(payload.userId, payload.customerId)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminError"]({ error: error })); })); }));
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
+            _this.toastr.error('Something went wrong. Please try after sometime');
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminError"]({ error: error }));
+        })); }));
+        this.deleteUser$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminActionTypes"].DELETE_USER), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(function (payload) { return _this.adminService.deleteUser(payload.user.username)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (res) {
+            console.log('result came', res);
+            return (new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["GetUsersList"]());
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
+            _this.toastr.error('Something went wrong. Please try after sometime');
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminError"]({ error: error }));
+        })); }));
         this.addAdminPrivileges$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminActionTypes"].ADD_ADMIN_PRIVILEGES), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(function (payload) { return _this.adminService.addAdminPrivileges(payload.userId)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminError"]({ error: error })); })); }));
-        this.removeAdminPrivileges$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminActionTypes"].REMOVE_ADMIN_PRIVILEGES), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(function (payload) { return _this.adminService.removeAdminPrivileges(payload.userId)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _store_admin_actions__WEBPACK_IMPORTED_MODULE_2__["AdminError"]({ error: error })); })); }));
     }
     AdminEffects.ctorParameters = function () { return [
         { type: _ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"] },
-        { type: _services_admin_service__WEBPACK_IMPORTED_MODULE_4__["AdminService"] }
+        { type: _services_admin_service__WEBPACK_IMPORTED_MODULE_4__["AdminService"] },
+        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"] }
     ]; };
     __decorate([
         Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
@@ -1126,30 +1272,16 @@ var AdminEffects = /** @class */ (function () {
     __decorate([
         Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
         __metadata("design:type", Object)
-    ], AdminEffects.prototype, "getUserProjects$", void 0);
-    __decorate([
-        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])({ dispatch: false }),
-        __metadata("design:type", Object)
-    ], AdminEffects.prototype, "deleteUserProject$", void 0);
-    __decorate([
-        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
-        __metadata("design:type", Object)
-    ], AdminEffects.prototype, "getUserCustomers$", void 0);
-    __decorate([
-        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])({ dispatch: false }),
-        __metadata("design:type", Object)
-    ], AdminEffects.prototype, "deleteUserCustomer$", void 0);
+    ], AdminEffects.prototype, "deleteUser$", void 0);
     __decorate([
         Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])({ dispatch: false }),
         __metadata("design:type", Object)
     ], AdminEffects.prototype, "addAdminPrivileges$", void 0);
-    __decorate([
-        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])({ dispatch: false }),
-        __metadata("design:type", Object)
-    ], AdminEffects.prototype, "removeAdminPrivileges$", void 0);
     AdminEffects = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"], _services_admin_service__WEBPACK_IMPORTED_MODULE_4__["AdminService"]])
+        __metadata("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"],
+            _services_admin_service__WEBPACK_IMPORTED_MODULE_4__["AdminService"],
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"]])
     ], AdminEffects);
     return AdminEffects;
 }());
@@ -1191,6 +1323,11 @@ function adminReducer(state, action) {
     if (state === void 0) { state = _admin_state__WEBPACK_IMPORTED_MODULE_0__["adminInitialState"]; }
     switch (action.type) {
         case _admin_actions__WEBPACK_IMPORTED_MODULE_1__["AdminActionTypes"].GET_USERS_LIST: {
+            return Object.assign({}, state, {
+                usersListLoading: true
+            });
+        }
+        case _admin_actions__WEBPACK_IMPORTED_MODULE_1__["AdminActionTypes"].DELETE_USER: {
             return Object.assign({}, state, {
                 usersListLoading: true
             });
@@ -1261,7 +1398,7 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 var getAdminState = function (state) { return state.admin; };
 var getUsersList = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAdminState, function (admin) { return admin.usersList; });
 var getUsersListLoading = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAdminState, function (admin) { return admin.usersListLoading; });
-var getSelectedUser = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getUsersList, function (usersList, uid) { return usersList.filter(function (user) { return user.uid === uid; })[0]; });
+var getSelectedUser = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getUsersList, function (usersList, uid) { return usersList.filter(function (user) { return user.temple === uid; })[0]; });
 var getUserProjects = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAdminState, function (admin, uid) {
     if (admin.userProjects.hasOwnProperty(uid)) {
         return admin.userProjects[uid];
@@ -1329,6 +1466,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_main_main_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./core/main/main.component */ "./src/app/core/main/main.component.ts");
 /* harmony import */ var _core_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./core/page-not-found/page-not-found.component */ "./src/app/core/page-not-found/page-not-found.component.ts");
 /* harmony import */ var _admin_containers_admin_admin_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./admin/containers/admin/admin.component */ "./src/app/admin/containers/admin/admin.component.ts");
+/* harmony import */ var _admin_guard_admin_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./admin/guard/admin.guard */ "./src/app/admin/guard/admin.guard.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1347,6 +1485,7 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 // import { AdminComponent } from './admin/containers/admin/admin.component';
 // import { AdminGuard } from './admin/guard/admin.guard';
 var routes = [
@@ -1358,7 +1497,7 @@ var routes = [
             { path: 'customers', loadChildren: './customers/customers.module#CustomersModule' },
             { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' },
             { path: 'charts', loadChildren: './charts/charts.module#ChartsDataModule' },
-            { path: 'admin-panel', component: _admin_containers_admin_admin_component__WEBPACK_IMPORTED_MODULE_7__["AdminComponent"] }
+            { path: 'admin-panel', component: _admin_containers_admin_admin_component__WEBPACK_IMPORTED_MODULE_7__["AdminComponent"], canActivate: [_admin_guard_admin_guard__WEBPACK_IMPORTED_MODULE_8__["AdminGuard"]] }
             // { path: 'projects', loadChildren: './projects/projects.module#ProjectsModule', canActivate: [AuthGuard]},
             // { path: 'customers', loadChildren: './customers/customers.module#CustomersModule', canActivate: [AuthGuard]},
             // { path: 'profile', loadChildren: './profile/profile.module#ProfileModule', canActivate: [AuthGuard] },
@@ -1489,6 +1628,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./shared/shared.module */ "./src/app/shared/shared.module.ts");
 /* harmony import */ var _admin_admin_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/admin.module */ "./src/app/admin/admin.module.ts");
 /* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/fesm5/angular-bootstrap-md.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1517,6 +1658,8 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -1535,6 +1678,12 @@ var AppModule = /** @class */ (function () {
                 // AngularFireAuthModule,
                 // AngularFirestoreModule,
                 // AngularFireDatabaseModule,
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_15__["BrowserAnimationsModule"],
+                ngx_toastr__WEBPACK_IMPORTED_MODULE_16__["ToastrModule"].forRoot({
+                    timeOut: 3000,
+                    positionClass: 'toast-bottom-right',
+                    preventDuplicates: true,
+                }),
                 _core_core_module__WEBPACK_IMPORTED_MODULE_3__["CoreModule"],
                 _ngrx_store__WEBPACK_IMPORTED_MODULE_5__["StoreModule"].forRoot(_reducers__WEBPACK_IMPORTED_MODULE_6__["reducers"], {
                     runtimeChecks: {
@@ -1867,12 +2016,13 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 };
 var mockUser = {
     user: {
-        uid: 'username',
+        temple: 'RR',
         displayName: 'MANAGER',
         username: '',
         password: '',
         photoUrl: 'https://img.icons8.com/bubbles/2x/user-male.png',
-        isAdmin: false
+        role: 'admin',
+        email: 'test@gmail.com'
     },
 };
 
@@ -1941,7 +2091,9 @@ var AuthService = /** @class */ (function () {
         // }
     };
     AuthService.prototype.login = function (username, password) {
-        return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiUrl + "/login", {
+        return this.http.get(
+        // `${environment.apiUrl}/api_exec?api=login&user=${username}&pass=${password}&temple=root`,
+        src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiUrl + "/login", {
             params: {
                 'email': 'eve.holt@reqres.in' || false,
                 'password': 'cityslicka' || false
@@ -1954,9 +2106,9 @@ var AuthService = /** @class */ (function () {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(uid);
     };
     AuthService.prototype.getUser = function () {
-        // const users = this.db.object('users/' + user.uid);
+        // const users = this.db.object('users/' + user.temple);
         var data = {
-            user: __assign({}, _models_user_model__WEBPACK_IMPORTED_MODULE_2__["mockUser"].user, { username: localStorage.getItem('username'), password: localStorage.getItem('password') })
+            user: __assign({}, _models_user_model__WEBPACK_IMPORTED_MODULE_2__["mockUser"].user, { username: localStorage.getItem('username'), password: localStorage.getItem('password'), role: localStorage.getItem('role') })
         };
         if (data.user.username && data.user.password) {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(data);
@@ -1965,10 +2117,11 @@ var AuthService = /** @class */ (function () {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(null);
         }
     };
-    AuthService.prototype.saveUser = function (username, password) {
+    AuthService.prototype.saveUser = function (username, password, role) {
         localStorage.setItem('username', username);
         localStorage.setItem('password', password);
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({ username: username, password: password });
+        localStorage.setItem('role', role);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({ username: username, password: password, role: role });
     };
     AuthService.prototype.clearLocalData = function () {
         localStorage.removeItem('username');
@@ -1981,9 +2134,12 @@ var AuthService = /** @class */ (function () {
         // return from(this.db.object('users/' + uid).update({ isOnline: status }));
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([uid, status]);
     };
-    AuthService.prototype.checkUserRole = function (isAdmin) {
+    AuthService.prototype.checkUserRole = function () {
         // return this.db.object('admins/' + uid).valueChanges();
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(isAdmin);
+        if (localStorage.getItem('role') === 'admin') {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(true);
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(false);
     };
     AuthService.prototype.getAuthState = function () {
         // return this.afAuth.authState;
@@ -2214,6 +2370,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../store/auth.actions */ "./src/app/auth/store/auth.actions.ts");
 /* harmony import */ var _models_user_model__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../models/user.model */ "./src/app/auth/models/user.model.ts");
 /* harmony import */ var _shared_services_gravatar_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../shared/services/gravatar.service */ "./src/app/shared/services/gravatar.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2235,21 +2392,24 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var AuthEffects = /** @class */ (function () {
-    function AuthEffects(actions$, authService, gravatarService, router) {
+    function AuthEffects(actions$, authService, gravatarService, router, toastr) {
         var _this = this;
         this.actions$ = actions$;
         this.authService = authService;
         this.gravatarService = gravatarService;
         this.router = router;
+        this.toastr = toastr;
         this.registerAction$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].REGISTER_REQUESTED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (payload) {
             return _this.authService.register(payload.username, payload.password).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (res) {
                 var gravatarUrl = _this.gravatarService.getUserGravatar(res.user.username);
                 var user = {
-                    uid: res.user.uid,
+                    uid: res.user.temple,
                     displayName: payload.username || res.user.displayName,
                     username: res.user.username,
                     password: res.user.password,
+                    email: res.user.email,
                     photoUrl: res.user.photoURL || gravatarUrl,
                     isAdmin: false
                 };
@@ -2258,20 +2418,23 @@ var AuthEffects = /** @class */ (function () {
                 return [
                     new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["RegisterCompleted"](),
                     new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["LoginSuccess"]({ user: user }),
-                    new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["UpdateProfile"]({ displayName: payload.username, photoUrl: user.photoUrl }),
                     new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["SaveUser"]({ user: user })
                 ];
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])(function () { _this.router.navigateByUrl(''); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(function (error) {
+                _this.toastr.error('Auth Error. Please try after sometime');
                 _this.authService.clearLocalData();
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthError"]({ error: error }));
             }));
         }));
-        this.saveUser$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].SAVE_USER), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (payload) { return _this.authService.saveUser(payload.user.username, payload.user.password); }));
+        this.saveUser$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].SAVE_USER), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (payload) { return _this.authService.saveUser(payload.user.username, payload.user.password, payload.user.role); }));
         this.updateOnlineStatus$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].UPDATE_ONLINE_STATUS), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (payload) { return _this.authService.updateOnlineStatus(payload.uid, payload.status); }));
-        this.checkUserRole$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].CHECK_USER_ROLE), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (payload) { return _this.authService.checkUserRole(payload.isAdmin)
+        this.checkUserRole$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].CHECK_USER_ROLE), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function () { return _this.authService.checkUserRole()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (isAdmin) {
             return new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["UpdateUserRole"]({ isAdmin: isAdmin });
-        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(function (error) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthError"]({ error: error })); })); }));
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(function (error) {
+            _this.toastr.error('Auth Error. Please try after sometime');
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthError"]({ error: error }));
+        })); }));
         this.updateProfile$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].UPDATE_PROFILE), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["mergeMap"])(function (payload) {
             return _this.authService.updateProfile(payload.displayName, payload.photoUrl).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function () {
                 var currentUser = _this.authService.getCurrentUser();
@@ -2282,7 +2445,10 @@ var AuthEffects = /** @class */ (function () {
                     photoUrl: currentUser.photoURL || null
                 };
                 return new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["UpdateProfileSuccess"]({ user: updatedUser });
-            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(function (error) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthError"](error)); }));
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(function (error) {
+                _this.toastr.error('Auth Error. Please try after sometime');
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthError"](error));
+            }));
         }));
         this.loginAction$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].LOGIN_REQUESTED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (payload) { return _this.authService.login(payload.username, payload.password).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (res) {
             // if (res !== 'logged-in') {
@@ -2291,10 +2457,12 @@ var AuthEffects = /** @class */ (function () {
             // }
             console.log(res);
             var user = {
-                uid: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.uid,
+                temple: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.temple,
                 displayName: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.displayName,
                 photoUrl: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.photoUrl,
-                isAdmin: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.isAdmin,
+                isAdmin: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.role === 'admin',
+                role: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.role,
+                email: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.email,
                 username: payload.username,
                 password: payload.password
             };
@@ -2302,19 +2470,24 @@ var AuthEffects = /** @class */ (function () {
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (user) { return user.payload.user; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (user) {
             console.log('login complete');
             console.log({ user: user });
-            _this.authService.saveUser(user.username, user.password);
+            _this.authService.saveUser(user.username, user.password, user.role);
             return [new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["LoginSuccess"]({ user: user }), new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["SaveUser"]({ user: user }), new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["CheckUserRole"]({ isAdmin: user.isAdmin })];
-        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])(function () { return _this.router.navigateByUrl(''); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(function (error) { _this.authService.clearLocalData(); return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthError"]({ error: error })); })); }));
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])(function () { return _this.router.navigateByUrl(''); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(function (error) {
+            _this.toastr.error('Auth Error. Please try after sometime');
+            _this.authService.clearLocalData();
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthError"]({ error: error }));
+        })); }));
         this.loginSuccess$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].LOGIN_SUCCESS), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (payload) {
             return [
-                new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["UpdateOnlineStatus"]({ uid: payload.user.uid, status: true }),
+                new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["UpdateOnlineStatus"]({ uid: payload.user.temple, status: true }),
                 new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["CheckUserRole"]({ isAdmin: payload.user.isAdmin })
             ];
         }));
         this.logoutAction$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].LOGOUT_REQUESTED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (payload) {
             console.log('payload', payload);
-            return _this.authService.logout(payload.user.uid)
+            return _this.authService.logout(payload.user.temple)
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function () { return new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["LogoutCompleted"](); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])(function () { return _this.authService.clearLocalData(); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])(function () { return _this.router.navigateByUrl(''); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(function (error) {
+                _this.toastr.error('Auth Error. Please try after sometime');
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthError"]({ error: error }));
             }));
         }));
@@ -2322,18 +2495,22 @@ var AuthEffects = /** @class */ (function () {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (authData) {
             if (authData) {
                 var user = {
-                    uid: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.uid,
+                    temple: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.temple,
                     displayName: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.displayName,
                     photoUrl: authData.photoURL,
                     username: authData.username,
                     password: authData.password,
+                    email: authData.email
                 };
                 return new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["LoginSuccess"]({ user: user });
             }
             else {
                 return new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["LoginFailed"]();
             }
-        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(function (error) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthError"]({ error: error })); })); }));
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(function (error) {
+            _this.toastr.error('Auth Error. Please try after sometime');
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthError"]({ error: error }));
+        })); }));
         this.init$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["defer"])(function () {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["GetUser"]());
         });
@@ -2342,7 +2519,8 @@ var AuthEffects = /** @class */ (function () {
         { type: _ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"] },
         { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
         { type: _shared_services_gravatar_service__WEBPACK_IMPORTED_MODULE_8__["GravatarService"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+        { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_9__["ToastrService"] }
     ]; };
     __decorate([
         Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
@@ -2389,7 +2567,8 @@ var AuthEffects = /** @class */ (function () {
         __metadata("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"],
             _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
             _shared_services_gravatar_service__WEBPACK_IMPORTED_MODULE_8__["GravatarService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_9__["ToastrService"]])
     ], AuthEffects);
     return AuthEffects;
 }());
@@ -2723,7 +2902,7 @@ var DashboardComponent = /** @class */ (function () {
         this.customersSub = this.store
             .pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_4__["getUser"]), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (user) {
             if (user) {
-                return _this.customersService.get(user.uid);
+                return _this.customersService.get(user.temple);
             }
             else {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["empty"])();
@@ -2821,7 +3000,7 @@ var FooterComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".nav-item a {\n  color: white;\n  padding-right: 50px;\n  padding-left: 50px;\n}\n\n.navbar-nav {\n  align-items: center;\n}\n\n.nav-link.active {\n  background-color: rgba(0, 0, 0, 0.2);\n  border-radius: 3px;\n}\n\n.logout-button {\n  display: none;\n}\n\n.avatar-dropdown {\n  display: block;\n}\n\n@media only screen and (min-width: 768px) and (max-width: 1024px) {\n  .nav-item a {\n    padding-right: 20px;\n    padding-left: 20px;\n  }\n}\n\n@media (max-width: 992px) {\n  .avatar-dropdown {\n    display: none;\n  }\n\n  .logout-button {\n    display: block;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9oZWFkZXIvQzpcXGtpcmFuXFxBdWRpdC1VSS1Bbmd1bGFyL3NyY1xcYXBwXFxjb3JlXFxoZWFkZXJcXGhlYWRlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29yZS9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7QUNDRjs7QURFQTtFQUNFLG1CQUFBO0FDQ0Y7O0FERUE7RUFDRSxvQ0FBQTtFQUNBLGtCQUFBO0FDQ0Y7O0FERUE7RUFDRSxhQUFBO0FDQ0Y7O0FERUE7RUFDRSxjQUFBO0FDQ0Y7O0FER0E7RUFDRTtJQUNFLG1CQUFBO0lBQ0Esa0JBQUE7RUNBRjtBQUNGOztBREdBO0VBQ0U7SUFDRSxhQUFBO0VDREY7O0VESUE7SUFDRSxjQUFBO0VDREY7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2NvcmUvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXYtaXRlbSBhIHtcbiAgY29sb3I6IHdoaXRlO1xuICBwYWRkaW5nLXJpZ2h0OiA1MHB4O1xuICBwYWRkaW5nLWxlZnQ6IDUwcHg7XG59XG5cbi5uYXZiYXItbmF2IHtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuLm5hdi1saW5rLmFjdGl2ZSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwwLDAsMC4yKTtcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xufVxuXG4ubG9nb3V0LWJ1dHRvbiB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG5cbi5hdmF0YXItZHJvcGRvd24ge1xuICBkaXNwbGF5OiBibG9jaztcbn1cblxuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDc2OHB4KSBhbmQgKG1heC13aWR0aDogMTAyNHB4KSB7XG4gIC5uYXYtaXRlbSBhIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiAyMHB4O1xuICAgIHBhZGRpbmctbGVmdDogMjBweDtcbiAgfVxufVxuXG5AbWVkaWEgKG1heC13aWR0aDogOTkycHgpIHtcbiAgLmF2YXRhci1kcm9wZG93biB7XG4gICAgZGlzcGxheTogbm9uZTtcbiAgfVxuXG4gIC5sb2dvdXQtYnV0dG9uIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgfVxufSIsIi5uYXYtaXRlbSBhIHtcbiAgY29sb3I6IHdoaXRlO1xuICBwYWRkaW5nLXJpZ2h0OiA1MHB4O1xuICBwYWRkaW5nLWxlZnQ6IDUwcHg7XG59XG5cbi5uYXZiYXItbmF2IHtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuLm5hdi1saW5rLmFjdGl2ZSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwgMCwgMCwgMC4yKTtcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xufVxuXG4ubG9nb3V0LWJ1dHRvbiB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG5cbi5hdmF0YXItZHJvcGRvd24ge1xuICBkaXNwbGF5OiBibG9jaztcbn1cblxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWluLXdpZHRoOiA3NjhweCkgYW5kIChtYXgtd2lkdGg6IDEwMjRweCkge1xuICAubmF2LWl0ZW0gYSB7XG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcbiAgICBwYWRkaW5nLWxlZnQ6IDIwcHg7XG4gIH1cbn1cbkBtZWRpYSAobWF4LXdpZHRoOiA5OTJweCkge1xuICAuYXZhdGFyLWRyb3Bkb3duIHtcbiAgICBkaXNwbGF5OiBub25lO1xuICB9XG5cbiAgLmxvZ291dC1idXR0b24ge1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICB9XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".nav-item a {\n  color: white;\n  padding-right: 50px;\n  padding-left: 50px;\n}\n\n.navbar-nav {\n  align-items: center;\n}\n\n.nav-link.active {\n  background-color: rgba(0, 0, 0, 0.2);\n  border-radius: 3px;\n}\n\n.logout-button {\n  display: none;\n}\n\n.avatar-dropdown {\n  display: block;\n}\n\n@media only screen and (min-width: 768px) and (max-width: 1024px) {\n  .nav-item a {\n    padding-right: 20px;\n    padding-left: 20px;\n  }\n}\n\n@media (max-width: 992px) {\n  .avatar-dropdown {\n    display: none;\n  }\n\n  .logout-button {\n    display: block;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9oZWFkZXIvQzpcXGdpdCBjb2RlXFxBdWRpdC1VSS1Bbmd1bGFyL3NyY1xcYXBwXFxjb3JlXFxoZWFkZXJcXGhlYWRlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29yZS9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7QUNDRjs7QURFQTtFQUNFLG1CQUFBO0FDQ0Y7O0FERUE7RUFDRSxvQ0FBQTtFQUNBLGtCQUFBO0FDQ0Y7O0FERUE7RUFDRSxhQUFBO0FDQ0Y7O0FERUE7RUFDRSxjQUFBO0FDQ0Y7O0FER0E7RUFDRTtJQUNFLG1CQUFBO0lBQ0Esa0JBQUE7RUNBRjtBQUNGOztBREdBO0VBQ0U7SUFDRSxhQUFBO0VDREY7O0VESUE7SUFDRSxjQUFBO0VDREY7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2NvcmUvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXYtaXRlbSBhIHtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgcGFkZGluZy1yaWdodDogNTBweDtcclxuICBwYWRkaW5nLWxlZnQ6IDUwcHg7XHJcbn1cclxuXHJcbi5uYXZiYXItbmF2IHtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcblxyXG4ubmF2LWxpbmsuYWN0aXZlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsMCwwLDAuMik7XHJcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG59XHJcblxyXG4ubG9nb3V0LWJ1dHRvbiB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG5cclxuLmF2YXRhci1kcm9wZG93biB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbn1cclxuXHJcblxyXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDc2OHB4KSBhbmQgKG1heC13aWR0aDogMTAyNHB4KSB7XHJcbiAgLm5hdi1pdGVtIGEge1xyXG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcclxuICAgIHBhZGRpbmctbGVmdDogMjBweDtcclxuICB9XHJcbn1cclxuXHJcbkBtZWRpYSAobWF4LXdpZHRoOiA5OTJweCkge1xyXG4gIC5hdmF0YXItZHJvcGRvd24ge1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxuICB9XHJcblxyXG4gIC5sb2dvdXQtYnV0dG9uIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gIH1cclxufSIsIi5uYXYtaXRlbSBhIHtcbiAgY29sb3I6IHdoaXRlO1xuICBwYWRkaW5nLXJpZ2h0OiA1MHB4O1xuICBwYWRkaW5nLWxlZnQ6IDUwcHg7XG59XG5cbi5uYXZiYXItbmF2IHtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuLm5hdi1saW5rLmFjdGl2ZSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMCwgMCwgMCwgMC4yKTtcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xufVxuXG4ubG9nb3V0LWJ1dHRvbiB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG5cbi5hdmF0YXItZHJvcGRvd24ge1xuICBkaXNwbGF5OiBibG9jaztcbn1cblxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWluLXdpZHRoOiA3NjhweCkgYW5kIChtYXgtd2lkdGg6IDEwMjRweCkge1xuICAubmF2LWl0ZW0gYSB7XG4gICAgcGFkZGluZy1yaWdodDogMjBweDtcbiAgICBwYWRkaW5nLWxlZnQ6IDIwcHg7XG4gIH1cbn1cbkBtZWRpYSAobWF4LXdpZHRoOiA5OTJweCkge1xuICAuYXZhdGFyLWRyb3Bkb3duIHtcbiAgICBkaXNwbGF5OiBub25lO1xuICB9XG5cbiAgLmxvZ291dC1idXR0b24ge1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICB9XG59Il19 */");
 
 /***/ }),
 
@@ -2902,7 +3081,7 @@ var HeaderComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".document-body {\n  margin-top: 67px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9ob21lL0M6XFxraXJhblxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcY29yZVxcaG9tZVxcaG9tZS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29yZS9ob21lL2hvbWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxnQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29yZS9ob21lL2hvbWUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZG9jdW1lbnQtYm9keSB7XHJcbiAgICBtYXJnaW4tdG9wOiA2N3B4O1xyXG59IiwiLmRvY3VtZW50LWJvZHkge1xuICBtYXJnaW4tdG9wOiA2N3B4O1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".document-body {\n  padding-top: 67px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9ob21lL0M6XFxnaXQgY29kZVxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcY29yZVxcaG9tZVxcaG9tZS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29yZS9ob21lL2hvbWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxpQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29yZS9ob21lL2hvbWUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZG9jdW1lbnQtYm9keSB7XHJcbiAgICBwYWRkaW5nLXRvcDogNjdweDtcclxufSIsIi5kb2N1bWVudC1ib2R5IHtcbiAgcGFkZGluZy10b3A6IDY3cHg7XG59Il19 */");
 
 /***/ }),
 
@@ -2971,7 +3150,7 @@ var HomeComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".pages a {\n  height: 30vh;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: large;\n}\n@media only screen and (max-width: 300px) {\n  .pages a {\n    height: 100px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9tYWluL0M6XFxraXJhblxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcY29yZVxcbWFpblxcbWFpbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29yZS9tYWluL21haW4uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0k7RUFDSSxZQUFBO0VBQ0EsYUFBQTtFQUNBLHVCQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtBQ0FSO0FER0k7RUFDSTtJQUNJLGFBQUE7RUNEVjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvY29yZS9tYWluL21haW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucGFnZXMge1xyXG4gICAgYSB7XHJcbiAgICAgICAgaGVpZ2h0OiAzMHZoO1xyXG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgICAgICBmb250LXNpemU6IGxhcmdlO1xyXG4gICAgfVxyXG5cclxuICAgIEBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogMzAwcHgpIHtcclxuICAgICAgICBhIHtcclxuICAgICAgICAgICAgaGVpZ2h0OiAxMDBweDtcclxuICAgICAgICB9XHJcbiAgICB9XHJcbn0iLCIucGFnZXMgYSB7XG4gIGhlaWdodDogMzB2aDtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogbGFyZ2U7XG59XG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDMwMHB4KSB7XG4gIC5wYWdlcyBhIHtcbiAgICBoZWlnaHQ6IDEwMHB4O1xuICB9XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".pages a {\n  height: 30vh;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: large;\n}\n@media only screen and (max-width: 300px) {\n  .pages a {\n    height: 100px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9tYWluL0M6XFxnaXQgY29kZVxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcY29yZVxcbWFpblxcbWFpbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29yZS9tYWluL21haW4uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0k7RUFDSSxZQUFBO0VBQ0EsYUFBQTtFQUNBLHVCQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtBQ0FSO0FER0k7RUFDSTtJQUNJLGFBQUE7RUNEVjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvY29yZS9tYWluL21haW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucGFnZXMge1xyXG4gICAgYSB7XHJcbiAgICAgICAgaGVpZ2h0OiAzMHZoO1xyXG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgICAgICBmb250LXNpemU6IGxhcmdlO1xyXG4gICAgfVxyXG5cclxuICAgIEBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogMzAwcHgpIHtcclxuICAgICAgICBhIHtcclxuICAgICAgICAgICAgaGVpZ2h0OiAxMDBweDtcclxuICAgICAgICB9XHJcbiAgICB9XHJcbn0iLCIucGFnZXMgYSB7XG4gIGhlaWdodDogMzB2aDtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogbGFyZ2U7XG59XG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDMwMHB4KSB7XG4gIC5wYWdlcyBhIHtcbiAgICBoZWlnaHQ6IDEwMHB4O1xuICB9XG59Il19 */");
 
 /***/ }),
 
@@ -2986,6 +3165,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainComponent", function() { return MainComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2999,20 +3179,25 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
-// import { Router } from '@angular/router';
+
 var MainComponent = /** @class */ (function () {
-    function MainComponent() {
+    function MainComponent(router) {
+        this.router = router;
     }
     MainComponent.prototype.ngOnInit = function () {
+        console.log(this.router);
         // this.router.navigateByUrl('poojas'); // for dev purpose only so that current working page loads first
     };
+    MainComponent.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] }
+    ]; };
     MainComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-main',
             template: __importDefault(__webpack_require__(/*! raw-loader!./main.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/core/main/main.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./main.component.scss */ "./src/app/core/main/main.component.scss")).default]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], MainComponent);
     return MainComponent;
 }());
@@ -3030,7 +3215,7 @@ var MainComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".row {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  left: 55%;\n  transform: translate(-50%, -50%);\n}\n\n.full {\n  min-height: 40rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9wYWdlLW5vdC1mb3VuZC9DOlxca2lyYW5cXEF1ZGl0LVVJLUFuZ3VsYXIvc3JjXFxhcHBcXGNvcmVcXHBhZ2Utbm90LWZvdW5kXFxwYWdlLW5vdC1mb3VuZC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29yZS9wYWdlLW5vdC1mb3VuZC9wYWdlLW5vdC1mb3VuZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFNBQUE7RUFDQSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBRUEsZ0NBQUE7QUNDSjs7QURHRTtFQUNFLGlCQUFBO0FDQUoiLCJmaWxlIjoic3JjL2FwcC9jb3JlL3BhZ2Utbm90LWZvdW5kL3BhZ2Utbm90LWZvdW5kLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnJvdyB7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6IDUwJTtcbiAgICBsZWZ0OiA1NSU7XG4gICAgLW1zLXRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICB9XG4gIFxuICBcbiAgLmZ1bGwge1xuICAgIG1pbi1oZWlnaHQ6IDQwcmVtO1xuICB9IiwiLnJvdyB7XG4gIG1hcmdpbjogMDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDUwJTtcbiAgbGVmdDogNTUlO1xuICAtbXMtdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xufVxuXG4uZnVsbCB7XG4gIG1pbi1oZWlnaHQ6IDQwcmVtO1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".row {\n  margin: 0;\n  position: absolute;\n  top: 50%;\n  left: 55%;\n  transform: translate(-50%, -50%);\n}\n\n.full {\n  min-height: 40rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9wYWdlLW5vdC1mb3VuZC9DOlxcZ2l0IGNvZGVcXEF1ZGl0LVVJLUFuZ3VsYXIvc3JjXFxhcHBcXGNvcmVcXHBhZ2Utbm90LWZvdW5kXFxwYWdlLW5vdC1mb3VuZC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29yZS9wYWdlLW5vdC1mb3VuZC9wYWdlLW5vdC1mb3VuZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFNBQUE7RUFDQSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxTQUFBO0VBRUEsZ0NBQUE7QUNDSjs7QURHRTtFQUNFLGlCQUFBO0FDQUoiLCJmaWxlIjoic3JjL2FwcC9jb3JlL3BhZ2Utbm90LWZvdW5kL3BhZ2Utbm90LWZvdW5kLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnJvdyB7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDUwJTtcclxuICAgIGxlZnQ6IDU1JTtcclxuICAgIC1tcy10cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcclxuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xyXG4gIH1cclxuICBcclxuICBcclxuICAuZnVsbCB7XHJcbiAgICBtaW4taGVpZ2h0OiA0MHJlbTtcclxuICB9IiwiLnJvdyB7XG4gIG1hcmdpbjogMDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDUwJTtcbiAgbGVmdDogNTUlO1xuICAtbXMtdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xufVxuXG4uZnVsbCB7XG4gIG1pbi1oZWlnaHQ6IDQwcmVtO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -3087,7 +3272,7 @@ var PageNotFoundComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".split-body {\n  height: calc(100vh - 60px);\n  padding-top: 10px;\n  overflow: hidden;\n}\n.split-body .left-section, .split-body .right-section {\n  height: calc(100vh - 115px);\n  overflow-y: auto;\n}\n@media only screen and (max-width: 768px) {\n  .split-body .left-section {\n    height: 50vh;\n  }\n  .split-body .right-section {\n    height: 40vh;\n    border-top: 5px solid lightslategray;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9zcGxpdC1ib2R5L0M6XFxraXJhblxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcY29yZVxcc3BsaXQtYm9keVxcc3BsaXQtYm9keS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29yZS9zcGxpdC1ib2R5L3NwbGl0LWJvZHkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDSSwwQkFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0JBQUE7QUNBSjtBREVJO0VBQ0UsMkJBQUE7RUFDQSxnQkFBQTtBQ0FOO0FER0k7RUFDRTtJQUNFLFlBQUE7RUNETjtFREdJO0lBQ0UsWUFBQTtJQUNBLG9DQUFBO0VDRE47QUFDRiIsImZpbGUiOiJzcmMvYXBwL2NvcmUvc3BsaXQtYm9keS9zcGxpdC1ib2R5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbi5zcGxpdC1ib2R5IHtcclxuICAgIGhlaWdodDogY2FsYygxMDB2aCAtIDYwcHgpO1xyXG4gICAgcGFkZGluZy10b3A6IDEwcHg7XHJcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIFxyXG4gICAgLmxlZnQtc2VjdGlvbiwgLnJpZ2h0LXNlY3Rpb24ge1xyXG4gICAgICBoZWlnaHQ6IGNhbGMoMTAwdmggLSAxMTVweCk7XHJcbiAgICAgIG92ZXJmbG93LXk6IGF1dG87XHJcbiAgICB9XHJcblxyXG4gICAgQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3NjhweCkge1xyXG4gICAgICAubGVmdC1zZWN0aW9uIHtcclxuICAgICAgICBoZWlnaHQ6IDUwdmg7XHJcbiAgICAgIH0gXHJcbiAgICAgIC5yaWdodC1zZWN0aW9uIHtcclxuICAgICAgICBoZWlnaHQ6IDQwdmg7XHJcbiAgICAgICAgYm9yZGVyLXRvcDogNXB4IHNvbGlkIGxpZ2h0c2xhdGVncmF5O1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgfVxyXG4gICIsIi5zcGxpdC1ib2R5IHtcbiAgaGVpZ2h0OiBjYWxjKDEwMHZoIC0gNjBweCk7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICBvdmVyZmxvdzogaGlkZGVuO1xufVxuLnNwbGl0LWJvZHkgLmxlZnQtc2VjdGlvbiwgLnNwbGl0LWJvZHkgLnJpZ2h0LXNlY3Rpb24ge1xuICBoZWlnaHQ6IGNhbGMoMTAwdmggLSAxMTVweCk7XG4gIG92ZXJmbG93LXk6IGF1dG87XG59XG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2OHB4KSB7XG4gIC5zcGxpdC1ib2R5IC5sZWZ0LXNlY3Rpb24ge1xuICAgIGhlaWdodDogNTB2aDtcbiAgfVxuICAuc3BsaXQtYm9keSAucmlnaHQtc2VjdGlvbiB7XG4gICAgaGVpZ2h0OiA0MHZoO1xuICAgIGJvcmRlci10b3A6IDVweCBzb2xpZCBsaWdodHNsYXRlZ3JheTtcbiAgfVxufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".split-body {\n  height: calc(100vh - 80px);\n  padding-top: 10px;\n  overflow: hidden;\n}\n.split-body .left-section, .split-body .right-section {\n  height: calc(100vh - 80px);\n  overflow-y: auto;\n}\n@media only screen and (max-width: 768px) {\n  .split-body .left-section {\n    height: 50vh;\n  }\n  .split-body .right-section {\n    height: 40vh;\n    border-top: 5px solid lightslategray;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29yZS9zcGxpdC1ib2R5L0M6XFxnaXQgY29kZVxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcY29yZVxcc3BsaXQtYm9keVxcc3BsaXQtYm9keS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29yZS9zcGxpdC1ib2R5L3NwbGl0LWJvZHkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDSSwwQkFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0JBQUE7QUNBSjtBREVJO0VBQ0UsMEJBQUE7RUFDQSxnQkFBQTtBQ0FOO0FER0k7RUFDRTtJQUNFLFlBQUE7RUNETjtFREdJO0lBQ0UsWUFBQTtJQUNBLG9DQUFBO0VDRE47QUFDRiIsImZpbGUiOiJzcmMvYXBwL2NvcmUvc3BsaXQtYm9keS9zcGxpdC1ib2R5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbi5zcGxpdC1ib2R5IHtcclxuICAgIGhlaWdodDogY2FsYygxMDB2aCAtIDgwcHgpO1xyXG4gICAgcGFkZGluZy10b3A6IDEwcHg7XHJcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIFxyXG4gICAgLmxlZnQtc2VjdGlvbiwgLnJpZ2h0LXNlY3Rpb24ge1xyXG4gICAgICBoZWlnaHQ6IGNhbGMoMTAwdmggLSA4MHB4KTtcclxuICAgICAgb3ZlcmZsb3cteTogYXV0bztcclxuICAgIH1cclxuXHJcbiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2OHB4KSB7XHJcbiAgICAgIC5sZWZ0LXNlY3Rpb24ge1xyXG4gICAgICAgIGhlaWdodDogNTB2aDtcclxuICAgICAgfSBcclxuICAgICAgLnJpZ2h0LXNlY3Rpb24ge1xyXG4gICAgICAgIGhlaWdodDogNDB2aDtcclxuICAgICAgICBib3JkZXItdG9wOiA1cHggc29saWQgbGlnaHRzbGF0ZWdyYXk7XHJcbiAgICAgIH1cclxuICAgIH1cclxuICB9XHJcbiAgIiwiLnNwbGl0LWJvZHkge1xuICBoZWlnaHQ6IGNhbGMoMTAwdmggLSA4MHB4KTtcbiAgcGFkZGluZy10b3A6IDEwcHg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG4uc3BsaXQtYm9keSAubGVmdC1zZWN0aW9uLCAuc3BsaXQtYm9keSAucmlnaHQtc2VjdGlvbiB7XG4gIGhlaWdodDogY2FsYygxMDB2aCAtIDgwcHgpO1xuICBvdmVyZmxvdy15OiBhdXRvO1xufVxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3NjhweCkge1xuICAuc3BsaXQtYm9keSAubGVmdC1zZWN0aW9uIHtcbiAgICBoZWlnaHQ6IDUwdmg7XG4gIH1cbiAgLnNwbGl0LWJvZHkgLnJpZ2h0LXNlY3Rpb24ge1xuICAgIGhlaWdodDogNDB2aDtcbiAgICBib3JkZXItdG9wOiA1cHggc29saWQgbGlnaHRzbGF0ZWdyYXk7XG4gIH1cbn0iXX0= */");
 
 /***/ }),
 
@@ -3207,6 +3392,52 @@ var CustomersService = /** @class */ (function () {
     return CustomersService;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/poojas/models/poojas.model.ts":
+/*!***********************************************!*\
+  !*** ./src/app/poojas/models/poojas.model.ts ***!
+  \***********************************************/
+/*! exports provided: starSigns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "starSigns", function() { return starSigns; });
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var starSigns = [
+    'അശ്വതി',
+    'ഭരണി',
+    'കാർത്തിക',
+    'രോഹിണി',
+    'മകയിരം',
+    'തിരുവാതിര',
+    'പുണർതം',
+    'പൂയം',
+    'ആയില്യം',
+    'മകം',
+    'പൂരം',
+    'ഉത്രം',
+    'അത്തം',
+    'ചിത്തിര',
+    'ചോതി',
+    'വിശാഖം',
+    'അനിഴം',
+    'തൃക്കേട്ട',
+    'മൂലം',
+    'പൂരാടം',
+    'ഉത്രാടം',
+    'തിരുവോണം',
+    'അവിട്ടം',
+    'ചതയം',
+    'പൂരുരുട്ടാതി',
+    'ഉത്രട്ടാതി',
+    'രേവതി',
+];
 
 
 /***/ }),
@@ -3489,7 +3720,7 @@ var CustomersModalComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9jb21wb25lbnRzL3Bvb2phcy1tb2RhbC9wb29qYXMtbW9kYWwuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".price {\n  color: orange;\n  font-weight: bold;\n  font-size: large;\n}\n\n.star-container .hidden {\n  display: none;\n}\n\n.star-container .btn-group {\n  display: inline-block;\n}\n\n.star-container .btn-group button {\n  padding: 5px;\n}\n\n.star-container .btn-group button.selected {\n  background-color: darkgreen;\n  border: 1px solid darkgreen;\n  color: white;\n  font-weight: bold;\n  padding: 20px;\n}\n\n#address {\n  height: 20px;\n}\n\n.modal-body {\n  overflow: auto;\n  display: flex;\n  max-height: 65vh;\n}\n\n.modal-body .left-section {\n  width: 50%;\n}\n\n.modal-body .right-section {\n  width: 50%;\n  padding: 10px 20px;\n}\n\n.modal-footer {\n  justify-content: space-between;\n}\n\n.phone {\n  margin: 0;\n}\n\n.delete {\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcG9vamFzLW1vZGFsL0M6XFxnaXQgY29kZVxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcc2hhcmVkXFxjb21wb25lbnRzXFxwb29qYXMtbW9kYWxcXHBvb2phcy1tb2RhbC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcG9vamFzLW1vZGFsL3Bvb2phcy1tb2RhbC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGFBQUE7RUFDQSxpQkFBQTtFQUNBLGdCQUFBO0FDQ0o7O0FESUk7RUFDSSxhQUFBO0FDRFI7O0FER0k7RUFDSSxxQkFBQTtBQ0RSOztBREVRO0VBQ0ksWUFBQTtBQ0FaOztBREdRO0VBQ0ksMkJBQUE7RUFDQSwyQkFBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtFQUNBLGFBQUE7QUNEWjs7QURNQTtFQUNJLFlBQUE7QUNISjs7QURNQTtFQUNJLGNBQUE7RUFDQSxhQUFBO0VBQ0EsZ0JBQUE7QUNISjs7QURJSTtFQUNJLFVBQUE7QUNGUjs7QURJSTtFQUNJLFVBQUE7RUFDQSxrQkFBQTtBQ0ZSOztBRE1BO0VBQ0ksOEJBQUE7QUNISjs7QURNQTtFQUNJLFNBQUE7QUNISjs7QURNQTtFQUNJLGVBQUE7QUNISiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9jb21wb25lbnRzL3Bvb2phcy1tb2RhbC9wb29qYXMtbW9kYWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucHJpY2Uge1xyXG4gICAgY29sb3I6IG9yYW5nZTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgZm9udC1zaXplOiBsYXJnZTtcclxufVxyXG5cclxuLnN0YXItY29udGFpbmVyIHtcclxuXHJcbiAgICAuaGlkZGVuIHtcclxuICAgICAgICBkaXNwbGF5OiBub25lO1xyXG4gICAgfVxyXG4gICAgLmJ0bi1ncm91cCB7XHJcbiAgICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgICAgIGJ1dHRvbiB7XHJcbiAgICAgICAgICAgIHBhZGRpbmc6IDVweDtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIGJ1dHRvbi5zZWxlY3RlZCB7XHJcbiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6IGRhcmtncmVlbjtcclxuICAgICAgICAgICAgYm9yZGVyOiAxcHggc29saWQgZGFya2dyZWVuO1xyXG4gICAgICAgICAgICBjb2xvcjogd2hpdGU7XHJcbiAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgICAgICAgICBwYWRkaW5nOiAyMHB4O1xyXG4gICAgICAgIH1cclxuICAgIH1cclxufVxyXG5cclxuI2FkZHJlc3Mge1xyXG4gICAgaGVpZ2h0OiAyMHB4O1xyXG59XHJcblxyXG4ubW9kYWwtYm9keSB7XHJcbiAgICBvdmVyZmxvdzogYXV0bztcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBtYXgtaGVpZ2h0OiA2NXZoO1xyXG4gICAgLmxlZnQtc2VjdGlvbiB7XHJcbiAgICAgICAgd2lkdGg6IDUwJTtcclxuICAgIH1cclxuICAgIC5yaWdodC1zZWN0aW9uIHtcclxuICAgICAgICB3aWR0aDogNTAlO1xyXG4gICAgICAgIHBhZGRpbmc6IDEwcHggMjBweDtcclxuICAgIH1cclxufVxyXG5cclxuLm1vZGFsLWZvb3RlciB7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbn1cclxuXHJcbi5waG9uZSB7XHJcbiAgICBtYXJnaW46IDA7XHJcbn1cclxuXHJcbi5kZWxldGUge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59IiwiLnByaWNlIHtcbiAgY29sb3I6IG9yYW5nZTtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIGZvbnQtc2l6ZTogbGFyZ2U7XG59XG5cbi5zdGFyLWNvbnRhaW5lciAuaGlkZGVuIHtcbiAgZGlzcGxheTogbm9uZTtcbn1cbi5zdGFyLWNvbnRhaW5lciAuYnRuLWdyb3VwIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxuLnN0YXItY29udGFpbmVyIC5idG4tZ3JvdXAgYnV0dG9uIHtcbiAgcGFkZGluZzogNXB4O1xufVxuLnN0YXItY29udGFpbmVyIC5idG4tZ3JvdXAgYnV0dG9uLnNlbGVjdGVkIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogZGFya2dyZWVuO1xuICBib3JkZXI6IDFweCBzb2xpZCBkYXJrZ3JlZW47XG4gIGNvbG9yOiB3aGl0ZTtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbiNhZGRyZXNzIHtcbiAgaGVpZ2h0OiAyMHB4O1xufVxuXG4ubW9kYWwtYm9keSB7XG4gIG92ZXJmbG93OiBhdXRvO1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXgtaGVpZ2h0OiA2NXZoO1xufVxuLm1vZGFsLWJvZHkgLmxlZnQtc2VjdGlvbiB7XG4gIHdpZHRoOiA1MCU7XG59XG4ubW9kYWwtYm9keSAucmlnaHQtc2VjdGlvbiB7XG4gIHdpZHRoOiA1MCU7XG4gIHBhZGRpbmc6IDEwcHggMjBweDtcbn1cblxuLm1vZGFsLWZvb3RlciB7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2Vlbjtcbn1cblxuLnBob25lIHtcbiAgbWFyZ2luOiAwO1xufVxuXG4uZGVsZXRlIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -3505,6 +3736,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoojasModalComponent", function() { return PoojasModalComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/fesm5/angular-bootstrap-md.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var src_app_poojas_models_poojas_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/poojas/models/poojas.model */ "./src/app/poojas/models/poojas.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3519,47 +3753,66 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 };
 
 
+
+
+
 // import { MDBModalRef } from 'angular-bootstrap-md';
 // import { Poojas } from '../../../poojas/models/poojas.model';
 // import { Subject } from 'rxjs';
 // import { NgForm } from '@angular/forms';
 var PoojasModalComponent = /** @class */ (function () {
-    function PoojasModalComponent() {
-        var _this = this;
-        this.poojas = {};
-        this.show = function () {
-            _this.basicModal.show();
+    function PoojasModalComponent(modalRef) {
+        this.modalRef = modalRef;
+        this.pooja = {};
+        this.poojasData = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.starSigns = src_app_poojas_models_poojas_model__WEBPACK_IMPORTED_MODULE_4__["starSigns"];
+        this.response = {
+            phoneNumber: '',
+            address: '',
+            persons: [],
+            totalPrice: 0
         };
     }
     PoojasModalComponent.prototype.ngOnInit = function () {
     };
     PoojasModalComponent.prototype.onClose = function () {
-        this.basicModal.hide();
+        this.modalRef.hide();
     };
     PoojasModalComponent.prototype.onSave = function () {
-        if (this.poojasForm.valid) {
-            // this.poojasData.next(this.poojas);
-            this.basicModal.hide();
+        if (this.poojasForm.valid && this.response.persons.length > 0) {
+            this.poojasData.next(this.response);
+            this.modalRef.hide();
         }
         else {
             var controls_1 = this.poojasForm.controls;
             Object.keys(controls_1).forEach(function (controlName) { return controls_1[controlName].markAsTouched(); });
         }
     };
+    PoojasModalComponent.prototype.selectStar = function (star) {
+        this.pooja.star = star;
+    };
+    PoojasModalComponent.prototype.deletePooja = function (item) {
+        this.response.persons.splice(this.response.persons.indexOf(item), 1);
+    };
+    PoojasModalComponent.prototype.addPerson = function () {
+        this.response.persons.push(this.poojasForm.value);
+        this.response.totalPrice += this.price;
+        this.poojasForm.reset();
+    };
+    PoojasModalComponent.ctorParameters = function () { return [
+        { type: angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["MDBModalRef"] }
+    ]; };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('poojasForm', { static: true }),
         __metadata("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgForm"])
     ], PoojasModalComponent.prototype, "poojasForm", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('basicModal', { static: true }),
-        __metadata("design:type", Object)
-    ], PoojasModalComponent.prototype, "basicModal", void 0);
     PoojasModalComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-poojas-modal',
             template: __importDefault(__webpack_require__(/*! raw-loader!./poojas-modal.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/poojas-modal/poojas-modal.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./poojas-modal.component.scss */ "./src/app/shared/components/poojas-modal/poojas-modal.component.scss")).default]
-        })
+        }),
+        __metadata("design:paramtypes", [angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["MDBModalRef"]])
     ], PoojasModalComponent);
     return PoojasModalComponent;
 }());
@@ -3633,6 +3886,89 @@ var RightCardComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shared/components/user-modal/user-modal.component.scss":
+/*!************************************************************************!*\
+  !*** ./src/app/shared/components/user-modal/user-modal.component.scss ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9jb21wb25lbnRzL3VzZXItbW9kYWwvdXNlci1tb2RhbC5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/shared/components/user-modal/user-modal.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/shared/components/user-modal/user-modal.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: UserModalComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserModalComponent", function() { return UserModalComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/fesm5/angular-bootstrap-md.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+var UserModalComponent = /** @class */ (function () {
+    function UserModalComponent(modalRef) {
+        this.modalRef = modalRef;
+        this.user = { username: '', password: '', email: '', role: '', temple: '' };
+        this.userData = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    }
+    UserModalComponent.prototype.ngOnInit = function () {
+    };
+    UserModalComponent.prototype.onSave = function () {
+        if (this.userForm.valid) {
+            this.userData.next(this.user);
+            this.modalRef.hide();
+        }
+        else {
+            var controls_1 = this.userForm.controls;
+            Object.keys(controls_1).forEach(function (controlName) { return controls_1[controlName].markAsTouched(); });
+        }
+    };
+    UserModalComponent.ctorParameters = function () { return [
+        { type: angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_1__["MDBModalRef"] }
+    ]; };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('userForm', { static: true }),
+        __metadata("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"])
+    ], UserModalComponent.prototype, "userForm", void 0);
+    UserModalComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-user-modal',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./user-modal.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/user-modal/user-modal.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./user-modal.component.scss */ "./src/app/shared/components/user-modal/user-modal.component.scss")).default]
+        }),
+        __metadata("design:paramtypes", [angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_1__["MDBModalRef"]])
+    ], UserModalComponent);
+    return UserModalComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/services/gravatar.service.ts":
 /*!*****************************************************!*\
   !*** ./src/app/shared/services/gravatar.service.ts ***!
@@ -3700,6 +4036,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/customers-list/customers-list.component */ "./src/app/shared/components/customers-list/customers-list.component.ts");
 /* harmony import */ var _components_poojas_modal_poojas_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/poojas-modal/poojas-modal.component */ "./src/app/shared/components/poojas-modal/poojas-modal.component.ts");
 /* harmony import */ var _components_right_card_right_card_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/right-card/right-card.component */ "./src/app/shared/components/right-card/right-card.component.ts");
+/* harmony import */ var _components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/user-modal/user-modal.component */ "./src/app/shared/components/user-modal/user-modal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3709,6 +4046,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -3728,24 +4066,27 @@ var SharedModule = /** @class */ (function () {
                 _components_customers_modal_customers_modal_component__WEBPACK_IMPORTED_MODULE_4__["CustomersModalComponent"],
                 _components_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_6__["CustomersListComponent"],
                 _components_poojas_modal_poojas_modal_component__WEBPACK_IMPORTED_MODULE_7__["PoojasModalComponent"],
-                _components_right_card_right_card_component__WEBPACK_IMPORTED_MODULE_8__["RightCardComponent"]
+                _components_right_card_right_card_component__WEBPACK_IMPORTED_MODULE_8__["RightCardComponent"],
+                _components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__["UserModalComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["InputsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["InputUtilitiesModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["IconsModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["TableModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["ModalModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["ButtonsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["CardsModule"]
             ],
-            exports: [_components_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_6__["CustomersListComponent"], _components_poojas_modal_poojas_modal_component__WEBPACK_IMPORTED_MODULE_7__["PoojasModalComponent"], _components_right_card_right_card_component__WEBPACK_IMPORTED_MODULE_8__["RightCardComponent"]],
+            exports: [_components_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_6__["CustomersListComponent"], _components_poojas_modal_poojas_modal_component__WEBPACK_IMPORTED_MODULE_7__["PoojasModalComponent"], _components_right_card_right_card_component__WEBPACK_IMPORTED_MODULE_8__["RightCardComponent"], _components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__["UserModalComponent"]],
             providers: [],
             entryComponents: [
                 _components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_2__["ConfirmModalComponent"],
                 _components_customers_modal_customers_modal_component__WEBPACK_IMPORTED_MODULE_4__["CustomersModalComponent"],
-                _components_poojas_modal_poojas_modal_component__WEBPACK_IMPORTED_MODULE_7__["PoojasModalComponent"]
+                _components_poojas_modal_poojas_modal_component__WEBPACK_IMPORTED_MODULE_7__["PoojasModalComponent"],
+                _components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__["UserModalComponent"]
             ]
         })
     ], SharedModule);
@@ -3785,6 +4126,7 @@ var environment = {
  * because it will have performance impact when throw error
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+// https://api.sreerajarajeswaridevi.org/dev/api_exec?api=login&user=kiranbose&pass=Littlepalace30&temple=root
 
 
 /***/ }),
@@ -3824,7 +4166,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\kiran\Audit-UI-Angular\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\git code\Audit-UI-Angular\src\main.ts */"./src/main.ts");
 
 
 /***/ })

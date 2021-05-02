@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white px-4 section-header\">\n  <h3>Customers list</h3>\n  <p class=\"grey-text pt-3\">Manage your customers list</p>\n</div>\n\n<div class=\"container-fluid pt-5 pb-5\">\n  <div class=\"pt-3 pb-5\">\n    <button mdbBtn color=\"primary\" (click)=\"onAddCustomer()\">Add new customer</button>\n\n    <div *ngIf=\"customers\" class=\"mt-4 white\">\n      <app-customers-list [customers]=\"customers\" (customerEdited)=\"onCustomerEdit($event)\" (customerDeleted)=\"onCustomerDelete($event)\"></app-customers-list>\n    </div>\n\n    <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 200px\">\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n        <span class=\"sr-only\">Loading...</span>\n      </div>\n    </div>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white px-4 section-header\">\r\n  <h3>Customers list</h3>\r\n  <p class=\"grey-text pt-3\">Manage your customers list</p>\r\n</div>\r\n\r\n<div class=\"container-fluid pt-5 pb-5\">\r\n  <div class=\"pt-3 pb-5\">\r\n    <button mdbBtn color=\"primary\" (click)=\"onAddCustomer()\">Add new customer</button>\r\n\r\n    <div *ngIf=\"customers\" class=\"mt-4 white\">\r\n      <app-customers-list [customers]=\"customers\" (customerEdited)=\"onCustomerEdit($event)\" (customerDeleted)=\"onCustomerDelete($event)\"></app-customers-list>\r\n    </div>\r\n\r\n    <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 200px\">\r\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n        <span class=\"sr-only\">Loading...</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -406,7 +406,7 @@ var CustomersEffects = /** @class */ (function () {
         this.store = store;
         this.query$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_customers_actions__WEBPACK_IMPORTED_MODULE_3__["CustomersActionTypes"].CUSTOMERS_QUERY), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
             var user = _a[1];
-            return _this.customersService.get(user.uid)
+            return _this.customersService.get(user.temple)
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (data) {
                 var customersData = data.map(function (res) {
                     var key = res.payload.key;
@@ -425,18 +425,18 @@ var CustomersEffects = /** @class */ (function () {
         }));
         this.added$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_customers_actions__WEBPACK_IMPORTED_MODULE_3__["CustomersActionTypes"].CUSTOMERS_ADDED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
             var payload = _a[0], user = _a[1];
-            return _this.customersService.add(payload.customer, user.uid);
+            return _this.customersService.add(payload.customer, user.temple);
         }));
         this.edit$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_customers_actions__WEBPACK_IMPORTED_MODULE_3__["CustomersActionTypes"].CUSTOMERS_EDITED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
             var payload = _a[0], user = _a[1];
-            return _this.customersService.update(payload.customer, user.uid)
+            return _this.customersService.update(payload.customer, user.temple)
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (error) {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _customers_actions__WEBPACK_IMPORTED_MODULE_3__["CustomersError"]({ error: error }));
             }));
         }));
         this.delete$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_customers_actions__WEBPACK_IMPORTED_MODULE_3__["CustomersActionTypes"].CUSTOMERS_DELETED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
             var payload = _a[0], user = _a[1];
-            return _this.customersService.delete(payload.customer, user.uid);
+            return _this.customersService.delete(payload.customer, user.temple);
         }));
     }
     CustomersEffects.ctorParameters = function () { return [
