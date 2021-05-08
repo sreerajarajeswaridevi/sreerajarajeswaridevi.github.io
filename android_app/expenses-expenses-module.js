@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-split-body [isLoading$]=\"isLoading$\">\r\n  <div class=\"left-section\">\r\n    <div class=\"white px-4 section-header\">\r\n      <h3>EXPENSES LIST</h3>\r\n      <p class=\"grey-text pt-3\">Manage your Expenses</p>\r\n    </div>\r\n  </div>\r\n  <div class=\"right-section\">\r\n    <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 200px\">\r\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n        <span class=\"sr-only\">Loading...</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</app-split-body>\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-split-body [isLoading$]=\"!isLoading$\">\r\n  <div class=\"left-section\">\r\n    <mdb-card>\r\n      <mdb-card-header class=\"w-100 d-flex justify-space-between bg-primary white-text\">\r\n        <div>\r\n          <blockquote class=\"text-left  blockquote bq-success\">\r\n            <h3 class=\"header\">Add Expense</h3>\r\n            <p class=\"py-0\">Add any expense here</p>\r\n          </blockquote>\r\n        </div>\r\n        <button mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"defaultDate\" [endDate]=\"endDate\"\r\n        (click)=\"dateClicked($event)\" header=\"Select Date\" (dateSelected)=\"datePicked($event)\">\r\n        <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> {{ selectedDate }}\r\n      </button>\r\n      </mdb-card-header>\r\n  \r\n      <mdb-card-body class=\"py-2\">\r\n        <form #expenseForm=\"ngForm\">\r\n\r\n          <div class=\"d-flex\">\r\n          <div class=\"md-form\">\r\n            <input type=\"text\" id=\"item\" name=\"item\" class=\"form-control\" [(ngModel)]=\"expense.item\" mdbInput mdbValidate [validateSuccess]=\"false\" #item=\"ngModel\" required>\r\n            <label for=\"item\">Item</label>\r\n            <mdb-error *ngIf=\"item && item.invalid && (item.dirty || item.touched)\">item is required</mdb-error>\r\n          </div>\r\n\r\n          </div>\r\n\r\n          <div class=\"md-form\" style=\"margin-top: 15px;\">\r\n            <textarea type=\"text\" id=\"description\" name=\"description\" class=\"my-0 py-0 md-textarea form-control\" \r\n            #description=\"ngModel\" [(ngModel)]=\"expense.description\" mdbInput mdbValidate\r\n              [validateSuccess]=\"false\" required></textarea>\r\n            <label for=\"description\">Description</label>\r\n            <mdb-error *ngIf=\"description && description.invalid && (description.dirty || description.touched)\">Description is required</mdb-error>\r\n          </div>\r\n\r\n          <div class=\"text-lg\">\r\n            <label for=\"cost\" class=\"grey-text\">Cost</label>\r\n            <div class=\"md-form d-flex mt-0\">\r\n              <span class=\"price\">&#x20B9;</span>\r\n              <input type=\"number\" class=\"price\" id=\"cost\" name=\"cost\" [(ngModel)]=\"expense.cost\" #cost=\"ngModel\" required>\r\n              <mdb-error *ngIf=\"cost && cost.invalid && (cost.dirty || cost.touched)\">Cost is required</mdb-error>\r\n            </div>\r\n          </div>\r\n\r\n        </form>\r\n      </mdb-card-body>\r\n      <mdb-card-footer class=\"d-flex\">\r\n        <button type=\"button\" mdbBtn color=\"white\" class=\"relative waves-light pull-right\" mdbWavesEffect (click)=\"expenseForm.reset()\">Clear\r\n          </button>\r\n        <button type=\"button\" mdbBtn color=\"success\" [disabled]=\"expenseForm.invalid\" class=\"relative waves-light pull-right\" mdbWavesEffect (click)=\"onSave()\">Save\r\n          </button>\r\n\r\n      </mdb-card-footer>\r\n    </mdb-card>\r\n    \r\n  </div>\r\n  <div class=\"right-section\">\r\n    <app-right-card [header]=\"'Todays Expenses'\">\r\n      <div class=\"card-header\">Todays Expenses</div>\r\n      <table mdbTable small=\"true\" striped=\"true\">\r\n        <tbody>\r\n          <tr>\r\n            <th scope=\"row\">Name 1</th>\r\n            <td>Star 1</td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">Name 2</th>\r\n            <td>Star 2</td>\r\n          </tr>\r\n          <tr>\r\n            <th scope=\"row\">Name 3</th>\r\n            <td>Star 3</td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n    </app-right-card>\r\n\r\n    <!-- <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 200px\">\r\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n        <span class=\"sr-only\">Loading...</span>\r\n      </div>\r\n    </div> -->\r\n  </div>\r\n</app-split-body>\r\n\r\n");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2V4cGVuc2VzL2NvbnRhaW5lcnMvZXhwZW5zZXMuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".justify-space-between {\n  justify-content: space-between;\n}\n\n.price {\n  font-size: 24px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZXhwZW5zZXMvY29udGFpbmVycy9DOlxcZ2l0IGNvZGVcXEF1ZGl0LVVJLUFuZ3VsYXIvc3JjXFxhcHBcXGV4cGVuc2VzXFxjb250YWluZXJzXFxleHBlbnNlcy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZXhwZW5zZXMvY29udGFpbmVycy9leHBlbnNlcy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLDhCQUFBO0FDQ0o7O0FERUE7RUFDSSxlQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9leHBlbnNlcy9jb250YWluZXJzL2V4cGVuc2VzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmp1c3RpZnktc3BhY2UtYmV0d2VlbiB7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbn1cclxuXHJcbi5wcmljZSB7XHJcbiAgICBmb250LXNpemU6IDI0cHg7XHJcbn1cclxuXHJcbiIsIi5qdXN0aWZ5LXNwYWNlLWJldHdlZW4ge1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG59XG5cbi5wcmljZSB7XG4gIGZvbnQtc2l6ZTogMjRweDtcbn0iXX0= */");
 
 /***/ }),
 
@@ -37,8 +37,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExpensesComponent", function() { return ExpensesComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var _store_expenses_selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/expenses.selectors */ "./src/app/expenses/store/expenses.selectors.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
+/* harmony import */ var _store_expenses_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/expenses.selectors */ "./src/app/expenses/store/expenses.selectors.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -54,23 +55,40 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
+var moment = __webpack_require__(/*! ../../../assets/datepicker/moment.js */ "./src/assets/datepicker/moment.js");
 var ExpensesComponent = /** @class */ (function () {
     function ExpensesComponent(store) {
         this.store = store;
+        this.expense = {};
+        this.defaultDate = moment();
+        this.startDate = moment();
+        this.endDate = moment().add('30', 'days');
+        this.selectedDate = moment().format('dddd DD/MM/YYYY');
     }
+    ExpensesComponent.prototype.datePicked = function (date) {
+        this.selectedDate = date.format('dddd DD/MM/YYYY');
+    };
+    ExpensesComponent.prototype.dateClicked = function (date) {
+        console.log(date);
+    };
     ExpensesComponent.prototype.ngOnInit = function () {
-        this.isLoading$ = this.store.select(_store_expenses_selectors__WEBPACK_IMPORTED_MODULE_2__["getIsLoading"]);
+        this.isLoading$ = this.store.select(_store_expenses_selectors__WEBPACK_IMPORTED_MODULE_3__["getIsLoading"]);
     };
     ExpensesComponent.ctorParameters = function () { return [
-        { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"] }
+        { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"] }
     ]; };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('expenseForm', { static: true }),
+        __metadata("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgForm"])
+    ], ExpensesComponent.prototype, "expenseForm", void 0);
     ExpensesComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-expenses',
             template: __importDefault(__webpack_require__(/*! raw-loader!./expenses.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/expenses/containers/expenses.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./expenses.component.scss */ "./src/app/expenses/containers/expenses.component.scss")).default]
         }),
-        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"]])
+        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"]])
     ], ExpensesComponent);
     return ExpensesComponent;
 }());
@@ -142,6 +160,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm5/effects.js");
 /* harmony import */ var _store_expenses_effects__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./store/expenses.effects */ "./src/app/expenses/store/expenses.effects.ts");
 /* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../core/core.module */ "./src/app/core/core.module.ts");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -151,6 +170,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -173,10 +193,13 @@ var ExpensesModule = /** @class */ (function () {
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["ModalModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["ButtonsModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["InputUtilitiesModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["InputsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["IconsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["TableModule"],
                 _core_core_module__WEBPACK_IMPORTED_MODULE_10__["CoreModule"],
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_11__["SharedModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["CardsModule"],
                 _ngrx_store__WEBPACK_IMPORTED_MODULE_7__["StoreModule"].forFeature('expenses', _store_expenses_reducer__WEBPACK_IMPORTED_MODULE_6__["ExpensesReducer"]),
                 _ngrx_effects__WEBPACK_IMPORTED_MODULE_8__["EffectsModule"].forFeature([_store_expenses_effects__WEBPACK_IMPORTED_MODULE_9__["ExpensesEffects"]])
             ],

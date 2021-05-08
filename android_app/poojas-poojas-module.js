@@ -117,7 +117,7 @@ var PoojasComponent = /** @class */ (function () {
                 price: pooja.price
             } }));
         this.modalRef.content.poojasData.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["take"])(1)).subscribe(function (pooja) {
-            _this.store.dispatch(new _store_poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasAdded"]({ poojas: pooja }));
+            _this.store.dispatch(new _store_poojas_actions__WEBPACK_IMPORTED_MODULE_3__["RegisterPooja"]({ poojas: pooja }));
         });
     };
     PoojasComponent.ctorParameters = function () { return [
@@ -269,6 +269,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -297,8 +308,8 @@ var PoojasService = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    PoojasService.prototype.add = function (poojas, userId) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([poojas, userId]);
+    PoojasService.prototype.add = function (newPooja) {
+        return this.http.post(src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].apiUrl + "/users", __assign({}, newPooja));
     };
     PoojasService.prototype.addPoojas = function (poojas) {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(poojas);
@@ -322,85 +333,6 @@ var PoojasService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], PoojasService);
     return PoojasService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/poojas/store/poojas.actions.ts":
-/*!************************************************!*\
-  !*** ./src/app/poojas/store/poojas.actions.ts ***!
-  \************************************************/
-/*! exports provided: PoojasActionTypes, PoojasQuery, PoojasLoaded, PoojasAdded, PoojasEdited, PoojasDeleted, PoojasError */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoojasActionTypes", function() { return PoojasActionTypes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoojasQuery", function() { return PoojasQuery; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoojasLoaded", function() { return PoojasLoaded; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoojasAdded", function() { return PoojasAdded; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoojasEdited", function() { return PoojasEdited; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoojasDeleted", function() { return PoojasDeleted; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoojasError", function() { return PoojasError; });
-var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
-  return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-var PoojasActionTypes;
-(function (PoojasActionTypes) {
-    PoojasActionTypes["POOJAS_QUERY"] = "[Poojas] Query";
-    PoojasActionTypes["POOJAS_LOADED"] = "[Poojas] Fetched";
-    PoojasActionTypes["POOJAS_ADDED"] = "[Poojas] Added";
-    PoojasActionTypes["POOJAS_EDITED"] = "[Poojas] Edited";
-    PoojasActionTypes["POOJAS_DELETED"] = "[Poojas] Deleted";
-    PoojasActionTypes["POOJAS_ERROR"] = "[Poojas] Error";
-})(PoojasActionTypes || (PoojasActionTypes = {}));
-var PoojasQuery = /** @class */ (function () {
-    function PoojasQuery() {
-        this.type = PoojasActionTypes.POOJAS_QUERY;
-    }
-    return PoojasQuery;
-}());
-
-var PoojasLoaded = /** @class */ (function () {
-    function PoojasLoaded(payload) {
-        this.payload = payload;
-        this.type = PoojasActionTypes.POOJAS_LOADED;
-    }
-    return PoojasLoaded;
-}());
-
-var PoojasAdded = /** @class */ (function () {
-    function PoojasAdded(payload) {
-        this.payload = payload;
-        this.type = PoojasActionTypes.POOJAS_ADDED;
-    }
-    return PoojasAdded;
-}());
-
-var PoojasEdited = /** @class */ (function () {
-    function PoojasEdited(payload) {
-        this.payload = payload;
-        this.type = PoojasActionTypes.POOJAS_EDITED;
-    }
-    return PoojasEdited;
-}());
-
-var PoojasDeleted = /** @class */ (function () {
-    function PoojasDeleted(payload) {
-        this.payload = payload;
-        this.type = PoojasActionTypes.POOJAS_DELETED;
-    }
-    return PoojasDeleted;
-}());
-
-var PoojasError = /** @class */ (function () {
-    function PoojasError(payload) {
-        this.payload = payload;
-        this.type = PoojasActionTypes.POOJAS_ERROR;
-    }
-    return PoojasError;
 }());
 
 
@@ -474,10 +406,14 @@ var PoojasEffects = /** @class */ (function () {
             _this.toastr.error('Something went wrong. Please try after sometime');
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasError"]({ error: error }));
         })); }));
-        this.added$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasActionTypes"].POOJAS_ADDED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
-            var payload = _a[0], user = _a[1];
-            return _this.poojasService.add(payload.customer, user.temple);
-        }));
+        this.added$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasActionTypes"].POOJAS_ADD_QUERY), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_poojas_selectors__WEBPACK_IMPORTED_MODULE_8__["getPoojas"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (payload) { return _this.poojasService.add(payload.poojas)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (list) {
+            console.log(list.data);
+            return (new _poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasQuery"]());
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (error) {
+            _this.toastr.error('Something went wrong. Please try after sometime');
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasError"]({ error: error }));
+        })); }));
         this.edit$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasActionTypes"].POOJAS_EDITED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
             var payload = _a[0], user = _a[1];
             return _this.poojasService.update(payload.customer, user.temple)
@@ -502,7 +438,7 @@ var PoojasEffects = /** @class */ (function () {
         __metadata("design:type", Object)
     ], PoojasEffects.prototype, "query$", void 0);
     __decorate([
-        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])({ dispatch: false }),
+        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
         __metadata("design:type", Object)
     ], PoojasEffects.prototype, "added$", void 0);
     __decorate([
@@ -558,6 +494,11 @@ function PoojasReducer(state, action) {
                 isLoading: false,
             });
         }
+        case _poojas_actions__WEBPACK_IMPORTED_MODULE_1__["PoojasActionTypes"].POOJAS_ADD_QUERY: {
+            return Object.assign({}, state, {
+                isLoading: true,
+            });
+        }
         case _poojas_actions__WEBPACK_IMPORTED_MODULE_1__["PoojasActionTypes"].POOJAS_ERROR: {
             return Object.assign({}, state, {
                 isLoading: false,
@@ -568,32 +509,6 @@ function PoojasReducer(state, action) {
             return state;
     }
 }
-
-
-/***/ }),
-
-/***/ "./src/app/poojas/store/poojas.selectors.ts":
-/*!**************************************************!*\
-  !*** ./src/app/poojas/store/poojas.selectors.ts ***!
-  \**************************************************/
-/*! exports provided: getPoojasState, getPoojas, getIsLoading, getError */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPoojasState", function() { return getPoojasState; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPoojas", function() { return getPoojas; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getIsLoading", function() { return getIsLoading; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getError", function() { return getError; });
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
-var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
-  return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-
-var getPoojasState = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createFeatureSelector"])('poojas');
-var getPoojas = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getPoojasState, function (poojas) { return poojas.poojas; });
-var getIsLoading = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getPoojasState, function (poojas) { return poojas.isLoading; });
-var getError = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getPoojasState, function (poojas) { return poojas.error; });
 
 
 /***/ }),
