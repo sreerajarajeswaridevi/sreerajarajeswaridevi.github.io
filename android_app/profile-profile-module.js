@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mdb-card>\r\n  <mdb-card-body>\r\n    <h3 class=\"h2-responsive mb-4\">\r\n      <strong>Edit profile</strong>\r\n    </h3>\r\n\r\n    <!--Body-->\r\n    <form [formGroup]=\"updateProfileForm\">\r\n      <h5 class=\"h5-responsive\">Display name</h5>\r\n      <div class=\"md-form\">\r\n        <i class=\"fa fa-user prefix\"></i>\r\n        <input type=\"text\" id=\"form1\" class=\"form-control\" mdbInput formControlName=\"displayName\" />\r\n        <label for=\"form1\">Display name</label>\r\n      </div>\r\n\r\n      <h5 class=\"h5-responsive\">Photo Url</h5>\r\n      <div class=\"md-form\">\r\n        <i class=\"fa fa-user prefix\"></i>\r\n        <input type=\"text\" id=\"form2\" class=\"form-control\" mdbInput formControlName=\"photoUrl\" />\r\n        <label for=\"form2\">Photo Url</label>\r\n      </div>\r\n\r\n      <div class=\"text-right\">\r\n        <button type=\"button\" mdbBtn color=\"primary\" (click)=\"onProfileUpdate()\">Update profile</button>\r\n      </div>\r\n    </form>\r\n  </mdb-card-body>\r\n</mdb-card>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mdb-card>\r\n  <mdb-card-body>\r\n    <h3 class=\"h2-responsive mb-4\">\r\n      <strong>Profile data</strong>\r\n    </h3>\r\n\r\n    <!--Body-->\r\n    <!-- <form [formGroup]=\"updateProfileForm\"> -->\r\n      <table>\r\n        <tbody>\r\n      <tr>\r\n        <td>\r\n          <h5 class=\"h5-responsive mr-4 grey-text\">User Name</h5>\r\n        </td>\r\n        <td>\r\n        <blockquote class=\"blockquote bq-success\">{{ user.username }}</blockquote>\r\n      </td>\r\n      </tr>\r\n      <tr>\r\n        <td>\r\n          <h5 class=\"h5-responsive mr-4 grey-text\">Email</h5>\r\n        </td>\r\n  \r\n        <td>\r\n          <blockquote class=\"blockquote bq-success\">{{ user.email }}</blockquote>\r\n        </td>\r\n        \r\n      </tr>\r\n      <tr>\r\n        <td>\r\n          <h5 class=\"h5-responsive mr-4 grey-text\">Role</h5>\r\n        </td>\r\n        <td>\r\n          <blockquote class=\"blockquote bq-success\">{{ user.role }}</blockquote>\r\n        </td>\r\n          \r\n      </tr>\r\n      <tr>\r\n        <td>\r\n          <h5 class=\"h5-responsive mr-4 grey-text\">Temple</h5>\r\n        </td>\r\n        <td>\r\n          <blockquote class=\"blockquote bq-success\">{{ user.temple }}</blockquote>\r\n        </td>\r\n          \r\n      </tr>\r\n    </tbody>\r\n    </table>\r\n      <!-- <div class=\"text-right\">\r\n        <button type=\"button\" mdbBtn color=\"primary\" (click)=\"onProfileUpdate()\">Update profile</button>\r\n      </div> -->\r\n    <!-- </form> -->\r\n  </mdb-card-body>\r\n</mdb-card>\r\n");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white px-4 section-header\">\r\n  <h3>Profile</h3>\r\n  <p class=\"grey-text pt-3\">Change your personal information</p>\r\n</div>\r\n\r\n<div class=\"container py-5\">\r\n  <div class=\"row mx-auto py-5\">\r\n    <div class=\"col-md-4 mt-3\">\r\n      <app-profile-user [user]=\"user$ | async\" (logout)=\"logoutUser($event)\"></app-profile-user>\r\n    </div>\r\n    <div class=\"col-md-8 mt-3\">\r\n        <app-main-profile [user]=\"user$ | async\" (profileUpdate)=\"updateProfile($event)\"></app-main-profile>\r\n    </div>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white px-4 py-2\">\r\n  <blockquote class=\"text-left  blockquote bq-success\">\r\n    <h3 class=\"header\">Settings</h3>\r\n    <p class=\"py-0\">Change your pooja and profile settings here</p>\r\n  </blockquote>\r\n</div>\r\n\r\n<app-pooja-list *ngIf=\"user.role === 'manager'\"></app-pooja-list>\r\n\r\n\r\n<div class=\"container py-5\">\r\n  <div class=\"row mx-auto py-5\">\r\n    <div class=\"col-md-4 mt-3\">\r\n      <app-profile-user [user]=\"user$ | async\" (logout)=\"logoutUser($event)\"></app-profile-user>\r\n    </div>\r\n    <div class=\"col-md-8 mt-3\">\r\n      <app-main-profile [user]=\"user$ | async\" (profileUpdate)=\"updateProfile($event)\"></app-main-profile>\r\n    </div>\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -230,7 +230,11 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 var ProfileComponent = /** @class */ (function () {
     function ProfileComponent(store) {
+        var _this = this;
         this.store = store;
+        this.store.select(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_2__["getUser"]).subscribe(function (user) {
+            _this.user = user;
+        });
     }
     ProfileComponent.prototype.ngOnInit = function () {
         this.user$ = this.store.select(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_2__["getUser"]);
@@ -323,6 +327,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profile_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./profile-routing.module */ "./src/app/profile/profile-routing.module.ts");
 /* harmony import */ var _components_main_profile_main_profile_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/main-profile/main-profile.component */ "./src/app/profile/components/main-profile/main-profile.component.ts");
 /* harmony import */ var _components_profile_user_profile_user_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/profile-user/profile-user.component */ "./src/app/profile/components/profile-user/profile-user.component.ts");
+/* harmony import */ var _poojas_poojas_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../poojas/poojas.module */ "./src/app/poojas/poojas.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -332,6 +337,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -352,7 +358,8 @@ var ProfileModule = /** @class */ (function () {
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["ButtonsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["InputsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _poojas_poojas_module__WEBPACK_IMPORTED_MODULE_8__["PoojasModule"]
             ],
             declarations: [_containers_profile_component__WEBPACK_IMPORTED_MODULE_4__["ProfileComponent"], _components_main_profile_main_profile_component__WEBPACK_IMPORTED_MODULE_6__["MainProfileComponent"], _components_profile_user_profile_user_component__WEBPACK_IMPORTED_MODULE_7__["ProfileUserComponent"]],
             exports: [_containers_profile_component__WEBPACK_IMPORTED_MODULE_4__["ProfileComponent"]]
