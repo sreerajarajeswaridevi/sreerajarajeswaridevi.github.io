@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"temples-list d-flex flex-wrap my-4\" ngif=\"temples?.length > 0\">\r\n  <mdb-card>\r\n    <mdb-card-header class=\"text-left bg-primary white-text w-100\">\r\n      <blockquote class=\"blockquote bq-success\">\r\n        <h3 class=\"header\">Temples List</h3>\r\n        <p class=\"py-0\">Add or remove temples (for Admin)</p>\r\n      </blockquote>\r\n    </mdb-card-header>\r\n    <mdb-card-body class=\"py-2\">\r\n      <form #templeForm=\"ngForm\">\r\n      <table mdbTable striped=\"true\">\r\n          <thead>\r\n            <tr>\r\n              <th>Temple Name</th>\r\n              <th>Code</th>\r\n              <th>Email</th>\r\n              <th>Address</th>\r\n              <th *ngIf=\"isAdmin\">Added By</th>\r\n            </tr>\r\n          </thead>\r\n          <tbody>\r\n            <tr *ngFor=\"let item of temples\">\r\n              <td scope=\"row\">{{ item.temple_name }}</td>\r\n              <td>{{ item.temple_code }}</td>\r\n              <td>{{ item.temple_email }}</td>\r\n              <td>{{ item.temple_address }}</td>\r\n              <td *ngIf=\"isAdmin\">{{ item.added_by }}</td>\r\n            </tr>\r\n            <tr class=\"bg-white\" *ngIf=\"!(isLoading$ | async)\">\r\n              <td>\r\n                <div class=\"md-form\">\r\n                  <input type=\"text\" id=\"add_temple_temple_name\" name=\"temple_name\" class=\"form-control\" #temple_name=\"ngModel\"\r\n                    [(ngModel)]=\"newTemple.temple_name\" mdbInput mdbValidate [validateSuccess]=\"false\" required>\r\n                  <label for=\"temple_name\">Temple Name</label>\r\n                  <mdb-error *ngIf=\"temple_name && temple_name.invalid && (temple_name.dirty || temple_name.touched)\">Temple\r\n                    name is required</mdb-error>\r\n                </div>\r\n              </td>\r\n              <td>\r\n                <div class=\"md-form\">\r\n                  <input type=\"text\" id=\"add_temple_temple_code\" name=\"temple_code\" class=\"form-control\" #temple_code=\"ngModel\"\r\n                    [(ngModel)]=\"newTemple.temple_code\" mdbInput mdbValidate [validateSuccess]=\"false\" required>\r\n                  <label for=\"temple_code\">Temple Code</label>\r\n                  <mdb-error *ngIf=\"temple_code && temple_code.invalid && (temple_code.dirty || temple_code.touched)\">Temple\r\n                    Code is required</mdb-error>\r\n                </div>\r\n              </td>\r\n              <td>\r\n                <div class=\"md-form\">\r\n                  <input type=\"text\" id=\"add_temple_email\" name=\"temple_email\" class=\"form-control\" #temple_email=\"ngModel\"\r\n                    [(ngModel)]=\"newTemple.temple_email\" mdbInput mdbValidate [validateSuccess]=\"false\" required>\r\n                  <label for=\"temple_email\">Email</label>\r\n                  <mdb-error *ngIf=\"temple_email && temple_email.invalid && (temple_email.dirty || temple_email.touched)\">Email is required\r\n                  </mdb-error>\r\n                </div>\r\n              </td>\r\n              <td class=\"d-flex align-content-center justify-items-center\">\r\n                <div class=\"md-form\" style=\"margin-top: 15px;\">\r\n                  <textarea type=\"text\" id=\"add_temple_address\" name=\"temple_address\" class=\"my-0 py-0 md-textarea form-control\"\r\n                    #temple_address=\"ngModel\" [(ngModel)]=\"newTemple.temple_address\" mdbInput mdbValidate\r\n                    [validateSuccess]=\"false\"></textarea>\r\n                  <label for=\"temple_address\">Address</label>\r\n                  <!-- <mdb-error *ngIf=\"address && address.invalid && (address.dirty || address.touched)\">Address is required</mdb-error> -->\r\n                </div>\r\n                <button mdbBtn [disabled]=\"templeForm?.invalid || loadingAddTemple\" class=\"mt-4 btn btn-floating add\"\r\n                  (click)=\"onAddTemple()\" size=\"sm\" gradient=\"purple\" mdbWavesEffect>\r\n                  <mdb-icon fas icon=\"plus\" class=\"white-text\"></mdb-icon> <span class=\"pl-2 white-text\">Add</span>\r\n                </button>\r\n                <!-- <a class=\"btn btn-primary btn-floating\" (click)=\"onAddTemple()\" style=\"background-color: #3b5998; height: 45px\" href=\"javascript:void(0)\" role=\"button\"\r\n                    >\r\n                    Add\r\n                  </a> -->\r\n              </td>\r\n              <td></td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n        \r\n        <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center my-4\">\r\n        <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n          <span class=\"sr-only\">Loading...</span>\r\n        </div>\r\n      </div>\r\n    </form>\r\n      </mdb-card-body>\r\n  </mdb-card>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"temples-list d-flex flex-wrap my-4\" ngif=\"temples?.length > 0\">\r\n  <mdb-card>\r\n    <mdb-card-header class=\"text-left bg-primary white-text w-100\">\r\n      <blockquote class=\"blockquote bq-success\">\r\n        <h3 class=\"header\">Temples List</h3>\r\n        <p class=\"py-0\">Add or remove temples (for Admin)</p>\r\n      </blockquote>\r\n    </mdb-card-header>\r\n    <mdb-card-body class=\"py-2\">\r\n      <form #templeForm=\"ngForm\">\r\n      <table mdbTable striped=\"true\">\r\n          <thead>\r\n            <tr>\r\n              <th>Temple Name</th>\r\n              <th>Code</th>\r\n              <th>Email</th>\r\n              <th>Address</th>\r\n              <th *ngIf=\"isAdmin\">Added By</th>\r\n            </tr>\r\n          </thead>\r\n          <tbody>\r\n            <tr *ngFor=\"let item of temples\">\r\n              <td scope=\"row\">{{ item.temple_name }}</td>\r\n              <td>{{ item.temple_code }}</td>\r\n              <td>{{ item.temple_email }}</td>\r\n              <td>{{ item.temple_address }}</td>\r\n              <td *ngIf=\"isAdmin\">{{ item.added_by }}</td>\r\n            </tr>\r\n            <tr class=\"bg-white\" *ngIf=\"!(isLoading$ | async)\">\r\n              <td>\r\n                <div class=\"md-form\">\r\n                  <input type=\"text\" id=\"add_temple_temple_name\" name=\"temple_name\" class=\"form-control\" #temple_name=\"ngModel\"\r\n                    [(ngModel)]=\"newTemple.temple_name\" mdbInput mdbValidate [validateSuccess]=\"false\" required>\r\n                  <label for=\"temple_name\">Temple Name</label>\r\n                  <mdb-error *ngIf=\"temple_name && temple_name.invalid && (temple_name.dirty || temple_name.touched)\">Temple\r\n                    name is required</mdb-error>\r\n                </div>\r\n              </td>\r\n              <td>\r\n                <div class=\"md-form\">\r\n                  <input type=\"text\" id=\"add_temple_temple_code\" name=\"temple_code\" class=\"form-control\" #temple_code=\"ngModel\"\r\n                    [(ngModel)]=\"newTemple.temple_code\" mdbInput mdbValidate [validateSuccess]=\"false\" required>\r\n                  <label for=\"temple_code\">Temple Code</label>\r\n                  <mdb-error *ngIf=\"temple_code && temple_code.invalid && (temple_code.dirty || temple_code.touched)\">Temple\r\n                    Code is required</mdb-error>\r\n                </div>\r\n              </td>\r\n              <td>\r\n                <div class=\"md-form\">\r\n                  <input type=\"text\" id=\"add_temple_email\" name=\"temple_email\" class=\"form-control\" #temple_email=\"ngModel\"\r\n                    [(ngModel)]=\"newTemple.temple_email\" mdbInput mdbValidate [validateSuccess]=\"false\" required>\r\n                  <label for=\"temple_email\">Email</label>\r\n                  <mdb-error *ngIf=\"temple_email && temple_email.invalid && (temple_email.dirty || temple_email.touched)\">Email is required\r\n                  </mdb-error>\r\n                </div>\r\n              </td>\r\n              <td>\r\n                <div class=\"md-form\" style=\"margin-top: 15px;\">\r\n                  <textarea type=\"text\" id=\"add_temple_address\" name=\"temple_address\" class=\"my-0 py-0 md-textarea form-control\"\r\n                    #temple_address=\"ngModel\" [(ngModel)]=\"newTemple.temple_address\" mdbInput mdbValidate\r\n                    [validateSuccess]=\"false\"></textarea>\r\n                  <label for=\"temple_address\">Address</label>\r\n                  <!-- <mdb-error *ngIf=\"address && address.invalid && (address.dirty || address.touched)\">Address is required</mdb-error> -->\r\n                </div>\r\n                <!-- <a class=\"btn btn-primary btn-floating\" (click)=\"onAddTemple()\" style=\"background-color: #3b5998; height: 45px\" href=\"javascript:void(0)\" role=\"button\"\r\n                    >\r\n                    Add\r\n                  </a> -->\r\n              </td>\r\n              <td>\r\n                <button mdbBtn [disabled]=\"templeForm?.invalid || loadingAddTemple\" class=\"mt-4 btn btn-floating add\"\r\n                  (click)=\"onAddTemple()\" size=\"sm\" gradient=\"purple\" mdbWavesEffect>\r\n                  <mdb-icon fas icon=\"plus\" class=\"white-text\"></mdb-icon> <span class=\"pl-2 white-text\">Add</span>\r\n                </button>\r\n              </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n        \r\n        <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center my-4\">\r\n        <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n          <span class=\"sr-only\">Loading...</span>\r\n        </div>\r\n      </div>\r\n    </form>\r\n      </mdb-card-body>\r\n  </mdb-card>");
 
 /***/ }),
 
@@ -23,32 +23,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<mdb-card class=\"mb-4\">\r\n  <mdb-card-body class=\"py-4\">\r\n    <div class=\"mb-5 back-button\" (click)=\"closeDetails()\">\r\n      <mdb-icon fas icon=\"arrow-left\" class=\"mr-2\"></mdb-icon>\r\n      <span>Back to user list</span>\r\n    </div>\r\n    <div class=\"d-flex flex-row justify-content-between flex-wrap\">\r\n      <div class=\"d-flex flex-row\">\r\n        <div class=\"mr-4\">\r\n          <img *ngIf=\"user.photoUrl\" src=\"{{ user.photoUrl }}\" height=\"90\" width=\"90\" class=\"rounded-circle z-depth-0\"\r\n            alt=\"avatar image\">\r\n        </div>\r\n\r\n        <div class=\"pt-2\">\r\n          <h4>{{ user.displayName }}</h4>\r\n          <div>\r\n            <span class=\"mr-2\">\r\n            </span>\r\n            <span>\r\n              <mdb-badge *ngIf=\"user.isAdmin\" color=\"purple\">Admin</mdb-badge>\r\n            </span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"mt-3\">\r\n        <button *ngIf=\"!user.isAdmin\" mdbBtn outline=\"true\" color=\"red\" (click)=\"onAddAdmin()\">Add admin privileges</button>\r\n        <button *ngIf=\"user.isAdmin\" mdbBtn outline=\"true\" color=\"red\" (click)=\"onRemoveAdmin()\">Remove admin\r\n          privileges</button>\r\n      </div>\r\n    </div>\r\n\r\n    <hr class=\"my-5\">\r\n\r\n    <div class=\"d-flex flex-row align-items-center\">\r\n      <h4 class=\"mr-3\">Projects</h4>\r\n      <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"loadProjects()\">Load user projects</button>\r\n    </div>\r\n\r\n    <div *ngIf=\"userProjectsLoading\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 50px\">\r\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n        <span class=\"sr-only\">Loading...</span>\r\n      </div>\r\n    </div>\r\n\r\n\r\n    <hr class=\"my-5\">\r\n\r\n    <div class=\"d-flex flex-row align-items-center mb-4\">\r\n      <h4 class=\"mr-3\">Customers</h4>\r\n      <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"loadCustomers()\">Load user customers</button>\r\n    </div>\r\n\r\n    <div *ngIf=\"userCustomersLoading\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 50px\">\r\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n        <span class=\"sr-only\">Loading...</span>\r\n      </div>\r\n    </div>\r\n\r\n    <app-customers-list *ngIf=\"!userCustomersLoading && customers\" [customers]=\"customers\" (customerDeleted)=\"onCustomerDelete($event)\"></app-customers-list>\r\n  </mdb-card-body>\r\n</mdb-card>\r\n");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/components/user/user.component.html":
-/*!*************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/admin/components/user/user.component.html ***!
-  \*************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mdb-card>\r\n  <mdb-card-header class=\"text-center bg-primary white-text\">\r\n    {{ user?.temple }}\r\n  </mdb-card-header>\r\n  <mdb-card-body class=\"text-center py-2\">\r\n    <div>\r\n      <span class=\"float-left\">\r\n        <mdb-badge *ngIf=\"user.role\" [color]=\"getColor(user.role)\">{{ user.role }}</mdb-badge>\r\n      </span>\r\n      <mdb-icon fas icon=\"trash\" class=\"float-right delete grey-text\" (click)=\"deleteUser()\" alt=\"Delete user\"></mdb-icon>\r\n    </div>\r\n    <div class=\"mt-5\">\r\n      <img *ngIf=\"user.avatar\" src=\"{{ user.avatar }}\" height=\"90\" width=\"90\" class=\"rounded-circle z-depth-0\" alt=\"avatar image\">\r\n    </div>\r\n    <div class=\"mt-3 username\">\r\n      {{ user.username }}\r\n    </div>\r\n    <p class=\"grey-text small\">{{user.email}}</p>\r\n  </mdb-card-body>\r\n</mdb-card>\r\n");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/components/users-list/users-list.component.html":
-/*!*************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/admin/components/users-list/users-list.component.html ***!
-  \*************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"users-list d-flex flex-wrap\">\r\n  <div class=\"user\" *ngFor=\"let user of users; trackBy: trackByFn\">\r\n    <app-user [user]=\"user\" (userSelected)=\"onUserSelected($event)\" (addAdmin)=\"onAddAdmin($event)\" (removeUser)=\"onDeleteUser($event)\"></app-user>\r\n  </div>\r\n  <div class=\"user\">\r\n    <mdb-card class=\"flex-wrap py-2 add-card h-100\" (click)=\"onAddUser($event)\">\r\n      <mdb-card-body class=\"text-center my-4 py-4 d-flex flex-column align-items-center justify-content-center\">\r\n        <div class=\"my-4\">\r\n          <mdb-icon fas icon=\"plus\" class=\"float-right mt-1 add fa-lg grey-text\" alt=\"Add user\"></mdb-icon>\r\n        </div>\r\n        <p class=\"grey-text\">Add User</p>\r\n      </mdb-card-body>\r\n    </mdb-card>\r\n  </div>\r\n  \r\n</div>\r\n");
 
 /***/ }),
 
@@ -269,7 +243,33 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"modal-content\">\r\n  <div class=\"modal-header\">\r\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n      <span aria-hidden=\"true\">×</span>\r\n    </button>\r\n    <h4 class=\"modal-title w-100\" id=\"myModalLabel\">{{ heading }}</h4>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <form #userForm=\"ngForm\">\r\n\r\n      <div class=\"md-form\">\r\n        <input type=\"text\" id=\"add_user_username\" name=\"username\" class=\"form-control\" [(ngModel)]=\"user.username\" mdbInput mdbValidate [validateSuccess]=\"false\" #username=\"ngModel\" required>\r\n        <label for=\"username\">Username</label>\r\n        <mdb-error *ngIf=\"username && username.invalid && (username.dirty || username.touched)\">username is required</mdb-error>\r\n      </div>\r\n\r\n      <div class=\"md-form\">\r\n        <input type=\"password\" id=\"add_user_password\" name=\"password\" class=\"form-control\" [(ngModel)]=\"user.password\" mdbInput mdbValidate [validateSuccess]=\"false\" #password=\"ngModel\" required>\r\n        <label for=\"password\">password</label>\r\n        <mdb-error *ngIf=\"password && password.invalid && (password.dirty || password.touched)\">password is required</mdb-error>\r\n      </div>\r\n\r\n      <div class=\"md-form\">\r\n        <input type=\"email\" id=\"add_user_email\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$\" name=\"email\" class=\"form-control\" [(ngModel)]=\"user.email\" mdbInput mdbValidate [validateSuccess]=\"false\" #email=\"ngModel\" required>\r\n        <label for=\"email\">Email</label>\r\n        <mdb-error *ngIf=\"email && email.invalid && (email.dirty || email.touched)\">Email is required</mdb-error>\r\n      </div>\r\n\r\n      <!-- <div class=\"md-form\">\r\n        <input type=\"text\" id=\"add_user_temple\" name=\"temple\" class=\"form-control\" [(ngModel)]=\"user.temple\" mdbInput mdbValidate [validateSuccess]=\"false\" #temple=\"ngModel\" required>\r\n        <label for=\"temple\">Temple</label>\r\n        <mdb-error *ngIf=\"temple && temple.invalid && (temple.dirty || temple.touched)\">Temple is required</mdb-error>\r\n      </div> -->\r\n\r\n      <label for=\"role\">Temple</label>\r\n      <div class=\"md-form mt-0\">\r\n        <select class=\"browser-default custom-select form-control pl-1\" type=\"select\" id=\"add_user_temple\" name=\"temple\" [(ngModel)]=\"user.temple\" mdbSelect mdbValidate [validateSuccess]=\"false\" #temple=\"ngModel\" required>\r\n          <option value=\"\" disabled selected hidden>Select user temple</option>\r\n          <option [value]=\"temple.temple_code\" *ngFor=\"let temple of templeList\">{{ temple.temple_name }}</option>\r\n        </select>\r\n        <mdb-error *ngIf=\"temple && temple.invalid && (temple.dirty || temple.touched)\">temple is required</mdb-error>\r\n    </div>\r\n\r\n      <label for=\"role\">Role</label>\r\n      <div class=\"md-form mt-0\">\r\n        <select class=\"browser-default custom-select form-control pl-1\" type=\"select\" id=\"add_user_role\" name=\"role\" [(ngModel)]=\"user.role\" mdbSelect mdbValidate [validateSuccess]=\"false\" #role=\"ngModel\" required>\r\n          <option value=\"\" disabled selected hidden>Select user role</option>\r\n          <option value=\"admin\" *ngIf=\"isAdmin\">admin</option>\r\n          <option value=\"manager\">manager</option>\r\n          <option value=\"user\">user</option>\r\n        </select>\r\n        <mdb-error *ngIf=\"role && role.invalid && (role.dirty || role.touched)\">role is required</mdb-error>\r\n    </div>\r\n\r\n\r\n\r\n    </form>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" mdbBtn color=\"white\" class=\"black-text waves-light\" aria-label=\"Close\" (click)=\"modalRef.hide()\"\r\n      mdbWavesEffect>Close</button>\r\n    <button type=\"button\" mdbBtn color=\"success\" [disabled]=\"userForm.invalid\" class=\"relative waves-light\" mdbWavesEffect (click)=\"onSave()\">Save</button>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"modal-content\">\r\n  <div class=\"modal-header\">\r\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n      <span aria-hidden=\"true\">×</span>\r\n    </button>\r\n    <h4 class=\"modal-title w-100\" id=\"myModalLabel\">{{ heading }}</h4>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <form #userForm=\"ngForm\">\r\n\r\n      <div class=\"d-flex align-items-center\">\r\n      <div class=\"md-form w-100\">\r\n          <input type=\"text\" id=\"add_user_username\" name=\"username\" class=\"form-control\" [(ngModel)]=\"user.username\" mdbInput mdbValidate [validateSuccess]=\"false\" #username=\"ngModel\" required>\r\n          <label for=\"username\">Username</label>\r\n          <mdb-error *ngIf=\"username && username.invalid && (username.dirty || username.touched)\">username is required</mdb-error>\r\n        </div>\r\n        <span *ngIf=\"user.temple_code\">@{{ user.temple_code }}</span>\r\n      </div>\r\n\r\n      <div class=\"md-form\">\r\n        <input type=\"password\" id=\"add_user_password\" name=\"password\" class=\"form-control\" [(ngModel)]=\"user.password\" mdbInput mdbValidate [validateSuccess]=\"false\" #password=\"ngModel\" required>\r\n        <label for=\"password\">password</label>\r\n        <mdb-error *ngIf=\"password && password.invalid && (password.dirty || password.touched)\">password is required</mdb-error>\r\n      </div>\r\n\r\n      <div class=\"md-form\">\r\n        <input type=\"email\" id=\"add_user_email\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$\" name=\"email\" class=\"form-control\" [(ngModel)]=\"user.email\" mdbInput mdbValidate [validateSuccess]=\"false\" #email=\"ngModel\" required>\r\n        <label for=\"email\">Email</label>\r\n        <mdb-error *ngIf=\"email && email.invalid && (email.dirty || email.touched)\">Email is required</mdb-error>\r\n      </div>\r\n\r\n      <!-- <div class=\"md-form\">\r\n        <input type=\"text\" id=\"add_user_temple\" name=\"temple\" class=\"form-control\" [(ngModel)]=\"user.temple\" mdbInput mdbValidate [validateSuccess]=\"false\" #temple=\"ngModel\" required>\r\n        <label for=\"temple\">Temple</label>\r\n        <mdb-error *ngIf=\"temple && temple.invalid && (temple.dirty || temple.touched)\">Temple is required</mdb-error>\r\n      </div> -->\r\n\r\n      <label for=\"role\" *ngIf=\"templeList.length > 1\">Temple</label>\r\n      <div class=\"md-form mt-0\" *ngIf=\"templeList.length > 1\">\r\n        <select class=\"browser-default custom-select form-control pl-1\" type=\"select\" id=\"add_user_temple\" name=\"temple\" [(ngModel)]=\"user.temple_code\" mdbSelect mdbValidate [validateSuccess]=\"false\" #temple=\"ngModel\" required>\r\n          <option value=\"\" disabled selected hidden>Select user temple</option>\r\n          <option [value]=\"temple.temple_code\" *ngFor=\"let temple of templeList\">{{ temple.temple_name }}</option>\r\n        </select>\r\n        <mdb-error *ngIf=\"temple && temple.invalid && (temple.dirty || temple.touched)\">temple is required</mdb-error>\r\n    </div>\r\n\r\n      <label for=\"role\">Role</label>\r\n      <div class=\"md-form mt-0\">\r\n        <select class=\"browser-default custom-select form-control pl-1\" type=\"select\" id=\"add_user_role\" name=\"role\" [(ngModel)]=\"user.role\" mdbSelect mdbValidate [validateSuccess]=\"false\" #role=\"ngModel\" required>\r\n          <option value=\"\" disabled selected hidden>Select user role</option>\r\n          <option value=\"admin\" *ngIf=\"isAdmin\">admin</option>\r\n          <option value=\"manager\">manager</option>\r\n          <option value=\"user\">user</option>\r\n        </select>\r\n        <mdb-error *ngIf=\"role && role.invalid && (role.dirty || role.touched)\">role is required</mdb-error>\r\n    </div>\r\n\r\n\r\n\r\n    </form>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" mdbBtn color=\"white\" class=\"black-text waves-light\" aria-label=\"Close\" (click)=\"modalRef.hide()\"\r\n      mdbWavesEffect>Close</button>\r\n    <button type=\"button\" mdbBtn color=\"success\" [disabled]=\"userForm.invalid\" class=\"relative waves-light\" mdbWavesEffect (click)=\"onSave()\">Save</button>\r\n  </div>\r\n</div>\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/user/user.component.html":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/user/user.component.html ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<mdb-card>\r\n  <mdb-card-header class=\"text-center bg-primary white-text\">\r\n    {{ user?.temple }}\r\n  </mdb-card-header>\r\n  <mdb-card-body class=\"text-center py-2\">\r\n    <div>\r\n      <span class=\"float-left\">\r\n        <mdb-badge *ngIf=\"user.role\" [color]=\"getColor(user.role)\">{{ user.role }}</mdb-badge>\r\n      </span>\r\n      <mdb-icon *ngIf=\"loggedInUser.username !== user.username\" fas icon=\"trash\" class=\"float-right delete grey-text\" (click)=\"deleteUser()\" alt=\"Delete user\"></mdb-icon>\r\n    </div>\r\n    <div class=\"mt-5\">\r\n      <img *ngIf=\"user.avatar\" src=\"{{ user.avatar }}\" height=\"90\" width=\"90\" class=\"rounded-circle z-depth-0\" alt=\"avatar image\">\r\n    </div>\r\n    <div class=\"mt-3 username\">\r\n      {{ user.username }}\r\n    </div>\r\n    <p class=\"grey-text small\">{{user.email}}</p>\r\n  </mdb-card-body>\r\n</mdb-card>\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/users-list/users-list.component.html":
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/users-list/users-list.component.html ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"users-list d-flex flex-wrap\">\r\n  <div class=\"user\" *ngFor=\"let user of users; trackBy: trackByFn\">\r\n    <app-user [user]=\"user\" (userSelected)=\"onUserSelected($event)\" (addAdmin)=\"onAddAdmin($event)\" (removeUser)=\"onDeleteUser($event)\"></app-user>\r\n  </div>\r\n  <div class=\"user\">\r\n    <mdb-card class=\"flex-wrap py-2 add-card h-100\" (click)=\"onAddUser($event)\">\r\n      <mdb-card-body class=\"text-center my-4 py-4 d-flex flex-column align-items-center justify-content-center\">\r\n        <div class=\"my-4\">\r\n          <mdb-icon fas icon=\"plus\" class=\"float-right mt-1 add fa-lg grey-text\" alt=\"Add user\"></mdb-icon>\r\n        </div>\r\n        <p class=\"grey-text\">Add User</p>\r\n      </mdb-card-body>\r\n    </mdb-card>\r\n  </div>\r\n  \r\n</div>\r\n");
 
 /***/ }),
 
@@ -284,10 +284,6 @@ var map = {
 	"./charts/charts.module": [
 		"./src/app/charts/charts.module.ts",
 		"charts-charts-module"
-	],
-	"./customers/customers.module": [
-		"./src/app/customers/customers.module.ts",
-		"customers-customers-module"
 	],
 	"./donations/donations.module": [
 		"./src/app/donations/donations.module.ts",
@@ -343,17 +339,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _containers_admin_admin_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./containers/admin/admin.component */ "./src/app/admin/containers/admin/admin.component.ts");
-/* harmony import */ var _components_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/users-list/users-list.component */ "./src/app/admin/components/users-list/users-list.component.ts");
-/* harmony import */ var _components_user_user_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/user/user.component */ "./src/app/admin/components/user/user.component.ts");
-/* harmony import */ var _store_admin_reducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store/admin.reducer */ "./src/app/admin/store/admin.reducer.ts");
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm5/effects.js");
-/* harmony import */ var _store_admin_effects__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./store/admin.effects */ "./src/app/admin/store/admin.effects.ts");
-/* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/fesm5/angular-bootstrap-md.js");
-/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _components_user_detail_user_detail_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/user-detail/user-detail.component */ "./src/app/admin/components/user-detail/user-detail.component.ts");
-/* harmony import */ var _components_temple_list_temple_list_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/temple-list/temple-list.component */ "./src/app/admin/components/temple-list/temple-list.component.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _store_admin_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store/admin.reducer */ "./src/app/admin/store/admin.reducer.ts");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
+/* harmony import */ var _ngrx_effects__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ngrx/effects */ "./node_modules/@ngrx/effects/fesm5/effects.js");
+/* harmony import */ var _store_admin_effects__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./store/admin.effects */ "./src/app/admin/store/admin.effects.ts");
+/* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/fesm5/angular-bootstrap-md.js");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _components_user_detail_user_detail_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/user-detail/user-detail.component */ "./src/app/admin/components/user-detail/user-detail.component.ts");
+/* harmony import */ var _components_temple_list_temple_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/temple-list/temple-list.component */ "./src/app/admin/components/temple-list/temple-list.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -376,30 +370,28 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
-
-
 var AdminModule = /** @class */ (function () {
     function AdminModule() {
     }
     AdminModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            declarations: [_containers_admin_admin_component__WEBPACK_IMPORTED_MODULE_3__["AdminComponent"], _components_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_4__["UsersListComponent"], _components_user_user_component__WEBPACK_IMPORTED_MODULE_5__["UserComponent"], _components_user_detail_user_detail_component__WEBPACK_IMPORTED_MODULE_12__["UserDetailComponent"], _components_temple_list_temple_list_component__WEBPACK_IMPORTED_MODULE_13__["TempleListComponent"]],
+            declarations: [_containers_admin_admin_component__WEBPACK_IMPORTED_MODULE_3__["AdminComponent"], _components_user_detail_user_detail_component__WEBPACK_IMPORTED_MODULE_10__["UserDetailComponent"], _components_temple_list_temple_list_component__WEBPACK_IMPORTED_MODULE_11__["TempleListComponent"]],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                _shared_shared_module__WEBPACK_IMPORTED_MODULE_11__["SharedModule"],
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_9__["SharedModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
-                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["CollapseModule"],
-                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["CardsModule"],
-                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["DropdownModule"],
-                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["BadgeModule"],
-                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["ButtonsModule"],
-                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["IconsModule"],
-                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["TableModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_14__["FormsModule"],
-                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["InputsModule"],
-                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_10__["InputUtilitiesModule"],
-                _ngrx_store__WEBPACK_IMPORTED_MODULE_7__["StoreModule"].forFeature('admin', _store_admin_reducer__WEBPACK_IMPORTED_MODULE_6__["adminReducer"]),
-                _ngrx_effects__WEBPACK_IMPORTED_MODULE_8__["EffectsModule"].forFeature([_store_admin_effects__WEBPACK_IMPORTED_MODULE_9__["AdminEffects"]])
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__["CollapseModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__["CardsModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__["DropdownModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__["BadgeModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__["ButtonsModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__["IconsModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__["TableModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_12__["FormsModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__["InputsModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__["InputUtilitiesModule"],
+                _ngrx_store__WEBPACK_IMPORTED_MODULE_5__["StoreModule"].forFeature('admin', _store_admin_reducer__WEBPACK_IMPORTED_MODULE_4__["adminReducer"]),
+                _ngrx_effects__WEBPACK_IMPORTED_MODULE_6__["EffectsModule"].forFeature([_store_admin_effects__WEBPACK_IMPORTED_MODULE_7__["AdminEffects"]])
             ]
         })
     ], AdminModule);
@@ -467,9 +459,9 @@ var TempleListComponent = /** @class */ (function () {
         //  this.initFormGroup();
     }
     TempleListComponent.prototype.initFormGroup = function () {
-        // if (this.templeForm) {
-        //   this.templeForm.reset();
-        // }
+        if (this.templeForm) {
+            this.templeForm.reset();
+        }
     };
     TempleListComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -477,6 +469,7 @@ var TempleListComponent = /** @class */ (function () {
         this.isLoading$ = this.store.select(_store_admin_selectors__WEBPACK_IMPORTED_MODULE_5__["getTemplesListLoading"]);
         this.store.select(src_app_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_3__["getUser"]).subscribe(function (user) {
             _this.isAdmin = user.isAdmin;
+            _this.initFormGroup();
         });
     };
     TempleListComponent.prototype.getTempleList = function () {
@@ -631,199 +624,6 @@ var UserDetailComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], UserDetailComponent);
     return UserDetailComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/components/user/user.component.scss":
-/*!***********************************************************!*\
-  !*** ./src/app/admin/components/user/user.component.scss ***!
-  \***********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".delete {\n  cursor: pointer;\n}\n\n:host, .username {\n  -webkit-user-select: text;\n     -moz-user-select: text;\n      -ms-user-select: text;\n          user-select: text;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vY29tcG9uZW50cy91c2VyL0M6XFxnaXQgY29kZVxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcYWRtaW5cXGNvbXBvbmVudHNcXHVzZXJcXHVzZXIuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FkbWluL2NvbXBvbmVudHMvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZUFBQTtBQ0NKOztBRENBO0VBQ0kseUJBQUE7S0FBQSxzQkFBQTtNQUFBLHFCQUFBO1VBQUEsaUJBQUE7QUNFSiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2NvbXBvbmVudHMvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmRlbGV0ZSB7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuOmhvc3QsIC51c2VybmFtZSB7XHJcbiAgICB1c2VyLXNlbGVjdDogdGV4dDtcclxufSIsIi5kZWxldGUge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbjpob3N0LCAudXNlcm5hbWUge1xuICB1c2VyLXNlbGVjdDogdGV4dDtcbn0iXX0= */");
-
-/***/ }),
-
-/***/ "./src/app/admin/components/user/user.component.ts":
-/*!*********************************************************!*\
-  !*** ./src/app/admin/components/user/user.component.ts ***!
-  \*********************************************************/
-/*! exports provided: UserComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserComponent", function() { return UserComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
-  return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-
-var UserComponent = /** @class */ (function () {
-    function UserComponent() {
-        this.userSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.addAdmin = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.removeAdmin = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.removeUser = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-    }
-    UserComponent.prototype.ngOnInit = function () {
-    };
-    UserComponent.prototype.selectUser = function () {
-        this.userSelected.emit(this.user);
-    };
-    UserComponent.prototype.addAdminPrivileges = function () {
-        this.addAdmin.emit(this.user);
-    };
-    UserComponent.prototype.removeAdminPrivileges = function () {
-        this.removeAdmin.emit(this.user);
-    };
-    UserComponent.prototype.deleteUser = function () {
-        this.removeUser.emit(this.user);
-    };
-    UserComponent.prototype.getColor = function (role) {
-        switch (role) {
-            case 'admin':
-                return 'red';
-            case 'manager':
-                return 'orange';
-            default:
-                return 'blue';
-        }
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", Object)
-    ], UserComponent.prototype, "user", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
-        __metadata("design:type", Object)
-    ], UserComponent.prototype, "userSelected", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
-        __metadata("design:type", Object)
-    ], UserComponent.prototype, "addAdmin", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
-        __metadata("design:type", Object)
-    ], UserComponent.prototype, "removeAdmin", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
-        __metadata("design:type", Object)
-    ], UserComponent.prototype, "removeUser", void 0);
-    UserComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-user',
-            template: __importDefault(__webpack_require__(/*! raw-loader!./user.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/components/user/user.component.html")).default,
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
-            styles: [__importDefault(__webpack_require__(/*! ./user.component.scss */ "./src/app/admin/components/user/user.component.scss")).default]
-        }),
-        __metadata("design:paramtypes", [])
-    ], UserComponent);
-    return UserComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/components/users-list/users-list.component.scss":
-/*!***********************************************************************!*\
-  !*** ./src/app/admin/components/users-list/users-list.component.scss ***!
-  \***********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".users-list {\n  box-sizing: border-box;\n  justify-content: center;\n}\n\n.user {\n  width: 80%;\n  margin: 1rem;\n}\n\n.user .add-card:hover {\n  background-color: whitesmoke;\n  cursor: pointer;\n}\n\n@media (min-width: 768px) {\n  .user {\n    width: calc(50% - 2rem);\n  }\n\n  .users-list {\n    justify-content: normal;\n  }\n}\n\n@media (min-width: 992px) {\n  .user {\n    width: calc(33.3333% - 2rem);\n  }\n}\n\n@media (min-width: 1200px) {\n  .user {\n    width: auto;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vY29tcG9uZW50cy91c2Vycy1saXN0L0M6XFxnaXQgY29kZVxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcYWRtaW5cXGNvbXBvbmVudHNcXHVzZXJzLWxpc3RcXHVzZXJzLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2FkbWluL2NvbXBvbmVudHMvdXNlcnMtbGlzdC91c2Vycy1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usc0JBQUE7RUFDQSx1QkFBQTtBQ0NGOztBREVBO0VBQ0UsVUFBQTtFQUNBLFlBQUE7QUNDRjs7QURFSTtFQUNFLDRCQUFBO0VBQ0EsZUFBQTtBQ0FOOztBREtBO0VBQ0U7SUFDSSx1QkFBQTtFQ0ZKOztFREtBO0lBQ0ksdUJBQUE7RUNGSjtBQUNGOztBREtBO0VBQ0U7SUFDSSw0QkFBQTtFQ0hKO0FBQ0Y7O0FETUE7RUFDRTtJQUNJLFdBQUE7RUNKSjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vY29tcG9uZW50cy91c2Vycy1saXN0L3VzZXJzLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudXNlcnMtbGlzdCB7XHJcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG5cclxuLnVzZXIge1xyXG4gIHdpZHRoOiA4MCU7XHJcbiAgbWFyZ2luOiAxcmVtO1xyXG5cclxuICAuYWRkLWNhcmQge1xyXG4gICAgJjpob3ZlciB7XHJcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlc21va2U7XHJcbiAgICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIH1cclxuICB9XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiA3NjhweCkge1xyXG4gIC51c2VyIHtcclxuICAgICAgd2lkdGg6IGNhbGMoNTAlIC0gMnJlbSk7XHJcbiAgfVxyXG5cclxuICAudXNlcnMtbGlzdCB7XHJcbiAgICAgIGp1c3RpZnktY29udGVudDogbm9ybWFsO1xyXG4gIH1cclxufVxyXG5cclxuQG1lZGlhIChtaW4td2lkdGg6IDk5MnB4KSB7XHJcbiAgLnVzZXIge1xyXG4gICAgICB3aWR0aDogY2FsYygzMy4zMzMzJSAtIDJyZW0pO1xyXG4gIH1cclxufVxyXG5cclxuQG1lZGlhIChtaW4td2lkdGg6IDEyMDBweCkge1xyXG4gIC51c2VyIHtcclxuICAgICAgd2lkdGg6IGF1dG87XHJcbiAgfVxyXG59IiwiLnVzZXJzLWxpc3Qge1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbn1cblxuLnVzZXIge1xuICB3aWR0aDogODAlO1xuICBtYXJnaW46IDFyZW07XG59XG4udXNlciAuYWRkLWNhcmQ6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZXNtb2tlO1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbkBtZWRpYSAobWluLXdpZHRoOiA3NjhweCkge1xuICAudXNlciB7XG4gICAgd2lkdGg6IGNhbGMoNTAlIC0gMnJlbSk7XG4gIH1cblxuICAudXNlcnMtbGlzdCB7XG4gICAganVzdGlmeS1jb250ZW50OiBub3JtYWw7XG4gIH1cbn1cbkBtZWRpYSAobWluLXdpZHRoOiA5OTJweCkge1xuICAudXNlciB7XG4gICAgd2lkdGg6IGNhbGMoMzMuMzMzMyUgLSAycmVtKTtcbiAgfVxufVxuQG1lZGlhIChtaW4td2lkdGg6IDEyMDBweCkge1xuICAudXNlciB7XG4gICAgd2lkdGg6IGF1dG87XG4gIH1cbn0iXX0= */");
-
-/***/ }),
-
-/***/ "./src/app/admin/components/users-list/users-list.component.ts":
-/*!*********************************************************************!*\
-  !*** ./src/app/admin/components/users-list/users-list.component.ts ***!
-  \*********************************************************************/
-/*! exports provided: UsersListComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersListComponent", function() { return UsersListComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
-  return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-
-var UsersListComponent = /** @class */ (function () {
-    function UsersListComponent() {
-        this.userSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.addUser = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.deleteUser = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-    }
-    UsersListComponent.prototype.ngOnInit = function () {
-    };
-    UsersListComponent.prototype.onUserSelected = function (user) {
-        this.userSelected.emit(user);
-    };
-    UsersListComponent.prototype.onAddUser = function (event) {
-        this.addUser.emit(event);
-    };
-    UsersListComponent.prototype.onDeleteUser = function (user) {
-        this.deleteUser.emit(user);
-    };
-    UsersListComponent.prototype.trackByFn = function (index) {
-        return index;
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", Array)
-    ], UsersListComponent.prototype, "users", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
-        __metadata("design:type", Object)
-    ], UsersListComponent.prototype, "userSelected", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
-        __metadata("design:type", Object)
-    ], UsersListComponent.prototype, "addUser", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
-        __metadata("design:type", Object)
-    ], UsersListComponent.prototype, "deleteUser", void 0);
-    UsersListComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-users-list',
-            template: __importDefault(__webpack_require__(/*! raw-loader!./users-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/components/users-list/users-list.component.html")).default,
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
-            styles: [__importDefault(__webpack_require__(/*! ./users-list.component.scss */ "./src/app/admin/components/users-list/users-list.component.scss")).default]
-        }),
-        __metadata("design:paramtypes", [])
-    ], UsersListComponent);
-    return UsersListComponent;
 }());
 
 
@@ -1109,7 +909,7 @@ var AdminService = /** @class */ (function () {
     AdminService.prototype.addUser = function (user) {
         var enc = Object(crypto_js__WEBPACK_IMPORTED_MODULE_2__["SHA256"])(user.password).toString();
         return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiUrl + "?api=addUser", { params: {
-                "add_username": user.username + "@" + user.temple,
+                "add_username": user.username + "@" + user.temple_code,
                 "add_password": enc,
                 "add_role": user.role,
                 "add_email": user.email
@@ -1551,7 +1351,7 @@ function adminReducer(state, action) {
 /*!************************************************!*\
   !*** ./src/app/admin/store/admin.selectors.ts ***!
   \************************************************/
-/*! exports provided: getAdminState, getUsersList, getUsersListLoading, getSelectedUser, getUserProjects, getUserCustomers, getTemplesList, getTemplesListLoading */
+/*! exports provided: getAdminState, getUsersList, getUsersListLoading, getTemplesList, getTemplesListLoading */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1559,9 +1359,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAdminState", function() { return getAdminState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUsersList", function() { return getUsersList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUsersListLoading", function() { return getUsersListLoading; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSelectedUser", function() { return getSelectedUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUserProjects", function() { return getUserProjects; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUserCustomers", function() { return getUserCustomers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTemplesList", function() { return getTemplesList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTemplesListLoading", function() { return getTemplesListLoading; });
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
@@ -1572,33 +1369,8 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 var getAdminState = function (state) { return state.admin; };
 var getUsersList = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAdminState, function (admin) { return admin.usersList; });
 var getUsersListLoading = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAdminState, function (admin) { return admin.usersListLoading; });
-var getSelectedUser = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getUsersList, function (usersList, uid) { return usersList.filter(function (user) { return user.temple === uid; })[0]; });
-var getUserProjects = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAdminState, function (admin, uid) {
-    if (admin.userProjects.hasOwnProperty(uid)) {
-        return admin.userProjects[uid];
-    }
-    else {
-        return null;
-    }
-});
-var getUserCustomers = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAdminState, function (admin, uid) {
-    if (admin.userCustomers.hasOwnProperty(uid)) {
-        return admin.userCustomers[uid];
-    }
-    else {
-        return null;
-    }
-});
 var getTemplesList = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAdminState, function (admin) { return admin.temples; });
 var getTemplesListLoading = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAdminState, function (admin) { return admin.templesListLoading; });
-// export const getUserProjectsLoading = createSelector(
-//   getAdminState,
-//   admin => admin.userProjectsLoading
-// );
-// export const getUserCustomersLoading = createSelector(
-//   getAdminState,
-//   admin => admin.userCustomersLoading
-// );
 
 
 /***/ }),
@@ -1673,7 +1445,6 @@ var routes = [
             { path: 'poojas', loadChildren: './poojas/poojas.module#PoojasModule' },
             { path: 'expenses', loadChildren: './expenses/expenses.module#ExpensesModule' },
             { path: 'donations', loadChildren: './donations/donations.module#DonationsModule' },
-            { path: 'customers', loadChildren: './customers/customers.module#CustomersModule' },
             { path: 'settings', loadChildren: './profile/profile.module#ProfileModule' },
             { path: 'charts', loadChildren: './charts/charts.module#ChartsDataModule' },
             { path: 'admin-panel', component: _admin_containers_admin_admin_component__WEBPACK_IMPORTED_MODULE_7__["AdminComponent"], canActivate: [_admin_guard_admin_guard__WEBPACK_IMPORTED_MODULE_8__["AdminGuard"]] }
@@ -2660,7 +2431,8 @@ var AuthEffects = /** @class */ (function () {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthError"]({ error: 'Username and password do not match' }));
             }
             var user = {
-                temple: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.temple,
+                temple_name: res.temple_name,
+                temple_code: res.temple_code,
                 displayName: payload.username,
                 photoUrl: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.photoUrl,
                 isAdmin: res.role === 'admin',
@@ -2682,24 +2454,24 @@ var AuthEffects = /** @class */ (function () {
         })); }));
         this.loginSuccess$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].LOGIN_SUCCESS), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (payload) {
             return [
-                new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["UpdateOnlineStatus"]({ uid: payload.user.temple, status: true }),
                 new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["CheckUserRole"]({ isAdmin: payload.user.isAdmin })
             ];
         }));
         this.logoutAction$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].LOGOUT_REQUESTED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (payload) {
             console.log('payload', payload);
-            return _this.authService.logout(payload.user.temple)
+            return _this.authService.logout(payload.user.username)
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function () { return new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["LogoutCompleted"](); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])(function () { return _this.authService.clearLocalData(); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["tap"])(function () { return _this.router.navigateByUrl(''); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(function (error) {
                 _this.toastr.error('Auth Error. Please try after sometime');
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(new _store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthError"]({ error: error }));
             }));
         }));
-        this.getUser$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].GET_USER), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function () { return _this.authService.getAuthState()
+        this.getUser$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_store_auth_actions__WEBPACK_IMPORTED_MODULE_6__["AuthActionTypes"].GET_USER), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function () { return _this.authService.getUser()
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (authData) {
             if (authData) {
                 var user = {
-                    temple: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.temple,
-                    displayName: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.displayName,
+                    temple_code: authData.temple_code,
+                    temple_name: authData.temple_name,
+                    displayName: authData.username,
                     photoUrl: authData.photoURL,
                     username: authData.username,
                     password: authData.password,
@@ -3111,7 +2883,7 @@ var DashboardComponent = /** @class */ (function () {
         this.customersSub = this.store
             .pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_4__["getUser"]), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (user) {
             if (user) {
-                return _this.customersService.get(user.temple);
+                return _this.customersService.get(user.temple_code);
             }
             else {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["empty"])();
@@ -4362,6 +4134,9 @@ var UserModalComponent = /** @class */ (function () {
         this.store.select(src_app_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_4__["getUser"]).subscribe(function (user) {
             _this.isAdmin = user.isAdmin;
         });
+        if (this.templeList.length === 1) {
+            this.user.temple_code = this.templeList[0].temple_code;
+        }
     };
     UserModalComponent.prototype.onSave = function () {
         if (this.userForm.valid) {
@@ -4396,6 +4171,211 @@ var UserModalComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shared/components/user/user.component.scss":
+/*!************************************************************!*\
+  !*** ./src/app/shared/components/user/user.component.scss ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".delete {\n  cursor: pointer;\n}\n\n:host, .username {\n  -webkit-user-select: text;\n     -moz-user-select: text;\n      -ms-user-select: text;\n          user-select: text;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdXNlci9DOlxcZ2l0IGNvZGVcXEF1ZGl0LVVJLUFuZ3VsYXIvc3JjXFxhcHBcXHNoYXJlZFxcY29tcG9uZW50c1xcdXNlclxcdXNlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdXNlci91c2VyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZUFBQTtBQ0NKOztBRENBO0VBQ0kseUJBQUE7S0FBQSxzQkFBQTtNQUFBLHFCQUFBO1VBQUEsaUJBQUE7QUNFSiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9jb21wb25lbnRzL3VzZXIvdXNlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kZWxldGUge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbjpob3N0LCAudXNlcm5hbWUge1xyXG4gICAgdXNlci1zZWxlY3Q6IHRleHQ7XHJcbn0iLCIuZGVsZXRlIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG46aG9zdCwgLnVzZXJuYW1lIHtcbiAgdXNlci1zZWxlY3Q6IHRleHQ7XG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/shared/components/user/user.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/shared/components/user/user.component.ts ***!
+  \**********************************************************/
+/*! exports provided: UserComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserComponent", function() { return UserComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
+/* harmony import */ var src_app_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/auth/store/auth.selectors */ "./src/app/auth/store/auth.selectors.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+var UserComponent = /** @class */ (function () {
+    function UserComponent(store) {
+        this.store = store;
+        this.userSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.addAdmin = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.removeAdmin = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.removeUser = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    UserComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.store.select(src_app_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_2__["getUser"]).subscribe(function (user) {
+            _this.loggedInUser = user;
+        });
+    };
+    UserComponent.prototype.selectUser = function () {
+        this.userSelected.emit(this.user);
+    };
+    UserComponent.prototype.addAdminPrivileges = function () {
+        this.addAdmin.emit(this.user);
+    };
+    UserComponent.prototype.removeAdminPrivileges = function () {
+        this.removeAdmin.emit(this.user);
+    };
+    UserComponent.prototype.deleteUser = function () {
+        this.removeUser.emit(this.user);
+    };
+    UserComponent.prototype.getColor = function (role) {
+        switch (role) {
+            case 'admin':
+                return 'red';
+            case 'manager':
+                return 'orange';
+            default:
+                return 'blue';
+        }
+    };
+    UserComponent.ctorParameters = function () { return [
+        { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"] }
+    ]; };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], UserComponent.prototype, "user", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], UserComponent.prototype, "userSelected", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], UserComponent.prototype, "addAdmin", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], UserComponent.prototype, "removeAdmin", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], UserComponent.prototype, "removeUser", void 0);
+    UserComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-user',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./user.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/user/user.component.html")).default,
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__importDefault(__webpack_require__(/*! ./user.component.scss */ "./src/app/shared/components/user/user.component.scss")).default]
+        }),
+        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"]])
+    ], UserComponent);
+    return UserComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/components/users-list/users-list.component.scss":
+/*!************************************************************************!*\
+  !*** ./src/app/shared/components/users-list/users-list.component.scss ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".users-list {\n  box-sizing: border-box;\n  justify-content: center;\n}\n\n.user {\n  width: 80%;\n  margin: 1rem;\n}\n\n.user .add-card:hover {\n  background-color: whitesmoke;\n  cursor: pointer;\n}\n\n@media (min-width: 768px) {\n  .user {\n    width: calc(50% - 2rem);\n  }\n\n  .users-list {\n    justify-content: normal;\n  }\n}\n\n@media (min-width: 992px) {\n  .user {\n    width: calc(33.3333% - 2rem);\n  }\n}\n\n@media (min-width: 1200px) {\n  .user {\n    width: auto;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdXNlcnMtbGlzdC9DOlxcZ2l0IGNvZGVcXEF1ZGl0LVVJLUFuZ3VsYXIvc3JjXFxhcHBcXHNoYXJlZFxcY29tcG9uZW50c1xcdXNlcnMtbGlzdFxcdXNlcnMtbGlzdC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdXNlcnMtbGlzdC91c2Vycy1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usc0JBQUE7RUFDQSx1QkFBQTtBQ0NGOztBREVBO0VBQ0UsVUFBQTtFQUNBLFlBQUE7QUNDRjs7QURFSTtFQUNFLDRCQUFBO0VBQ0EsZUFBQTtBQ0FOOztBREtBO0VBQ0U7SUFDSSx1QkFBQTtFQ0ZKOztFREtBO0lBQ0ksdUJBQUE7RUNGSjtBQUNGOztBREtBO0VBQ0U7SUFDSSw0QkFBQTtFQ0hKO0FBQ0Y7O0FETUE7RUFDRTtJQUNJLFdBQUE7RUNKSjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdXNlcnMtbGlzdC91c2Vycy1saXN0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnVzZXJzLWxpc3Qge1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuXHJcbi51c2VyIHtcclxuICB3aWR0aDogODAlO1xyXG4gIG1hcmdpbjogMXJlbTtcclxuXHJcbiAgLmFkZC1jYXJkIHtcclxuICAgICY6aG92ZXIge1xyXG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZXNtb2tlO1xyXG4gICAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgKG1pbi13aWR0aDogNzY4cHgpIHtcclxuICAudXNlciB7XHJcbiAgICAgIHdpZHRoOiBjYWxjKDUwJSAtIDJyZW0pO1xyXG4gIH1cclxuXHJcbiAgLnVzZXJzLWxpc3Qge1xyXG4gICAgICBqdXN0aWZ5LWNvbnRlbnQ6IG5vcm1hbDtcclxuICB9XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiA5OTJweCkge1xyXG4gIC51c2VyIHtcclxuICAgICAgd2lkdGg6IGNhbGMoMzMuMzMzMyUgLSAycmVtKTtcclxuICB9XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiAxMjAwcHgpIHtcclxuICAudXNlciB7XHJcbiAgICAgIHdpZHRoOiBhdXRvO1xyXG4gIH1cclxufSIsIi51c2Vycy1saXN0IHtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG5cbi51c2VyIHtcbiAgd2lkdGg6IDgwJTtcbiAgbWFyZ2luOiAxcmVtO1xufVxuLnVzZXIgLmFkZC1jYXJkOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGVzbW9rZTtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG5AbWVkaWEgKG1pbi13aWR0aDogNzY4cHgpIHtcbiAgLnVzZXIge1xuICAgIHdpZHRoOiBjYWxjKDUwJSAtIDJyZW0pO1xuICB9XG5cbiAgLnVzZXJzLWxpc3Qge1xuICAgIGp1c3RpZnktY29udGVudDogbm9ybWFsO1xuICB9XG59XG5AbWVkaWEgKG1pbi13aWR0aDogOTkycHgpIHtcbiAgLnVzZXIge1xuICAgIHdpZHRoOiBjYWxjKDMzLjMzMzMlIC0gMnJlbSk7XG4gIH1cbn1cbkBtZWRpYSAobWluLXdpZHRoOiAxMjAwcHgpIHtcbiAgLnVzZXIge1xuICAgIHdpZHRoOiBhdXRvO1xuICB9XG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/shared/components/users-list/users-list.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/shared/components/users-list/users-list.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: UsersListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersListComponent", function() { return UsersListComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+var UsersListComponent = /** @class */ (function () {
+    function UsersListComponent() {
+        this.userSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.addUser = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.deleteUser = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    UsersListComponent.prototype.ngOnInit = function () {
+    };
+    UsersListComponent.prototype.onUserSelected = function (user) {
+        this.userSelected.emit(user);
+    };
+    UsersListComponent.prototype.onAddUser = function (event) {
+        this.addUser.emit(event);
+    };
+    UsersListComponent.prototype.onDeleteUser = function (user) {
+        this.deleteUser.emit(user);
+    };
+    UsersListComponent.prototype.trackByFn = function (index) {
+        return index;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], UsersListComponent.prototype, "users", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], UsersListComponent.prototype, "userSelected", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], UsersListComponent.prototype, "addUser", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], UsersListComponent.prototype, "deleteUser", void 0);
+    UsersListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-users-list',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./users-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/users-list/users-list.component.html")).default,
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__importDefault(__webpack_require__(/*! ./users-list.component.scss */ "./src/app/shared/components/users-list/users-list.component.scss")).default]
+        }),
+        __metadata("design:paramtypes", [])
+    ], UsersListComponent);
+    return UsersListComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/shared.module.ts":
 /*!*****************************************!*\
   !*** ./src/app/shared/shared.module.ts ***!
@@ -4417,6 +4397,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_right_card_right_card_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/right-card/right-card.component */ "./src/app/shared/components/right-card/right-card.component.ts");
 /* harmony import */ var _components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/user-modal/user-modal.component */ "./src/app/shared/components/user-modal/user-modal.component.ts");
 /* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../core/core.module */ "./src/app/core/core.module.ts");
+/* harmony import */ var _components_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/users-list/users-list.component */ "./src/app/shared/components/users-list/users-list.component.ts");
+/* harmony import */ var _components_user_user_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/user/user.component */ "./src/app/shared/components/user/user.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4426,6 +4408,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
 
 
 
@@ -4449,6 +4433,8 @@ var SharedModule = /** @class */ (function () {
                 _components_poojas_modal_poojas_modal_component__WEBPACK_IMPORTED_MODULE_7__["PoojasModalComponent"],
                 _components_right_card_right_card_component__WEBPACK_IMPORTED_MODULE_8__["RightCardComponent"],
                 _components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__["UserModalComponent"],
+                _components_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_11__["UsersListComponent"],
+                _components_user_user_component__WEBPACK_IMPORTED_MODULE_12__["UserComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
@@ -4460,9 +4446,12 @@ var SharedModule = /** @class */ (function () {
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["ModalModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["ButtonsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["CardsModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["CollapseModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["DropdownModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["BadgeModule"],
                 _core_core_module__WEBPACK_IMPORTED_MODULE_10__["CoreModule"]
             ],
-            exports: [_components_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_6__["CustomersListComponent"], _components_poojas_modal_poojas_modal_component__WEBPACK_IMPORTED_MODULE_7__["PoojasModalComponent"], _components_right_card_right_card_component__WEBPACK_IMPORTED_MODULE_8__["RightCardComponent"], _components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__["UserModalComponent"]],
+            exports: [_components_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_6__["CustomersListComponent"], _components_poojas_modal_poojas_modal_component__WEBPACK_IMPORTED_MODULE_7__["PoojasModalComponent"], _components_right_card_right_card_component__WEBPACK_IMPORTED_MODULE_8__["RightCardComponent"], _components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__["UserModalComponent"], _components_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_11__["UsersListComponent"], _components_user_user_component__WEBPACK_IMPORTED_MODULE_12__["UserComponent"]],
             providers: [],
             entryComponents: [
                 _components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_2__["ConfirmModalComponent"],

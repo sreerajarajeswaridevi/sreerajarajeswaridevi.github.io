@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"charts-charts-module":"charts-charts-module","customers-customers-module":"customers-customers-module","default~poojas-poojas-module~profile-profile-module":"default~poojas-poojas-module~profile-profile-module","profile-profile-module":"profile-profile-module","donations-donations-module":"donations-donations-module","expenses-expenses-module":"expenses-expenses-module"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"charts-charts-module":"charts-charts-module","default~poojas-poojas-module~profile-profile-module":"default~poojas-poojas-module~profile-profile-module","profile-profile-module":"profile-profile-module","donations-donations-module":"donations-donations-module","expenses-expenses-module":"expenses-expenses-module"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
