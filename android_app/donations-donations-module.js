@@ -346,7 +346,7 @@ var DonationsActionTypes;
     DonationsActionTypes["POOJAS_LOADED"] = "[Donations] Fetched";
     DonationsActionTypes["POOJAS_ADDED"] = "[Donations] Added";
     DonationsActionTypes["POOJAS_EDITED"] = "[Donations] Edited";
-    DonationsActionTypes["POOJAS_DELETED"] = "[Donations] Deleted";
+    DonationsActionTypes["POOJA_DELETE_QUERY"] = "[Donations] Deleted";
     DonationsActionTypes["POOJAS_ERROR"] = "[Donations] Error";
 })(DonationsActionTypes || (DonationsActionTypes = {}));
 var DonationsQuery = /** @class */ (function () {
@@ -383,7 +383,7 @@ var DonationsEdited = /** @class */ (function () {
 var DonationsDeleted = /** @class */ (function () {
     function DonationsDeleted(payload) {
         this.payload = payload;
-        this.type = DonationsActionTypes.POOJAS_DELETED;
+        this.type = DonationsActionTypes.POOJA_DELETE_QUERY;
     }
     return DonationsDeleted;
 }());
@@ -475,7 +475,7 @@ var DonationsEffects = /** @class */ (function () {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsError"]({ error: error }));
             }));
         }));
-        this.delete$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsActionTypes"].POOJAS_DELETED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
+        this.delete$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsActionTypes"].POOJA_DELETE_QUERY), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
             var payload = _a[0], user = _a[1];
             return _this.donationsService.delete(payload.customer, user.temple_code);
         }));

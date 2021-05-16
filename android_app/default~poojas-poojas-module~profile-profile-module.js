@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"poojas-list d-flex flex-wrap m-4\">\r\n      <mdb-card>\r\n        <mdb-card-header class=\"text-left bg-primary white-text w-100\">\r\n          <blockquote class=\"blockquote bq-success\">\r\n            <h3 class=\"header\">Poojas List</h3>\r\n            <p class=\"py-0\">Change pooja settings of your temple</p>\r\n          </blockquote>\r\n        </mdb-card-header>\r\n        <mdb-card-body class=\"py-2\">\r\n          <form #poojasForm=\"ngForm\" *ngIf=\"!(isLoading$ | async)\">\r\n          <table mdbTable striped=\"true\">\r\n            <thead>\r\n              <tr>\r\n                <th>Name</th>\r\n                <th>Code</th>\r\n                <th>Description</th>\r\n                <th>Price</th>\r\n                <th>Added By</th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let item of poojas\">\r\n                <td scope=\"row\">{{ item.pooja_name }}</td>\r\n                <td>{{ item.pooja_code }}</td>\r\n                <td>{{ item.pooja_description }}</td>\r\n                <td class=\"text-warning\"><b>&#x20B9;{{ item.pooja_price }}</b></td>\r\n                <td>{{ item.added_by }}</td>\r\n              </tr>\r\n              <tr class=\"bg-white\">\r\n                <td>\r\n                  <div class=\"md-form\">\r\n                    <input type=\"text\" id=\"add_pooja_name\" name=\"pooja_name\" class=\"form-control\" \r\n                    #pooja_name=\"ngModel\" [(ngModel)]=\"newPooja.pooja_name\" mdbInput mdbValidate\r\n                      [validateSuccess]=\"false\" required (change)=\"newPooja.pooja_code = generateCode(newPooja.pooja_name)\">\r\n                    <label for=\"pooja_name\">Name</label>\r\n                    <mdb-error *ngIf=\"pooja_name && pooja_name.invalid && (pooja_name.dirty || pooja_name.touched)\">Name is required</mdb-error>\r\n                  </div>\r\n                </td>\r\n                <td>\r\n                  <div class=\"md-form\">\r\n                    <input type=\"text\" id=\"add_pooja_code\" name=\"pooja_code\" class=\"form-control\" \r\n                    #pooja_code=\"ngModel\" [(ngModel)]=\"newPooja.pooja_code\" mdbInput mdbValidate disabled\r\n                      [validateSuccess]=\"false\" required>\r\n                    <label for=\"pooja_code\">Code</label>\r\n                    <mdb-error *ngIf=\"pooja_code && pooja_code.invalid && (pooja_code.dirty || pooja_code.touched)\">Code is required</mdb-error>\r\n                  </div>\r\n                </td>\r\n                <td >\r\n                  <div class=\"md-form  mt-3 \">\r\n                    <textarea type=\"text\" id=\"add_pooja_description\" name=\"pooja_description\" class=\"my-0 py-0 md-textarea form-control\" \r\n                    #pooja_description=\"ngModel\" [(ngModel)]=\"newPooja.pooja_description\" mdbInput mdbValidate\r\n                      [validateSuccess]=\"false\" required></textarea>\r\n                    <label for=\"pooja_description\">Description</label>\r\n                    <mdb-error *ngIf=\"pooja_description && pooja_description.invalid && (pooja_description.dirty || pooja_description.touched)\">Description is required</mdb-error>\r\n                  </div>\r\n                 \r\n                  <!-- <a class=\"btn btn-primary btn-floating\" (click)=\"onAddPooja()\" style=\"background-color: #3b5998; height: 45px\" href=\"javascript:void(0)\" role=\"button\"\r\n                    >\r\n                    Add\r\n                  </a> -->\r\n                </td>\r\n                <td>\r\n                  <div class=\"md-form\">\r\n                    <input type=\"number\" id=\"pooja_add_price\" name=\"pooja_price\" class=\"form-control\" \r\n                    #pooja_price=\"ngModel\" [(ngModel)]=\"newPooja.pooja_price\" mdbInput mdbValidate\r\n                      [validateSuccess]=\"false\" required>\r\n                    <label for=\"pooja_price\">Price</label>\r\n                    <mdb-error *ngIf=\"pooja_price && pooja_price.invalid && (pooja_price.dirty || pooja_price.touched)\">Price is required</mdb-error>\r\n                  </div>\r\n                  \r\n                </td>\r\n                <td>\r\n                  <button mdbBtn [disabled]=\"poojasForm?.invalid || (isLoading$ | async)\" class=\"mt-4 btn btn-floating add\" (click)=\"onAddPoojaType()\" size=\"sm\" gradient=\"purple\" mdbWavesEffect>\r\n                    <mdb-icon fas icon=\"plus\" class=\"white-text\"></mdb-icon> <span class=\"pl-2 white-text\">Add</span>\r\n                  </button>\r\n                </td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n\r\n        </form>\r\n\r\n        <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center my-4\">\r\n          <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n            <span class=\"sr-only\">Loading...</span>\r\n          </div>\r\n        </div>\r\n\r\n        \r\n        </mdb-card-body>\r\n      </mdb-card>\r\n      \r\n\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"poojas-list d-flex flex-wrap m-4\">\r\n      <mdb-card>\r\n        <mdb-card-header class=\"text-left bg-primary white-text w-100\">\r\n          <blockquote class=\"blockquote bq-success\">\r\n            <h3 class=\"header\">Poojas List</h3>\r\n            <p class=\"py-0\">Change pooja settings of your temple</p>\r\n          </blockquote>\r\n        </mdb-card-header>\r\n        <mdb-card-body class=\"py-2\">\r\n          <form #poojasForm=\"ngForm\" *ngIf=\"!(isLoading$ | async)\">\r\n          <table mdbTable striped=\"true\">\r\n            <thead>\r\n              <tr>\r\n                <th>Name</th>\r\n                <th>Code</th>\r\n                <th>Description</th>\r\n                <th>Price</th>\r\n                <th>Added By</th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let item of poojas\">\r\n                <td scope=\"row\">{{ item.pooja_name }}</td>\r\n                <td>{{ item.pooja_code }}</td>\r\n                <td>{{ item.pooja_description }}</td>\r\n                <td class=\"text-warning\"><b>&#x20B9;{{ item.pooja_price }}</b></td>\r\n                <td>{{ item.added_by }}</td>\r\n                <td>\r\n                  <mdb-icon fas icon=\"trash\" class=\"float-right delete grey-text\" (click)=\"onDeletePooja(item.pooja_code)\" alt=\"Delete Pooja\"></mdb-icon>\r\n                </td>\r\n                \r\n\r\n              </tr>\r\n              <tr class=\"bg-white\">\r\n                <td>\r\n                  <div class=\"md-form\">\r\n                    <input type=\"text\" id=\"add_pooja_name\" name=\"pooja_name\" class=\"form-control\" \r\n                    #pooja_name=\"ngModel\" [(ngModel)]=\"newPooja.pooja_name\" mdbInput mdbValidate\r\n                      [validateSuccess]=\"false\" required (change)=\"newPooja.pooja_code = generateCode(newPooja.pooja_name)\">\r\n                    <label for=\"pooja_name\">Name</label>\r\n                    <mdb-error *ngIf=\"pooja_name && pooja_name.invalid && (pooja_name.dirty || pooja_name.touched)\">Name is required</mdb-error>\r\n                  </div>\r\n                </td>\r\n                <td>\r\n                  <div class=\"md-form\">\r\n                    <input type=\"text\" id=\"add_pooja_code\" name=\"pooja_code\" class=\"form-control\" \r\n                    #pooja_code=\"ngModel\" [(ngModel)]=\"newPooja.pooja_code\" mdbInput mdbValidate disabled\r\n                      [validateSuccess]=\"false\" required>\r\n                    <label for=\"pooja_code\">Code</label>\r\n                    <mdb-error *ngIf=\"pooja_code && pooja_code.invalid && (pooja_code.dirty || pooja_code.touched)\">Code is required</mdb-error>\r\n                  </div>\r\n                </td>\r\n                <td >\r\n                  <div class=\"md-form  mt-3 \">\r\n                    <textarea type=\"text\" id=\"add_pooja_description\" name=\"pooja_description\" class=\"my-0 py-0 md-textarea form-control\" \r\n                    #pooja_description=\"ngModel\" [(ngModel)]=\"newPooja.pooja_description\" mdbInput mdbValidate\r\n                      [validateSuccess]=\"false\" required></textarea>\r\n                    <label for=\"pooja_description\">Description</label>\r\n                    <mdb-error *ngIf=\"pooja_description && pooja_description.invalid && (pooja_description.dirty || pooja_description.touched)\">Description is required</mdb-error>\r\n                  </div>\r\n                 \r\n                  <!-- <a class=\"btn btn-primary btn-floating\" (click)=\"onAddPooja()\" style=\"background-color: #3b5998; height: 45px\" href=\"javascript:void(0)\" role=\"button\"\r\n                    >\r\n                    Add\r\n                  </a> -->\r\n                </td>\r\n                <td>\r\n                  <div class=\"md-form\">\r\n                    <input type=\"number\" id=\"pooja_add_price\" name=\"pooja_price\" class=\"form-control\" \r\n                    #pooja_price=\"ngModel\" [(ngModel)]=\"newPooja.pooja_price\" mdbInput mdbValidate\r\n                      [validateSuccess]=\"false\" required>\r\n                    <label for=\"pooja_price\">Price</label>\r\n                    <mdb-error *ngIf=\"pooja_price && pooja_price.invalid && (pooja_price.dirty || pooja_price.touched)\">Price is required</mdb-error>\r\n                  </div>\r\n                  \r\n                </td>\r\n                <td>\r\n                  <button mdbBtn [disabled]=\"poojasForm?.invalid || (isLoading$ | async)\" class=\"mt-4 btn btn-floating add\" (click)=\"onAddPoojaType()\" size=\"sm\" gradient=\"purple\" mdbWavesEffect>\r\n                    <mdb-icon fas icon=\"plus\" class=\"white-text\"></mdb-icon> <span class=\"pl-2 white-text\">Add</span>\r\n                  </button>\r\n                </td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n\r\n        </form>\r\n\r\n        <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center my-4\">\r\n          <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\r\n            <span class=\"sr-only\">Loading...</span>\r\n          </div>\r\n        </div>\r\n\r\n        \r\n        </mdb-card-body>\r\n      </mdb-card>\r\n      \r\n\r\n\r\n");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".poojas-list {\n  box-sizing: border-box;\n  justify-content: center;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.poojas-list mdb-card {\n  min-width: 50%;\n}\n.poojas-list mdb-card mdb-card-body {\n  overflow: auto;\n}\n.pooja {\n  width: 80%;\n  margin: 1rem;\n}\n.pooja .add-card:hover {\n  background-color: whitesmoke;\n  cursor: pointer;\n}\n.add {\n  height: 40px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcG9vamFzL2NvbXBvbmVudHMvcG9vamEtbGlzdC9DOlxcZ2l0IGNvZGVcXEF1ZGl0LVVJLUFuZ3VsYXIvc3JjXFxhcHBcXHBvb2phc1xcY29tcG9uZW50c1xccG9vamEtbGlzdFxccG9vamEtbGlzdC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcG9vamFzL2NvbXBvbmVudHMvcG9vamEtbGlzdC9wb29qYS1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usc0JBQUE7RUFDQSx1QkFBQTtFQUNBLHlCQUFBO0tBQUEsc0JBQUE7TUFBQSxxQkFBQTtVQUFBLGlCQUFBO0FDQ0Y7QURDRTtFQUNFLGNBQUE7QUNDSjtBREFJO0VBQ0UsY0FBQTtBQ0VOO0FER0E7RUFDRSxVQUFBO0VBQ0EsWUFBQTtBQ0FGO0FER0k7RUFDRSw0QkFBQTtFQUNBLGVBQUE7QUNETjtBRE1BO0VBQ0UsWUFBQTtBQ0hGIiwiZmlsZSI6InNyYy9hcHAvcG9vamFzL2NvbXBvbmVudHMvcG9vamEtbGlzdC9wb29qYS1saXN0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBvb2phcy1saXN0IHtcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIHVzZXItc2VsZWN0OiBub25lO1xyXG5cclxuICBtZGItY2FyZCB7XHJcbiAgICBtaW4td2lkdGg6IDUwJTtcclxuICAgIG1kYi1jYXJkLWJvZHkge1xyXG4gICAgICBvdmVyZmxvdzogYXV0bztcclxuICAgIH1cclxuICB9XHJcbn1cclxuXHJcbi5wb29qYSB7XHJcbiAgd2lkdGg6IDgwJTtcclxuICBtYXJnaW46IDFyZW07XHJcblxyXG4gIC5hZGQtY2FyZCB7XHJcbiAgICAmOmhvdmVyIHtcclxuICAgICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGVzbW9rZTtcclxuICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgfVxyXG4gIH1cclxufVxyXG5cclxuLmFkZCB7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG59IiwiLnBvb2phcy1saXN0IHtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIHVzZXItc2VsZWN0OiBub25lO1xufVxuLnBvb2phcy1saXN0IG1kYi1jYXJkIHtcbiAgbWluLXdpZHRoOiA1MCU7XG59XG4ucG9vamFzLWxpc3QgbWRiLWNhcmQgbWRiLWNhcmQtYm9keSB7XG4gIG92ZXJmbG93OiBhdXRvO1xufVxuXG4ucG9vamEge1xuICB3aWR0aDogODAlO1xuICBtYXJnaW46IDFyZW07XG59XG4ucG9vamEgLmFkZC1jYXJkOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGVzbW9rZTtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4uYWRkIHtcbiAgaGVpZ2h0OiA0MHB4O1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".poojas-list {\n  box-sizing: border-box;\n  justify-content: center;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.poojas-list mdb-card {\n  min-width: 50%;\n}\n.poojas-list mdb-card mdb-card-body {\n  overflow: auto;\n}\n.poojas-list .delete {\n  cursor: pointer;\n}\n.pooja {\n  width: 80%;\n  margin: 1rem;\n}\n.pooja .add-card:hover {\n  background-color: whitesmoke;\n  cursor: pointer;\n}\n.add {\n  height: 40px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcG9vamFzL2NvbXBvbmVudHMvcG9vamEtbGlzdC9DOlxcZ2l0IGNvZGVcXEF1ZGl0LVVJLUFuZ3VsYXIvc3JjXFxhcHBcXHBvb2phc1xcY29tcG9uZW50c1xccG9vamEtbGlzdFxccG9vamEtbGlzdC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcG9vamFzL2NvbXBvbmVudHMvcG9vamEtbGlzdC9wb29qYS1saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usc0JBQUE7RUFDQSx1QkFBQTtFQUNBLHlCQUFBO0tBQUEsc0JBQUE7TUFBQSxxQkFBQTtVQUFBLGlCQUFBO0FDQ0Y7QURDRTtFQUNFLGNBQUE7QUNDSjtBREFJO0VBQ0UsY0FBQTtBQ0VOO0FERUU7RUFDRSxlQUFBO0FDQUo7QURJQTtFQUNFLFVBQUE7RUFDQSxZQUFBO0FDREY7QURJSTtFQUNFLDRCQUFBO0VBQ0EsZUFBQTtBQ0ZOO0FET0E7RUFDRSxZQUFBO0FDSkYiLCJmaWxlIjoic3JjL2FwcC9wb29qYXMvY29tcG9uZW50cy9wb29qYS1saXN0L3Bvb2phLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucG9vamFzLWxpc3Qge1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgdXNlci1zZWxlY3Q6IG5vbmU7XHJcblxyXG4gIG1kYi1jYXJkIHtcclxuICAgIG1pbi13aWR0aDogNTAlO1xyXG4gICAgbWRiLWNhcmQtYm9keSB7XHJcbiAgICAgIG92ZXJmbG93OiBhdXRvO1xyXG4gICAgfVxyXG4gIH1cclxuXHJcbiAgLmRlbGV0ZSB7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgfVxyXG59XHJcblxyXG4ucG9vamEge1xyXG4gIHdpZHRoOiA4MCU7XHJcbiAgbWFyZ2luOiAxcmVtO1xyXG5cclxuICAuYWRkLWNhcmQge1xyXG4gICAgJjpob3ZlciB7XHJcbiAgICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlc21va2U7XHJcbiAgICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIH1cclxuICB9XHJcbn1cclxuXHJcbi5hZGQge1xyXG4gIGhlaWdodDogNDBweDtcclxufSIsIi5wb29qYXMtbGlzdCB7XG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICB1c2VyLXNlbGVjdDogbm9uZTtcbn1cbi5wb29qYXMtbGlzdCBtZGItY2FyZCB7XG4gIG1pbi13aWR0aDogNTAlO1xufVxuLnBvb2phcy1saXN0IG1kYi1jYXJkIG1kYi1jYXJkLWJvZHkge1xuICBvdmVyZmxvdzogYXV0bztcbn1cbi5wb29qYXMtbGlzdCAuZGVsZXRlIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4ucG9vamEge1xuICB3aWR0aDogODAlO1xuICBtYXJnaW46IDFyZW07XG59XG4ucG9vamEgLmFkZC1jYXJkOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGVzbW9rZTtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4uYWRkIHtcbiAgaGVpZ2h0OiA0MHB4O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -54,6 +54,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
 /* harmony import */ var src_app_poojas_store_poojas_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/poojas/store/poojas.selectors */ "./src/app/poojas/store/poojas.selectors.ts");
 /* harmony import */ var _store_poojas_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../store/poojas.actions */ "./src/app/poojas/store/poojas.actions.ts");
+/* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/fesm5/angular-bootstrap-md.js");
+/* harmony import */ var src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/components/confirm-modal/confirm-modal.component */ "./src/app/shared/components/confirm-modal/confirm-modal.component.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -72,11 +75,18 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
+
+
 var PoojaListComponent = /** @class */ (function () {
-    function PoojaListComponent(store) {
+    function PoojaListComponent(store, modalService) {
         this.store = store;
+        this.modalService = modalService;
         this.poojas = [];
         this.newPooja = {};
+        this.modalConfig = {
+            class: 'modal-dialog-centered',
+        };
     }
     PoojaListComponent.prototype.ngOnInit = function () {
         this.getPoojaList();
@@ -108,8 +118,23 @@ var PoojaListComponent = /** @class */ (function () {
         });
         return code.slice(0, 5) + "-" + (this.poojas.length + 1);
     };
+    PoojaListComponent.prototype.openUserDeleteConfirmModal = function (pooja_code) {
+        var _this = this;
+        this.modalRef = this.modalService.show(src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmModalComponent"], this.modalConfig);
+        this.modalRef.content.confirmation
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1))
+            .subscribe(function (confirmation) {
+            if (confirmation) {
+                _this.store.dispatch(new _store_poojas_actions__WEBPACK_IMPORTED_MODULE_4__["PoojasDeleted"]({ pooja_code: pooja_code }));
+            }
+        });
+    };
+    PoojaListComponent.prototype.onDeletePooja = function (pooja_code) {
+        this.openUserDeleteConfirmModal(pooja_code);
+    };
     PoojaListComponent.ctorParameters = function () { return [
-        { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"] }
+        { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"] },
+        { type: angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["MDBModalService"] }
     ]; };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('poojasForm', { static: true }),
@@ -122,7 +147,8 @@ var PoojaListComponent = /** @class */ (function () {
             changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
             styles: [__importDefault(__webpack_require__(/*! ./pooja-list.component.scss */ "./src/app/poojas/components/pooja-list/pooja-list.component.scss")).default]
         }),
-        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"]])
+        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"],
+            angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["MDBModalService"]])
     ], PoojaListComponent);
     return PoojaListComponent;
 }());
@@ -444,8 +470,12 @@ var PoojasService = /** @class */ (function () {
     PoojasService.prototype.update = function (poojas, userId) {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([poojas, userId]);
     };
-    PoojasService.prototype.delete = function (poojas, userId) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([poojas, userId]);
+    PoojasService.prototype.deletePooja = function (pooja_code) {
+        return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].apiUrl + "?api=deletePoojaType", {
+            params: {
+                pooja_code: pooja_code
+            }
+        });
     };
     PoojasService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -490,7 +520,7 @@ var PoojasActionTypes;
     PoojasActionTypes["POOJAS_ADD_QUERY"] = "[Poojas] Add new Pooja Type";
     PoojasActionTypes["POOJAS_ADDED"] = "[Poojas] Added New Pooja Type";
     PoojasActionTypes["POOJAS_EDITED"] = "[Poojas] Edited Pooja Type";
-    PoojasActionTypes["POOJAS_DELETED"] = "[Poojas] Deleted Pooja Type";
+    PoojasActionTypes["POOJA_DELETE_QUERY"] = "[Poojas] Delete Pooja Type";
     PoojasActionTypes["POOJAS_ERROR"] = "[Poojas] Error";
 })(PoojasActionTypes || (PoojasActionTypes = {}));
 var PoojasQuery = /** @class */ (function () {
@@ -527,7 +557,7 @@ var PoojasEdited = /** @class */ (function () {
 var PoojasDeleted = /** @class */ (function () {
     function PoojasDeleted(payload) {
         this.payload = payload;
-        this.type = PoojasActionTypes.POOJAS_DELETED;
+        this.type = PoojasActionTypes.POOJA_DELETE_QUERY;
     }
     return PoojasDeleted;
 }());
@@ -628,9 +658,14 @@ var PoojasEffects = /** @class */ (function () {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasError"]({ error: error }));
             }));
         }));
-        this.delete$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasActionTypes"].POOJAS_DELETED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
-            var payload = _a[0], user = _a[1];
-            return _this.poojasService.delete(payload.customer, user.temple_code);
+        this.delete$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasActionTypes"].POOJA_DELETE_QUERY), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (pooja) {
+            return _this.poojasService.deletePooja(pooja.pooja_code)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function () {
+                return (new _poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasQuery"]());
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (error) {
+                _this.toastr.error('Something went wrong. Please try after sometime');
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasError"]({ error: error }));
+            }));
         }));
     }
     PoojasEffects.ctorParameters = function () { return [

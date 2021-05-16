@@ -304,7 +304,7 @@ var ExpensesActionTypes;
     ExpensesActionTypes["POOJAS_LOADED"] = "[Expenses] Fetched";
     ExpensesActionTypes["POOJAS_ADDED"] = "[Expenses] Added";
     ExpensesActionTypes["POOJAS_EDITED"] = "[Expenses] Edited";
-    ExpensesActionTypes["POOJAS_DELETED"] = "[Expenses] Deleted";
+    ExpensesActionTypes["POOJA_DELETE_QUERY"] = "[Expenses] Deleted";
     ExpensesActionTypes["POOJAS_ERROR"] = "[Expenses] Error";
 })(ExpensesActionTypes || (ExpensesActionTypes = {}));
 var ExpensesQuery = /** @class */ (function () {
@@ -341,7 +341,7 @@ var ExpensesEdited = /** @class */ (function () {
 var ExpensesDeleted = /** @class */ (function () {
     function ExpensesDeleted(payload) {
         this.payload = payload;
-        this.type = ExpensesActionTypes.POOJAS_DELETED;
+        this.type = ExpensesActionTypes.POOJA_DELETE_QUERY;
     }
     return ExpensesDeleted;
 }());
@@ -433,7 +433,7 @@ var ExpensesEffects = /** @class */ (function () {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _expenses_actions__WEBPACK_IMPORTED_MODULE_3__["ExpensesError"]({ error: error }));
             }));
         }));
-        this.delete$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_expenses_actions__WEBPACK_IMPORTED_MODULE_3__["ExpensesActionTypes"].POOJAS_DELETED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
+        this.delete$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_expenses_actions__WEBPACK_IMPORTED_MODULE_3__["ExpensesActionTypes"].POOJA_DELETE_QUERY), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
             var payload = _a[0], user = _a[1];
             return _this.expensesService.delete(payload.customer, user.temple_code);
         }));

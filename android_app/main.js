@@ -2787,126 +2787,25 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var _customers_services_customers_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../customers/services/customers.service */ "./src/app/customers/services/customers.service.ts");
-/* harmony import */ var _auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../auth/store/auth.selectors */ "./src/app/auth/store/auth.selectors.ts");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 
-
-
-
-
-
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent(store, customersService) {
-        this.store = store;
-        this.customersService = customersService;
-        this.projects = [
-            {
-                title: 'Project 1',
-                description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-                photoUrl: 'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg'
-            },
-            {
-                title: 'Project 2',
-                description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-                photoUrl: 'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(98).jpg'
-            },
-            {
-                title: 'Project 3',
-                description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-                photoUrl: 'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(99).jpg'
-            },
-            {
-                title: 'Project 4',
-                description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-                photoUrl: 'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(95).jpg'
-            }
-        ];
-        this.customers = [
-            {
-                id: 1,
-                name: 'Example customer 1',
-                description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-            },
-            {
-                id: 2,
-                name: 'Example customer 2',
-                description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-            },
-            {
-                id: 3,
-                name: 'Example customer 3',
-                description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-            },
-            {
-                id: 4,
-                name: 'Example customer 4',
-                description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-            },
-            {
-                id: 5,
-                name: 'Example customer 5',
-                description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-            }
-        ];
+    function DashboardComponent() {
     }
-    DashboardComponent.prototype.ngOnInit = function () {
-        this.initProjects();
-        this.initCustomers();
-    };
-    DashboardComponent.prototype.ngOnDestroy = function () {
-        if (this.projectsSub) {
-            this.projectsSub.unsubscribe();
-        }
-        if (this.customersSub) {
-            this.customersSub.unsubscribe();
-        }
-    };
-    DashboardComponent.prototype.initProjects = function () {
-    };
-    DashboardComponent.prototype.initCustomers = function () {
-        var _this = this;
-        this.customersSub = this.store
-            .pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_4__["getUser"]), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function (user) {
-            if (user) {
-                return _this.customersService.get(user.temple_code);
-            }
-            else {
-                return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["empty"])();
-            }
-        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["take"])(1))
-            .subscribe(function (customers) {
-            if (customers.length === 0) {
-                _this.customersService.addCustomers(_this.customers);
-            }
-        });
-    };
-    DashboardComponent.ctorParameters = function () { return [
-        { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"] },
-        { type: _customers_services_customers_service__WEBPACK_IMPORTED_MODULE_3__["CustomersService"] }
-    ]; };
     DashboardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-dashboard',
             template: __importDefault(__webpack_require__(/*! raw-loader!./dashboard.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/core/dashboard/dashboard.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./dashboard.component.scss */ "./src/app/core/dashboard/dashboard.component.scss")).default]
-        }),
-        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"],
-            _customers_services_customers_service__WEBPACK_IMPORTED_MODULE_3__["CustomersService"]])
+        })
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -3314,71 +3213,6 @@ var SplitBodyComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], SplitBodyComponent);
     return SplitBodyComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/customers/services/customers.service.ts":
-/*!*********************************************************!*\
-  !*** ./src/app/customers/services/customers.service.ts ***!
-  \*********************************************************/
-/*! exports provided: CustomersService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CustomersService", function() { return CustomersService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
-  return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-
-
-// import { AngularFireAuth } from '@angular/fire/auth';
-var CustomersService = /** @class */ (function () {
-    function CustomersService() {
-    }
-    Object.defineProperty(CustomersService.prototype, "userId", {
-        get: function () {
-            return 'uid';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    CustomersService.prototype.add = function (customer, userId) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([customer, userId]);
-    };
-    CustomersService.prototype.addCustomers = function (customers) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(customers);
-    };
-    CustomersService.prototype.get = function (userId) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(userId);
-    };
-    CustomersService.prototype.update = function (customer, userId) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([customer, userId]);
-    };
-    CustomersService.prototype.delete = function (customer, userId) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([customer, userId]);
-    };
-    CustomersService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [])
-    ], CustomersService);
-    return CustomersService;
 }());
 
 
