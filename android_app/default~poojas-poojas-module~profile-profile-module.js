@@ -687,7 +687,7 @@ var PoojasEffects = /** @class */ (function () {
         __metadata("design:type", Object)
     ], PoojasEffects.prototype, "edit$", void 0);
     __decorate([
-        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])({ dispatch: false }),
+        Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Effect"])(),
         __metadata("design:type", Object)
     ], PoojasEffects.prototype, "delete$", void 0);
     PoojasEffects = __decorate([
