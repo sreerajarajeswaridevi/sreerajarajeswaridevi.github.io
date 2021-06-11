@@ -217,7 +217,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"modal-content\">\r\n  <div class=\"modal-header bg-primary white-text\">\r\n    <div class=\"d-flex flex-column w-100\">\r\n      <div class=\"d-flex \">\r\n        <h3 class=\"modal-title w-100\" id=\"myModalLabel\">{{ heading }}</h3>\r\n      </div>\r\n      <div class=\"d-flex mr-4 align-items-center datepicker\">\r\n        <span class=\"price\">&#x20B9;{{ price }}</span>\r\n        \r\n        <button mdbWavesEffect mdbBtn type=\"button\" color=\"white\" rounded=\"true\" class=\"pull-right text-lg\" rrDatePicker [date]=\"selectedDate\" \r\n        (click)=\"dateClicked($event)\" header=\"Select Date\" (dateSelected)=\"datePicked($event)\">\r\n        <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> {{ response.date}}\r\n      </button>\r\n      </div>\r\n    </div>\r\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n      <span aria-hidden=\"true\">×</span>\r\n    </button>\r\n    \r\n   \r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <div class=\"left-section\">\r\n      <form #poojasForm=\"ngForm\">\r\n        <div class=\"md-form\">\r\n          <input type=\"text\" id=\"name\" name=\"name\" class=\"form-control\" [(ngModel)]=\"pooja.name\" mdbInput mdbValidate\r\n            [validateSuccess]=\"false\" #name=\"ngModel\" required>\r\n          <label for=\"name\">Name</label>\r\n          <mdb-error *ngIf=\"name && name.invalid && (name.dirty || name.touched)\">Name is required</mdb-error>\r\n        </div>\r\n\r\n        <div class=\"btn-toolbar star-container\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\r\n          <div class=\"md-form hidden\">\r\n            <input type=\"text\" id=\"star\" name=\"star\" class=\"form-control\" [(ngModel)]=\"pooja.star\" mdbInput mdbValidate\r\n              [validateSuccess]=\"false\" #star=\"ngModel\" required>\r\n            <label for=\"star\">Star</label>\r\n            <mdb-error *ngIf=\"star && star.invalid && (star.dirty || star.touched)\">Star is required</mdb-error>\r\n          </div>\r\n          <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\r\n              <button (click)=\"selectStar(star)\"\r\n              *ngFor=\"let star of starSigns\" mdbBtn type=\"button\" color=\"grey\" [outline]=\"star !== pooja.star\" [class.selected]=\"star === pooja.star\"\r\n               mdbWavesEffect>{{star}}</button>\r\n          </div>\r\n        </div>\r\n      </form>\r\n        <div class=\"md-form\">\r\n          <textarea type=\"text\" id=\"address\" name=\"address\" class=\"md-textarea form-control\"\r\n            [(ngModel)]=\"response.address\" mdbInput mdbValidate [validateSuccess]=\"false\"></textarea>\r\n          <label for=\"address\">Address (Optional)</label>\r\n        </div>\r\n  \r\n      \r\n    </div>\r\n    <div class=\"right-section\">\r\n      <mdb-card class=\"text-center\">\r\n        <mdb-card-header>\r\n          <div class=\"md-form phone\">\r\n            <input type=\"number\" id=\"phone\" name=\"phone\" class=\"form-control\" [(ngModel)]=\"response.phoneNumber\" mdbInput mdbValidate\r\n              [validateSuccess]=\"false\">\r\n            <label for=\"phone\">Phone Number(Optional)</label>\r\n          </div>\r\n        </mdb-card-header>\r\n        <mdb-card-body>\r\n          <table mdbTable small=\"true\" striped=\"true\">\r\n            <tbody>\r\n              <tr *ngFor=\"let item of response.persons\">\r\n                <th scope=\"row\">{{ item.name }}</th>\r\n                <td>{{ item.star }}</td>\r\n                <td>\r\n                  <mdb-icon fas icon=\"times\" class=\"float-right delete red-text\" (click)=\"deletePooja(item)\" alt=\"Delete\"></mdb-icon>\r\n                </td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n          <div class=\"p-4 d-flex flex-column justify-content-center align-items-center\" *ngIf=\"response.persons.length === 0\">\r\n            <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\r\n              <p class=\"grey-text\">No data added</p>\r\n          </div>\r\n        </mdb-card-body>\r\n        <mdb-card-footer *ngIf=\"response.persons.length\">\r\n          <span>Total Price: </span> <span class=\"price\">&#x20B9; {{response.totalPrice}}</span>\r\n        </mdb-card-footer>\r\n      </mdb-card>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" mdbBtn class=\"waves-light\" color=\"secondary\" aria-label=\"Close\" (click)=\"addPerson()\"\r\n      mdbWavesEffect [disabled]=\"poojasForm?.invalid\">Add Person</button>\r\n\r\n      <div class=\"d-flex\">\r\n        <button type=\"button\" mdbBtn class=\"waves-light\" aria-label=\"Close\" (click)=\"modalRef.hide()\"\r\n          mdbWavesEffect>Close</button>\r\n        <button type=\"button\" mdbBtn color=\"success\" [disabled]=\"response.persons.length === 0 \" class=\"relative waves-light\" mdbWavesEffect (click)=\"onSave()\">Save\r\n          changes</button>\r\n\r\n      </div>\r\n\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"modal-content\">\r\n  <div class=\"modal-header bg-primary white-text\">\r\n    <div class=\"d-flex flex-column w-100\">\r\n      <div class=\"d-flex \">\r\n        <h3 class=\"modal-title w-100\" id=\"myModalLabel\">{{ heading }}</h3>\r\n      </div>\r\n      <div class=\"d-flex mr-4 align-items-center datepicker\">\r\n        <span class=\"price\">&#x20B9;{{ price }}</span>\r\n        \r\n        <button mdbWavesEffect mdbBtn type=\"button\" color=\"white\" rounded=\"true\" class=\"pull-right text-lg\" rrDatePicker [date]=\"selectedDate\" \r\n        (click)=\"dateClicked($event)\" header=\"Select Date\" (dateSelected)=\"datePicked($event)\">\r\n        <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> {{ response?.date}}\r\n      </button>\r\n      </div>\r\n    </div>\r\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n      <span aria-hidden=\"true\">×</span>\r\n    </button>\r\n    \r\n   \r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <div class=\"left-section\">\r\n      <form #poojasForm=\"ngForm\">\r\n        <div class=\"md-form\">\r\n          <input type=\"text\" id=\"name\" name=\"name\" class=\"form-control\" [(ngModel)]=\"pooja.pooja_name\" mdbInput mdbValidate\r\n            [validateSuccess]=\"false\" #name=\"ngModel\" required>\r\n          <label for=\"name\">Name</label>\r\n          <mdb-error *ngIf=\"name && name.invalid && (name.dirty || name.touched)\">Name is required</mdb-error>\r\n        </div>\r\n\r\n        <div class=\"btn-toolbar star-container\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\r\n          <div class=\"md-form hidden\">\r\n            <input type=\"text\" id=\"nakshatram\" name=\"nakshatram\" class=\"form-control\" [(ngModel)]=\"pooja.nakshatram\" mdbInput mdbValidate\r\n              [validateSuccess]=\"false\" #nakshatram=\"ngModel\" required>\r\n            <label for=\"nakshatram\">Nakshatram</label>\r\n            <mdb-error *ngIf=\"nakshatram && nakshatram.invalid && (nakshatram.dirty || nakshatram.touched)\">Nakshatram is required</mdb-error>\r\n          </div>\r\n          <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\r\n              <button (click)=\"selectStar(star)\"\r\n              *ngFor=\"let star of starSigns\" mdbBtn type=\"button\" color=\"grey\" [outline]=\"star !== pooja.nakshatram\" [class.selected]=\"star === pooja.nakshatram\"\r\n               mdbWavesEffect>{{star}}</button>\r\n          </div>\r\n        </div>\r\n      </form>\r\n        <div class=\"md-form\">\r\n          <textarea type=\"text\" id=\"address\" name=\"address\" class=\"md-textarea form-control\"\r\n            [(ngModel)]=\"response.address\" mdbInput mdbValidate [validateSuccess]=\"false\"></textarea>\r\n          <label for=\"address\">Address (Optional)</label>\r\n        </div>\r\n  \r\n      \r\n    </div>\r\n    <div class=\"right-section\">\r\n      <mdb-card class=\"text-center\">\r\n        <mdb-card-header>\r\n          <div class=\"md-form phone\">\r\n            <input type=\"text\" id=\"phone\" name=\"phone\" class=\"form-control\" [(ngModel)]=\"response.phone_number\" mdbInput mdbValidate\r\n              [validateSuccess]=\"false\" required>\r\n            <label for=\"phone\">Phone Number *</label>\r\n          </div>\r\n        </mdb-card-header>\r\n        <mdb-card-body>\r\n          <table mdbTable small=\"true\" striped=\"true\" class=\"bhakthar-table\">\r\n            <tbody>\r\n              <tr *ngFor=\"let item of response.bhakthar\">\r\n                <th scope=\"row\">{{ item.name }}</th>\r\n                <td>{{ item.nakshatram }}</td>\r\n                <td>\r\n                  <mdb-icon fas icon=\"times\" class=\"float-right delete red-text\" (click)=\"deleteEntry(item)\" alt=\"Delete\"></mdb-icon>\r\n                </td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n          <div class=\"p-4 d-flex flex-column justify-content-center align-items-center\" *ngIf=\"response.bhakthar.length === 0\">\r\n            <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\r\n              <p class=\"grey-text\">No data added</p>\r\n          </div>\r\n        </mdb-card-body>\r\n        <mdb-card-footer *ngIf=\"response.bhakthar.length\">\r\n          <span>Total Price: </span> <span class=\"price\">&#x20B9; {{response.pooja_price}}</span>\r\n        </mdb-card-footer>\r\n      </mdb-card>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" mdbBtn class=\"waves-light\" color=\"secondary\" aria-label=\"Close\" (click)=\"addPerson()\"\r\n      mdbWavesEffect [disabled]=\"poojasForm?.invalid\">Add Person</button>\r\n\r\n      <div class=\"d-flex\">\r\n        <button type=\"button\" mdbBtn class=\"waves-light\" aria-label=\"Close\" (click)=\"modalRef.hide()\"\r\n          mdbWavesEffect>Close</button>\r\n        <button type=\"button\" mdbBtn color=\"success\" [disabled]=\"response.bhakthar.length === 0 || response.phone_number === ''\" class=\"relative waves-light\" mdbWavesEffect (click)=\"onSave()\">Save\r\n          changes</button>\r\n\r\n      </div>\r\n\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -230,7 +230,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card text-center mt-1 mb-2\">\r\n    <ng-content select=\".card-header\"></ng-content>\r\n    <div class=\"card-body\">\r\n      <ng-content></ng-content>\r\n    </div>\r\n    <div class=\"card-footer text-muted\" *ngIf=\"footer\">{{ footer }}</div>\r\n  </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card text-center mt-1 mb-2\">\r\n    <ng-content select=\".card-header\"></ng-content>\r\n    <div class=\"card-body p-0\">\r\n      <ng-content></ng-content>\r\n    </div>\r\n    <div class=\"card-footer text-muted\" *ngIf=\"footer\">{{ footer }}\r\n    </div>\r\n    <ng-content select=\"div[role=footer]\"></ng-content>\r\n  </div>");
 
 /***/ }),
 
@@ -2092,6 +2092,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.clearLocalData = function () {
         localStorage.removeItem('username');
         localStorage.removeItem('password');
+        localStorage.removeItem('role');
     };
     AuthService.prototype.updateOnlineStatus = function (uid, status) {
         // if (status) {
@@ -2626,7 +2627,7 @@ function authReducer(state, action) {
 /*!**********************************************!*\
   !*** ./src/app/auth/store/auth.selectors.ts ***!
   \**********************************************/
-/*! exports provided: getAuthState, getUser, getIsLoggedIn, getIsLoading, getIsAdmin, getError */
+/*! exports provided: getAuthState, getUser, getIsLoggedIn, getIsLoading, getIsAdmin, getError, isManager, isAdmin, isUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2637,6 +2638,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getIsLoading", function() { return getIsLoading; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getIsAdmin", function() { return getIsAdmin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getError", function() { return getError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isManager", function() { return isManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isAdmin", function() { return isAdmin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isUser", function() { return isUser; });
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -2648,6 +2652,24 @@ var getIsLoggedIn = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelec
 var getIsLoading = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAuthState, function (auth) { return auth.isLoading; });
 var getIsAdmin = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAuthState, function (auth) { return auth.isAdmin; });
 var getError = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAuthState, function (auth) { return auth.error; });
+var isManager = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAuthState, function (auth) {
+    if (auth && auth.user && auth.user.role) {
+        return auth.user.role === 'manager';
+    }
+    return false;
+});
+var isAdmin = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAuthState, function (auth) {
+    if (auth && auth.user && auth.user.role) {
+        return auth.user.role === 'admin';
+    }
+    return false;
+});
+var isUser = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getAuthState, function (auth) {
+    if (auth && auth.user && auth.user.role) {
+        return auth.user.role === 'user';
+    }
+    return false;
+});
 
 
 /***/ }),
@@ -3729,7 +3751,7 @@ var CustomersModalComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".star-container .hidden {\n  display: none;\n}\n.star-container .btn-group {\n  display: inline-block;\n}\n.star-container .btn-group button {\n  padding: 5px;\n}\n.star-container .btn-group button.selected {\n  background-color: darkgreen;\n  border: 1px solid darkgreen;\n  color: white;\n  font-weight: bold;\n  padding: 20px;\n}\n#address {\n  height: 20px;\n}\n.modal-title {\n  text-transform: uppercase;\n}\n.modal-body {\n  overflow: auto;\n  display: flex;\n  max-height: 65vh;\n}\n.modal-body .left-section {\n  width: 50%;\n}\n.modal-body .right-section {\n  width: 50%;\n  padding: 10px 20px;\n}\n@media only screen and (max-width: 768px) {\n  .modal-body {\n    flex-direction: column;\n  }\n  .modal-body .left-section {\n    width: 100%;\n  }\n  .modal-body .right-section {\n    width: 100%;\n  }\n}\n@media only screen and (max-height: 500px) {\n  .modal-body {\n    max-height: 45vh !important;\n  }\n}\n.modal-footer {\n  justify-content: space-between;\n}\n.phone {\n  margin: 0;\n}\n.delete {\n  cursor: pointer;\n}\n.datepicker {\n  display: flex;\n  justify-content: space-between;\n}\n.datepicker button {\n  font-size: large;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcG9vamFzLW1vZGFsL0M6XFxnaXQgY29kZVxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcc2hhcmVkXFxjb21wb25lbnRzXFxwb29qYXMtbW9kYWxcXHBvb2phcy1tb2RhbC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcG9vamFzLW1vZGFsL3Bvb2phcy1tb2RhbC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHSTtFQUNJLGFBQUE7QUNGUjtBRElJO0VBQ0kscUJBQUE7QUNGUjtBREdRO0VBQ0ksWUFBQTtBQ0RaO0FESVE7RUFDSSwyQkFBQTtFQUNBLDJCQUFBO0VBQ0EsWUFBQTtFQUNBLGlCQUFBO0VBQ0EsYUFBQTtBQ0ZaO0FET0E7RUFDSSxZQUFBO0FDSko7QURPQTtFQUNJLHlCQUFBO0FDSko7QURPQTtFQUNJLGNBQUE7RUFDQSxhQUFBO0VBQ0EsZ0JBQUE7QUNKSjtBRE1JO0VBQ0ksVUFBQTtBQ0pSO0FETUk7RUFDSSxVQUFBO0VBQ0Esa0JBQUE7QUNKUjtBRE9JO0VBYko7SUFjUSxzQkFBQTtFQ0pOO0VES007SUFDSSxXQUFBO0VDSFY7RURLTTtJQUNJLFdBQUE7RUNIVjtBQUNGO0FEUUE7RUFDSTtJQUNJLDJCQUFBO0VDTE47QUFDRjtBRFFBO0VBQ0ksOEJBQUE7QUNOSjtBRFNBO0VBQ0ksU0FBQTtBQ05KO0FEU0E7RUFDSSxlQUFBO0FDTko7QURRQTtFQUdJLGFBQUE7RUFDQSw4QkFBQTtBQ1BKO0FEUUk7RUFDSSxnQkFBQTtBQ05SIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcG9vamFzLW1vZGFsL3Bvb2phcy1tb2RhbC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4uc3Rhci1jb250YWluZXIge1xyXG5cclxuICAgIC5oaWRkZW4ge1xyXG4gICAgICAgIGRpc3BsYXk6IG5vbmU7XHJcbiAgICB9XHJcbiAgICAuYnRuLWdyb3VwIHtcclxuICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICAgICAgYnV0dG9uIHtcclxuICAgICAgICAgICAgcGFkZGluZzogNXB4O1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgYnV0dG9uLnNlbGVjdGVkIHtcclxuICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogZGFya2dyZWVuO1xyXG4gICAgICAgICAgICBib3JkZXI6IDFweCBzb2xpZCBkYXJrZ3JlZW47XHJcbiAgICAgICAgICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICAgICAgICAgIHBhZGRpbmc6IDIwcHg7XHJcbiAgICAgICAgfVxyXG4gICAgfVxyXG59XHJcblxyXG4jYWRkcmVzcyB7XHJcbiAgICBoZWlnaHQ6IDIwcHg7XHJcbn1cclxuXHJcbi5tb2RhbC10aXRsZSB7XHJcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG59XHJcblxyXG4ubW9kYWwtYm9keSB7XHJcbiAgICBvdmVyZmxvdzogYXV0bztcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBtYXgtaGVpZ2h0OiA2NXZoO1xyXG4gIFxyXG4gICAgLmxlZnQtc2VjdGlvbiB7XHJcbiAgICAgICAgd2lkdGg6IDUwJTtcclxuICAgIH1cclxuICAgIC5yaWdodC1zZWN0aW9uIHtcclxuICAgICAgICB3aWR0aDogNTAlO1xyXG4gICAgICAgIHBhZGRpbmc6IDEwcHggMjBweDtcclxuICAgIH1cclxuXHJcbiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2OHB4KSB7XHJcbiAgICAgICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgICAgICAubGVmdC1zZWN0aW9uIHtcclxuICAgICAgICAgICAgd2lkdGg6IDEwMCU7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIC5yaWdodC1zZWN0aW9uIHtcclxuICAgICAgICAgICAgd2lkdGg6IDEwMCU7XHJcbiAgICAgICAgIH1cclxuICAgIH1cclxuXHJcbiAgICBcclxufVxyXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtaGVpZ2h0OiA1MDBweCkge1xyXG4gICAgLm1vZGFsLWJvZHkge1xyXG4gICAgICAgIG1heC1oZWlnaHQ6IDQ1dmggIWltcG9ydGFudDtcclxuICAgIH1cclxufVxyXG5cclxuLm1vZGFsLWZvb3RlciB7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbn1cclxuXHJcbi5waG9uZSB7XHJcbiAgICBtYXJnaW46IDA7XHJcbn1cclxuXHJcbi5kZWxldGUge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbi5kYXRlcGlja2VyIHtcclxuICAgIC8vIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIC8vIHJpZ2h0OiAyMHB4O1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcclxuICAgIGJ1dHRvbiB7XHJcbiAgICAgICAgZm9udC1zaXplOiBsYXJnZTtcclxuICAgIH1cclxufSIsIi5zdGFyLWNvbnRhaW5lciAuaGlkZGVuIHtcbiAgZGlzcGxheTogbm9uZTtcbn1cbi5zdGFyLWNvbnRhaW5lciAuYnRuLWdyb3VwIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxuLnN0YXItY29udGFpbmVyIC5idG4tZ3JvdXAgYnV0dG9uIHtcbiAgcGFkZGluZzogNXB4O1xufVxuLnN0YXItY29udGFpbmVyIC5idG4tZ3JvdXAgYnV0dG9uLnNlbGVjdGVkIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogZGFya2dyZWVuO1xuICBib3JkZXI6IDFweCBzb2xpZCBkYXJrZ3JlZW47XG4gIGNvbG9yOiB3aGl0ZTtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbiNhZGRyZXNzIHtcbiAgaGVpZ2h0OiAyMHB4O1xufVxuXG4ubW9kYWwtdGl0bGUge1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xufVxuXG4ubW9kYWwtYm9keSB7XG4gIG92ZXJmbG93OiBhdXRvO1xuICBkaXNwbGF5OiBmbGV4O1xuICBtYXgtaGVpZ2h0OiA2NXZoO1xufVxuLm1vZGFsLWJvZHkgLmxlZnQtc2VjdGlvbiB7XG4gIHdpZHRoOiA1MCU7XG59XG4ubW9kYWwtYm9keSAucmlnaHQtc2VjdGlvbiB7XG4gIHdpZHRoOiA1MCU7XG4gIHBhZGRpbmc6IDEwcHggMjBweDtcbn1cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzY4cHgpIHtcbiAgLm1vZGFsLWJvZHkge1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIH1cbiAgLm1vZGFsLWJvZHkgLmxlZnQtc2VjdGlvbiB7XG4gICAgd2lkdGg6IDEwMCU7XG4gIH1cbiAgLm1vZGFsLWJvZHkgLnJpZ2h0LXNlY3Rpb24ge1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC1oZWlnaHQ6IDUwMHB4KSB7XG4gIC5tb2RhbC1ib2R5IHtcbiAgICBtYXgtaGVpZ2h0OiA0NXZoICFpbXBvcnRhbnQ7XG4gIH1cbn1cbi5tb2RhbC1mb290ZXIge1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG59XG5cbi5waG9uZSB7XG4gIG1hcmdpbjogMDtcbn1cblxuLmRlbGV0ZSB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLmRhdGVwaWNrZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG59XG4uZGF0ZXBpY2tlciBidXR0b24ge1xuICBmb250LXNpemU6IGxhcmdlO1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".star-container .hidden {\n  display: none;\n}\n.star-container .btn-group {\n  display: inline-block;\n}\n.star-container .btn-group button {\n  padding: 5px;\n}\n.star-container .btn-group button.selected {\n  background-color: darkgreen;\n  border: 1px solid darkgreen;\n  color: white;\n  font-weight: bold;\n  padding: 20px;\n}\n#address {\n  height: 20px;\n}\n.modal-title {\n  text-transform: uppercase;\n}\n.modal-body {\n  overflow: auto;\n  display: flex;\n  max-height: 65vh;\n}\n.modal-body .left-section {\n  width: 50%;\n}\n.modal-body .right-section {\n  width: 50%;\n  padding: 10px 20px;\n}\n@media only screen and (max-width: 768px) {\n  .modal-body {\n    flex-direction: column;\n  }\n  .modal-body .left-section {\n    width: 100%;\n  }\n  .modal-body .right-section {\n    width: 100%;\n  }\n}\n@media only screen and (max-height: 500px) {\n  .modal-body {\n    max-height: 45vh !important;\n  }\n}\n.modal-footer {\n  justify-content: space-between;\n}\n.phone {\n  margin: 0;\n}\n.delete {\n  cursor: pointer;\n}\n.datepicker {\n  display: flex;\n  justify-content: space-between;\n}\n.datepicker button {\n  font-size: large;\n}\n.bhakthar-table {\n  text-align: left;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcG9vamFzLW1vZGFsL0M6XFxnaXQgY29kZVxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcc2hhcmVkXFxjb21wb25lbnRzXFxwb29qYXMtbW9kYWxcXHBvb2phcy1tb2RhbC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcG9vamFzLW1vZGFsL3Bvb2phcy1tb2RhbC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHSTtFQUNJLGFBQUE7QUNGUjtBRElJO0VBQ0kscUJBQUE7QUNGUjtBREdRO0VBQ0ksWUFBQTtBQ0RaO0FESVE7RUFDSSwyQkFBQTtFQUNBLDJCQUFBO0VBQ0EsWUFBQTtFQUNBLGlCQUFBO0VBQ0EsYUFBQTtBQ0ZaO0FET0E7RUFDSSxZQUFBO0FDSko7QURPQTtFQUNJLHlCQUFBO0FDSko7QURPQTtFQUNJLGNBQUE7RUFDQSxhQUFBO0VBQ0EsZ0JBQUE7QUNKSjtBRE1JO0VBQ0ksVUFBQTtBQ0pSO0FETUk7RUFDSSxVQUFBO0VBQ0Esa0JBQUE7QUNKUjtBRE9JO0VBYko7SUFjUSxzQkFBQTtFQ0pOO0VES007SUFDSSxXQUFBO0VDSFY7RURLTTtJQUNJLFdBQUE7RUNIVjtBQUNGO0FEUUE7RUFDSTtJQUNJLDJCQUFBO0VDTE47QUFDRjtBRFFBO0VBQ0ksOEJBQUE7QUNOSjtBRFNBO0VBQ0ksU0FBQTtBQ05KO0FEU0E7RUFDSSxlQUFBO0FDTko7QURRQTtFQUdJLGFBQUE7RUFDQSw4QkFBQTtBQ1BKO0FEUUk7RUFDSSxnQkFBQTtBQ05SO0FEVUE7RUFDSSxnQkFBQTtBQ1BKIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcG9vamFzLW1vZGFsL3Bvb2phcy1tb2RhbC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4uc3Rhci1jb250YWluZXIge1xyXG5cclxuICAgIC5oaWRkZW4ge1xyXG4gICAgICAgIGRpc3BsYXk6IG5vbmU7XHJcbiAgICB9XHJcbiAgICAuYnRuLWdyb3VwIHtcclxuICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICAgICAgYnV0dG9uIHtcclxuICAgICAgICAgICAgcGFkZGluZzogNXB4O1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgYnV0dG9uLnNlbGVjdGVkIHtcclxuICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogZGFya2dyZWVuO1xyXG4gICAgICAgICAgICBib3JkZXI6IDFweCBzb2xpZCBkYXJrZ3JlZW47XHJcbiAgICAgICAgICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICAgICAgICAgIHBhZGRpbmc6IDIwcHg7XHJcbiAgICAgICAgfVxyXG4gICAgfVxyXG59XHJcblxyXG4jYWRkcmVzcyB7XHJcbiAgICBoZWlnaHQ6IDIwcHg7XHJcbn1cclxuXHJcbi5tb2RhbC10aXRsZSB7XHJcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG59XHJcblxyXG4ubW9kYWwtYm9keSB7XHJcbiAgICBvdmVyZmxvdzogYXV0bztcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBtYXgtaGVpZ2h0OiA2NXZoO1xyXG4gIFxyXG4gICAgLmxlZnQtc2VjdGlvbiB7XHJcbiAgICAgICAgd2lkdGg6IDUwJTtcclxuICAgIH1cclxuICAgIC5yaWdodC1zZWN0aW9uIHtcclxuICAgICAgICB3aWR0aDogNTAlO1xyXG4gICAgICAgIHBhZGRpbmc6IDEwcHggMjBweDtcclxuICAgIH1cclxuXHJcbiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2OHB4KSB7XHJcbiAgICAgICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgICAgICAubGVmdC1zZWN0aW9uIHtcclxuICAgICAgICAgICAgd2lkdGg6IDEwMCU7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIC5yaWdodC1zZWN0aW9uIHtcclxuICAgICAgICAgICAgd2lkdGg6IDEwMCU7XHJcbiAgICAgICAgIH1cclxuICAgIH1cclxuXHJcbiAgICBcclxufVxyXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtaGVpZ2h0OiA1MDBweCkge1xyXG4gICAgLm1vZGFsLWJvZHkge1xyXG4gICAgICAgIG1heC1oZWlnaHQ6IDQ1dmggIWltcG9ydGFudDtcclxuICAgIH1cclxufVxyXG5cclxuLm1vZGFsLWZvb3RlciB7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XHJcbn1cclxuXHJcbi5waG9uZSB7XHJcbiAgICBtYXJnaW46IDA7XHJcbn1cclxuXHJcbi5kZWxldGUge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbi5kYXRlcGlja2VyIHtcclxuICAgIC8vIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIC8vIHJpZ2h0OiAyMHB4O1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcclxuICAgIGJ1dHRvbiB7XHJcbiAgICAgICAgZm9udC1zaXplOiBsYXJnZTtcclxuICAgIH1cclxufVxyXG5cclxuLmJoYWt0aGFyLXRhYmxlIHtcclxuICAgIHRleHQtYWxpZ246IGxlZnQ7XHJcbn0iLCIuc3Rhci1jb250YWluZXIgLmhpZGRlbiB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG4uc3Rhci1jb250YWluZXIgLmJ0bi1ncm91cCB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cbi5zdGFyLWNvbnRhaW5lciAuYnRuLWdyb3VwIGJ1dHRvbiB7XG4gIHBhZGRpbmc6IDVweDtcbn1cbi5zdGFyLWNvbnRhaW5lciAuYnRuLWdyb3VwIGJ1dHRvbi5zZWxlY3RlZCB7XG4gIGJhY2tncm91bmQtY29sb3I6IGRhcmtncmVlbjtcbiAgYm9yZGVyOiAxcHggc29saWQgZGFya2dyZWVuO1xuICBjb2xvcjogd2hpdGU7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4jYWRkcmVzcyB7XG4gIGhlaWdodDogMjBweDtcbn1cblxuLm1vZGFsLXRpdGxlIHtcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbn1cblxuLm1vZGFsLWJvZHkge1xuICBvdmVyZmxvdzogYXV0bztcbiAgZGlzcGxheTogZmxleDtcbiAgbWF4LWhlaWdodDogNjV2aDtcbn1cbi5tb2RhbC1ib2R5IC5sZWZ0LXNlY3Rpb24ge1xuICB3aWR0aDogNTAlO1xufVxuLm1vZGFsLWJvZHkgLnJpZ2h0LXNlY3Rpb24ge1xuICB3aWR0aDogNTAlO1xuICBwYWRkaW5nOiAxMHB4IDIwcHg7XG59XG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2OHB4KSB7XG4gIC5tb2RhbC1ib2R5IHtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICB9XG4gIC5tb2RhbC1ib2R5IC5sZWZ0LXNlY3Rpb24ge1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG4gIC5tb2RhbC1ib2R5IC5yaWdodC1zZWN0aW9uIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgfVxufVxuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtaGVpZ2h0OiA1MDBweCkge1xuICAubW9kYWwtYm9keSB7XG4gICAgbWF4LWhlaWdodDogNDV2aCAhaW1wb3J0YW50O1xuICB9XG59XG4ubW9kYWwtZm9vdGVyIHtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xufVxuXG4ucGhvbmUge1xuICBtYXJnaW46IDA7XG59XG5cbi5kZWxldGUge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5kYXRlcGlja2VyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xufVxuLmRhdGVwaWNrZXIgYnV0dG9uIHtcbiAgZm9udC1zaXplOiBsYXJnZTtcbn1cblxuLmJoYWt0aGFyLXRhYmxlIHtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbn0iXX0= */");
 
 /***/ }),
 
@@ -3781,27 +3803,28 @@ var PoojasModalComponent = /** @class */ (function () {
         this.poojasData = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
         this.starSigns = src_app_poojas_models_poojas_model__WEBPACK_IMPORTED_MODULE_4__["starSigns"];
         this.response = {
-            phoneNumber: '',
+            pooja_code: '',
+            phone_number: '',
             address: '',
-            persons: [],
-            totalPrice: 0,
-            date: moment().format('dddd DD/MM/YYYY')
+            bhakthar: [],
+            pooja_price: '0',
         };
     }
     PoojasModalComponent.prototype.ngOnInit = function () {
+        this.response.pooja_code = this.code;
     };
     PoojasModalComponent.prototype.onClose = function () {
         this.modalRef.hide();
     };
     PoojasModalComponent.prototype.datePicked = function (date) {
-        console.log(this.response);
-        this.response.date = date.format('DD/MM/YYYY');
+        console.log(date);
+        // this.response.date = date.format('DD/MM/YYYY'); // uncomment for bookings
     };
     PoojasModalComponent.prototype.dateClicked = function (date) {
         console.log(date);
     };
     PoojasModalComponent.prototype.onSave = function () {
-        if (this.poojasForm.valid && this.response.persons.length > 0) {
+        if (this.response.bhakthar.length > 0) {
             this.poojasData.next(this.response);
             this.modalRef.hide();
         }
@@ -3811,14 +3834,14 @@ var PoojasModalComponent = /** @class */ (function () {
         }
     };
     PoojasModalComponent.prototype.selectStar = function (star) {
-        this.pooja.star = star;
+        this.pooja.nakshatram = star;
     };
-    PoojasModalComponent.prototype.deletePooja = function (item) {
-        this.response.persons.splice(this.response.persons.indexOf(item), 1);
+    PoojasModalComponent.prototype.deleteEntry = function (item) {
+        this.response.bhakthar.splice(this.response.bhakthar.indexOf(item), 1);
     };
     PoojasModalComponent.prototype.addPerson = function () {
-        this.response.persons.push(this.poojasForm.value);
-        this.response.totalPrice += +(this.price);
+        this.response.bhakthar.push(this.poojasForm.value);
+        this.response.pooja_price = "" + (+(this.price) + +(this.response.pooja_price));
         this.poojasForm.reset();
     };
     PoojasModalComponent.ctorParameters = function () { return [
@@ -3902,6 +3925,140 @@ var RightCardComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], RightCardComponent);
     return RightCardComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/components/tabs/tab.component.scss":
+/*!***********************************************************!*\
+  !*** ./src/app/shared/components/tabs/tab.component.scss ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".nav li {\n  cursor: pointer;\n}\n.nav li a {\n  font-size: large;\n  padding: 10px;\n  font-weight: bold;\n  color: gray;\n}\n.nav li a.active {\n  color: #4285f4;\n}\n.tab.active {\n  color: gray;\n}\n.tab-close {\n  color: gray;\n  text-align: right;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdGFicy9DOlxcZ2l0IGNvZGVcXEF1ZGl0LVVJLUFuZ3VsYXIvc3JjXFxhcHBcXHNoYXJlZFxcY29tcG9uZW50c1xcdGFic1xcdGFiLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9zaGFyZWQvY29tcG9uZW50cy90YWJzL3RhYi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGVBQUE7QUNDRjtBRENFO0VBQ0UsZ0JBQUE7RUFDQSxhQUFBO0VBQ0EsaUJBQUE7RUFDQSxXQUFBO0FDQ0o7QURDRTtFQUNFLGNBQUE7QUNDSjtBREdBO0VBQ0UsV0FBQTtBQ0FGO0FER0E7RUFDRSxXQUFBO0VBQ0EsaUJBQUE7RUFDQSxlQUFBO0FDQUYiLCJmaWxlIjoic3JjL2FwcC9zaGFyZWQvY29tcG9uZW50cy90YWJzL3RhYi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXYgbGkge1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuXHJcbiAgYSB7XHJcbiAgICBmb250LXNpemU6IGxhcmdlO1xyXG4gICAgcGFkZGluZzogMTBweDtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgY29sb3I6IGdyYXk7XHJcbiAgfVxyXG4gIGEuYWN0aXZlIHtcclxuICAgIGNvbG9yOiAjNDI4NWY0O1xyXG4gIH1cclxufVxyXG5cclxuLnRhYi5hY3RpdmUge1xyXG4gIGNvbG9yOiBncmF5O1xyXG59XHJcblxyXG4udGFiLWNsb3NlIHtcclxuICBjb2xvcjogZ3JheTtcclxuICB0ZXh0LWFsaWduOiByaWdodDtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn0iLCIubmF2IGxpIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuLm5hdiBsaSBhIHtcbiAgZm9udC1zaXplOiBsYXJnZTtcbiAgcGFkZGluZzogMTBweDtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIGNvbG9yOiBncmF5O1xufVxuLm5hdiBsaSBhLmFjdGl2ZSB7XG4gIGNvbG9yOiAjNDI4NWY0O1xufVxuXG4udGFiLmFjdGl2ZSB7XG4gIGNvbG9yOiBncmF5O1xufVxuXG4udGFiLWNsb3NlIHtcbiAgY29sb3I6IGdyYXk7XG4gIHRleHQtYWxpZ246IHJpZ2h0O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/shared/components/tabs/tab.component.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/shared/components/tabs/tab.component.ts ***!
+  \*********************************************************/
+/*! exports provided: TabComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabComponent", function() { return TabComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/**
+ * A single tab page. It renders the passed template
+ * via the @Input properties by using the ngTemplateOutlet
+ * and ngTemplateOutletContext directives.
+ */
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+var TabComponent = /** @class */ (function () {
+    function TabComponent() {
+        this.active = false;
+    }
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('tabTitle'),
+        __metadata("design:type", String)
+    ], TabComponent.prototype, "title", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], TabComponent.prototype, "active", void 0);
+    TabComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'rr-tab',
+            template: "\n     <div [hidden]=\"!active\" class=\"pane\">\n       <ng-content></ng-content>\n     </div>\n   ",
+            styles: ["\n     .pane{\n       padding: 1em;\n     }\n   "]
+        })
+    ], TabComponent);
+    return TabComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/components/tabs/tabs.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/shared/components/tabs/tabs.component.ts ***!
+  \**********************************************************/
+/*! exports provided: TabsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsComponent", function() { return TabsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _tab_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tab.component */ "./src/app/shared/components/tabs/tab.component.ts");
+/**
+ * The main component that renders single TabComponent
+ * instances.
+ */
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+var TabsComponent = /** @class */ (function () {
+    function TabsComponent() {
+    }
+    // contentChildren are set
+    TabsComponent.prototype.ngAfterContentInit = function () {
+        // get all active tabs
+        var activeTabs = this.tabs.filter(function (tab) { return tab.active; });
+        // if there is no active tab set, activate the first
+        if (activeTabs.length === 0) {
+            this.selectTab(this.tabs.first);
+        }
+    };
+    TabsComponent.prototype.selectTab = function (tab) {
+        // deactivate all tabs
+        this.tabs.toArray().forEach(function (tab) { return tab.active = false; });
+        // activate the tab the user has clicked on.
+        tab.active = true;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChildren"])(_tab_component__WEBPACK_IMPORTED_MODULE_1__["TabComponent"]),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
+    ], TabsComponent.prototype, "tabs", void 0);
+    TabsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'rr-tabs',
+            template: "\n      <ul class=\"nav nav-tabs navbar-nav d-flex flex-row\">\n        <li *ngFor=\"let tab of tabs\" (click)=\"selectTab(tab)\" [class.nav-item]=\"true\">\n          <a [class]=\"'nav-link waves-light'\" [class.active]=\"tab.active\">{{tab.title}}</a>\n        </li>\n      </ul>\n      <ng-content></ng-content>\n    ",
+            styles: [__importDefault(__webpack_require__(/*! ./tab.component.scss */ "./src/app/shared/components/tabs/tab.component.scss")).default]
+        })
+    ], TabsComponent);
+    return TabsComponent;
 }());
 
 
@@ -4233,6 +4390,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../core/core.module */ "./src/app/core/core.module.ts");
 /* harmony import */ var _components_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/users-list/users-list.component */ "./src/app/shared/components/users-list/users-list.component.ts");
 /* harmony import */ var _components_user_user_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/user/user.component */ "./src/app/shared/components/user/user.component.ts");
+/* harmony import */ var _components_tabs_tabs_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/tabs/tabs.component */ "./src/app/shared/components/tabs/tabs.component.ts");
+/* harmony import */ var _components_tabs_tab_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/tabs/tab.component */ "./src/app/shared/components/tabs/tab.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4242,6 +4401,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
 
 
 
@@ -4268,7 +4429,9 @@ var SharedModule = /** @class */ (function () {
                 _components_right_card_right_card_component__WEBPACK_IMPORTED_MODULE_8__["RightCardComponent"],
                 _components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__["UserModalComponent"],
                 _components_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_11__["UsersListComponent"],
-                _components_user_user_component__WEBPACK_IMPORTED_MODULE_12__["UserComponent"]
+                _components_user_user_component__WEBPACK_IMPORTED_MODULE_12__["UserComponent"],
+                _components_tabs_tabs_component__WEBPACK_IMPORTED_MODULE_13__["TabsComponent"],
+                _components_tabs_tab_component__WEBPACK_IMPORTED_MODULE_14__["TabComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
@@ -4285,7 +4448,16 @@ var SharedModule = /** @class */ (function () {
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["BadgeModule"],
                 _core_core_module__WEBPACK_IMPORTED_MODULE_10__["CoreModule"]
             ],
-            exports: [_components_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_6__["CustomersListComponent"], _components_poojas_modal_poojas_modal_component__WEBPACK_IMPORTED_MODULE_7__["PoojasModalComponent"], _components_right_card_right_card_component__WEBPACK_IMPORTED_MODULE_8__["RightCardComponent"], _components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__["UserModalComponent"], _components_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_11__["UsersListComponent"], _components_user_user_component__WEBPACK_IMPORTED_MODULE_12__["UserComponent"]],
+            exports: [
+                _components_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_6__["CustomersListComponent"],
+                _components_poojas_modal_poojas_modal_component__WEBPACK_IMPORTED_MODULE_7__["PoojasModalComponent"],
+                _components_right_card_right_card_component__WEBPACK_IMPORTED_MODULE_8__["RightCardComponent"],
+                _components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__["UserModalComponent"],
+                _components_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_11__["UsersListComponent"],
+                _components_user_user_component__WEBPACK_IMPORTED_MODULE_12__["UserComponent"],
+                _components_tabs_tabs_component__WEBPACK_IMPORTED_MODULE_13__["TabsComponent"],
+                _components_tabs_tab_component__WEBPACK_IMPORTED_MODULE_14__["TabComponent"]
+            ],
             providers: [],
             entryComponents: [
                 _components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_2__["ConfirmModalComponent"],

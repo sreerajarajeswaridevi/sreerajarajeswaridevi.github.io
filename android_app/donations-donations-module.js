@@ -342,16 +342,16 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 };
 var DonationsActionTypes;
 (function (DonationsActionTypes) {
-    DonationsActionTypes["POOJAS_QUERY"] = "[Donations] Query";
-    DonationsActionTypes["POOJAS_LOADED"] = "[Donations] Fetched";
-    DonationsActionTypes["POOJAS_ADDED"] = "[Donations] Added";
-    DonationsActionTypes["POOJAS_EDITED"] = "[Donations] Edited";
-    DonationsActionTypes["POOJA_DELETE_QUERY"] = "[Donations] Deleted";
+    DonationsActionTypes["POOJA_TYPE_QUERY"] = "[Donations] Query";
+    DonationsActionTypes["POOJA_TYPE_LOADED"] = "[Donations] Fetched";
+    DonationsActionTypes["POOJA_TYPE_ADDED"] = "[Donations] Added";
+    DonationsActionTypes["POOJA_TYPE_EDITED"] = "[Donations] Edited";
+    DonationsActionTypes["POOJA_TYPE_DELETED"] = "[Donations] Deleted";
     DonationsActionTypes["POOJAS_ERROR"] = "[Donations] Error";
 })(DonationsActionTypes || (DonationsActionTypes = {}));
 var DonationsQuery = /** @class */ (function () {
     function DonationsQuery() {
-        this.type = DonationsActionTypes.POOJAS_QUERY;
+        this.type = DonationsActionTypes.POOJA_TYPE_QUERY;
     }
     return DonationsQuery;
 }());
@@ -359,7 +359,7 @@ var DonationsQuery = /** @class */ (function () {
 var DonationsLoaded = /** @class */ (function () {
     function DonationsLoaded(payload) {
         this.payload = payload;
-        this.type = DonationsActionTypes.POOJAS_LOADED;
+        this.type = DonationsActionTypes.POOJA_TYPE_LOADED;
     }
     return DonationsLoaded;
 }());
@@ -367,7 +367,7 @@ var DonationsLoaded = /** @class */ (function () {
 var DonationsAdded = /** @class */ (function () {
     function DonationsAdded(payload) {
         this.payload = payload;
-        this.type = DonationsActionTypes.POOJAS_ADDED;
+        this.type = DonationsActionTypes.POOJA_TYPE_ADDED;
     }
     return DonationsAdded;
 }());
@@ -375,7 +375,7 @@ var DonationsAdded = /** @class */ (function () {
 var DonationsEdited = /** @class */ (function () {
     function DonationsEdited(payload) {
         this.payload = payload;
-        this.type = DonationsActionTypes.POOJAS_EDITED;
+        this.type = DonationsActionTypes.POOJA_TYPE_EDITED;
     }
     return DonationsEdited;
 }());
@@ -383,7 +383,7 @@ var DonationsEdited = /** @class */ (function () {
 var DonationsDeleted = /** @class */ (function () {
     function DonationsDeleted(payload) {
         this.payload = payload;
-        this.type = DonationsActionTypes.POOJA_DELETE_QUERY;
+        this.type = DonationsActionTypes.POOJA_TYPE_DELETED;
     }
     return DonationsDeleted;
 }());
@@ -445,7 +445,7 @@ var DonationsEffects = /** @class */ (function () {
         this.actions$ = actions$;
         this.donationsService = donationsService;
         this.store = store;
-        this.query$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsActionTypes"].POOJAS_QUERY), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
+        this.query$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsActionTypes"].POOJA_TYPE_QUERY), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
             var user = _a[1];
             return _this.donationsService.get(user.temple_code)
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (data) {
@@ -464,18 +464,18 @@ var DonationsEffects = /** @class */ (function () {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsError"]({ error: error }));
             }));
         }));
-        this.added$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsActionTypes"].POOJAS_ADDED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
+        this.added$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsActionTypes"].POOJA_TYPE_ADDED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
             var payload = _a[0], user = _a[1];
             return _this.donationsService.add(payload.customer, user.temple_code);
         }));
-        this.edit$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsActionTypes"].POOJAS_EDITED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
+        this.edit$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsActionTypes"].POOJA_TYPE_EDITED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
             var payload = _a[0], user = _a[1];
             return _this.donationsService.update(payload.customer, user.temple_code)
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (error) {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsError"]({ error: error }));
             }));
         }));
-        this.delete$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsActionTypes"].POOJA_DELETE_QUERY), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
+        this.delete$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsActionTypes"].POOJA_TYPE_DELETED), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["withLatestFrom"])(this.store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_6__["select"])(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (_a) {
             var payload = _a[0], user = _a[1];
             return _this.donationsService.delete(payload.customer, user.temple_code);
         }));
@@ -532,12 +532,12 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 function DonationsReducer(state, action) {
     if (state === void 0) { state = _donations_state__WEBPACK_IMPORTED_MODULE_0__["DonationsInitialState"]; }
     switch (action.type) {
-        case _donations_actions__WEBPACK_IMPORTED_MODULE_1__["DonationsActionTypes"].POOJAS_QUERY: {
+        case _donations_actions__WEBPACK_IMPORTED_MODULE_1__["DonationsActionTypes"].POOJA_TYPE_QUERY: {
             return Object.assign({}, state, {
                 isLoading: true,
             });
         }
-        case _donations_actions__WEBPACK_IMPORTED_MODULE_1__["DonationsActionTypes"].POOJAS_LOADED: {
+        case _donations_actions__WEBPACK_IMPORTED_MODULE_1__["DonationsActionTypes"].POOJA_TYPE_LOADED: {
             return Object.assign({}, state, {
                 Donations: action.payload.Donations,
                 isLoading: false,
