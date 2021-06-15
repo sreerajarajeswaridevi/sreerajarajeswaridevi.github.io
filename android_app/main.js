@@ -2084,12 +2084,14 @@ var AuthService = /** @class */ (function () {
         // }
     };
     AuthService.prototype.saveUser = function (username, password, role) {
+        window.user_id = username;
         localStorage.setItem('username', username);
         localStorage.setItem('password', password);
         localStorage.setItem('role', role);
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])({ username: username, password: password, role: role });
     };
     AuthService.prototype.clearLocalData = function () {
+        window.user_id = undefined;
         localStorage.removeItem('username');
         localStorage.removeItem('password');
         localStorage.removeItem('role');
