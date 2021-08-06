@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white px-4 section-header\">\n  <h3>Charts</h3>\n  <p class=\"grey-text pt-3\">Visualisation of data downloaded from an external API</p>\n</div>\n\n<div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 300px\">\n  <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</div>\n\n<div *ngIf=\"!(isLoading$ | async)\" class=\"charts-container p-5\">\n\n  <div class=\"row mb-3\">\n    <div class=\"col-md-12\">\n      <mdb-card>\n        <mdb-card-body>\n          <div class=\"pl-4\">\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('USD')\">USD</button>\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('PLN')\">PLN</button>\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('GBP')\">GBP</button>\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('JPY')\">JPY</button>\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"getExchangeRates('RUB')\">RUB</button>\n          </div>\n          <app-line-chart [dataset]=\"dataset\" [labels]=\"labels\"></app-line-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div>\n\n  <div class=\"row mb-3\">\n    <div class=\"col-md-6\">\n      <table class=\"white text-center z-depth-1\" mdbTable>\n        <thead class=\"primary-color text-white\">\n          <tr>\n            <th>Value</th>\n            <th>Label</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr mdbTableCol *ngFor=\"let value of barChartDataset[0].data; let i = index\">\n            <th scope=\"row\">{{ value }}</th>\n            <td>{{ barChartLabels[i] }}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n\n    <div class=\"col-md-6\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-pie-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-pie-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div>\n\n  <div class=\"row mb-3\">\n    <div class=\"col-md-6 mb-3\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-bar-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-bar-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n\n    <div class=\"col-md-6 mb-3\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-doughnut-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-doughnut-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white px-4 py-2\">\n  <h3 class=\"pt-2\">Financial Reports</h3>\n  <p class=\"grey-text pt-1\">Visualisation of consolidated accounts data</p>\n</div>\n\n<div *ngIf=\"isLoading$\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 300px\">\n  <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</div>\n\n<div *ngIf=\"!(isLoading$)\" class=\"charts-container p-5\">\n\n  \n  <div class=\"row mb-3\" >\n    <div class=\"col-md-12\">\n      <mdb-card>  \n        <mdb-card-header>\n          Todays Profit/Loss <span *ngIf=\"pageData.todaysData\" class=\"price ml-2\">&#x20B9;{{ getProfitLoss(pageData.todaysData) }}</span>\n        </mdb-card-header>\n        <mdb-card-body *ngIf=\"pageData.todaysData\">\n          <div class=\"pl-4\">\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"swapPoojasData(pageData.todaysData)\">Poojas</button>\n          </div>\n          <app-bar-chart [dataset]=\"pageData.todaysData.currentOverView.dataSet\" [labels]=\"pageData.todaysData.currentOverView.chartLabels\"></app-bar-chart>\n        </mdb-card-body>\n        <div class=\"p-4 d-flex flex-column justify-content-center align-items-center\" *ngIf=\"!pageData.todaysData\">\n          <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\n            <p class=\"grey-text\">No Data Today</p>\n        </div>\n      </mdb-card>\n    </div>\n   \n  \n  </div>\n\n  <div class=\"row mb-3\" *ngIf=\"pageData.todaysData\">\n    <div class=\"col-md-6\">\n      <table class=\"white text-center z-depth-1\" mdbTable>\n        <thead class=\"primary-color text-white\">\n          <tr>\n            <td colspan=\"2\">\n              Todays Profit/Loss <span class=\"ml-2\">&#x20B9;{{ getProfitLoss(pageData.todaysData) }}</span>\n            </td>\n          </tr>\n          <tr *ngIf=\"pageData.todaysData.currentOverView === pageData.todaysData.overView; else poojasView\">\n            <th>Expense Type</th>\n            <th>Profit/Loss</th>\n          </tr>\n          <ng-template #poojasView>\n            <tr>\n              <th>Poooja Name</th>\n              <th>Total Amount Received</th>\n            </tr>\n          </ng-template>\n        </thead>\n        <tbody>\n          <tr mdbTableCol *ngFor=\"let value of pageData.todaysData.currentOverView.dataSet[0].data; let i = index\">\n            <td>{{ pageData.todaysData.currentOverView.chartLabels[i] }}</td>\n            <th scope=\"row\">{{ value }}</th>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n    </div>\n\n    <!-- this weeks data -->\n\n  <div class=\"row mb-3\">\n    <div class=\"col-md-12\">\n      <mdb-card>  \n        <mdb-card-header>\n          This Weeks Profit/Loss <span class=\"price ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisWeeksData) }}</span>\n        </mdb-card-header>\n        <mdb-card-body>\n          <div class=\"pl-4\">\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"swapPoojasData(pageData.thisWeeksData)\">Poojas</button>\n          </div>\n          <app-bar-chart [dataset]=\"pageData.thisWeeksData.currentOverView.dataSet\" [labels]=\"pageData.thisWeeksData.currentOverView.chartLabels\"></app-bar-chart>\n          <br><br>\n          <app-bar-chart [dataset]=\"pageData.thisWeeksData.weeklyOverView.dataSet\" [labels]=\"pageData.thisWeeksData.weeklyOverView.chartLabels\"></app-bar-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div>\n\n  <div class=\"row mb-3\">\n    <div class=\"col-md-6\">\n      <table class=\"white text-center z-depth-1\" mdbTable>\n        <thead class=\"primary-color text-white\">\n          <tr>\n            <td colspan=\"2\">\n              This Weeks Profit/Loss <span class=\"ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisWeeksData) }}</span>\n            </td>\n          </tr>\n          <tr *ngIf=\"pageData.thisWeeksData.currentOverView === pageData.thisWeeksData.overView; else poojasView\">\n            <th>Expense Type</th>\n            <th>Profit/Loss</th>\n          </tr>\n          <ng-template #poojasView>\n            <tr>\n              <th>Poooja Name</th>\n              <th>Total Amount Received</th>\n            </tr>\n          </ng-template>\n        </thead>\n        <tbody>\n          <tr mdbTableCol *ngFor=\"let value of pageData.thisWeeksData.currentOverView.dataSet[0].data; let i = index\">\n            <td>{{ pageData.thisWeeksData.currentOverView.chartLabels[i] }}</td>\n            <th scope=\"row\">{{ value }}</th>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n    </div>\n    <!-- this weeks data ends here-->\n\n\n    <!-- this Months data -->\n\n  <div class=\"row mb-3\">\n    <div class=\"col-md-12\">\n      <mdb-card>  \n        <mdb-card-header>\n          This Months Profit/Loss <span class=\"price ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisMonthsData) }}</span>\n        </mdb-card-header>\n        <mdb-card-body>\n          <div class=\"pl-4\">\n            <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"swapPoojasData(pageData.thisMonthsData)\">Poojas</button>\n          </div>\n          <app-bar-chart [dataset]=\"pageData.thisMonthsData.currentOverView.dataSet\" [labels]=\"pageData.thisMonthsData.currentOverView.chartLabels\"></app-bar-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div>\n\n  <div class=\"row mb-3\">\n    <div class=\"col-md-6\">\n      <table class=\"white text-center z-depth-1\" mdbTable>\n        <thead class=\"primary-color text-white\">\n          <tr>\n            <td colspan=\"2\">\n              This Months Profit/Loss <span class=\"ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisMonthsData) }}</span>\n            </td>\n          </tr>\n          <tr *ngIf=\"pageData.thisMonthsData.currentOverView === pageData.thisMonthsData.overView; else poojasView\">\n            <th>Expense Type</th>\n            <th>Profit/Loss</th>\n          </tr>\n          <ng-template #poojasView>\n            <tr>\n              <th>Poooja Name</th>\n              <th>Total Amount Received</th>\n            </tr>\n          </ng-template>\n        </thead>\n        <tbody>\n          <tr mdbTableCol *ngFor=\"let value of pageData.thisMonthsData.currentOverView.dataSet[0].data; let i = index\">\n            <td>{{ pageData.thisMonthsData.currentOverView.chartLabels[i] }}</td>\n            <th scope=\"row\">{{ value }}</th>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n    </div>\n    <!-- this Months data ends here-->\n\n\n\n<!-- \n    <div class=\"col-md-6\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-pie-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-pie-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div>\n\n  <div class=\"row mb-3\">\n    <div class=\"col-md-6 mb-3\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-bar-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-bar-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n\n    <div class=\"col-md-6 mb-3\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-doughnut-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-doughnut-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div> -->\n\n</div>\n");
 
 /***/ }),
 
@@ -168,6 +168,7 @@ var ChartsDataModule = /** @class */ (function () {
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["ButtonsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["TableModule"],
                 _charts_routing_module__WEBPACK_IMPORTED_MODULE_5__["ChartsRoutingModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["IconsModule"],
                 _ngrx_store__WEBPACK_IMPORTED_MODULE_7__["StoreModule"].forFeature('charts', _store_charts_reducer__WEBPACK_IMPORTED_MODULE_6__["chartsReducer"]),
                 _ngrx_effects__WEBPACK_IMPORTED_MODULE_8__["EffectsModule"].forFeature([_store_charts_effects__WEBPACK_IMPORTED_MODULE_9__["ChartsEffects"]])
             ],
@@ -524,9 +525,18 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChartsComponent", function() { return ChartsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
-/* harmony import */ var _store_charts_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../store/charts.actions */ "./src/app/charts/store/charts.actions.ts");
-/* harmony import */ var _store_charts_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/charts.selectors */ "./src/app/charts/store/charts.selectors.ts");
+/* harmony import */ var _services_charts_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/charts.service */ "./src/app/charts/services/charts.service.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -541,43 +551,179 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 };
 
 
-
-
+var moment = __webpack_require__(/*! ../../../../assets/datepicker/moment.js */ "./src/assets/datepicker/moment.js");
 var ChartsComponent = /** @class */ (function () {
-    function ChartsComponent(store) {
-        this.store = store;
+    function ChartsComponent(cs) {
+        this.cs = cs;
+        this.isLoading$ = false;
         this.dataset = [{ data: [], label: '' }];
-        this.labels = [];
+        this.chartLabels = [];
         this.barChartDataset = [{ data: [], label: '' }];
-        this.barChartLabels = [];
+        this.barChartchartLabels = [];
+        this.pageData = {};
+        this.todaysDate = moment();
+        this.thisWeekStartDate = this.todaysDate.clone().startOf('isoWeek');
+        this.thisWeekEndDate = this.todaysDate.clone().endOf('isoWeek');
+        this.thisMonthStartDate = this.todaysDate.clone().startOf('month').format('YYYY-MM-DD');
+        this.thisMonthEndDate = this.todaysDate.clone().endOf('month').format('YYYY-MM-DD');
+        this.thisYearStartDate = this.todaysDate.clone().startOf('year').format('YYYY-MM-DD');
+        this.thisYearEndDate = this.todaysDate.clone().endOf('year').format('YYYY-MM-DD');
     }
     ChartsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.isLoading$ = this.store.select(_store_charts_selectors__WEBPACK_IMPORTED_MODULE_3__["getIsLoading"]);
-        this.lineChartSub = this.store.select(_store_charts_selectors__WEBPACK_IMPORTED_MODULE_3__["getLineChartData"]).subscribe(function (data) {
-            if (data.values) {
-                _this.dataset = [{ data: data.values, label: data.currencyName + " exchange rates (base EUR)" }];
-                _this.labels = data.labels;
-            }
-            else {
-                _this.getExchangeRates('USD');
-            }
-        });
-        this.barChartSub = this.store.select(_store_charts_selectors__WEBPACK_IMPORTED_MODULE_3__["getBarChartData"]).subscribe(function (data) {
-            if (data.values) {
-                _this.barChartDataset = [{ data: data.values, label: data.date + " exchange rates (base " + data.base + ")" }];
-                _this.barChartLabels = data.labels;
-            }
-            else {
-                _this.getLatestExchangeRates();
-            }
+        this.isLoading$ = true;
+        // this.lineChartSub = this.store.select(getLineChartData).subscribe( (data: any) => {
+        //   if (data.values) {
+        //     this.dataset = [{ data: data.values, label: `${data.currencyName} exchange rates (base EUR)`}];
+        //     this.chartLabels = data.chartLabels;
+        //   } else {
+        //     this.getExchangeRates('USD');
+        //   }
+        // });
+        // this.barChartSub = this.store.select(getBarChartData).subscribe( (data: any) => {
+        //   if (data.values) {
+        //     this.barChartDataset = [{ data: data.values, label: `${data.date} exchange rates (base ${data.base})`}];
+        //     this.barChartchartLabels = data.chartLabels;
+        //   } else {
+        //     this.getLatestExchangeRates();
+        //   }
+        // });
+        this.cs.getReconsiledBook({ startDate: this.thisYearStartDate, endDate: this.thisYearEndDate })
+            .subscribe(function (data) {
+            var todaysBook = data.book.find(function (book) { return book.date === moment().format('YYYY-MM-DD'); });
+            // const monthBook = data.book.map((book: any) => moment(book.date, 'YYYY-MM-DD').isSame(moment(), 'month'));
+            // const yearBook = data.book.map((book: any) => moment(book.date, 'YYYY-MM-DD').isSame(moment(), 'year'));
+            // [
+            _this.pageData.todaysData = _this.getTodaysData(todaysBook);
+            _this.pageData.thisWeeksData = _this.getWeekData(data);
+            _this.pageData.thisMonthsData = _this.getMonthData(data);
+            // this.pageData.thisWeeksData = this.getTodaysData(weekBook); -- Week Data to continue tomorow
+            // this.pageData.thisMonthsData,
+            // this.pageData.thisYearsData,
+            // ] = [
+            //   this.getTodaysData(todaysBook)
+            // ];
+            _this.isLoading$ = false;
         });
     };
-    ChartsComponent.prototype.getExchangeRates = function (currency) {
-        this.store.dispatch(new _store_charts_actions__WEBPACK_IMPORTED_MODULE_2__["LineChartQuery"]({ currency: currency }));
+    ChartsComponent.prototype.getMonthData = function (data) {
+        var _this = this;
+        var monthBook = data.book.filter(function (book) { return moment(book.date, 'YYYY-MM-DD').isSame(_this.thisMonthStartDate, 'Month'); });
+        if (!monthBook) {
+            return;
+        }
+        var book = {};
+        monthBook.forEach(function (monthEl, index) {
+            if (monthEl) {
+                if (index === 0) {
+                    book = __assign({}, monthEl);
+                }
+                else {
+                    book.poojas = book.poojas.concat(monthEl.poojas);
+                    book.expenses = book.expenses.concat(monthEl.expenses);
+                    book.donations = book.donations.concat(monthEl.donations);
+                }
+                // const profitLoss = monthEl.poojas.reduce((total: number, item: any) => Number(total) + Number(item.pooja_price), 0) -
+                //   monthEl.expenses.reduce((total: number, item: any) => Number(total) + Number(item.cost), 0) +
+                //   monthEl.donations.reduce((total: number, item: any) => Number(total) + Number(item.amount), 0);
+                // monthlyOverView.dataSet[0].data.push(profitLoss);
+                // monthlyOverView.chartLabels.push(monthEl.date);
+            }
+        });
+        return this.getReconsolidatedData(book);
     };
-    ChartsComponent.prototype.getLatestExchangeRates = function () {
-        this.store.dispatch(new _store_charts_actions__WEBPACK_IMPORTED_MODULE_2__["BarChartQuery"]());
+    ChartsComponent.prototype.getWeekData = function (data) {
+        var _this = this;
+        var weekBook = data.book.filter(function (book) { return moment(book.date, 'YYYY-MM-DD').isSame(_this.thisWeekStartDate, 'isoWeek'); });
+        if (!weekBook) {
+            return;
+        }
+        var book = {};
+        var weeklyOverView = {
+            dataSet: [{ data: [], label: 'Profit/Loss Weekly Data' }],
+            chartLabels: []
+        };
+        weekBook.forEach(function (weekEl, index) {
+            if (weekEl) {
+                if (index === 0) {
+                    book = __assign({}, weekEl);
+                }
+                else {
+                    book.poojas = book.poojas.concat(weekEl.poojas);
+                    book.expenses = book.expenses.concat(weekEl.expenses);
+                    book.donations = book.donations.concat(weekEl.donations);
+                }
+                var profitLoss = weekEl.poojas.reduce(function (total, item) { return Number(total) + Number(item.pooja_price); }, 0) -
+                    weekEl.expenses.reduce(function (total, item) { return Number(total) + Number(item.cost); }, 0) +
+                    weekEl.donations.reduce(function (total, item) { return Number(total) + Number(item.amount); }, 0);
+                weeklyOverView.dataSet[0].data.push(profitLoss);
+                weeklyOverView.chartLabels.push(weekEl.date);
+            }
+        });
+        return __assign({}, this.getReconsolidatedData(book), { weeklyOverView: weeklyOverView });
+    };
+    ChartsComponent.prototype.getTodaysData = function (book) {
+        if (!book) {
+            return;
+        }
+        return this.getReconsolidatedData(book);
+    };
+    ChartsComponent.prototype.getReconsolidatedData = function (book) {
+        var poojasList = Array.from(new Set(book.poojas.map(function (pooja) { return pooja.pooja_name; })));
+        var poojaData = [];
+        poojasList.forEach(function (pooja) {
+            poojaData.push({
+                pooja_name: pooja,
+                totalAmount: 0,
+                count: 0
+            });
+        });
+        book.poojas.forEach(function (pooja) {
+            var item = poojaData.find(function (p) { return p.pooja_name === pooja.pooja_name; });
+            if (item) {
+                item.totalAmount += Number(pooja.pooja_price);
+                item.count++;
+            }
+        });
+        var reconsolidatedData = {
+            currentOverView: {},
+            overView: {
+                dataSet: [{
+                        data: [book.poojas.reduce(function (total, item) { return Number(total) + Number(item.pooja_price); }, 0),
+                            book.expenses.reduce(function (total, item) { return Number(total) + Number(item.cost); }, 0),
+                            book.donations.reduce(function (total, item) { return Number(total) + Number(item.amount); }, 0)],
+                        label: 'Balance Sheet'
+                    }],
+                chartLabels: ["poojas (" + book.poojas.length + ")", "expenses (" + book.expenses.length + ")", "donations (" + book.donations.length + ")"]
+            },
+            poojasOverView: {
+                dataSet: [{
+                        data: poojaData.map(function (pooja) { return pooja.totalAmount; }),
+                        label: "Pooja Receivable"
+                    }],
+                chartLabels: poojaData.map(function (pooja) { return pooja.pooja_name + " (" + pooja.count + ")"; })
+            }
+        };
+        reconsolidatedData.currentOverView = reconsolidatedData.overView;
+        return reconsolidatedData;
+    };
+    // getExchangeRates(currency: string) {
+    //   this.store.dispatch(new fromCharts.LineChartQuery({ currency }));
+    // }
+    // getLatestExchangeRates() {
+    //   this.store.dispatch(new fromCharts.BarChartQuery());
+    // }
+    ChartsComponent.prototype.getProfitLoss = function (data) {
+        if (data.overView.dataSet[0]) {
+            var allTransactions = data.overView.dataSet[0].data;
+            if (allTransactions) {
+                return allTransactions[0] + allTransactions[2] - allTransactions[1]; // poojas + donations - expense
+            }
+        }
+        return '';
+    };
+    ChartsComponent.prototype.swapPoojasData = function (obj) {
+        obj.currentOverView = obj.currentOverView == obj.poojasOverView ? obj.overView : obj.poojasOverView;
     };
     ChartsComponent.prototype.ngOnDestroy = function () {
         if (this.lineChartSub) {
@@ -588,7 +734,7 @@ var ChartsComponent = /** @class */ (function () {
         }
     };
     ChartsComponent.ctorParameters = function () { return [
-        { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"] }
+        { type: _services_charts_service__WEBPACK_IMPORTED_MODULE_1__["ChartsService"] }
     ]; };
     ChartsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -596,7 +742,7 @@ var ChartsComponent = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./charts.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/charts/containers/charts/charts.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./charts.component.scss */ "./src/app/charts/containers/charts/charts.component.scss")).default]
         }),
-        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"]])
+        __metadata("design:paramtypes", [_services_charts_service__WEBPACK_IMPORTED_MODULE_1__["ChartsService"]])
     ], ChartsComponent);
     return ChartsComponent;
 }());
@@ -619,6 +765,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -631,6 +778,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -681,6 +829,14 @@ var ChartsService = /** @class */ (function () {
             var labels = dataset.map(function (latestRates) { return latestRates.currency; }).slice(0, 5);
             return { date: date, base: base, values: values, labels: labels };
         }));
+    };
+    ChartsService.prototype.getReconsiledBook = function (request) {
+        return this.http.get(src_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiUrl + "?api=getReconciledBook", {
+            params: {
+                'start_date_ist_YYYYMMDD': request.startDate,
+                'end_date_ist_YYYYMMDD': request.endDate
+            }
+        });
     };
     ChartsService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] }
