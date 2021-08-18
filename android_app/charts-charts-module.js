@@ -595,8 +595,8 @@ var ChartsComponent = /** @class */ (function () {
             }
             var book = new Book();
             var yearlyOverView = {
-                dataSet: [{ data: [], label: 'Yearly Profit/Loss Data' }],
-                chartLabels: []
+                dataSet: [{ data: moment.months().map(function () { return 0; }), label: 'Yearly Profit/Loss Data' }],
+                chartLabels: moment.months()
             };
             yearBook.forEach(function (monthEl, index) {
                 if (monthEl) {
@@ -608,11 +608,11 @@ var ChartsComponent = /** @class */ (function () {
                         book.expenses = book.expenses.concat(monthEl.expenses);
                         book.donations = book.donations.concat(monthEl.donations);
                     }
+                    var indexOfMonth = moment.months().indexOf(moment(monthEl.date).format('MMMM'));
                     var profitLoss = monthEl.poojas.reduce(function (total, item) { return Number(total) + Number(item.pooja_price); }, 0) -
                         monthEl.expenses.reduce(function (total, item) { return Number(total) + Number(item.cost); }, 0) +
                         monthEl.donations.reduce(function (total, item) { return Number(total) + Number(item.amount); }, 0);
-                    yearlyOverView.dataSet[0].data.push(profitLoss);
-                    yearlyOverView.chartLabels.push(monthEl.date);
+                    yearlyOverView.dataSet[0].data[indexOfMonth] += profitLoss;
                 }
             });
             _this.pageData.thisYearsData = __assign({}, _this.getReconsolidatedData(book), { yearlyOverView: yearlyOverView });
@@ -755,6 +755,11 @@ var ChartsComponent = /** @class */ (function () {
     }
     ChartsComponent.prototype.initDates = function () {
         this.todaysDate = moment();
+        this.weekDate = moment();
+        this.monthDate = moment();
+        this.yearDate = moment();
+        this.customStartDate = moment();
+        this.customEndDate = moment();
         this.thisWeekStartDate = this.todaysDate.clone().startOf('isoWeek');
         this.thisWeekEndDate = this.todaysDate.clone().endOf('isoWeek');
         this.thisMonthStartDate = this.todaysDate.clone().startOf('month');
