@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white px-4 py-2\">\n  <div class=\"row\">\n    <div class=\"col-md-6 col-sm-12\">\n      <h3 class=\"pt-2\">Financial Reports</h3>\n      <p class=\"grey-text pt-1\">Visualisation of consolidated accounts data</p>\n    </div>\n    <div class=\"col-md-6 col-sm-12\">\n      <div class=\"btn-toolbar\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n        <div class=\"btn-group mr-2 mt-4 row w-100\" role=\"group\" aria-label=\"First group\">\n          <button mdbBtn type=\"button\" (click)=\"activeTab = 'day'\" [color]=\"activeTab === 'day' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n            day\n          </button>\n          <button mdbBtn type=\"button\" (click)=\"activeTab = 'week'\" [color]=\"activeTab === 'week' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n            week\n          </button>\n          <button mdbBtn type=\"button\" (click)=\"activeTab = 'month'\"\n            [color]=\"activeTab === 'month' ? 'primary' : 'white'\" class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n            month\n          </button>\n          <button mdbBtn type=\"button\" (click)=\"activeTab = 'year'\" [color]=\"activeTab === 'year' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\"\n            mdbWavesEffect>\n            year\n          </button>\n          <button mdbBtn type=\"button\" (click)=\"activeTab = 'custom'\"\n            [color]=\"activeTab === 'custom' ? 'primary' : 'white'\" class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n            custom\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"isLoading$\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 300px\">\n  <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</div>\n\n<div *ngIf=\"!isLoading$\" class=\"charts-container p-5\" [ngSwitch]=\"activeTab\">\n  <div *ngSwitchCase=\"'day'\">\n    <div class=\"row mb-3\">\n      <div class=\"col-md-12 col-lg-6 mb-2\">\n        <mdb-card>\n          <mdb-card-header>\n            Todays Profit/Loss\n            <span *ngIf=\"pageData.todaysData\" class=\"price ml-2\">&#x20B9;{{ getProfitLoss(pageData.todaysData) }}</span>\n          </mdb-card-header>\n          <mdb-card-body *ngIf=\"pageData.todaysData\">\n            <div class=\"pl-4\">\n              <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"swapPoojasData(pageData.todaysData)\">\n                Poojas\n              </button>\n            </div>\n            <app-bar-chart [dataset]=\"pageData.todaysData.currentOverView.dataSet\"\n              [labels]=\"pageData.todaysData.currentOverView.chartLabels\"></app-bar-chart>\n          </mdb-card-body>\n          <div class=\"\n              p-4\n              d-flex\n              flex-column\n              justify-content-center\n              align-items-center\n            \" *ngIf=\"!pageData.todaysData\">\n            <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\n            <p class=\"grey-text\">No Data Today</p>\n          </div>\n        </mdb-card>\n      </div>\n\n      <div class=\"col-md-6 col-lg-6\" *ngIf=\"pageData.todaysData\">\n        <table class=\"white text-center z-depth-1\" mdbTable>\n          <thead class=\"primary-color text-white\">\n            <tr>\n              <td colspan=\"2\">\n                Todays Profit/Loss\n                <span class=\"ml-2\">&#x20B9;{{ getProfitLoss(pageData.todaysData) }}</span>\n              </td>\n            </tr>\n            <tr *ngIf=\"\n                pageData.todaysData.currentOverView ===\n                  pageData.todaysData.overView;\n                else poojasView\n              \">\n              <th>Expense Type</th>\n              <th>Profit/Loss</th>\n            </tr>\n            <ng-template #poojasView>\n              <tr>\n                <th>Poooja Name</th>\n                <th>Total Amount Received</th>\n              </tr>\n            </ng-template>\n          </thead>\n          <tbody>\n            <tr mdbTableCol *ngFor=\"\n                let value of pageData.todaysData.currentOverView.dataSet[0]\n                  .data;\n                let i = index\n              \">\n              <td>{{ pageData.todaysData.currentOverView.chartLabels[i] }}</td>\n              <th scope=\"row\">{{ value }}</th>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    </div>\n  </div>\n\n  <!-- this weeks data -->\n  <div *ngSwitchCase=\"'week'\">\n    <div class=\"row mb-3\">\n      <div class=\"col-md-12 col-lg-6 mb-2\">\n        <mdb-card>\n          <mdb-card-header>\n            This Weeks Profit/Loss\n            <span class=\"price ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisWeeksData) }}</span>\n          </mdb-card-header>\n          <mdb-card-body>\n            <div class=\"pl-4\">\n              <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"swapPoojasData(pageData.thisWeeksData)\">\n                Poojas\n              </button>\n            </div>\n            <app-bar-chart [dataset]=\"pageData.thisWeeksData.currentOverView.dataSet\"\n              [labels]=\"pageData.thisWeeksData.currentOverView.chartLabels\"></app-bar-chart>\n            <br /><br />\n            <app-bar-chart [dataset]=\"pageData.thisWeeksData.weeklyOverView.dataSet\"\n              [labels]=\"pageData.thisWeeksData.weeklyOverView.chartLabels\"></app-bar-chart>\n          </mdb-card-body>\n        </mdb-card>\n      </div>\n\n      <div class=\"col-md-6 col-lg-6\" *ngIf=\"pageData.thisWeeksData\">\n        <table class=\"white text-center z-depth-1\" mdbTable>\n          <thead class=\"primary-color text-white\">\n            <tr>\n              <td colspan=\"2\">\n                This Weeks Profit/Loss\n                <span class=\"ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisWeeksData) }}</span>\n              </td>\n            </tr>\n            <tr *ngIf=\"\n                pageData.thisWeeksData.currentOverView ===\n                  pageData.thisWeeksData.overView;\n                else poojasView\n              \">\n              <th>Expense Type</th>\n              <th>Profit/Loss</th>\n            </tr>\n            <ng-template #poojasView>\n              <tr>\n                <th>Poooja Name</th>\n                <th>Total Amount Received</th>\n              </tr>\n            </ng-template>\n          </thead>\n          <tbody>\n            <tr mdbTableCol *ngFor=\"\n                let value of pageData.thisWeeksData.currentOverView.dataSet[0]\n                  .data;\n                let i = index\n              \">\n              <td>\n                {{ pageData.thisWeeksData.currentOverView.chartLabels[i] }}\n              </td>\n              <th scope=\"row\">{{ value }}</th>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    </div>\n  </div>\n  <!-- this weeks data ends here-->\n\n  <!-- this Months data -->\n  <div *ngSwitchCase=\"'month'\">\n    <div class=\"row mb-3\">\n      <div class=\"col-md-12 col-lg-6 mb-4\">\n        <mdb-card>\n          <mdb-card-header>\n            This Months Profit/Loss\n            <span class=\"price ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisMonthsData) }}</span>\n          </mdb-card-header>\n          <mdb-card-body>\n            <div class=\"pl-4\">\n              <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"swapPoojasData(pageData.thisMonthsData)\">\n                Poojas\n              </button>\n            </div>\n            <app-bar-chart [dataset]=\"pageData.thisMonthsData.currentOverView.dataSet\"\n              [labels]=\"pageData.thisMonthsData.currentOverView.chartLabels\"></app-bar-chart>\n          </mdb-card-body>\n        </mdb-card>\n      </div>\n\n      <div class=\"col-md-6 col-lg-6\" *ngIf=\"pageData.thisMonthsData\">\n        <table class=\"white text-center z-depth-1\" mdbTable>\n          <thead class=\"primary-color text-white\">\n            <tr>\n              <td colspan=\"2\">\n                This Months Profit/Loss\n                <span class=\"ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisMonthsData) }}</span>\n              </td>\n            </tr>\n            <tr *ngIf=\"\n                pageData.thisMonthsData.currentOverView ===\n                  pageData.thisMonthsData.overView;\n                else poojasView\n              \">\n              <th>Expense Type</th>\n              <th>Profit/Loss</th>\n            </tr>\n            <ng-template #poojasView>\n              <tr>\n                <th>Poooja Name</th>\n                <th>Total Amount Received</th>\n              </tr>\n            </ng-template>\n          </thead>\n          <tbody>\n            <tr mdbTableCol *ngFor=\"\n                let value of pageData.thisMonthsData.currentOverView.dataSet[0]\n                  .data;\n                let i = index\n              \">\n              <td>\n                {{ pageData.thisMonthsData.currentOverView.chartLabels[i] }}\n              </td>\n              <th scope=\"row\">{{ value }}</th>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n\n      <div class=\"col-12\" *ngIf=\"pageData.thisMonthsData\">\n        <mdb-card>\n          <mdb-card-body>\n            <app-line-chart [dataset]=\"pageData.thisMonthsData.monthlyOverView.dataSet\"\n              [labels]=\"pageData.thisMonthsData.monthlyOverView.chartLabels\"></app-line-chart>\n          </mdb-card-body>\n        </mdb-card>\n      </div>\n\n    </div>\n  </div>\n  <!-- this Months data ends here-->\n\n  <!-- \n    <div class=\"col-md-6\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-pie-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-pie-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div>\n\n  <div class=\"row mb-3\">\n    <div class=\"col-md-6 mb-3\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-bar-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-bar-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n\n    <div class=\"col-md-6 mb-3\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-doughnut-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-doughnut-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div> -->\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white px-4 py-2\">\n  <div class=\"row\">\n    <div class=\"col-md-6 col-sm-12\">\n      <h3 class=\"pt-2\">Financial Reports</h3>\n      <p class=\"grey-text pt-1\">Visualisation of consolidated accounts data</p>\n    </div>\n    <div class=\"col-md-6 col-sm-12\">\n      <div class=\"btn-toolbar\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n        <div class=\"btn-group mr-2 mt-4 row w-100\" role=\"group\" aria-label=\"First group\">\n          <button mdbBtn type=\"button\" (click)=\"initTab('day')\" [color]=\"activeTab === 'day' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n            day\n          </button>\n          <button mdbBtn type=\"button\" (click)=\"initTab('week')\" [color]=\"activeTab === 'week' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n            week\n          </button>\n          <button mdbBtn type=\"button\" (click)=\"initTab('month')\"\n            [color]=\"activeTab === 'month' ? 'primary' : 'white'\" class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n            month\n          </button>\n          <button mdbBtn type=\"button\" (click)=\"initTab('year')\" [color]=\"activeTab === 'year' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\"\n            mdbWavesEffect>\n            year\n          </button>\n          <button mdbBtn type=\"button\" (click)=\"initTab('custom')\"\n            [color]=\"activeTab === 'custom' ? 'primary' : 'white'\" class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n            custom\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div *ngIf=\"isLoading$\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 300px\">\n  <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</div>\n\n<div *ngIf=\"!isLoading$\" class=\"charts-container pl-5 pr-5 pb-5\" [ngSwitch]=\"activeTab\">\n  <div *ngSwitchCase=\"'day'\">\n    <div class=\"card-header mb-2 d-flex-center\">\n      <span class=\"icon-button\" (click)=\"yesterday()\">\n        <mdb-icon fas icon=\"chevron-left\" class=\"mr-3 float-left delete cursor-pointer gray-text\" alt=\"Left\"></mdb-icon>\n      </span>\n      <h2 class=\"text-xl gray-text\">\n        {{ todaysDate.format('DD-MMMM-YYYY')  }}\n      </h2>\n      <span class=\"icon-button\" (click)=\"tomorrow()\">\n        <mdb-icon *ngIf=\"!todaysDate.isSame(customStartDate, 'day')\" mdbtn fas icon=\"chevron-right\" class=\"ml-3 float-right delete cursor-pointer gray-text\" alt=\"Right\"></mdb-icon>\n      </span>\n    </div>\n    <div class=\"row mb-3\">\n      <div class=\"col-md-12 col-lg-6 mb-2\">\n        <mdb-card>\n          <mdb-card-header>\n            {{ todaysDate.format('DD-MMMM-YYYY')  }} Profit/Loss\n            <span *ngIf=\"pageData.todaysData\" class=\"price ml-2\">&#x20B9;{{ getProfitLoss(pageData.todaysData) }}</span>\n          </mdb-card-header>\n          <mdb-card-body *ngIf=\"pageData.todaysData\">\n            <div class=\"pl-4\">\n              <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"swapPoojasData(pageData.todaysData)\">\n                Poojas\n              </button>\n            </div>\n            <app-bar-chart [dataset]=\"pageData.todaysData.currentOverView.dataSet\"\n              [labels]=\"pageData.todaysData.currentOverView.chartLabels\"></app-bar-chart>\n          </mdb-card-body>\n          <div class=\"\n              p-4\n              d-flex\n              flex-column\n              justify-content-center\n              align-items-center\n            \" *ngIf=\"!pageData.todaysData\">\n            <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\n            <p class=\"grey-text\">No Data Today</p>\n          </div>\n        </mdb-card>\n      </div>\n\n      <div class=\"col-md-6 col-lg-6\" *ngIf=\"pageData.todaysData\">\n        <table class=\"white text-center z-depth-1\" mdbTable>\n          <thead class=\"primary-color text-white\">\n            <tr>\n              <td colspan=\"2\">\n                {{ todaysDate.format('DD-MMMM-YYYY')  }} Profit/Loss\n                <span class=\"ml-2\">&#x20B9;{{ getProfitLoss(pageData.todaysData) }}</span>\n              </td>\n            </tr>\n            <tr *ngIf=\"\n                pageData.todaysData.currentOverView ===\n                  pageData.todaysData.overView;\n                else poojasView\n              \">\n              <th>Expense Type</th>\n              <th>Profit/Loss</th>\n            </tr>\n            <ng-template #poojasView>\n              <tr>\n                <th>Poooja Name</th>\n                <th>Total Amount Received</th>\n              </tr>\n            </ng-template>\n          </thead>\n          <tbody>\n            <tr mdbTableCol *ngFor=\"\n                let value of pageData.todaysData.currentOverView.dataSet[0]\n                  .data;\n                let i = index\n              \">\n              <td>{{ pageData.todaysData.currentOverView.chartLabels[i] }}</td>\n              <th scope=\"row\">{{ value }}</th>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    </div>\n  </div>\n\n  <!-- this weeks data -->\n  <div *ngSwitchCase=\"'week'\">\n    <div class=\"card-header mb-2 d-flex-center\">\n      <span class=\"icon-button\" (click)=\"prevWeek()\">\n        <mdb-icon fas icon=\"chevron-left\" class=\"mr-3 float-left delete cursor-pointer gray-text\" alt=\"Left\"></mdb-icon>\n      </span>\n      <h2 class=\"text-xl gray-text\">\n        {{ thisWeekStartDate.format('DD-MMMM') + ' TO ' + thisWeekEndDate.format('DD-MMMM')  }}\n      </h2>\n      <span class=\"icon-button\" (click)=\"nextWeek()\">\n        <mdb-icon *ngIf=\"!todaysDate.isSame(thisWeekStartDate, 'week')\" mdbtn fas icon=\"chevron-right\" class=\"ml-3 float-right delete cursor-pointer gray-text\" alt=\"Right\"></mdb-icon>\n      </span>\n    </div>\n    <div class=\"row mb-3\">\n      <div class=\"col-md-12 col-lg-6 mb-2\">\n        <mdb-card>\n          <mdb-card-header>\n            This Weeks Profit/Loss\n            <span class=\"price ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisWeeksData) }}</span>\n          </mdb-card-header>\n          <mdb-card-body>\n            <div class=\"pl-4\">\n              <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"swapPoojasData(pageData.thisWeeksData)\">\n                Poojas\n              </button>\n            </div>\n            <app-bar-chart [dataset]=\"pageData.thisWeeksData.currentOverView.dataSet\"\n              [labels]=\"pageData.thisWeeksData.currentOverView.chartLabels\"></app-bar-chart>\n            <br /><br />\n            <app-bar-chart [dataset]=\"pageData.thisWeeksData.weeklyOverView.dataSet\"\n              [labels]=\"pageData.thisWeeksData.weeklyOverView.chartLabels\"></app-bar-chart>\n          </mdb-card-body>\n        </mdb-card>\n      </div>\n\n      <div class=\"col-md-6 col-lg-6\" *ngIf=\"pageData.thisWeeksData\">\n        <table class=\"white text-center z-depth-1\" mdbTable>\n          <thead class=\"primary-color text-white\">\n            <tr>\n              <td colspan=\"2\">\n                This Weeks Profit/Loss\n                <span class=\"ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisWeeksData) }}</span>\n              </td>\n            </tr>\n            <tr *ngIf=\"\n                pageData.thisWeeksData.currentOverView ===\n                  pageData.thisWeeksData.overView;\n                else poojasView\n              \">\n              <th>Expense Type</th>\n              <th>Profit/Loss</th>\n            </tr>\n            <ng-template #poojasView>\n              <tr>\n                <th>Poooja Name</th>\n                <th>Total Amount Received</th>\n              </tr>\n            </ng-template>\n          </thead>\n          <tbody>\n            <tr mdbTableCol *ngFor=\"\n                let value of pageData.thisWeeksData.currentOverView.dataSet[0]\n                  .data;\n                let i = index\n              \">\n              <td>\n                {{ pageData.thisWeeksData.currentOverView.chartLabels[i] }}\n              </td>\n              <th scope=\"row\">{{ value }}</th>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    </div>\n  </div>\n  <!-- this weeks data ends here-->\n\n  <!-- this Months data -->\n  <div *ngSwitchCase=\"'month'\">\n    <div class=\"card-header mb-2 d-flex-center\">\n      <span class=\"icon-button\" (click)=\"prevMonth()\">\n        <mdb-icon fas icon=\"chevron-left\" class=\"mr-3 float-left delete cursor-pointer gray-text\" alt=\"Left\"></mdb-icon>\n      </span>\n      <h2 class=\"text-xl gray-text\">\n        {{ monthDate.format('MMMM YYYY')  }}\n      </h2>\n      <span class=\"icon-button\" (click)=\"nextMonth()\">\n        <mdb-icon *ngIf=\"!todaysDate.isSame(monthDate, 'month')\" mdbtn fas icon=\"chevron-right\" class=\"ml-3 float-right delete cursor-pointer gray-text\" alt=\"Right\"></mdb-icon>\n      </span>\n    </div>\n    <div class=\"row mb-3\">\n      <div class=\"col-md-12 col-lg-6 mb-4\">\n        <mdb-card>\n          <mdb-card-header>\n            {{ monthDate.format('MMMM YYYY')  }} Profit/Loss\n            <span class=\"price ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisMonthsData) }}</span>\n          </mdb-card-header>\n          <mdb-card-body>\n            <div class=\"pl-4\">\n              <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"swapPoojasData(pageData.thisMonthsData)\">\n                Poojas\n              </button>\n            </div>\n            <app-bar-chart [dataset]=\"pageData.thisMonthsData.currentOverView.dataSet\"\n              [labels]=\"pageData.thisMonthsData.currentOverView.chartLabels\"></app-bar-chart>\n          </mdb-card-body>\n        </mdb-card>\n      </div>\n\n      <div class=\"col-md-6 col-lg-6\" *ngIf=\"pageData.thisMonthsData\">\n        <table class=\"white text-center z-depth-1\" mdbTable>\n          <thead class=\"primary-color text-white\">\n            <tr>\n              <td colspan=\"2\">\n                {{ monthDate.format('MMMM YYYY')  }} Profit/Loss\n                <span class=\"ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisMonthsData) }}</span>\n              </td>\n            </tr>\n            <tr *ngIf=\"\n                pageData.thisMonthsData.currentOverView ===\n                  pageData.thisMonthsData.overView;\n                else poojasView\n              \">\n              <th>Expense Type</th>\n              <th>Profit/Loss</th>\n            </tr>\n            <ng-template #poojasView>\n              <tr>\n                <th>Poooja Name</th>\n                <th>Total Amount Received</th>\n              </tr>\n            </ng-template>\n          </thead>\n          <tbody>\n            <tr mdbTableCol *ngFor=\"\n                let value of pageData.thisMonthsData.currentOverView.dataSet[0]\n                  .data;\n                let i = index\n              \">\n              <td>\n                {{ pageData.thisMonthsData.currentOverView.chartLabels[i] }}\n              </td>\n              <th scope=\"row\">{{ value }}</th>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n\n      <div class=\"col-12\" *ngIf=\"pageData.thisMonthsData\">\n        <mdb-card>\n          <mdb-card-body>\n            <app-line-chart [dataset]=\"pageData.thisMonthsData.monthlyOverView.dataSet\"\n              [labels]=\"pageData.thisMonthsData.monthlyOverView.chartLabels\"></app-line-chart>\n          </mdb-card-body>\n        </mdb-card>\n      </div>\n\n    </div>\n  </div>\n  <!-- this Months data ends here-->\n\n  <!-- this Year data -->\n  <div *ngSwitchCase=\"'year'\">\n    <div class=\"card-header mb-2 d-flex-center\">\n      <span class=\"icon-button\" (click)=\"prevYear()\">\n        <mdb-icon fas icon=\"chevron-left\" class=\"mr-3 float-left delete cursor-pointer gray-text\" alt=\"Left\"></mdb-icon>\n      </span>\n      <h2 class=\"text-xl gray-text\">\n        {{ yearDate.format('YYYY') }}\n      </h2>\n      <span class=\"icon-button\" (click)=\"nextYear()\">\n        <mdb-icon *ngIf=\"yearDate.format('YYYY')!==todaysDate.format('YYYY')\" mdbtn fas icon=\"chevron-right\" class=\"ml-3 float-right delete cursor-pointer gray-text\" alt=\"Right\"></mdb-icon>\n      </span>\n    </div>\n    <div class=\"row mb-3\">\n      <div class=\"col-md-12 col-lg-6 mb-4\">\n        <mdb-card>\n          <mdb-card-header>\n            {{ yearDate.format('YYYY') }} Profit/Loss\n            <span class=\"price ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisYearsData) }}</span>\n          </mdb-card-header>\n          <mdb-card-body>\n            <div class=\"pl-4\">\n              <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"swapPoojasData(pageData.thisYearsData)\">\n                Poojas\n              </button>\n            </div>\n            <app-bar-chart [dataset]=\"pageData.thisYearsData.currentOverView.dataSet\"\n              [labels]=\"pageData.thisYearsData.currentOverView.chartLabels\"></app-bar-chart>\n          </mdb-card-body>\n        </mdb-card>\n      </div>\n\n      <div class=\"col-md-6 col-lg-6\" *ngIf=\"pageData.thisYearsData\">\n        <table class=\"white text-center z-depth-1\" mdbTable>\n          <thead class=\"primary-color text-white\">\n            <tr>\n              <td colspan=\"2\">\n                {{ yearDate.format('YYYY') }} Profit/Loss\n                <span class=\"ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisYearsData) }}</span>\n              </td>\n            </tr>\n            <tr *ngIf=\"\n                pageData.thisYearsData.currentOverView ===\n                  pageData.thisYearsData.overView;\n                else poojasView\n              \">\n              <th>Expense Type</th>\n              <th>Profit/Loss</th>\n            </tr>\n            <ng-template #poojasView>\n              <tr>\n                <th>Poooja Name</th>\n                <th>Total Amount Received</th>\n              </tr>\n            </ng-template>\n          </thead>\n          <tbody>\n            <tr mdbTableCol *ngFor=\"\n                let value of pageData.thisYearsData.currentOverView.dataSet[0]\n                  .data;\n                let i = index\n              \">\n              <td>\n                {{ pageData.thisYearsData.currentOverView.chartLabels[i] }}\n              </td>\n              <th scope=\"row\">{{ value }}</th>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n\n      <div class=\"col-12\" *ngIf=\"pageData.thisYearsData\">\n        <mdb-card>\n          <mdb-card-body>\n            <app-line-chart [dataset]=\"pageData.thisYearsData.yearlyOverView.dataSet\"\n              [labels]=\"pageData.thisYearsData.yearlyOverView.chartLabels\"></app-line-chart>\n          </mdb-card-body>\n        </mdb-card>\n      </div>\n\n    </div>\n  </div>\n  <!-- this Years data ends here-->\n\n\n\n  <!-- custom data -->\n  <div *ngSwitchCase=\"'custom'\">\n    <div class=\"row mb-2 text-center d-flex justify-content-center align-items-center\">\n      <button mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"customStartDate\" [startDate]=\"datePickerStartDate\" [endDate]=\"todaysDate\"\n      header=\"Select Start Date\" (dateSelected)=\"selectCustomStartDate($event)\">\n        <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> \n        <span appDateTransform [date]=\"customStartDate.format('YYYY-MM-DD')\"></span>\n      </button> TO\n      <button mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"customEndDate\" [startDate]=\"customStartDate\" [endDate]=\"todaysDate\"\n        header=\"Select End Date\" (dateSelected)=\"selectCustomEndDate($event)\">\n          <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> \n          <span appDateTransform [date]=\"customEndDate.format('YYYY-MM-DD')\"></span>\n        </button>\n\n        <button type=\"button\" mdbBtn color=\"success\"  class=\"relative waves-light\" mdbWavesEffect (click)=\"getCustomData()\">\n          GET DATA  \n        </button>\n    </div>\n    <div class=\"row my-3\">\n      <div class=\"col-md-12 col-lg-6 mb-4\">\n        <mdb-card>\n          <mdb-card-header>\n            This Years Profit/Loss\n            <span class=\"price ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisYearsData) }}</span>\n          </mdb-card-header>\n          <mdb-card-body>\n            <div class=\"pl-4\">\n              <button mdbBtn color=\"primary\" size=\"sm\" (click)=\"swapPoojasData(pageData.thisYearsData)\">\n                Poojas\n              </button>\n            </div>\n            <app-bar-chart [dataset]=\"pageData.thisYearsData.currentOverView.dataSet\"\n              [labels]=\"pageData.thisYearsData.currentOverView.chartLabels\"></app-bar-chart>\n          </mdb-card-body>\n        </mdb-card>\n      </div>\n\n      <div class=\"col-md-6 col-lg-6\" *ngIf=\"pageData.thisYearsData\">\n        <table class=\"white text-center z-depth-1\" mdbTable>\n          <thead class=\"primary-color text-white\">\n            <tr>\n              <td colspan=\"2\">\n                This Years Profit/Loss\n                <span class=\"ml-2\">&#x20B9;{{ getProfitLoss(pageData.thisYearsData) }}</span>\n              </td>\n            </tr>\n            <tr *ngIf=\"\n                pageData.thisYearsData.currentOverView ===\n                  pageData.thisYearsData.overView;\n                else poojasView\n              \">\n              <th>Expense Type</th>\n              <th>Profit/Loss</th>\n            </tr>\n            <ng-template #poojasView>\n              <tr>\n                <th>Poooja Name</th>\n                <th>Total Amount Received</th>\n              </tr>\n            </ng-template>\n          </thead>\n          <tbody>\n            <tr mdbTableCol *ngFor=\"\n                let value of pageData.thisYearsData.currentOverView.dataSet[0]\n                  .data;\n                let i = index\n              \">\n              <td>\n                {{ pageData.thisYearsData.currentOverView.chartLabels[i] }}\n              </td>\n              <th scope=\"row\">{{ value }}</th>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n\n      <div class=\"col-12\" *ngIf=\"pageData.thisYearsData\">\n        <mdb-card>\n          <mdb-card-body>\n            <app-line-chart [dataset]=\"pageData.thisYearsData.yearlyOverView.dataSet\"\n              [labels]=\"pageData.thisYearsData.yearlyOverView.chartLabels\"></app-line-chart>\n          </mdb-card-body>\n        </mdb-card>\n      </div>\n\n    </div>\n  </div>\n  <!-- custom data ends here-->\n\n  <!-- \n    <div class=\"col-md-6\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-pie-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-pie-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div>\n\n  <div class=\"row mb-3\">\n    <div class=\"col-md-6 mb-3\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-bar-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-bar-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n\n    <div class=\"col-md-6 mb-3\">\n      <mdb-card>\n        <mdb-card-body>\n          <app-doughnut-chart [dataset]=\"barChartDataset\" [labels]=\"barChartLabels\"></app-doughnut-chart>\n        </mdb-card-body>\n      </mdb-card>\n    </div>\n  </div> -->\n</div>");
 
 /***/ }),
 
@@ -134,6 +134,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_bar_chart_bar_chart_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/bar-chart/bar-chart.component */ "./src/app/charts/components/bar-chart/bar-chart.component.ts");
 /* harmony import */ var _components_doughnut_chart_doughnut_chart_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/doughnut-chart/doughnut-chart.component */ "./src/app/charts/components/doughnut-chart/doughnut-chart.component.ts");
 /* harmony import */ var _components_pie_chart_pie_chart_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/pie-chart/pie-chart.component */ "./src/app/charts/components/pie-chart/pie-chart.component.ts");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../core/core.module */ "./src/app/core/core.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -143,6 +145,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
 
 
 
@@ -167,6 +171,8 @@ var ChartsDataModule = /** @class */ (function () {
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["ChartsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["ButtonsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["TableModule"],
+                _shared_shared_module__WEBPACK_IMPORTED_MODULE_13__["SharedModule"],
+                _core_core_module__WEBPACK_IMPORTED_MODULE_14__["CoreModule"],
                 _charts_routing_module__WEBPACK_IMPORTED_MODULE_5__["ChartsRoutingModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["IconsModule"],
                 _ngrx_store__WEBPACK_IMPORTED_MODULE_7__["StoreModule"].forFeature('charts', _store_charts_reducer__WEBPACK_IMPORTED_MODULE_6__["chartsReducer"]),
@@ -554,6 +560,7 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 var moment = __webpack_require__(/*! ../../../../assets/datepicker/moment.js */ "./src/assets/datepicker/moment.js");
 var ChartsComponent = /** @class */ (function () {
     function ChartsComponent(cs) {
+        var _this = this;
         this.cs = cs;
         this.activeTab = 'day';
         this.isLoading$ = false;
@@ -561,163 +568,302 @@ var ChartsComponent = /** @class */ (function () {
         this.chartLabels = [];
         this.barChartDataset = [{ data: [], label: '' }];
         this.barChartchartLabels = [];
-        this.pageData = {};
+        this.pageData = {
+            todaysData: {},
+            thisWeeksData: {},
+            thisMonthsData: {},
+            thisYearsData: {},
+            customData: {},
+        };
+        this.todaysDate = moment();
+        this.weekDate = moment();
+        this.monthDate = moment();
+        this.yearDate = moment();
+        this.customStartDate = moment();
+        this.customEndDate = moment();
+        this.datePickerStartDate = moment().subtract(3, 'year');
+        this.thisWeekStartDate = moment();
+        this.thisWeekEndDate = moment();
+        this.thisMonthStartDate = moment();
+        this.thisMonthEndDate = moment();
+        this.thisYearStartDate = moment();
+        this.thisYearEndDate = moment();
+        this.getYearlyData = function (data) {
+            var yearBook = data.book;
+            if (!yearBook) {
+                return;
+            }
+            var book = new Book();
+            var yearlyOverView = {
+                dataSet: [{ data: [], label: 'Yearly Profit/Loss Data' }],
+                chartLabels: []
+            };
+            yearBook.forEach(function (monthEl, index) {
+                if (monthEl) {
+                    if (index === 0) {
+                        book = __assign({}, monthEl);
+                    }
+                    else {
+                        book.poojas = book.poojas.concat(monthEl.poojas);
+                        book.expenses = book.expenses.concat(monthEl.expenses);
+                        book.donations = book.donations.concat(monthEl.donations);
+                    }
+                    var profitLoss = monthEl.poojas.reduce(function (total, item) { return Number(total) + Number(item.pooja_price); }, 0) -
+                        monthEl.expenses.reduce(function (total, item) { return Number(total) + Number(item.cost); }, 0) +
+                        monthEl.donations.reduce(function (total, item) { return Number(total) + Number(item.amount); }, 0);
+                    yearlyOverView.dataSet[0].data.push(profitLoss);
+                    yearlyOverView.chartLabels.push(monthEl.date);
+                }
+            });
+            _this.pageData.thisYearsData = __assign({}, _this.getReconsolidatedData(book), { yearlyOverView: yearlyOverView });
+        };
+        this.getRangeData = function (data) {
+            var yearBook = data.book;
+            if (!yearBook) {
+                return;
+            }
+            var book = new Book();
+            var yearlyOverView = {
+                dataSet: [{ data: [], label: 'Profit/Loss Data' }],
+                chartLabels: []
+            };
+            yearBook.forEach(function (monthEl, index) {
+                if (monthEl) {
+                    if (index === 0) {
+                        book = __assign({}, monthEl);
+                    }
+                    else {
+                        book.poojas = book.poojas.concat(monthEl.poojas);
+                        book.expenses = book.expenses.concat(monthEl.expenses);
+                        book.donations = book.donations.concat(monthEl.donations);
+                    }
+                    var profitLoss = monthEl.poojas.reduce(function (total, item) { return Number(total) + Number(item.pooja_price); }, 0) -
+                        monthEl.expenses.reduce(function (total, item) { return Number(total) + Number(item.cost); }, 0) +
+                        monthEl.donations.reduce(function (total, item) { return Number(total) + Number(item.amount); }, 0);
+                    yearlyOverView.dataSet[0].data.push(profitLoss);
+                    yearlyOverView.chartLabels.push(monthEl.date);
+                }
+            });
+            _this.pageData.thisYearsData = __assign({}, _this.getReconsolidatedData(book), { yearlyOverView: yearlyOverView });
+        };
+        this.getMonthData = function (data) {
+            var monthBook = data.book;
+            if (!monthBook) {
+                return;
+            }
+            var book = new Book();
+            var monthlyOverView = {
+                dataSet: [{ data: [], label: 'Profit/Loss Monthly Data' }],
+                chartLabels: []
+            };
+            monthBook.forEach(function (monthEl, index) {
+                if (monthEl) {
+                    if (index === 0) {
+                        book = __assign({}, monthEl);
+                    }
+                    else {
+                        book.poojas = book.poojas.concat(monthEl.poojas);
+                        book.expenses = book.expenses.concat(monthEl.expenses);
+                        book.donations = book.donations.concat(monthEl.donations);
+                    }
+                    var profitLoss = monthEl.poojas.reduce(function (total, item) { return Number(total) + Number(item.pooja_price); }, 0) -
+                        monthEl.expenses.reduce(function (total, item) { return Number(total) + Number(item.cost); }, 0) +
+                        monthEl.donations.reduce(function (total, item) { return Number(total) + Number(item.amount); }, 0);
+                    monthlyOverView.dataSet[0].data.push(profitLoss);
+                    monthlyOverView.chartLabels.push(monthEl.date);
+                }
+            });
+            _this.pageData.thisMonthsData = __assign({}, _this.getReconsolidatedData(book), { monthlyOverView: monthlyOverView });
+        };
+        this.getWeekData = function (data) {
+            // const weekBook = data.book.filter((book: any) => moment(book.date, 'YYYY-MM-DD').isSame(this.thisWeekStartDate, 'isoWeek'));
+            var weekBook = data.book;
+            if (!weekBook) {
+                return;
+            }
+            var book = new Book();
+            var weeklyOverView = {
+                dataSet: [{ data: [], label: 'Profit/Loss Weekly Data' }],
+                chartLabels: []
+            };
+            weekBook.forEach(function (weekEl, index) {
+                if (weekEl) {
+                    if (index === 0) {
+                        book = __assign({}, weekEl);
+                    }
+                    else {
+                        book.poojas = book.poojas.concat(weekEl.poojas);
+                        book.expenses = book.expenses.concat(weekEl.expenses);
+                        book.donations = book.donations.concat(weekEl.donations);
+                    }
+                    var profitLoss = weekEl.poojas.reduce(function (total, item) { return Number(total) + Number(item.pooja_price); }, 0) -
+                        weekEl.expenses.reduce(function (total, item) { return Number(total) + Number(item.cost); }, 0) +
+                        weekEl.donations.reduce(function (total, item) { return Number(total) + Number(item.amount); }, 0);
+                    weeklyOverView.dataSet[0].data.push(profitLoss);
+                    weeklyOverView.chartLabels.push(weekEl.date);
+                }
+            });
+            _this.pageData.thisWeeksData = __assign({}, _this.getReconsolidatedData(book), { weeklyOverView: weeklyOverView });
+        };
+        this.getTodaysData = function (book) {
+            if (!book[0]) {
+                _this.pageData.todaysData = _this.getReconsolidatedData(new Book());
+                return;
+            }
+            _this.pageData.todaysData = _this.getReconsolidatedData(book[0]);
+        };
+        this.getReconsolidatedData = function (book) {
+            var poojasList = Array.from(new Set(book.poojas.map(function (pooja) { return pooja.pooja_name; })));
+            var poojaData = [];
+            poojasList.forEach(function (pooja) {
+                poojaData.push({
+                    pooja_name: pooja,
+                    totalAmount: 0,
+                    count: 0
+                });
+            });
+            book.poojas.forEach(function (pooja) {
+                var item = poojaData.find(function (p) { return p.pooja_name === pooja.pooja_name; });
+                if (item) {
+                    item.totalAmount += Number(pooja.pooja_price);
+                    item.count++;
+                }
+            });
+            var reconsolidatedData = {
+                currentOverView: {},
+                overView: {
+                    dataSet: [{
+                            data: [book.poojas.reduce(function (total, item) { return Number(total) + Number(item.pooja_price); }, 0),
+                                book.expenses.reduce(function (total, item) { return Number(total) + Number(item.cost); }, 0),
+                                book.donations.reduce(function (total, item) { return Number(total) + Number(item.amount); }, 0)],
+                            label: 'Total Amount'
+                        }],
+                    chartLabels: ["poojas (" + book.poojas.length + ")", "expenses (" + book.expenses.length + ")", "donations (" + book.donations.length + ")"]
+                },
+                poojasOverView: {
+                    dataSet: [{
+                            data: poojaData.map(function (pooja) { return pooja.totalAmount; }),
+                            label: "Pooja Receivable"
+                        }],
+                    chartLabels: poojaData.map(function (pooja) { return pooja.pooja_name + " (" + pooja.count + ")"; })
+                }
+            };
+            reconsolidatedData.currentOverView = reconsolidatedData.overView;
+            return reconsolidatedData;
+        };
+        this.initDates();
+    }
+    ChartsComponent.prototype.initDates = function () {
         this.todaysDate = moment();
         this.thisWeekStartDate = this.todaysDate.clone().startOf('isoWeek');
         this.thisWeekEndDate = this.todaysDate.clone().endOf('isoWeek');
-        this.thisMonthStartDate = this.todaysDate.clone().startOf('month').format('YYYY-MM-DD');
-        this.thisMonthEndDate = this.todaysDate.clone().endOf('month').format('YYYY-MM-DD');
-        this.thisYearStartDate = this.todaysDate.clone().startOf('year').format('YYYY-MM-DD');
-        this.thisYearEndDate = this.todaysDate.clone().endOf('year').format('YYYY-MM-DD');
-    }
+        this.thisMonthStartDate = this.todaysDate.clone().startOf('month');
+        this.thisMonthEndDate = this.todaysDate.clone().endOf('month');
+        this.thisYearStartDate = this.todaysDate.clone().startOf('year');
+        this.thisYearEndDate = this.todaysDate.clone().endOf('year');
+        this.customStartDate = moment();
+        this.customEndDate = moment();
+    };
+    ChartsComponent.prototype.initTab = function (tabName) {
+        this.initDates();
+        this.activeTab = tabName;
+        switch (tabName) {
+            case 'day':
+                this.getData(this.todaysDate, this.todaysDate, this.getTodaysData);
+                break;
+            case 'week':
+                this.getData(this.thisWeekStartDate, this.thisWeekEndDate, this.getWeekData);
+                break;
+            case 'month':
+                this.getData(this.thisMonthStartDate, this.thisMonthEndDate, this.getMonthData);
+                break;
+            case 'year':
+                this.getData(this.thisYearStartDate, this.thisYearEndDate, this.getYearlyData);
+                break;
+            case 'custom':
+                this.getData(this.todaysDate, this.todaysDate, this.getYearlyData);
+                break;
+        }
+    };
+    ChartsComponent.prototype.yesterday = function () {
+        this.todaysDate = this.todaysDate.subtract(1, 'day');
+        this.getData(this.todaysDate, this.todaysDate, this.getTodaysData);
+    };
+    ChartsComponent.prototype.tomorrow = function () {
+        this.todaysDate = this.weekDate.subtract(1, 'day');
+        this.getData(this.todaysDate, this.todaysDate, this.getTodaysData);
+    };
+    ChartsComponent.prototype.prevWeek = function () {
+        this.weekDate = this.weekDate.subtract(1, 'week');
+        this.thisWeekStartDate = this.weekDate.clone().startOf('isoWeek');
+        this.thisWeekEndDate = this.weekDate.clone().endOf('isoWeek');
+        this.getData(this.thisWeekStartDate, this.thisWeekEndDate, this.getWeekData);
+    };
+    ChartsComponent.prototype.nextWeek = function () {
+        this.weekDate = this.weekDate.add(1, 'week');
+        this.thisWeekStartDate = this.weekDate.clone().startOf('isoWeek');
+        this.thisWeekEndDate = this.weekDate.clone().endOf('isoWeek');
+        this.getData(this.thisWeekStartDate, this.thisWeekEndDate, this.getWeekData);
+    };
+    ChartsComponent.prototype.prevMonth = function () {
+        this.monthDate = this.monthDate.subtract(1, 'month');
+        this.thisMonthStartDate = this.monthDate.clone().startOf('month');
+        this.thisMonthEndDate = this.monthDate.clone().endOf('month');
+        this.getData(this.thisMonthStartDate, this.thisMonthEndDate, this.getMonthData);
+    };
+    ChartsComponent.prototype.nextMonth = function () {
+        this.monthDate = this.monthDate.add(1, 'month');
+        this.thisMonthStartDate = this.monthDate.clone().startOf('month');
+        this.thisMonthEndDate = this.monthDate.clone().endOf('month');
+        this.getData(this.thisMonthStartDate, this.thisMonthEndDate, this.getMonthData);
+    };
+    ChartsComponent.prototype.prevYear = function () {
+        this.yearDate = this.yearDate.subtract(1, 'year');
+        this.thisYearStartDate = this.yearDate.clone().startOf('year');
+        this.thisYearEndDate = this.yearDate.clone().endOf('year');
+        this.getData(this.thisYearStartDate, this.thisYearEndDate, this.getYearlyData);
+    };
+    ChartsComponent.prototype.nextYear = function () {
+        this.yearDate = this.yearDate.add(1, 'year');
+        this.thisYearStartDate = this.yearDate.clone().startOf('year');
+        this.thisYearEndDate = this.yearDate.clone().endOf('year');
+        this.getData(this.thisYearStartDate, this.thisYearEndDate, this.getYearlyData);
+    };
+    ChartsComponent.prototype.getCustomData = function () {
+        var startDate = this.customStartDate.clone();
+        var endDate = this.customEndDate.clone();
+        this.getData(startDate, endDate, this.getRangeData);
+    };
     ChartsComponent.prototype.ngOnInit = function () {
+        this.getData(this.todaysDate, this.todaysDate, this.getTodaysData);
+        // this.cs.getReconsiledBook({startDate: this.thisYearStartDate, endDate: this.thisYearEndDate})
+        // .subscribe((data: any) => {
+        //   const todaysBook = data.book.find((book: any) => book.date === moment().format('YYYY-MM-DD'));
+        //   // const monthBook = data.book.map((book: any) => moment(book.date, 'YYYY-MM-DD').isSame(moment(), 'month'));
+        //   // const yearBook = data.book.map((book: any) => moment(book.date, 'YYYY-MM-DD').isSame(moment(), 'year'));
+        //   // [
+        //     this.pageData.todaysData = this.getTodaysData(todaysBook);
+        //     this.pageData.thisWeeksData = this.getWeekData(data);
+        //     this.pageData.thisMonthsData = this.getMonthData(data);
+        //     this.pageData.thisYearsData = this.getYearlyData(data);
+        //     // this.pageData.thisWeeksData = this.getTodaysData(weekBook); -- Week Data to continue tomorow
+        //     // this.pageData.thisMonthsData,
+        //     // this.pageData.thisYearsData,
+        //   // ] = [
+        //   //   this.getTodaysData(todaysBook)
+        //   // ];
+        //   this.isLoading$ = false;
+        // })
+    };
+    ChartsComponent.prototype.getData = function (startDate, endDate, method) {
         var _this = this;
         this.isLoading$ = true;
-        // this.lineChartSub = this.store.select(getLineChartData).subscribe( (data: any) => {
-        //   if (data.values) {
-        //     this.dataset = [{ data: data.values, label: `${data.currencyName} exchange rates (base EUR)`}];
-        //     this.chartLabels = data.chartLabels;
-        //   } else {
-        //     this.getExchangeRates('USD');
-        //   }
-        // });
-        // this.barChartSub = this.store.select(getBarChartData).subscribe( (data: any) => {
-        //   if (data.values) {
-        //     this.barChartDataset = [{ data: data.values, label: `${data.date} exchange rates (base ${data.base})`}];
-        //     this.barChartchartLabels = data.chartLabels;
-        //   } else {
-        //     this.getLatestExchangeRates();
-        //   }
-        // });
-        this.cs.getReconsiledBook({ startDate: this.thisYearStartDate, endDate: this.thisYearEndDate })
+        this.cs.getReconsiledBook({ startDate: startDate.format('YYYY-MM-DD'), endDate: endDate.format('YYYY-MM-DD') })
             .subscribe(function (data) {
-            var todaysBook = data.book.find(function (book) { return book.date === moment().format('YYYY-MM-DD'); });
-            // const monthBook = data.book.map((book: any) => moment(book.date, 'YYYY-MM-DD').isSame(moment(), 'month'));
-            // const yearBook = data.book.map((book: any) => moment(book.date, 'YYYY-MM-DD').isSame(moment(), 'year'));
-            // [
-            _this.pageData.todaysData = _this.getTodaysData(todaysBook);
-            _this.pageData.thisWeeksData = _this.getWeekData(data);
-            _this.pageData.thisMonthsData = _this.getMonthData(data);
-            // this.pageData.thisWeeksData = this.getTodaysData(weekBook); -- Week Data to continue tomorow
-            // this.pageData.thisMonthsData,
-            // this.pageData.thisYearsData,
-            // ] = [
-            //   this.getTodaysData(todaysBook)
-            // ];
+            method(data);
             _this.isLoading$ = false;
         });
     };
-    ChartsComponent.prototype.getMonthData = function (data) {
-        var _this = this;
-        var monthBook = data.book.filter(function (book) { return moment(book.date, 'YYYY-MM-DD').isSame(_this.thisMonthStartDate, 'Month'); });
-        if (!monthBook) {
-            return;
-        }
-        var book = {};
-        var monthlyOverView = {
-            dataSet: [{ data: [], label: 'Profit/Loss Monthly Data' }],
-            chartLabels: []
-        };
-        monthBook.forEach(function (monthEl, index) {
-            if (monthEl) {
-                if (index === 0) {
-                    book = __assign({}, monthEl);
-                }
-                else {
-                    book.poojas = book.poojas.concat(monthEl.poojas);
-                    book.expenses = book.expenses.concat(monthEl.expenses);
-                    book.donations = book.donations.concat(monthEl.donations);
-                }
-                var profitLoss = monthEl.poojas.reduce(function (total, item) { return Number(total) + Number(item.pooja_price); }, 0) -
-                    monthEl.expenses.reduce(function (total, item) { return Number(total) + Number(item.cost); }, 0) +
-                    monthEl.donations.reduce(function (total, item) { return Number(total) + Number(item.amount); }, 0);
-                monthlyOverView.dataSet[0].data.push(profitLoss);
-                monthlyOverView.chartLabels.push(monthEl.date);
-            }
-        });
-        return __assign({}, this.getReconsolidatedData(book), { monthlyOverView: monthlyOverView });
-    };
-    ChartsComponent.prototype.getWeekData = function (data) {
-        var _this = this;
-        var weekBook = data.book.filter(function (book) { return moment(book.date, 'YYYY-MM-DD').isSame(_this.thisWeekStartDate, 'isoWeek'); });
-        if (!weekBook) {
-            return;
-        }
-        var book = {};
-        var weeklyOverView = {
-            dataSet: [{ data: [], label: 'Profit/Loss Weekly Data' }],
-            chartLabels: []
-        };
-        weekBook.forEach(function (weekEl, index) {
-            if (weekEl) {
-                if (index === 0) {
-                    book = __assign({}, weekEl);
-                }
-                else {
-                    book.poojas = book.poojas.concat(weekEl.poojas);
-                    book.expenses = book.expenses.concat(weekEl.expenses);
-                    book.donations = book.donations.concat(weekEl.donations);
-                }
-                var profitLoss = weekEl.poojas.reduce(function (total, item) { return Number(total) + Number(item.pooja_price); }, 0) -
-                    weekEl.expenses.reduce(function (total, item) { return Number(total) + Number(item.cost); }, 0) +
-                    weekEl.donations.reduce(function (total, item) { return Number(total) + Number(item.amount); }, 0);
-                weeklyOverView.dataSet[0].data.push(profitLoss);
-                weeklyOverView.chartLabels.push(weekEl.date);
-            }
-        });
-        return __assign({}, this.getReconsolidatedData(book), { weeklyOverView: weeklyOverView });
-    };
-    ChartsComponent.prototype.getTodaysData = function (book) {
-        if (!book) {
-            return;
-        }
-        return this.getReconsolidatedData(book);
-    };
-    ChartsComponent.prototype.getReconsolidatedData = function (book) {
-        var poojasList = Array.from(new Set(book.poojas.map(function (pooja) { return pooja.pooja_name; })));
-        var poojaData = [];
-        poojasList.forEach(function (pooja) {
-            poojaData.push({
-                pooja_name: pooja,
-                totalAmount: 0,
-                count: 0
-            });
-        });
-        book.poojas.forEach(function (pooja) {
-            var item = poojaData.find(function (p) { return p.pooja_name === pooja.pooja_name; });
-            if (item) {
-                item.totalAmount += Number(pooja.pooja_price);
-                item.count++;
-            }
-        });
-        var reconsolidatedData = {
-            currentOverView: {},
-            overView: {
-                dataSet: [{
-                        data: [book.poojas.reduce(function (total, item) { return Number(total) + Number(item.pooja_price); }, 0),
-                            book.expenses.reduce(function (total, item) { return Number(total) + Number(item.cost); }, 0),
-                            book.donations.reduce(function (total, item) { return Number(total) + Number(item.amount); }, 0)],
-                        label: 'Total Amount'
-                    }],
-                chartLabels: ["poojas (" + book.poojas.length + ")", "expenses (" + book.expenses.length + ")", "donations (" + book.donations.length + ")"]
-            },
-            poojasOverView: {
-                dataSet: [{
-                        data: poojaData.map(function (pooja) { return pooja.totalAmount; }),
-                        label: "Pooja Receivable"
-                    }],
-                chartLabels: poojaData.map(function (pooja) { return pooja.pooja_name + " (" + pooja.count + ")"; })
-            }
-        };
-        reconsolidatedData.currentOverView = reconsolidatedData.overView;
-        return reconsolidatedData;
-    };
-    // getExchangeRates(currency: string) {
-    //   this.store.dispatch(new fromCharts.LineChartQuery({ currency }));
-    // }
-    // getLatestExchangeRates() {
-    //   this.store.dispatch(new fromCharts.BarChartQuery());
-    // }
     ChartsComponent.prototype.getProfitLoss = function (data) {
         if (data.overView.dataSet[0]) {
             var allTransactions = data.overView.dataSet[0].data;
@@ -729,6 +875,12 @@ var ChartsComponent = /** @class */ (function () {
     };
     ChartsComponent.prototype.swapPoojasData = function (obj) {
         obj.currentOverView = obj.currentOverView == obj.poojasOverView ? obj.overView : obj.poojasOverView;
+    };
+    ChartsComponent.prototype.selectCustomStartDate = function (event) {
+        this.customStartDate = event;
+    };
+    ChartsComponent.prototype.selectCustomEndDate = function (event) {
+        this.customStartDate = event;
     };
     ChartsComponent.prototype.ngOnDestroy = function () {
         if (this.lineChartSub) {
@@ -752,6 +904,14 @@ var ChartsComponent = /** @class */ (function () {
     return ChartsComponent;
 }());
 
+var Book = /** @class */ (function () {
+    function Book() {
+        this.poojas = [];
+        this.expenses = [];
+        this.donations = [];
+    }
+    return Book;
+}());
 
 
 /***/ }),
