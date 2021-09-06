@@ -217,7 +217,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"modal-content\">\n  <div class=\"modal-header bg-primary white-text\">\n    <div class=\"d-flex flex-column w-100\">\n      <div class=\"d-flex \">\n        <h3 class=\"modal-title w-100\" id=\"myModalLabel\">{{ heading }}</h3>\n      </div>\n      <div class=\"d-flex mr-4 align-items-center datepicker\">\n        <span class=\"price\">&#x20B9;{{ price }}</span>\n        \n        <button mdbWavesEffect mdbBtn type=\"button\" color=\"white\" rounded=\"true\" class=\"pull-right text-lg\" rrDatePicker [date]=\"selectedDate\" \n        (click)=\"dateClicked($event)\" header=\"Select Date\" (dateSelected)=\"datePicked($event)\">\n        <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> <span appDateTransform [date]=\"response?.ist_YYYYMMDD\"></span>\n      </button>\n      </div>\n    </div>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">×</span>\n    </button>\n    \n   \n  </div>\n  <div class=\"modal-body\">\n    <div class=\"left-section\">\n      <form #poojasForm=\"ngForm\">\n        <div class=\"md-form\">\n          <input type=\"text\" id=\"name\" name=\"name\" class=\"form-control\" [(ngModel)]=\"pooja.pooja_name\" mdbInput mdbValidate\n            [validateSuccess]=\"false\" #name=\"ngModel\" required>\n          <label for=\"name\">Name</label>\n          <mdb-error *ngIf=\"name && name.invalid && (name.dirty || name.touched)\">Name is required</mdb-error>\n        </div>\n\n        <div class=\"btn-toolbar star-container\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n          <div class=\"md-form hidden\">\n            <input type=\"text\" id=\"nakshatram\" name=\"nakshatram\" class=\"form-control\" [(ngModel)]=\"pooja.nakshatram\" mdbInput mdbValidate\n              [validateSuccess]=\"false\" #nakshatram=\"ngModel\" required>\n            <label for=\"nakshatram\">Nakshatram</label>\n            <mdb-error *ngIf=\"nakshatram && nakshatram.invalid && (nakshatram.dirty || nakshatram.touched)\">Nakshatram is required</mdb-error>\n          </div>\n          <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\n              <button (click)=\"selectStar(star)\"\n              *ngFor=\"let star of starSigns\" mdbBtn type=\"button\" color=\"grey\" [outline]=\"star !== pooja.nakshatram\" [class.selected]=\"star === pooja.nakshatram\"\n               mdbWavesEffect>{{star}}</button>\n          </div>\n        </div>\n      </form>\n        <div class=\"md-form\">\n          <textarea type=\"text\" id=\"address\" name=\"address\" class=\"md-textarea form-control\"\n            [(ngModel)]=\"response.address\" mdbInput mdbValidate [validateSuccess]=\"false\"></textarea>\n          <label for=\"address\">Address (Optional)</label>\n        </div>\n  \n      \n    </div>\n    <div class=\"right-section\">\n      <mdb-card class=\"text-center\">\n        <mdb-card-header>\n          <div class=\"md-form phone\">\n            <input type=\"text\" id=\"phone\" name=\"phone\" class=\"form-control\" [(ngModel)]=\"response.phone_number\" mdbInput mdbValidate\n              [validateSuccess]=\"false\" required #phone=\"ngModel\">\n            <label for=\"phone\">Phone Number *</label>\n          <mdb-error *ngIf=\"phone && phone.invalid && (phone.dirty || phone.touched)\">phone number is required</mdb-error>\n          </div>\n        </mdb-card-header>\n        <mdb-card-body>\n          <table mdbTable small=\"true\" striped=\"true\" class=\"bhakthar-table\">\n            <tbody>\n              <tr *ngFor=\"let item of response.bhakthar\">\n                <th scope=\"row\">{{ item.name }}</th>\n                <td>{{ item.nakshatram }}</td>\n                <td>\n                  <mdb-icon fas icon=\"times\" class=\"float-right delete red-text\" (click)=\"deleteEntry(item)\" alt=\"Delete\"></mdb-icon>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n          <div class=\"p-4 d-flex flex-column justify-content-center align-items-center\" *ngIf=\"response.bhakthar.length === 0\">\n            <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\n              <p class=\"grey-text\">No data added</p>\n          </div>\n        </mdb-card-body>\n        <mdb-card-footer *ngIf=\"response.bhakthar.length\">\n          <span>Total Price: </span> <span class=\"price\">&#x20B9; {{response.pooja_price}}</span>\n        </mdb-card-footer>\n      </mdb-card>\n    </div>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" mdbBtn class=\"waves-light\" color=\"secondary\" aria-label=\"Close\" (click)=\"addPerson()\"\n      mdbWavesEffect [disabled]=\"poojasForm?.invalid\">Add Person</button>\n\n      <div class=\"d-flex\">\n        <button type=\"button\" mdbBtn class=\"waves-light\" aria-label=\"Close\" (click)=\"modalRef.hide()\"\n          mdbWavesEffect>Close</button>\n        <button type=\"button\" mdbBtn color=\"success\" [disabled]=\"response.bhakthar.length === 0 || response.phone_number === ''\" class=\"relative waves-light\" mdbWavesEffect (click)=\"onSave()\">Save\n          changes</button>\n\n      </div>\n\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"modal-content\">\n  <div class=\"modal-header bg-primary white-text\">\n    <div class=\"d-flex flex-column w-100\">\n      <div class=\"d-flex \">\n        <h3 class=\"modal-title w-100\" id=\"myModalLabel\">{{ heading }}</h3>\n      </div>\n      <div class=\"d-flex mr-4 align-items-center datepicker\">\n        <span class=\"price\">&#x20B9;{{ price }}</span>\n        \n        <button mdbWavesEffect mdbBtn type=\"button\" color=\"white\" rounded=\"true\" class=\"pull-right text-lg\" rrDatePicker [date]=\"selectedDate\" \n        (click)=\"dateClicked($event)\" header=\"Select Date\" (dateSelected)=\"datePicked($event)\">\n        <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> <span appDateTransform [date]=\"response?.ist_YYYYMMDD\"></span>\n      </button>\n      </div>\n    </div>\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\n      <span aria-hidden=\"true\">×</span>\n    </button>\n    \n   \n  </div>\n  <div class=\"modal-body\">\n    <div class=\"left-section\">\n      <form #poojasForm=\"ngForm\">\n        <div class=\"md-form\">\n          <input type=\"text\" id=\"name\" name=\"name\" class=\"form-control\" [(ngModel)]=\"pooja.pooja_name\" mdbInput mdbValidate\n            [validateSuccess]=\"false\" #name=\"ngModel\" required>\n          <label for=\"name\">Name</label>\n          <mdb-error *ngIf=\"name && name.invalid && (name.dirty || name.touched)\">Name is required</mdb-error>\n        </div>\n\n        <div class=\"btn-toolbar star-container\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n          <div class=\"md-form hidden\">\n            <input type=\"text\" id=\"nakshatram\" name=\"nakshatram\" class=\"form-control\" [(ngModel)]=\"pooja.nakshatram\" mdbInput mdbValidate\n              [validateSuccess]=\"false\" #nakshatram=\"ngModel\" required>\n            <label for=\"nakshatram\">Nakshatram</label>\n            <mdb-error *ngIf=\"nakshatram && nakshatram.invalid && (nakshatram.dirty || nakshatram.touched)\">Nakshatram is required</mdb-error>\n          </div>\n          <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\n              <button (click)=\"selectStar(star)\"\n              *ngFor=\"let star of starSigns\" mdbBtn type=\"button\" color=\"grey\" [outline]=\"star !== pooja.nakshatram\" [class.selected]=\"star === pooja.nakshatram\"\n               mdbWavesEffect>{{star}}</button>\n          </div>\n        </div>\n      </form>\n        <div class=\"md-form\">\n          <textarea type=\"text\" id=\"address\" name=\"address\" class=\"md-textarea form-control\"\n            [(ngModel)]=\"response.address\" mdbInput mdbValidate [validateSuccess]=\"false\"></textarea>\n          <label for=\"address\">Address (Optional)</label>\n        </div>\n  \n      \n    </div>\n    <div class=\"right-section\">\n      <mdb-card class=\"text-center\">\n        <mdb-card-header>\n          <div class=\"md-form phone\">\n            <input type=\"text\" id=\"phone\" name=\"phone\" class=\"form-control\" [(ngModel)]=\"response.phone_number\" mdbInput mdbValidate\n              [validateSuccess]=\"false\" required #phone=\"ngModel\">\n            <label for=\"phone\">Phone Number *</label>\n          <mdb-error *ngIf=\"phone && phone.invalid && (phone.dirty || phone.touched)\">phone number is required</mdb-error>\n          </div>\n        </mdb-card-header>\n        <mdb-card-body>\n          <table mdbTable small=\"true\" striped=\"true\" class=\"bhakthar-table\">\n            <tbody>\n              <tr *ngFor=\"let item of response.bhakthar\">\n                <th scope=\"row\">{{ item.name }}</th>\n                <td>{{ item.nakshatram }}</td>\n                <td>\n                  <mdb-icon fas icon=\"times\" class=\"float-right delete red-text\" (click)=\"deleteEntry(item)\" alt=\"Delete\"></mdb-icon>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n          <div class=\"p-4 d-flex flex-column justify-content-center align-items-center\" *ngIf=\"response.bhakthar.length === 0\">\n            <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\n              <p class=\"grey-text\">No data added</p>\n          </div>\n        </mdb-card-body>\n        <mdb-card-footer *ngIf=\"response.bhakthar.length\">\n          <span>Total Price: </span> <span class=\"price\">&#x20B9; {{response.pooja_price}}</span>\n        </mdb-card-footer>\n      </mdb-card>\n    </div>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" mdbBtn class=\"waves-light\" color=\"secondary\" aria-label=\"Close\" (click)=\"addPerson()\"\n      mdbWavesEffect [disabled]=\"poojasForm?.invalid\">Add Person</button>\n\n      <div class=\"d-flex\">\n        <button type=\"button\" mdbBtn class=\"waves-light\" aria-label=\"Close\" (click)=\"modalRef.hide()\"\n          mdbWavesEffect>Close</button>\n        <button type=\"button\" mdbBtn color=\"success\" [disabled]=\"response.bhakthar.length === 0 || response.phone_number === ''\" class=\"relative waves-light\" mdbWavesEffect (click)=\"onSave()\">Save\n          changes</button>\n          <app-printer #appPrinter [hidden]=\"true\"></app-printer>\n      </div>\n\n  </div>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/printer/printer.component.html":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/printer/printer.component.html ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<button  #buttonRef [style.display]=\"hidden ? 'none': ''\" (click)=\"triggerPrint()\">\n    <!-- [printSectionId]=\"type+'-'+size\" ngxPrint -->\n    <mdb-icon fas icon=\"print\" class=\"float-left fa-lg\" alt=\"no data\"></mdb-icon>\n</button>\n\n<div class=\"content\">\n\n    <div class=\"bills\">\n        <div id=\"pooja-bill\" #poojaBill>\n        <header style=\"display: flex; flex-direction: column; justify-content: center; align-items: center; max-width: 2in;\">\n            <span style=\"word-wrap: break-word; font-size: 16px; border-bottom: 1px solid black; max-width: 2in;font-weight: bold; text-align: center;justify-content: center;\">{{temple.temple_name}}</span>\n            <span>{{temple.address}}</span>\n            <span>Ph: {{temple.phone_number}}</span>\n        </header>\n        <body style=\"max-width: 2in;\" *ngIf=\"poojas?.length\">\n            <div style=\"border-bottom: 1px dotted black; border-top: 1px dotted black;display: flex; flex-direction: column; justify-content: center; align-items: center; max-width: 2in;\" *ngIf=\"poojas[0]?.pooja_name\">\n                <th><b>{{poojas[0]?.pooja_name}}</b></th>\n            </div>\n            <br>\n            <table style=\"border-collapse: collapse;\">\n                <tbody *ngFor=\"let pooja of poojas\" style=\"border-bottom: 1px dotted black\">\n                        <tr *ngIf=\"pooja?.name\">\n                            <td>Name</td>\n                            <td>{{pooja?.name}}</td>\n                        </tr>\n                        <tr *ngIf=\"pooja?.nakshatram\">\n                            <td>Nakshatram</td>\n                            <td>{{pooja?.nakshatram}}</td>\n                        </tr>\n                        <tr *ngIf=\"pooja?.pooja_price\">\n                            <td>Amount</td>\n                            <td>&#x20B9; {{pooja?.pooja_price}}</td>\n                        </tr>\n                </tbody>\n               \n                <tbody *ngIf=\"poojas[0]\">\n                    <tr *ngIf=\"poojas[0]?.address\">\n                        <td>Address</td>\n                        <td>{{poojas[0]?.address}}</td>\n                    </tr>\n                    <tr *ngIf=\"poojas[0]?.phone_number\" style=\"border-bottom: 1px dotted black;\">\n                        <td>Phone</td>\n                        <td>{{poojas[0]?.phone_number}}</td>\n                    </tr>\n                </tbody>\n                <tfoot>\n                    <tr><td><br></td></tr>\n                        <tr style=\"border-bottom: 1px dashed black; margin-top: 10px; max-width: 2in;background-color: whitesmoke;\">\n                            <td style=\"font-size: 16px; font-weight: bold;\"><b>Total Amount</b></td>\n                            <td style=\"font-size: 16px; font-weight: bold;\"><b>&#x20B9; {{getTotalPrice(poojas)}}</b></td>\n                        </tr>\n                        <tr><td><br></td></tr>\n                        <tr>\n                            <td>\n                                Billed by:\n                            </td>\n                            <td>\n                                {{temple?.displayName}}\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                Date-Time\n                            </td>\n                            <td>\n                                {{getCurrentDate()}}\n                            </td>\n                        </tr>\n                </tfoot>\n            </table>\n        </body>\n        </div>\n    </div>\n\n</div>");
 
 /***/ }),
 
@@ -2513,6 +2526,8 @@ var AuthEffects = /** @class */ (function () {
             var user = {
                 temple_name: res.temple_name,
                 temple_code: res.temple_code,
+                address: res.address || 'Temporary Address',
+                phone_number: res.phone_number || '99999999',
                 displayName: payload.username,
                 photoUrl: _models_user_model__WEBPACK_IMPORTED_MODULE_7__["mockUser"].user.photoUrl,
                 isAdmin: res.role === 'admin',
@@ -3911,6 +3926,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/fesm5/angular-bootstrap-md.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var src_app_poojas_models_poojas_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/poojas/models/poojas.model */ "./src/app/poojas/models/poojas.model.ts");
+/* harmony import */ var _printer_printer_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../printer/printer.component */ "./src/app/shared/components/printer/printer.component.ts");
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3923,6 +3950,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
 
 
 
@@ -3967,7 +3995,13 @@ var PoojasModalComponent = /** @class */ (function () {
         console.log(date);
     };
     PoojasModalComponent.prototype.onSave = function () {
+        var _this = this;
         if (this.response.bhakthar.length > 0) {
+            var poojaDetails_1 = this.response;
+            this.appPrinter.poojas = this.response.bhakthar.map(function (person) {
+                return __assign({}, person, poojaDetails_1, { pooja_name: _this.heading });
+            });
+            this.appPrinter.triggerPrint();
             this.poojasData.next(this.response);
             this.modalRef.hide();
         }
@@ -3994,6 +4028,10 @@ var PoojasModalComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('poojasForm', { static: true }),
         __metadata("design:type", _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgForm"])
     ], PoojasModalComponent.prototype, "poojasForm", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('appPrinter', { static: true }),
+        __metadata("design:type", _printer_printer_component__WEBPACK_IMPORTED_MODULE_5__["PrinterComponent"])
+    ], PoojasModalComponent.prototype, "appPrinter", void 0);
     PoojasModalComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-poojas-modal',
@@ -4003,6 +4041,144 @@ var PoojasModalComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_2__["MDBModalRef"]])
     ], PoojasModalComponent);
     return PoojasModalComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/components/printer/printer.component.scss":
+/*!******************************************************************!*\
+  !*** ./src/app/shared/components/printer/printer.component.scss ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("button {\n  border: none;\n  outline: none;\n  background-color: transparent;\n}\n\n.content {\n  display: none;\n}\n\n@media print {\n  .content {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Wb2x1bWVzL3N0b3JlIDEvY29kZS9BdWRpdC1VSS1Bbmd1bGFyL3NyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcHJpbnRlci9wcmludGVyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9zaGFyZWQvY29tcG9uZW50cy9wcmludGVyL3ByaW50ZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDSSxZQUFBO0VBQ0EsYUFBQTtFQUNBLDZCQUFBO0FDQUo7O0FER0E7RUFDSSxhQUFBO0FDQUo7O0FER0E7RUFDSTtJQUNJLGFBQUE7SUFDQSx1QkFBQTtJQUNBLG1CQUFBO0lBQ0Esc0JBQUE7RUNBTjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcHJpbnRlci9wcmludGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG5idXR0b24ge1xuICAgIGJvcmRlcjogbm9uZTtcbiAgICBvdXRsaW5lOiBub25lO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xufVxuXG4uY29udGVudCB7XG4gICAgZGlzcGxheTogbm9uZTtcbn1cblxuQG1lZGlhIHByaW50IHtcbiAgICAuY29udGVudCB7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgICAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIH1cbn1cblxuIiwiYnV0dG9uIHtcbiAgYm9yZGVyOiBub25lO1xuICBvdXRsaW5lOiBub25lO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbn1cblxuLmNvbnRlbnQge1xuICBkaXNwbGF5OiBub25lO1xufVxuXG5AbWVkaWEgcHJpbnQge1xuICAuY29udGVudCB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIH1cbn0iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/shared/components/printer/printer.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/shared/components/printer/printer.component.ts ***!
+  \****************************************************************/
+/*! exports provided: PrinterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrinterComponent", function() { return PrinterComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/fesm5/store.js");
+/* harmony import */ var src_app_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/auth/store/auth.selectors */ "./src/app/auth/store/auth.selectors.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+var moment = __webpack_require__(/*! ../../../../assets/datepicker/moment.js */ "./src/assets/datepicker/moment.js");
+var PrinterComponent = /** @class */ (function () {
+    function PrinterComponent(store, cdr) {
+        var _this = this;
+        this.store = store;
+        this.cdr = cdr;
+        this.type = 'pooja';
+        this.size = 'bill';
+        this.text = '';
+        this.hidden = false;
+        this.triggerPrint = function () {
+            _this.cdr.detectChanges();
+            setTimeout(function () {
+                _this.newWindowPrint(_this.poojaBill.nativeElement.innerHTML);
+            }, 0);
+        };
+        this.store.select(src_app_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_2__["getUser"]).subscribe(function (user) {
+            _this.temple = user;
+        });
+    }
+    PrinterComponent.prototype.ngOnInit = function () {
+    };
+    PrinterComponent.prototype.getTotalPrice = function (poojas) {
+        return poojas.reduce(function (a, b) { return +(b.pooja_price) + a; }, 0);
+    };
+    PrinterComponent.prototype.getCurrentDate = function () {
+        return moment().format("DD-MM-YYYY HH:mm");
+    };
+    PrinterComponent.prototype.newWindowPrint = function (content) {
+        var printerWindow = window.open('', '', 'height=500, width=500');
+        printerWindow.document.write('<html>');
+        printerWindow.document.write('<body>');
+        printerWindow.document.write(content);
+        printerWindow.document.write('</body></html>');
+        printerWindow.document.close();
+        printerWindow.print();
+    };
+    PrinterComponent.ctorParameters = function () { return [
+        { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"] },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"] }
+    ]; };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], PrinterComponent.prototype, "type", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], PrinterComponent.prototype, "size", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], PrinterComponent.prototype, "text", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], PrinterComponent.prototype, "poojas", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], PrinterComponent.prototype, "expense", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], PrinterComponent.prototype, "donation", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], PrinterComponent.prototype, "report", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], PrinterComponent.prototype, "hidden", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('buttonRef', { static: true }),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], PrinterComponent.prototype, "buttonRef", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('poojaBill', { static: true }),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], PrinterComponent.prototype, "poojaBill", void 0);
+    PrinterComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-printer',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./printer.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/printer/printer.component.html")).default,
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__importDefault(__webpack_require__(/*! ./printer.component.scss */ "./src/app/shared/components/printer/printer.component.scss")).default]
+        }),
+        __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])
+    ], PrinterComponent);
+    return PrinterComponent;
 }());
 
 
@@ -4535,6 +4711,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_user_user_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/user/user.component */ "./src/app/shared/components/user/user.component.ts");
 /* harmony import */ var _components_tabs_tabs_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/tabs/tabs.component */ "./src/app/shared/components/tabs/tabs.component.ts");
 /* harmony import */ var _components_tabs_tab_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/tabs/tab.component */ "./src/app/shared/components/tabs/tab.component.ts");
+/* harmony import */ var _components_printer_printer_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/printer/printer.component */ "./src/app/shared/components/printer/printer.component.ts");
+/* harmony import */ var ngx_print__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ngx-print */ "./node_modules/ngx-print/fesm5/ngx-print.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4544,6 +4722,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
 
 
 
@@ -4574,7 +4754,8 @@ var SharedModule = /** @class */ (function () {
                 _components_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_11__["UsersListComponent"],
                 _components_user_user_component__WEBPACK_IMPORTED_MODULE_12__["UserComponent"],
                 _components_tabs_tabs_component__WEBPACK_IMPORTED_MODULE_13__["TabsComponent"],
-                _components_tabs_tab_component__WEBPACK_IMPORTED_MODULE_14__["TabComponent"]
+                _components_tabs_tab_component__WEBPACK_IMPORTED_MODULE_14__["TabComponent"],
+                _components_printer_printer_component__WEBPACK_IMPORTED_MODULE_15__["PrinterComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
@@ -4589,7 +4770,8 @@ var SharedModule = /** @class */ (function () {
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["CollapseModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["DropdownModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["BadgeModule"],
-                _core_core_module__WEBPACK_IMPORTED_MODULE_10__["CoreModule"]
+                _core_core_module__WEBPACK_IMPORTED_MODULE_10__["CoreModule"],
+                ngx_print__WEBPACK_IMPORTED_MODULE_16__["NgxPrintModule"]
             ],
             exports: [
                 _components_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_6__["CustomersListComponent"],
@@ -4599,14 +4781,16 @@ var SharedModule = /** @class */ (function () {
                 _components_users_list_users_list_component__WEBPACK_IMPORTED_MODULE_11__["UsersListComponent"],
                 _components_user_user_component__WEBPACK_IMPORTED_MODULE_12__["UserComponent"],
                 _components_tabs_tabs_component__WEBPACK_IMPORTED_MODULE_13__["TabsComponent"],
-                _components_tabs_tab_component__WEBPACK_IMPORTED_MODULE_14__["TabComponent"]
+                _components_tabs_tab_component__WEBPACK_IMPORTED_MODULE_14__["TabComponent"],
+                _components_printer_printer_component__WEBPACK_IMPORTED_MODULE_15__["PrinterComponent"]
             ],
             providers: [],
             entryComponents: [
                 _components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_2__["ConfirmModalComponent"],
                 _components_customers_modal_customers_modal_component__WEBPACK_IMPORTED_MODULE_4__["CustomersModalComponent"],
                 _components_poojas_modal_poojas_modal_component__WEBPACK_IMPORTED_MODULE_7__["PoojasModalComponent"],
-                _components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__["UserModalComponent"]
+                _components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__["UserModalComponent"],
+                _components_printer_printer_component__WEBPACK_IMPORTED_MODULE_15__["PrinterComponent"]
             ]
         })
     ], SharedModule);
