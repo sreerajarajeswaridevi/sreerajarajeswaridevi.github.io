@@ -4119,7 +4119,7 @@ var PrinterComponent = /** @class */ (function () {
     };
     PrinterComponent.prototype.newWindowPrint = function (content) {
         var printerWindow = window.open('', '', 'width=2in');
-        printerWindow.document.write('<html> <style> header{max-width: 100%!important;} .heading{font-weight: bold; border-bottom: 1px dotted black; margin: 5px 10px;} .report table td {border: 1px solid black} .report table {border-collapse: collapse; width: 90%; margin-left: 2%;} .report tr td:first-child {min-width: 80px;} </style>');
+        printerWindow.document.write('<html> <style> header{max-width: 100%!important;} .heading{font-weight: bold; border-bottom: 1px dotted black; margin: 5px 10px;} .report table td {border: 1px solid black;} td{word-break:break-word;} .report table {border-collapse: collapse; width: 90%; margin-left: 2%;} .report tr td:first-child {min-width: 80px;} </style>');
         printerWindow.document.write('<body>');
         printerWindow.document.write(content);
         printerWindow.document.write('</body></html>');
@@ -4129,7 +4129,7 @@ var PrinterComponent = /** @class */ (function () {
         // setTimeout(function () { 
         //   // printerWindow.navigator.share();
         //  }, 500);
-        printerWindow.onfocus = function () { setTimeout(function () { printerWindow.close(); }, 500); };
+        //  printerWindow.onfocus = function () { setTimeout(function () { printerWindow.close(); }, 500); }
     };
     PrinterComponent.ctorParameters = function () { return [
         { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"] },
