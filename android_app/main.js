@@ -4124,10 +4124,11 @@ var PrinterComponent = /** @class */ (function () {
         printerWindow.document.write('</body></html>');
         printerWindow.document.close();
         setTimeout(function () {
-            printerWindow.print();
+            // printerWindow.print();
             printerWindow.focus();
+            printerWindow.navigator.share();
         }, 500);
-        printerWindow.onfocus = function () { setTimeout(function () { printerWindow.close(); }, 500); };
+        //  printerWindow.onfocus = function () { setTimeout(function () { printerWindow.close(); }, 500); }
     };
     PrinterComponent.ctorParameters = function () { return [
         { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"] },
