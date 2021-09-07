@@ -4123,9 +4123,9 @@ var PrinterComponent = /** @class */ (function () {
         printerWindow.document.write(content);
         printerWindow.document.write('</body></html>');
         printerWindow.document.close();
+        printerWindow.focus();
         printerWindow.print();
         // setTimeout(function () { 
-        //   // printerWindow.focus();
         //   // printerWindow.navigator.share();
         //  }, 500);
         printerWindow.onfocus = function () { setTimeout(function () { printerWindow.close(); }, 500); };
