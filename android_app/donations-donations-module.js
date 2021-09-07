@@ -141,7 +141,7 @@ var DonationsComponent = /** @class */ (function () {
     };
     DonationsComponent.prototype.onSave = function () {
         this.store.dispatch(new _store_donations_actions__WEBPACK_IMPORTED_MODULE_10__["DonationsAddQuery"](this.donation));
-        var printData = __assign({}, this.donation, { donation_date: this.formattedDate, added_by: this.user.displayName });
+        var printData = __assign({}, this.donation, { donation_date: this.donationDate.format("DD-MM-YYYY"), added_by: this.user.displayName });
         this.appPrinter.donation = printData;
         this.appPrinter.triggerPrint();
         this.resetForm();

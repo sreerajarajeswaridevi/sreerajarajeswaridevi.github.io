@@ -1086,7 +1086,7 @@ var ExpensesComponent = /** @class */ (function () {
         var _this = this;
         this.store.dispatch(new _store_expenses_actions__WEBPACK_IMPORTED_MODULE_4__["ExpensesAddQuery"](this.expense));
         var expenseCopy = JSON.parse(JSON.stringify(this.expense));
-        this.appPrinter.expense = __assign({}, expenseCopy, { added_by: this.user.displayName, expense_date: this.expense.ist_YYYYMMDD });
+        this.appPrinter.expense = __assign({}, expenseCopy, { added_by: this.user.displayName, expense_date: this.expenseDate.format('DD-MM-YYYY') });
         this.appPrinter.triggerPrint();
         this.idbService
             .getByKey('expenses', expenseCopy.item)
@@ -1134,7 +1134,7 @@ var ExpensesComponent = /** @class */ (function () {
         var _this = this;
         this.store.dispatch(new _store_expenses_actions__WEBPACK_IMPORTED_MODULE_4__["ExpensesAddQuery"](this.salary));
         var salaryCopy = JSON.parse(JSON.stringify(this.salary));
-        this.appPrinter.expense = __assign({}, salaryCopy, { added_by: this.user.displayName, expense_date: this.expense.ist_YYYYMMDD });
+        this.appPrinter.expense = __assign({}, salaryCopy, { added_by: this.user.displayName, expense_date: this.salaryDate.format('DD-MM-YYYY') });
         this.appPrinter.triggerPrint();
         this.idbService
             .getByKey('salary', salaryCopy.description)
