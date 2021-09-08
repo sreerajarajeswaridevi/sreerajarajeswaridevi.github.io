@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <rr-tabs> -->\n  <!-- <rr-tab tabTitle=\"Poojas\"> -->\n    <app-split-body [isLoading$]=\"isLoading$\">\n      <div class=\"left-section\">\n        <a href=\"javascript:void(0)\" role=\"button\" class=\"p-4 m-1 btn btn-primary pooja-box\" mdbWavesEffect *ngFor=\"let item of poojaTypes\" (click)=\"newPooja(item)\">\n          <h5><b>{{item.pooja_name}}</b></h5>\n          <p class=\"whitesmoke-text\">{{item.pooja_description}}</p>\n          <h3 class=\"price\">&#x20B9;{{ item.pooja_price }}</h3>\n        </a>\n\n        <ul class=\"left-section-mobile list-group w-100\">\n          <li *ngFor=\"let item of poojaTypes\" (click)=\"newPooja(item)\"\n           class=\"bg-primary white-text list-group-item d-flex justify-content-between align-items-center\">\n           <div class=\"d-flex flex-column\">\n             <span class=\"name\">{{item.pooja_name}}</span>\n             <span class=\"description\">{{item.pooja_description}}</span>\n           </div>\n            <mdb-badge pill=\"true\" class=\"price mini\" color=\"white\">&#x20B9;{{ item.pooja_price }}</mdb-badge>\n          </li>\n        </ul>\n      </div>\n      <div class=\"right-section pb-4\">\n        <app-right-card>\n          <div class=\"card-header bg-primary white-text\">Todays Poojas ({{dates?.today}}) <mdb-badge class=\"count\" color=\"yellow\" *ngIf=\"poojaList?.length > 0\"> {{poojaList.length}}</mdb-badge></div>\n          <div *ngIf=\"isListLoading$ | async\" class=\"d-flex justify-content-center align-items-center my-4\">\n            <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n              <span class=\"sr-only\">Loading...</span>\n            </div>\n          </div>\n          <div class=\"cd-body\">\n\n          <table mdbTable small=\"true\" striped=\"true\" *ngIf=\"!(isListLoading$ | async) && poojaList.length > 0\">\n            <thead>\n              <tr>\n                <th>Name</th>\n                <th>Nakshathram</th>\n                <th>Pooja</th>\n                <th>Print</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let item of poojaList; let in = index;\">\n                <td scope=\"row\">{{ item.name }}</td>\n                <td>{{ item.nakshatram }}</td>\n                <td>{{ getPoojaNameFromCode(item.pooja_code)  }}</td>\n                <td> <app-printer [type]=\"'pooja'\" [size]=\"'bill'\" [poojas]=\"[item]\"></app-printer>  </td>\n              </tr>\n            </tbody>\n          </table>\n          </div>\n          <div class=\"p-4 d-flex flex-column justify-content-center align-items-center\" *ngIf=\"!(isListLoading$ | async) && poojaList?.length === 0\">\n            <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\n              <p class=\"grey-text\">No Poojas</p>\n          </div>\n        </app-right-card>\n\n        <app-right-card *ngIf=\"tomorrowsPoojaList?.length > 0\">\n          <div class=\"card-header bg-secondary white-text\">Tomorrows poojas ({{this.dates?.tomorrow}}) <mdb-badge class=\"count\" color=\"yellow\" *ngIf=\"tomorrowsPoojaList?.length > 0\"> {{tomorrowsPoojaList?.length}}</mdb-badge></div>\n          <div *ngIf=\"isListLoading$ | async\" class=\"d-flex justify-content-center align-items-center my-4\">\n            <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n              <span class=\"sr-only\">Loading...</span>\n            </div>\n          </div>\n          <div class=\"cd-body\">\n            <table mdbTable small=\"true\" striped=\"true\" *ngIf=\"!(isListLoading$ | async) && tomorrowsPoojaList.length > 0\">\n              <thead>\n                <tr>\n                  <th>Name</th>\n                  <th>Nakshathram</th>\n                  <th>Pooja</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr *ngFor=\"let item of tomorrowsPoojaList\">\n                  <td scope=\"row\">{{ item.name }}</td>\n                  <td>{{ item.nakshatram }}</td>\n                  <td>{{ getPoojaNameFromCode(item.pooja_code)  }}</td>\n                  <td> <app-printer [type]=\"'pooja'\" [size]=\"'bill'\" [poojas]=\"[item]\"></app-printer>  </td>\n  \n                </tr>\n              </tbody>\n            </table>\n          </div>\n          <div class=\"p-4 d-flex flex-column justify-content-center align-items-center\" *ngIf=\"!(isListLoading$ | async) && tomorrowsPoojaList?.length === 0\">\n            <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\n              <p class=\"grey-text\">No Poojas tomorrow</p>\n          </div>\n        </app-right-card>\n        <br>\n        <header><b>Poojas by date</b></header>\n        <hr>\n        <app-right-card *ngIf=\"(isManager$ | async)\">\n          <div class=\"card-header bg-primary white-text \">\n            <span class=\"icon-button\" (click)=\"prevDate()\">\n              <mdb-icon *ngIf=\"isManager$ | async\" fas icon=\"chevron-left\" class=\"ml-1 float-left delete cursor-pointer white-text\" alt=\"Left\"></mdb-icon>\n            </span>\n            <span>\n              Poojas on \n              <button mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"selectedDate\" [endDate]=\"endDate\" [startDate]=\"startDate\"\n               header=\"Select Date\" (dateSelected)=\"datePicked($event)\">\n                <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> <span appDateTransform [date]=\"selectedDate.format('YYYY-MM-DD')\"></span>\n              </button>\n              <mdb-badge *ngIf=\"allPoojasList?.length > 0\" color=\"yellow\" class=\"count\"> {{allPoojasList?.length}}</mdb-badge>\n            </span>\n            <span class=\"icon-button\" (click)=\"nextDate()\">\n              <mdb-icon *ngIf=\"(isManager$ | async) && selectedDate.format('DD/MM/YYYY') !== endDate.format('DD/MM/YYYY')\" mdbtn fas icon=\"chevron-right\" class=\"ml-1 float-right delete cursor-pointer white-text\" alt=\"Right\"></mdb-icon>\n            </span>\n          </div>\n          <div *ngIf=\"allPoojasLoading\" class=\"d-flex justify-content-center align-items-center\">\n            <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n              <span class=\"sr-only\">Loading...</span>\n            </div>\n          </div>\n          <div class=\"cd-body\">\n\n          <table mdbTable small=\"true\" striped=\"true\" *ngIf=\"!allPoojasLoading && allPoojasList?.length !== 0\">\n            <thead>\n              <tr>\n                <th>Name</th>\n                <th>Nakshathram</th>\n                <th>Pooja</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let item of allPoojasList; let i = index;\">\n                <td scope=\"row\">{{ item.name }}</td>\n                <td>{{ item.nakshatram }}</td>\n                <td>{{ getPoojaNameFromCode(item.pooja_code)  }}</td>\n                <td> <app-printer [type]=\"'pooja'\" [size]=\"'bill'\" [poojas]=\"[item]\"></app-printer>  </td>\n              </tr>\n            </tbody>\n          </table>\n          </div>\n          <div class=\"p-4 d-flex flex-column justify-content-center align-items-center\" *ngIf=\"!allPoojasLoading && allPoojasList?.length === 0\">\n            <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\n              <p class=\"grey-text\">No Poojas on {{selectedDate.format('MMM Do')}} </p>\n          </div>\n        </app-right-card>\n       \n        <!-- <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 200px\">\n          <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n            <span class=\"sr-only\">Loading...</span>\n          </div>\n        </div> -->\n      </div>\n    </app-split-body>\n<!--     \n  </rr-tab>\n  <rr-tab tabTitle=\"Bookings\">\n    Tab 2 content\n  </rr-tab>\n</rr-tabs> -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <rr-tabs> -->\n  <!-- <rr-tab tabTitle=\"Poojas\"> -->\n    <app-split-body [isLoading$]=\"isLoading$\">\n      <div class=\"left-section\">\n        <a href=\"javascript:void(0)\" role=\"button\" class=\"p-4 m-1 btn btn-primary pooja-box\" mdbWavesEffect *ngFor=\"let item of poojaTypes\" (click)=\"newPooja(item)\">\n          <h5><b>{{item.pooja_name}}</b></h5>\n          <p class=\"whitesmoke-text\">{{item.pooja_description}}</p>\n          <h3 class=\"price\">&#x20B9;{{ item.pooja_price }}</h3>\n        </a>\n\n        <ul class=\"left-section-mobile list-group w-100\">\n          <li *ngFor=\"let item of poojaTypes\" (click)=\"newPooja(item)\"\n           class=\"bg-primary white-text list-group-item d-flex justify-content-between align-items-center\">\n           <div class=\"d-flex flex-column\">\n             <span class=\"name\">{{item.pooja_name}}</span>\n             <span class=\"description\">{{item.pooja_description}}</span>\n           </div>\n            <mdb-badge pill=\"true\" class=\"price mini\" color=\"white\">&#x20B9;{{ item.pooja_price }}</mdb-badge>\n          </li>\n        </ul>\n      </div>\n      <div class=\"right-section pb-4\">\n        <app-right-card>\n          <div class=\"card-header bg-primary white-text\">Todays Poojas ({{dates?.today}}) <mdb-badge class=\"count\" color=\"yellow\" *ngIf=\"poojaList?.length > 0\"> {{poojaList.length}}</mdb-badge></div>\n          <div *ngIf=\"isListLoading$ | async\" class=\"d-flex justify-content-center align-items-center my-4\">\n            <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n              <span class=\"sr-only\">Loading...</span>\n            </div>\n          </div>\n          <div class=\"cd-body\">\n\n          <table mdbTable small=\"true\" striped=\"true\" *ngIf=\"!(isListLoading$ | async) && poojaList.length > 0\">\n            <thead>\n              <tr>\n                <th>Name</th>\n                <th>Nakshathram</th>\n                <th>Pooja</th>\n                <th>Print</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let item of poojaList; let in = index;\">\n                <td scope=\"row\">{{ item.name }}</td>\n                <td>{{ item.nakshatram }}</td>\n                <td>{{ getPoojaNameFromCode(item.pooja_code)  }}</td>\n                <td> <app-printer [type]=\"'pooja'\" [size]=\"'bill'\" [poojas]=\"[item]\"></app-printer>  </td>\n              </tr>\n            </tbody>\n          </table>\n          </div>\n          <div class=\"p-4 d-flex flex-column justify-content-center align-items-center\" *ngIf=\"!(isListLoading$ | async) && poojaList?.length === 0\">\n            <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\n              <p class=\"grey-text\">No Poojas</p>\n          </div>\n        </app-right-card>\n\n        <app-right-card *ngIf=\"tomorrowsPoojaList?.length > 0\">\n          <div class=\"card-header bg-secondary white-text\">Tomorrows poojas ({{this.dates?.tomorrow}}) <mdb-badge class=\"count\" color=\"yellow\" *ngIf=\"tomorrowsPoojaList?.length > 0\"> {{tomorrowsPoojaList?.length}}</mdb-badge></div>\n          <div *ngIf=\"isListLoading$ | async\" class=\"d-flex justify-content-center align-items-center my-4\">\n            <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n              <span class=\"sr-only\">Loading...</span>\n            </div>\n          </div>\n          <div class=\"cd-body\">\n            <table mdbTable small=\"true\" striped=\"true\" *ngIf=\"!(isListLoading$ | async) && tomorrowsPoojaList.length > 0\">\n              <thead>\n                <tr>\n                  <th>Name</th>\n                  <th>Nakshathram</th>\n                  <th>Pooja</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr *ngFor=\"let item of tomorrowsPoojaList\">\n                  <td scope=\"row\">{{ item.name }}</td>\n                  <td>{{ item.nakshatram }}</td>\n                  <td>{{ getPoojaNameFromCode(item.pooja_code)  }}</td>\n                  <td> <app-printer [type]=\"'pooja'\" [size]=\"'bill'\" [poojas]=\"[item]\"></app-printer>  </td>\n  \n                </tr>\n              </tbody>\n            </table>\n          </div>\n          <div class=\"p-4 d-flex flex-column justify-content-center align-items-center\" *ngIf=\"!(isListLoading$ | async) && tomorrowsPoojaList?.length === 0\">\n            <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\n              <p class=\"grey-text\">No Poojas tomorrow</p>\n          </div>\n        </app-right-card>\n        <br>\n        <header><b>Poojas by date</b></header>\n        <hr>\n        <app-right-card *ngIf=\"(isManager$ | async)\">\n          <div class=\"card-header bg-primary white-text \">\n            <span class=\"icon-button\" (click)=\"prevDate()\">\n              <mdb-icon *ngIf=\"isManager$ | async\" fas icon=\"chevron-left\" class=\"ml-1 float-left delete cursor-pointer white-text\" alt=\"Left\"></mdb-icon>\n            </span>\n            <span>\n              Poojas on \n              <button mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"selectedDate\" [endDate]=\"endDate\" [startDate]=\"startDate\"\n               header=\"Select Date\" (dateSelected)=\"datePicked($event)\">\n                <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> <span appDateTransform [date]=\"selectedDate.format('YYYY-MM-DD')\"></span>\n              </button>\n              <mdb-badge *ngIf=\"allPoojasList?.length > 0\" color=\"yellow\" class=\"count\"> {{allPoojasList?.length}}</mdb-badge>\n            </span>\n            <span class=\"icon-button\" (click)=\"nextDate()\">\n              <mdb-icon *ngIf=\"(isManager$ | async) && selectedDate.format('DD/MM/YYYY') !== endDate.format('DD/MM/YYYY')\" mdbtn fas icon=\"chevron-right\" class=\"ml-1 float-right delete cursor-pointer white-text\" alt=\"Right\"></mdb-icon>\n            </span>\n          </div>\n          <div *ngIf=\"allPoojasLoading\" class=\"d-flex justify-content-center align-items-center\">\n            <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n              <span class=\"sr-only\">Loading...</span>\n            </div>\n          </div>\n          <div class=\"cd-body\">\n\n          <table mdbTable small=\"true\" striped=\"true\" *ngIf=\"!allPoojasLoading && allPoojasList?.length !== 0\">\n            <thead>\n              <tr>\n                <th>Name</th>\n                <th>Nakshathram</th>\n                <th>Pooja</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let item of allPoojasList; let i = index;\">\n                <td scope=\"row\">{{ item.name }}</td>\n                <td>{{ item.nakshatram }}</td>\n                <td>{{ getPoojaNameFromCode(item.pooja_code)  }}</td>\n                <td> <app-printer [type]=\"'pooja'\" [size]=\"'bill'\" [poojas]=\"[item]\"></app-printer>  </td>\n              </tr>\n            </tbody>\n          </table>\n          </div>\n          <div class=\"p-4 d-flex flex-column justify-content-center align-items-center\" *ngIf=\"!allPoojasLoading && allPoojasList?.length === 0\">\n            <mdb-icon fas icon=\"times-circle\" class=\"float-right grey-text\" alt=\"no data\"></mdb-icon>\n              <p class=\"grey-text\">No Poojas on {{selectedDate.format('MMM Do')}} </p>\n          </div>\n        </app-right-card>\n       \n        <!-- <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 200px\">\n          <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n            <span class=\"sr-only\">Loading...</span>\n          </div>\n        </div> -->\n      </div>\n    </app-split-body>\n    <app-printer #appPrinter [hidden]=\"true\"></app-printer>\n\n<!--     \n  </rr-tab>\n  <rr-tab tabTitle=\"Bookings\">\n    Tab 2 content\n  </rr-tab>\n</rr-tabs> -->\n");
 
 /***/ }),
 
@@ -189,6 +189,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _services_poojas_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/poojas.service */ "./src/app/poojas/services/poojas.service.ts");
 /* harmony import */ var src_app_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/auth/store/auth.selectors */ "./src/app/auth/store/auth.selectors.ts");
+/* harmony import */ var src_app_shared_components_printer_printer_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/printer/printer.component */ "./src/app/shared/components/printer/printer.component.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -221,6 +222,7 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 // import { PoojasModalComponent } from 'src/app/shared/components/poojas-modal/poojas-modal.component';
 var moment = __webpack_require__(/*! ../../../assets/datepicker/moment.js */ "./src/assets/datepicker/moment.js");
 var PoojasComponent = /** @class */ (function () {
@@ -229,6 +231,7 @@ var PoojasComponent = /** @class */ (function () {
         this.modalService = modalService;
         this.poojasService = poojasService;
         this.allPoojasLoading = false;
+        this.newPoojaCacheHolder = null;
         this.defaultDate = moment();
         this.startDate = moment().subtract(60, 'days');
         this.endDate = moment().add('30', 'days');
@@ -272,6 +275,17 @@ var PoojasComponent = /** @class */ (function () {
                 _this.datePicked(moment());
             }
         });
+        this.store.select(_store_poojas_selectors__WEBPACK_IMPORTED_MODULE_2__["getNewlyRegisteredPooja"]).subscribe(function (response) {
+            //response.receipt_number
+            if (response != null && _this.newPoojaCacheHolder) {
+                var poojaDetails_1 = _this.newPoojaCacheHolder;
+                _this.appPrinter.poojas = _this.newPoojaCacheHolder.bhakthar.map(function (person) {
+                    return __assign({}, person, poojaDetails_1, { receipt_number: response.receipt_number, pooja_name: _this.getPoojaNameFromCode(_this.newPoojaCacheHolder.pooja_code) });
+                });
+                _this.appPrinter.triggerPrint();
+                _this.newPoojaCacheHolder = null;
+            }
+        });
         this.isManager$ = this.store.select(src_app_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_8__["isManager"]);
         this.isLoading$ = this.store.select(_store_poojas_selectors__WEBPACK_IMPORTED_MODULE_2__["getIsLoading"]);
         this.isListLoading$ = this.store.select(_store_poojas_selectors__WEBPACK_IMPORTED_MODULE_2__["getIsListLoading"]);
@@ -286,6 +300,7 @@ var PoojasComponent = /** @class */ (function () {
                 code: pooja.pooja_code
             } }));
         this.modalRef.content.poojasData.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["take"])(1)).subscribe(function (pooja) {
+            _this.newPoojaCacheHolder = pooja;
             _this.store.dispatch(new _store_poojas_actions__WEBPACK_IMPORTED_MODULE_3__["RegisterPooja"]({ pooja: pooja }));
             _this.datePicked(moment());
         });
@@ -320,6 +335,10 @@ var PoojasComponent = /** @class */ (function () {
         { type: angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_4__["MDBModalService"] },
         { type: _services_poojas_service__WEBPACK_IMPORTED_MODULE_7__["PoojasService"] }
     ]; };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('appPrinter', { static: true }),
+        __metadata("design:type", src_app_shared_components_printer_printer_component__WEBPACK_IMPORTED_MODULE_9__["PrinterComponent"])
+    ], PoojasComponent.prototype, "appPrinter", void 0);
     PoojasComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-poojas',
@@ -462,7 +481,7 @@ var PoojasModule = /** @class */ (function () {
 /*!************************************************!*\
   !*** ./src/app/poojas/store/poojas.actions.ts ***!
   \************************************************/
-/*! exports provided: PoojasActionTypes, PoojasTypeQuery, PoojaTypesLoaded, PoojaTypeAddQuery, PoojaTypeEdited, PoojaTypeDeleted, PoojasError, RegisterPooja, PoojaListQuery, PoojaListLoaded */
+/*! exports provided: PoojasActionTypes, PoojasTypeQuery, PoojaTypesLoaded, PoojaTypeAddQuery, PoojaTypeEdited, PoojaTypeDeleted, PoojasError, RegisterPooja, PoojaListQuery, PoojaListLoaded, PoojaRegistered */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -477,6 +496,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPooja", function() { return RegisterPooja; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoojaListQuery", function() { return PoojaListQuery; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoojaListLoaded", function() { return PoojaListLoaded; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoojaRegistered", function() { return PoojaRegistered; });
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -490,6 +510,7 @@ var PoojasActionTypes;
     PoojasActionTypes["POOJA_TYPE_DELETED"] = "[Pooja Type] Delete Pooja Type";
     PoojasActionTypes["POOJA_LIST_QUERY"] = "[Pooja Type] Query Pooja List";
     PoojasActionTypes["POOJA_LIST_LOADED"] = "[Pooja Type] Query Pooja Loaded";
+    PoojasActionTypes["POOJA_REGISTERED"] = "[Pooja Type] New Pooja Registered";
     PoojasActionTypes["POOJA_ADD_QUERY"] = "[Pooja] Add new Pooja";
     PoojasActionTypes["POOJA_ADDED"] = "[Pooja] Added New Pooja";
     PoojasActionTypes["POOJA_DELETED"] = "[Pooja] Delete Pooja";
@@ -564,6 +585,14 @@ var PoojaListLoaded = /** @class */ (function () {
         this.type = PoojasActionTypes.POOJA_LIST_LOADED;
     }
     return PoojaListLoaded;
+}());
+
+var PoojaRegistered = /** @class */ (function () {
+    function PoojaRegistered(payload) {
+        this.payload = payload;
+        this.type = PoojasActionTypes.POOJA_REGISTERED;
+    }
+    return PoojaRegistered;
 }());
 
 
@@ -647,9 +676,12 @@ var PoojasEffects = /** @class */ (function () {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasError"]({ error: error }));
         })); }));
         this.addPooja$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasActionTypes"].POOJA_ADD_QUERY), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (payload) { return _this.poojasService.addPooja(payload.pooja)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (list) {
-            console.log(list.data);
-            return (new _poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojaListQuery"](moment().format('YYYY-MM-DD')));
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (list) {
+            // console.log(list?.persons);
+            return [(new _poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojaRegistered"]({ response: list })),
+                new _poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojaListQuery"](moment().format('YYYY-MM-DD'))
+            ];
+            // return (new fromPoojas.PoojaListQuery(moment().format('YYYY-MM-DD')));
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (error) {
             _this.toastr.error('Something went wrong. Please try after sometime');
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _poojas_actions__WEBPACK_IMPORTED_MODULE_3__["PoojasError"]({ error: error }));
@@ -774,6 +806,12 @@ function PoojasReducer(state, action) {
                 poojaList: action.payload.poojaList,
             });
         }
+        case _poojas_actions__WEBPACK_IMPORTED_MODULE_1__["PoojasActionTypes"].POOJA_REGISTERED: {
+            return Object.assign({}, state, {
+                isListLoading: false,
+                newPoojasRegistered: action.payload.response,
+            });
+        }
         default:
             return state;
     }
@@ -786,13 +824,14 @@ function PoojasReducer(state, action) {
 /*!**************************************************!*\
   !*** ./src/app/poojas/store/poojas.selectors.ts ***!
   \**************************************************/
-/*! exports provided: getPoojasState, getPoojaTypes, getPoojaList, getIsLoading, getIsListLoading, getError */
+/*! exports provided: getPoojasState, getPoojaTypes, getNewlyRegisteredPooja, getPoojaList, getIsLoading, getIsListLoading, getError */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPoojasState", function() { return getPoojasState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPoojaTypes", function() { return getPoojaTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getNewlyRegisteredPooja", function() { return getNewlyRegisteredPooja; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPoojaList", function() { return getPoojaList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getIsLoading", function() { return getIsLoading; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getIsListLoading", function() { return getIsListLoading; });
@@ -804,6 +843,7 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 var getPoojasState = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createFeatureSelector"])('poojas');
 var getPoojaTypes = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getPoojasState, function (poojas) { return poojas.poojaTypes; });
+var getNewlyRegisteredPooja = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getPoojasState, function (poojas) { return poojas.newPoojasRegistered; });
 var getPoojaList = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getPoojasState, function (poojas) { return poojas.poojaList; });
 var getIsLoading = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getPoojasState, function (poojas) { return poojas.isLoading; });
 var getIsListLoading = Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_0__["createSelector"])(getPoojasState, function (poojas) { return poojas.isListLoading; });
@@ -830,7 +870,8 @@ var PoojasInitialState = {
     poojaList: null,
     isLoading: true,
     isListLoading: true,
-    error: null
+    error: null,
+    newPoojasRegistered: null
 };
 
 

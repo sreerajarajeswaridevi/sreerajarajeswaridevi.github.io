@@ -48,6 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_donations_selectors__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../store/donations.selectors */ "./src/app/donations/store/donations.selectors.ts");
 /* harmony import */ var _store_donations_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../store/donations.actions */ "./src/app/donations/store/donations.actions.ts");
 /* harmony import */ var src_app_shared_components_printer_printer_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/components/printer/printer.component */ "./src/app/shared/components/printer/printer.component.ts");
+/* harmony import */ var _services_donations_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../services/donations.service */ "./src/app/donations/services/donations.service.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -83,11 +84,13 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var moment = __webpack_require__(/*! ../../../assets/datepicker/moment.js */ "./src/assets/datepicker/moment.js");
 var DonationsComponent = /** @class */ (function () {
-    function DonationsComponent(store, modalService) {
+    function DonationsComponent(store, modalService, donationsService) {
         this.store = store;
         this.modalService = modalService;
+        this.donationsService = donationsService;
         this.donationDate = moment();
         this.defaultDate = moment();
         this.startDate = moment().subtract(60, 'days');
@@ -118,6 +121,11 @@ var DonationsComponent = /** @class */ (function () {
         this.store.select(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["getUser"]).subscribe(function (user) {
             _this.user = user;
         });
+        this.donationsService.newDonationAdded.subscribe(function (receipt_number) {
+            var printData = __assign({}, _this.donationCopy, { donation_date: _this.donationDate.format("DD-MM-YYYY"), added_by: _this.user.displayName, receipt_number: receipt_number });
+            _this.appPrinter.donation = printData;
+            _this.appPrinter.triggerPrint();
+        });
         this.isLoading$ = this.store.select(_store_donations_selectors__WEBPACK_IMPORTED_MODULE_9__["getIsLoading"]);
         this.isManager$ = this.store.select(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["isManager"]);
         this.store.dispatch(new _store_donations_actions__WEBPACK_IMPORTED_MODULE_10__["DonationsQuery"](this.selectedDate.format('YYYY-MM-DD')));
@@ -140,10 +148,8 @@ var DonationsComponent = /** @class */ (function () {
         this.datePicked(this.selectedDate.add('1', 'days'));
     };
     DonationsComponent.prototype.onSave = function () {
-        this.store.dispatch(new _store_donations_actions__WEBPACK_IMPORTED_MODULE_10__["DonationsAddQuery"](this.donation));
-        var printData = __assign({}, this.donation, { donation_date: this.donationDate.format("DD-MM-YYYY"), added_by: this.user.displayName });
-        this.appPrinter.donation = printData;
-        this.appPrinter.triggerPrint();
+        this.donationCopy = JSON.parse(JSON.stringify(this.donation));
+        this.store.dispatch(new _store_donations_actions__WEBPACK_IMPORTED_MODULE_10__["DonationsAddQuery"](this.donationCopy));
         this.resetForm();
     };
     DonationsComponent.prototype.getTotalAmount = function () {
@@ -176,7 +182,8 @@ var DonationsComponent = /** @class */ (function () {
     };
     DonationsComponent.ctorParameters = function () { return [
         { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"] },
-        { type: angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["MDBModalService"] }
+        { type: angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["MDBModalService"] },
+        { type: _services_donations_service__WEBPACK_IMPORTED_MODULE_12__["DonationsService"] }
     ]; };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('donationForm', { static: true }),
@@ -193,7 +200,8 @@ var DonationsComponent = /** @class */ (function () {
             styles: [__importDefault(__webpack_require__(/*! ./donations.component.scss */ "./src/app/donations/containers/donations.component.scss")).default]
         }),
         __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"],
-            angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["MDBModalService"]])
+            angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["MDBModalService"],
+            _services_donations_service__WEBPACK_IMPORTED_MODULE_12__["DonationsService"]])
     ], DonationsComponent);
     return DonationsComponent;
 }());
@@ -363,6 +371,8 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 var DonationsService = /** @class */ (function () {
     function DonationsService(http) {
         this.http = http;
+        this.$newDonationAdded = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+        this.newDonationAdded = this.$newDonationAdded.asObservable();
     }
     Object.defineProperty(DonationsService.prototype, "userId", {
         get: function () {
@@ -371,6 +381,9 @@ var DonationsService = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    DonationsService.prototype.emitNewDonation = function (receipt_number) {
+        this.$newDonationAdded.next(receipt_number);
+    };
     DonationsService.prototype.addDonations = function (donations) {
         return this.http.post(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].apiUrl + "?api=addDonation", __assign({}, donations));
     };
@@ -538,7 +551,8 @@ var DonationsEffects = /** @class */ (function () {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsError"]({ error: error }));
         })); }));
         this.added$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsActionTypes"].DONATIONS_ADD_QUERY), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (payload) { return _this.donationsService.addDonations(payload)
-            .pipe((Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function () {
+            .pipe((Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
+            _this.donationsService.emitNewDonation(response.receipt_number);
             return (new _donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsQuery"](moment().format('YYYY-MM-DD')));
         })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (error) {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _donations_actions__WEBPACK_IMPORTED_MODULE_3__["DonationsError"]({ error: error }));

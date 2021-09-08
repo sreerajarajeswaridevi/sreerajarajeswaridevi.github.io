@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-split-body [isLoading$]=\"!isLoading$\">\n  <div class=\"left-section\">\n    <mdb-card>\n      <mdb-card-header class=\"w-100 d-flex justify-space-between bg-primary white-text\">\n        <div>\n          <blockquote class=\"text-left  blockquote bq-success\">\n            <h3 class=\"header\">Add Expense</h3>\n          </blockquote>\n        </div>\n        <button mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"expenseDate\" [endDate]=\"endDate\" [startDate]=\"startDate\"\n        header=\"Select Date\" (dateSelected)=\"expDatePicked($event)\">\n        <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> <span appDateTransform [date]=\"expenseDate.format('YYYYMMDD')\"></span>\n      </button>\n      </mdb-card-header>\n  \n      <mdb-card-body class=\"py-2\">\n        <form #expenseForm=\"ngForm\">\n          <div class=\"d-flex\">\n          <div class=\"md-form\">\n            <input type=\"text\" id=\"item\" name=\"item\" class=\"form-control\" [(ngModel)]=\"expense.item\" mdbInput mdbValidate [validateSuccess]=\"false\" #item=\"ngModel\" required>\n            <label for=\"item\">Item</label>\n            <mdb-error *ngIf=\"item && item.invalid && (item.dirty || item.touched)\">item is required</mdb-error>\n          </div>\n          <div class=\"suggestion-container\" *ngIf=\"frequentExpenses?.length\">\n            <mdb-badge class=\"cursor-pointer mr-1\" *ngFor=\"let expenseName of frequentExpenses\" pill=\"true\" [info]=\"expense.item !== expenseName\" [success]=\"expense.item === expenseName\" (click)=\"expense.item = expenseName\">{{ expenseName }}</mdb-badge>\n          </div>\n          </div>\n\n          <div class=\"md-form\" style=\"margin-top: 15px;\">\n            <textarea type=\"text\" id=\"description\" name=\"description\" class=\"my-0 py-0 md-textarea form-control\" \n            #description=\"ngModel\" [(ngModel)]=\"expense.description\" mdbInput mdbValidate\n              [validateSuccess]=\"false\" required></textarea>\n            <label for=\"description\">Description</label>\n            <mdb-error *ngIf=\"description && description.invalid && (description.dirty || description.touched)\">Description is required</mdb-error>\n          </div>\n\n          <div class=\"text-lg\">\n            <label for=\"cost\" class=\"grey-text\">Cost</label>\n            <div class=\"md-form mt-0\">\n              <span class=\"d-flex\">\n                <span class=\"price\">&#x20B9;</span>\n                <input type=\"number\" class=\"form-control price\" id=\"cost\" name=\"cost\" [(ngModel)]=\"expense.cost\" #cost=\"ngModel\" mdbValidate [validateSuccess]=\"false\" required>\n              </span>\n              <mdb-error class=\"ml-3\" *ngIf=\"cost && cost.invalid && (cost.dirty || cost.touched)\">Cost is required</mdb-error>\n            </div>\n          </div>\n\n        </form>\n      </mdb-card-body>\n      <mdb-card-footer class=\"d-flex\">\n        <button type=\"button\" mdbBtn color=\"white\" class=\"relative waves-light pull-right\" mdbWavesEffect (click)=\"expenseForm.reset()\">Clear\n          </button>\n        <button type=\"button\" mdbBtn color=\"success\" [disabled]=\"expenseForm.invalid || (isLoading$ | async)\" class=\"relative waves-light pull-right\" mdbWavesEffect (click)=\"onSave()\">Save & Print\n          </button>\n\n      </mdb-card-footer>\n    </mdb-card>\n\n\n    <mdb-card class=\"mt-2\" *ngIf=\"(isManager$ | async)\">\n      <!-- salary section -->\n      <mdb-card-header class=\"w-100 d-flex justify-space-between bg-primary white-text\">\n        <div>\n          <blockquote class=\"text-left  blockquote bq-success\">\n            <h3 class=\"header\">Record Salary</h3>\n          </blockquote>\n        </div>\n        <button mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"salaryDate\" [endDate]=\"endDate\" [startDate]=\"startDate\"\n        header=\"Select Salary Given Date\" (dateSelected)=\"salDatePicked($event)\">\n        <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> {{ salaryDate.format('dddd DD/MM/YYYY') }}\n      </button>\n      </mdb-card-header>\n  \n      <mdb-card-body class=\"py-2\">\n        <form #salaryForm=\"ngForm\">\n          <div class=\"d-flex\">\n          <div class=\"md-form\">\n            <input type=\"text\" id=\"description\" name=\"description\" class=\"form-control\" [(ngModel)]=\"salary.description\" mdbInput mdbValidate [validateSuccess]=\"false\" #description=\"ngModel\" required>\n            <label for=\"description\">Paid To:</label>\n            <mdb-error *ngIf=\"description && description.invalid && (description.dirty || description.touched)\">Person Name is required</mdb-error>\n          </div>\n          <div class=\"suggestion-container\" *ngIf=\"frequentSalaries?.length\">\n            <mdb-badge class=\"cursor-pointer mr-1\" *ngFor=\"let item of frequentSalaries\" pill=\"true\" [info]=\"item.person !== salary.description\" [success]=\"item.person === salary.description\" (click)=\"salary.description = item.person; salary.cost = item.amount\">{{ item.person }}</mdb-badge>\n          </div>\n          </div>\n\n          <div class=\"text-lg\">\n            <label for=\"cost\" class=\"grey-text\">Amount</label>\n            <div class=\"md-form mt-0\">\n              <span class=\"d-flex\">\n                <span class=\"price\">&#x20B9;</span>\n                <input type=\"number\" class=\"form-control price\" id=\"cost\" name=\"cost\" [(ngModel)]=\"salary.cost\" #cost=\"ngModel\" mdbValidate [validateSuccess]=\"false\" required>\n              </span>\n              <mdb-error class=\"ml-3\" *ngIf=\"cost && cost.invalid && (cost.dirty || cost.touched)\">Amount is required</mdb-error>\n            </div>\n          </div>\n\n        </form>\n      </mdb-card-body>\n      <mdb-card-footer class=\"d-flex\">\n        <button type=\"button\" mdbBtn color=\"white\" class=\"relative waves-light pull-right\" mdbWavesEffect (click)=\"salaryForm.reset()\">Clear\n          </button>\n        <button type=\"button\" mdbBtn color=\"success\" [disabled]=\"salaryForm.invalid || (isLoading$ | async)\" class=\"relative waves-light pull-right\" mdbWavesEffect (click)=\"onSalarySave(salaryForm)\">Save & Print\n          </button>\n      </mdb-card-footer>\n    </mdb-card>\n  </div>\n  <div class=\"right-section pb-4\">\n    <app-right-card [header]=\"'Todays Expenses'\" >\n      <div class=\"card-header bg-primary white-text\">\n        <span class=\"icon-button\" (click)=\"prevDate()\">\n          <mdb-icon *ngIf=\"isManager$ | async\" fas icon=\"chevron-left\" class=\"ml-1 float-left delete cursor-pointer white-text\" alt=\"Left\"></mdb-icon>\n        </span>\n        <span>\n          Expense on \n          <button [disabled]=\"!(isManager$ | async)\" mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"defaultDate\" [endDate]=\"defaultDate\" [startDate]=\"startDate\"\n          (click)=\"dateClicked($event)\" header=\"Select Date\" (dateSelected)=\"datePicked($event)\">\n            <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> {{ formattedDate }}\n          </button>\n        </span>\n        <span class=\"icon-button\" (click)=\"nextDate()\">\n          <mdb-icon *ngIf=\"(isManager$ | async) && selectedDate.format('DD/MM/YYYY') !== defaultDate.format('DD/MM/YYYY')\" mdbtn fas icon=\"chevron-right\" class=\"ml-1 float-right delete cursor-pointer white-text\" alt=\"Right\"></mdb-icon>\n        </span>\n      </div>\n      <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\">\n        <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n          <span class=\"sr-only\">Loading...</span>\n        </div>\n      </div>\n      <table mdbTable small=\"true\" striped=\"true\" *ngIf=\"!(isLoading$ | async) && todaysExpenseList.length > 0\">\n        <thead>\n          <tr>\n            <th>Item</th>\n            <th>Description</th>\n            <th>Cost</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let item of todaysExpenseList\" [class.salary]=\"item?.item === 'Salary'\">\n            <td scope=\"row\">{{ item?.item }}</td>\n            <td>{{ item?.description }}</td>\n            <td class=\"table-price\">&#x20B9;{{ item?.cost }}</td>\n            <td>\n              <app-printer [type]=\"'expense'\" [size]=\"'bill'\" [expense]=\"item\"></app-printer> \n              <mdb-icon *ngIf=\"isManager$ | async\" fas icon=\"trash\" class=\"ml-1 float-right delete grey-text\" (click)=\"onDelete(item?.uuid)\" alt=\"Delete\"></mdb-icon>\n            </td>\n          </tr>\n\n          <tr>\n          </tr>\n        </tbody>\n      </table>\n      <div role=\"footer\" *ngIf=\"!(isLoading$ | async)\">\n        <div class=\"card-footer text-muted\">\n          Total: <b class=\"price total-amount\">&#x20B9;{{getTotalExpense()}}</b>\n        </div>\n      </div>\n    </app-right-card>\n\n    <!-- <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 200px\">\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n        <span class=\"sr-only\">Loading...</span>\n      </div>\n    </div> -->\n  </div>\n</app-split-body>\n\n<app-printer #appPrinter [type]=\"'expense'\" [hidden]=\"true\"></app-printer>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-split-body [isLoading$]=\"!isLoading$\">\n  <div class=\"left-section\">\n    <mdb-card>\n      <mdb-card-header class=\"w-100 d-flex justify-space-between bg-primary white-text\">\n        <div>\n          <blockquote class=\"text-left  blockquote bq-success\">\n            <h3 class=\"header\">Add Expense</h3>\n          </blockquote>\n        </div>\n        <button mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"expenseDate\" [endDate]=\"endDate\" [startDate]=\"startDate\"\n        header=\"Select Date\" (dateSelected)=\"expDatePicked($event)\">\n        <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> <span appDateTransform [date]=\"expenseDate.format('YYYYMMDD')\"></span>\n      </button>\n      </mdb-card-header>\n  \n      <mdb-card-body class=\"py-2\">\n        <form #expenseForm=\"ngForm\" autocomplete=\"on\">\n          <div class=\"d-flex\">\n          <div class=\"md-form\">\n            <input type=\"text\" id=\"item\" name=\"item\" class=\"form-control\" [(ngModel)]=\"expense.item\" mdbInput mdbValidate [validateSuccess]=\"false\" #item=\"ngModel\" required>\n            <label for=\"item\">Item</label>\n            <mdb-error *ngIf=\"item && item.invalid && (item.dirty || item.touched)\">item is required</mdb-error>\n          </div>\n          <div class=\"suggestion-container\" *ngIf=\"frequentExpenses?.length\">\n            <mdb-badge class=\"cursor-pointer mr-1 p-2\" *ngFor=\"let expenseName of frequentExpenses\" pill=\"true\" [info]=\"expense.item !== expenseName\" [success]=\"expense.item === expenseName\" (click)=\"expense.item = expenseName\">{{ expenseName }}</mdb-badge>\n          </div>\n          </div>\n\n          <div class=\"md-form\" style=\"margin-top: 15px;\">\n            <textarea type=\"text\" id=\"description\" name=\"description\" class=\"my-0 py-0 md-textarea form-control\" \n            #description=\"ngModel\" [(ngModel)]=\"expense.description\" mdbInput mdbValidate\n              [validateSuccess]=\"false\" required></textarea>\n            <label for=\"description\">Description</label>\n            <mdb-error *ngIf=\"description && description.invalid && (description.dirty || description.touched)\">Description is required</mdb-error>\n          </div>\n\n          <div class=\"text-lg\">\n            <label for=\"cost\" class=\"grey-text\">Cost</label>\n            <div class=\"md-form mt-0\">\n              <span class=\"d-flex\">\n                <span class=\"price\">&#x20B9;</span>\n                <input type=\"number\" class=\"form-control price\" id=\"cost\" name=\"cost\" [(ngModel)]=\"expense.cost\" #cost=\"ngModel\" mdbValidate [validateSuccess]=\"false\" required>\n              </span>\n              <mdb-error class=\"ml-3\" *ngIf=\"cost && cost.invalid && (cost.dirty || cost.touched)\">Cost is required</mdb-error>\n            </div>\n          </div>\n\n        </form>\n      </mdb-card-body>\n      <mdb-card-footer class=\"d-flex\">\n        <button type=\"button\" mdbBtn color=\"white\" class=\"relative waves-light pull-right\" mdbWavesEffect (click)=\"expenseForm.reset()\">Clear\n          </button>\n        <button type=\"button\" mdbBtn color=\"success\" [disabled]=\"expenseForm.invalid || (isLoading$ | async)\" class=\"relative waves-light pull-right\" mdbWavesEffect (click)=\"onSave()\">Save & Print\n          </button>\n\n      </mdb-card-footer>\n    </mdb-card>\n\n\n    <mdb-card class=\"mt-2\" *ngIf=\"(isManager$ | async)\">\n      <!-- salary section -->\n      <mdb-card-header class=\"w-100 d-flex justify-space-between bg-primary white-text\">\n        <div>\n          <blockquote class=\"text-left  blockquote bq-success\">\n            <h3 class=\"header\">Record Salary</h3>\n          </blockquote>\n        </div>\n        <button mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"salaryDate\" [endDate]=\"endDate\" [startDate]=\"startDate\"\n        header=\"Select Salary Given Date\" (dateSelected)=\"salDatePicked($event)\">\n        <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> {{ salaryDate.format('dddd DD/MM/YYYY') }}\n      </button>\n      </mdb-card-header>\n  \n      <mdb-card-body class=\"py-2\">\n        <form #salaryForm=\"ngForm\">\n          <div class=\"d-flex\">\n          <div class=\"md-form\">\n            <input type=\"text\" id=\"description\" name=\"description\" class=\"form-control\" [(ngModel)]=\"salary.description\" mdbInput mdbValidate [validateSuccess]=\"false\" #description=\"ngModel\" required>\n            <label for=\"description\">Paid To:</label>\n            <mdb-error *ngIf=\"description && description.invalid && (description.dirty || description.touched)\">Person Name is required</mdb-error>\n          </div>\n          <div class=\"suggestion-container\" *ngIf=\"frequentSalaries?.length\">\n            <mdb-badge class=\"cursor-pointer mr-1\" *ngFor=\"let item of frequentSalaries\" pill=\"true\" [info]=\"item.person !== salary.description\" [success]=\"item.person === salary.description\" (click)=\"salary.description = item.person; salary.cost = item.amount\">{{ item.person }}</mdb-badge>\n          </div>\n          </div>\n\n          <div class=\"text-lg\">\n            <label for=\"cost\" class=\"grey-text\">Amount</label>\n            <div class=\"md-form mt-0\">\n              <span class=\"d-flex\">\n                <span class=\"price\">&#x20B9;</span>\n                <input type=\"number\" class=\"form-control price\" id=\"cost\" name=\"cost\" [(ngModel)]=\"salary.cost\" #cost=\"ngModel\" mdbValidate [validateSuccess]=\"false\" required>\n              </span>\n              <mdb-error class=\"ml-3\" *ngIf=\"cost && cost.invalid && (cost.dirty || cost.touched)\">Amount is required</mdb-error>\n            </div>\n          </div>\n\n        </form>\n      </mdb-card-body>\n      <mdb-card-footer class=\"d-flex\">\n        <button type=\"button\" mdbBtn color=\"white\" class=\"relative waves-light pull-right\" mdbWavesEffect (click)=\"salaryForm.reset()\">Clear\n          </button>\n        <button type=\"button\" mdbBtn color=\"success\" [disabled]=\"salaryForm.invalid || (isLoading$ | async)\" class=\"relative waves-light pull-right\" mdbWavesEffect (click)=\"onSalarySave(salaryForm)\">Save & Print\n          </button>\n      </mdb-card-footer>\n    </mdb-card>\n  </div>\n  <div class=\"right-section pb-4\">\n    <app-right-card [header]=\"'Todays Expenses'\" >\n      <div class=\"card-header bg-primary white-text\">\n        <span class=\"icon-button\" (click)=\"prevDate()\">\n          <mdb-icon *ngIf=\"isManager$ | async\" fas icon=\"chevron-left\" class=\"ml-1 float-left delete cursor-pointer white-text\" alt=\"Left\"></mdb-icon>\n        </span>\n        <span>\n          Expense on \n          <button [disabled]=\"!(isManager$ | async)\" mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"defaultDate\" [endDate]=\"defaultDate\" [startDate]=\"startDate\"\n          (click)=\"dateClicked($event)\" header=\"Select Date\" (dateSelected)=\"datePicked($event)\">\n            <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> {{ formattedDate }}\n          </button>\n        </span>\n        <span class=\"icon-button\" (click)=\"nextDate()\">\n          <mdb-icon *ngIf=\"(isManager$ | async) && selectedDate.format('DD/MM/YYYY') !== defaultDate.format('DD/MM/YYYY')\" mdbtn fas icon=\"chevron-right\" class=\"ml-1 float-right delete cursor-pointer white-text\" alt=\"Right\"></mdb-icon>\n        </span>\n      </div>\n      <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\">\n        <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n          <span class=\"sr-only\">Loading...</span>\n        </div>\n      </div>\n      <table mdbTable small=\"true\" striped=\"true\" *ngIf=\"!(isLoading$ | async) && todaysExpenseList.length > 0\">\n        <thead>\n          <tr>\n            <th>Item</th>\n            <th>Description</th>\n            <th>Cost</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let item of todaysExpenseList\" [class.salary]=\"item?.item === 'Salary'\">\n            <td scope=\"row\">{{ item?.item }}</td>\n            <td>{{ item?.description }}</td>\n            <td class=\"table-price\">&#x20B9;{{ item?.cost }}</td>\n            <td>\n              <app-printer [type]=\"'expense'\" [size]=\"'bill'\" [expense]=\"item\"></app-printer> \n              <mdb-icon *ngIf=\"isManager$ | async\" fas icon=\"trash\" class=\"ml-1 float-right delete grey-text\" (click)=\"onDelete(item?.uuid)\" alt=\"Delete\"></mdb-icon>\n            </td>\n          </tr>\n\n          <tr>\n          </tr>\n        </tbody>\n      </table>\n      <div role=\"footer\" *ngIf=\"!(isLoading$ | async)\">\n        <div class=\"card-footer text-muted\">\n          Total: <b class=\"price total-amount\">&#x20B9;{{getTotalExpense()}}</b>\n        </div>\n      </div>\n    </app-right-card>\n\n    <!-- <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\" style=\"margin-top: 200px\">\n      <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n        <span class=\"sr-only\">Loading...</span>\n      </div>\n    </div> -->\n  </div>\n</app-split-body>\n\n<app-printer #appPrinter [type]=\"'expense'\" [hidden]=\"true\"></app-printer>");
 
 /***/ }),
 
@@ -47,6 +47,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var ngx_indexed_db__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-indexed-db */ "./node_modules/ngx-indexed-db/fesm2015/ngx-indexed-db.js");
 /* harmony import */ var src_app_shared_components_printer_printer_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/components/printer/printer.component */ "./src/app/shared/components/printer/printer.component.ts");
+/* harmony import */ var _services_expenses_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/expenses.service */ "./src/app/expenses/services/expenses.service.ts");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -81,12 +82,14 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var moment = __webpack_require__(/*! ../../../assets/datepicker/moment.js */ "./src/assets/datepicker/moment.js");
 var ExpensesComponent = /** @class */ (function () {
-    function ExpensesComponent(store, modalService, idbService) {
+    function ExpensesComponent(store, modalService, idbService, expenseService) {
         this.store = store;
         this.modalService = modalService;
         this.idbService = idbService;
+        this.expenseService = expenseService;
         this.expenseDate = moment();
         this.salaryDate = moment();
         this.defaultDate = moment();
@@ -141,6 +144,14 @@ var ExpensesComponent = /** @class */ (function () {
         this.store.select(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_5__["getUser"]).subscribe(function (user) {
             _this.user = user;
         });
+        this.expenseService.newExpenseAdded.subscribe(function (receipt_number) {
+            if (receipt_number) {
+                var expenseCopy = JSON.parse(JSON.stringify(_this.expenseCopy));
+                _this.appPrinter.expense = __assign({}, expenseCopy, { added_by: _this.user.displayName, expense_date: _this.expenseDate.format('DD-MM-YYYY'), receipt_number: receipt_number });
+                _this.appPrinter.triggerPrint();
+                _this.expenseCopy = null;
+            }
+        });
         this.isLoading$ = this.store.select(_store_expenses_selectors__WEBPACK_IMPORTED_MODULE_3__["getIsLoading"]);
         this.isManager$ = this.store.select(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_5__["isManager"]);
         this.store.dispatch(new _store_expenses_actions__WEBPACK_IMPORTED_MODULE_4__["ExpensesQuery"](this.selectedDate.format('YYYY-MM-DD')));
@@ -184,22 +195,20 @@ var ExpensesComponent = /** @class */ (function () {
     };
     ExpensesComponent.prototype.onSave = function () {
         var _this = this;
+        this.expenseCopy = JSON.parse(JSON.stringify(this.expense));
         this.store.dispatch(new _store_expenses_actions__WEBPACK_IMPORTED_MODULE_4__["ExpensesAddQuery"](this.expense));
-        var expenseCopy = JSON.parse(JSON.stringify(this.expense));
-        this.appPrinter.expense = __assign({}, expenseCopy, { added_by: this.user.displayName, expense_date: this.expenseDate.format('DD-MM-YYYY') });
-        this.appPrinter.triggerPrint();
         this.idbService
-            .getByKey('expenses', expenseCopy.item)
+            .getByKey('expenses', this.expenseCopy.item)
             .subscribe(function (data) {
             if (!data) {
                 _this.idbService.add('expenses', {
-                    item: expenseCopy.item,
+                    item: _this.expenseCopy.item,
                     frequency: 1
                 });
             }
             else {
                 _this.idbService.update('expenses', {
-                    item: expenseCopy.item,
+                    item: _this.expenseCopy.item,
                     frequency: data.frequency + 1
                 }, data.key);
             }
@@ -232,24 +241,22 @@ var ExpensesComponent = /** @class */ (function () {
     };
     ExpensesComponent.prototype.onSalarySave = function (form) {
         var _this = this;
+        this.expenseCopy = JSON.parse(JSON.stringify(this.salary));
         this.store.dispatch(new _store_expenses_actions__WEBPACK_IMPORTED_MODULE_4__["ExpensesAddQuery"](this.salary));
-        var salaryCopy = JSON.parse(JSON.stringify(this.salary));
-        this.appPrinter.expense = __assign({}, salaryCopy, { added_by: this.user.displayName, expense_date: this.salaryDate.format('DD-MM-YYYY') });
-        this.appPrinter.triggerPrint();
         this.idbService
-            .getByKey('salary', salaryCopy.description)
+            .getByKey('salary', this.expenseCopy.description)
             .subscribe(function (data) {
             if (!data) {
                 _this.idbService.add('salary', {
-                    person: salaryCopy.description,
-                    amount: salaryCopy.cost,
+                    person: _this.expenseCopy.description,
+                    amount: _this.expenseCopy.cost,
                     frequency: 1
                 });
             }
             else {
                 _this.idbService.update('salary', {
-                    person: salaryCopy.description,
-                    amount: salaryCopy.cost,
+                    person: _this.expenseCopy.description,
+                    amount: _this.expenseCopy.cost,
                     frequency: data.frequency + 1
                 }, data.key);
             }
@@ -267,7 +274,8 @@ var ExpensesComponent = /** @class */ (function () {
     ExpensesComponent.ctorParameters = function () { return [
         { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"] },
         { type: angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_6__["MDBModalService"] },
-        { type: ngx_indexed_db__WEBPACK_IMPORTED_MODULE_9__["NgxIndexedDBService"] }
+        { type: ngx_indexed_db__WEBPACK_IMPORTED_MODULE_9__["NgxIndexedDBService"] },
+        { type: _services_expenses_service__WEBPACK_IMPORTED_MODULE_11__["ExpensesService"] }
     ]; };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('expenseForm', { static: true }),
@@ -289,7 +297,8 @@ var ExpensesComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"],
             angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_6__["MDBModalService"],
-            ngx_indexed_db__WEBPACK_IMPORTED_MODULE_9__["NgxIndexedDBService"]])
+            ngx_indexed_db__WEBPACK_IMPORTED_MODULE_9__["NgxIndexedDBService"],
+            _services_expenses_service__WEBPACK_IMPORTED_MODULE_11__["ExpensesService"]])
     ], ExpensesComponent);
     return ExpensesComponent;
 }());
@@ -463,6 +472,8 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 var ExpensesService = /** @class */ (function () {
     function ExpensesService(http) {
         this.http = http;
+        this.$newExpenseAdded = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+        this.newExpenseAdded = this.$newExpenseAdded.asObservable();
     }
     Object.defineProperty(ExpensesService.prototype, "userId", {
         get: function () {
@@ -471,6 +482,9 @@ var ExpensesService = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    ExpensesService.prototype.emitNewExpense = function (receipt_number) {
+        this.$newExpenseAdded.next(receipt_number);
+    };
     ExpensesService.prototype.addExpenses = function (expenses) {
         return this.http.post(src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].apiUrl + "?api=addExpense", __assign({}, expenses));
     };
@@ -626,8 +640,9 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 var moment = __webpack_require__(/*! ../../../assets/datepicker/moment.js */ "./src/assets/datepicker/moment.js");
 var ExpensesEffects = /** @class */ (function () {
-    function ExpensesEffects(actions$, expensesService, store) {
+    function ExpensesEffects(expenseService, actions$, expensesService, store) {
         var _this = this;
+        this.expenseService = expenseService;
         this.actions$ = actions$;
         this.expensesService = expensesService;
         this.store = store;
@@ -638,7 +653,8 @@ var ExpensesEffects = /** @class */ (function () {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _expenses_actions__WEBPACK_IMPORTED_MODULE_3__["ExpensesError"]({ error: error }));
         })); }));
         this.added$ = this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_expenses_actions__WEBPACK_IMPORTED_MODULE_3__["ExpensesActionTypes"].EXPENSES_ADD_QUERY), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (action) { return action.payload; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (payload) { return _this.expensesService.addExpenses(payload)
-            .pipe((Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function () {
+            .pipe((Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (response) {
+            _this.expenseService.emitNewExpense(response.receipt_number);
             return (new _expenses_actions__WEBPACK_IMPORTED_MODULE_3__["ExpensesQuery"](moment().format('YYYY-MM-DD')));
         })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (error) {
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])(new _expenses_actions__WEBPACK_IMPORTED_MODULE_3__["ExpensesError"]({ error: error }));
@@ -661,6 +677,7 @@ var ExpensesEffects = /** @class */ (function () {
         }));
     }
     ExpensesEffects.ctorParameters = function () { return [
+        { type: _services_expenses_service__WEBPACK_IMPORTED_MODULE_2__["ExpensesService"] },
         { type: _ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"] },
         { type: _services_expenses_service__WEBPACK_IMPORTED_MODULE_2__["ExpensesService"] },
         { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_6__["Store"] }
@@ -683,7 +700,8 @@ var ExpensesEffects = /** @class */ (function () {
     ], ExpensesEffects.prototype, "delete$", void 0);
     ExpensesEffects = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"], _services_expenses_service__WEBPACK_IMPORTED_MODULE_2__["ExpensesService"], _ngrx_store__WEBPACK_IMPORTED_MODULE_6__["Store"]])
+        __metadata("design:paramtypes", [_services_expenses_service__WEBPACK_IMPORTED_MODULE_2__["ExpensesService"],
+            _ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"], _services_expenses_service__WEBPACK_IMPORTED_MODULE_2__["ExpensesService"], _ngrx_store__WEBPACK_IMPORTED_MODULE_6__["Store"]])
     ], ExpensesEffects);
     return ExpensesEffects;
 }());
