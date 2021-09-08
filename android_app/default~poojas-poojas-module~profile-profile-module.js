@@ -256,7 +256,9 @@ var PoojasComponent = /** @class */ (function () {
     }
     PoojasComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.datePicked(moment());
+        // this.datePicked(moment());
+        this.allPoojasList = [];
+        this.poojaList = [];
         this.store.select(_store_poojas_selectors__WEBPACK_IMPORTED_MODULE_2__["getPoojaTypes"]).subscribe(function (poojas) {
             _this.poojaTypes = poojas;
         });
@@ -266,7 +268,9 @@ var PoojasComponent = /** @class */ (function () {
                 .subscribe(function (poojas) {
                 _this.tomorrowsPoojaList = poojas.poojaList;
             });
-            _this.datePicked(moment());
+            if (list !== null) {
+                _this.datePicked(moment());
+            }
         });
         this.isManager$ = this.store.select(src_app_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_8__["isManager"]);
         this.isLoading$ = this.store.select(_store_poojas_selectors__WEBPACK_IMPORTED_MODULE_2__["getIsLoading"]);
