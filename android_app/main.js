@@ -5005,7 +5005,6 @@ var PwaService = /** @class */ (function () {
     function PwaService(swUpdate) {
         var _this = this;
         this.swUpdate = swUpdate;
-        this.promptEvent = new Event('beforeinstallprompt');
         this.$askUserToUpdate = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this.askUserToUpdate = this.$askUserToUpdate.asObservable();
         this.swUpdate.available.subscribe(function (event) {
