@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<header>\n  <app-header [user]=\"user$ | async\" [isLoggedIn]=\"isLoggedIn$ | async\" [isLoading]=\"isLoading$ | async\" [isAdmin]=\"isAdmin$ | async\"\n    (logout)=\"onLogout($event)\"></app-header>\n</header>\n\n<main>\n  <router-outlet></router-outlet>\n</main>\n\n<!-- <footer class=\"app-footer\" [ngClass]=\"{'footer-absolute': (isLoggedIn$ | async) || (isLoading$ | async)}\">\n  <app-footer></app-footer>\n</footer> -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<header>\n  <app-header [user]=\"user$ | async\" [isLoggedIn]=\"isLoggedIn$ | async\" [isLoading]=\"isLoading$ | async\" [isAdmin]=\"isAdmin$ | async\"\n    (logout)=\"onLogout($event)\"></app-header>\n</header>\n\n<main>\n  <router-outlet></router-outlet>\n</main>\n\n<app-pwa></app-pwa>\n\n<!-- <footer class=\"app-footer\" [ngClass]=\"{'footer-absolute': (isLoggedIn$ | async) || (isLoading$ | async)}\">\n  <app-footer></app-footer>\n</footer> -->\n");
 
 /***/ }),
 
@@ -231,6 +231,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<button #buttonRef [style.display]=\"hidden ? 'none': ''\" (click)=\"triggerPrint()\">\n    <span>{{text}}</span>\n    <mdb-icon fas icon=\"print\" class=\"float-left fa-lg mr-2\" alt=\"no data\"></mdb-icon>\n</button>\n\n<div class=\"content\">\n\n    <div class=\"bills\">\n        <div #bill>\n            <header style=\"display: flex; flex-direction: column; justify-content: center; align-items: center; \">\n                <span\n                    style=\"word-wrap: break-word; font-size: 16px; border-bottom: 1px solid black; font-weight: bold; text-align: center;justify-content: center;\">{{temple.temple_name}}</span>\n                <span>{{temple.address}}</span>\n                <!-- <span>Ph: {{temple.phone_number}}</span> -->\n            </header>\n\n            <body *ngIf=\"type === 'pooja' && size === 'bill' && poojas\">\n                <div style=\"border-bottom: 1px dotted black; border-top: 1px dotted black;display: flex; flex-direction: column; justify-content: center; align-items: center; \"\n                    *ngIf=\"poojas[0]?.receipt_number\">\n                    <th>Receipt No: {{poojas[0]?.receipt_number}}</th>\n                </div>\n                <div style=\"border-bottom: 1px dotted black; border-top: 1px dotted black;display: flex; flex-direction: column; justify-content: center; align-items: center; \"\n                    *ngIf=\"poojas[0]?.pooja_name\">\n                    <th><b>{{poojas[0]?.pooja_name}}</b></th>\n                </div>\n                <br>\n                <table style=\"border-collapse: collapse; width: 100%;\">\n                    <tbody *ngFor=\"let pooja of poojas\" style=\"border-bottom: 1px dotted black\">\n                        <tr *ngIf=\"pooja?.name\">\n                            <td>Name</td>\n                            <td>{{pooja?.name}}</td>\n                        </tr>\n                        <tr *ngIf=\"pooja?.nakshatram\">\n                            <td>Nakshatram</td>\n                            <td>{{pooja?.nakshatram}}</td>\n                        </tr>\n                        <tr *ngIf=\"pooja?.pooja_price\">\n                            <td>Amount</td>\n                            <td>&#x20B9; {{pooja?.pooja_price}}</td>\n                        </tr>\n                    </tbody>\n\n                    <tbody *ngIf=\"poojas[0]\">\n                        <tr *ngIf=\"poojas[0]?.address\">\n                            <td>Address</td>\n                            <td>{{poojas[0]?.address}}</td>\n                        </tr>\n                        <tr *ngIf=\"poojas[0]?.phone_number\" style=\"border-bottom: 1px dotted black;\">\n                            <td>Phone</td>\n                            <td>{{poojas[0]?.phone_number}}</td>\n                        </tr>\n                    </tbody>\n                    <tfoot>\n                        <tr>\n                            <td><br></td>\n                        </tr>\n                        <tr style=\"border-bottom: 1px dashed black; margin-top: 10px; background-color: whitesmoke;\">\n                            <td style=\"font-size: 16px; font-weight: bold;\"><b>Total Amount</b></td>\n                            <td style=\"font-size: 16px; font-weight: bold;\"><b>&#x20B9; {{getTotalPrice(poojas,\n                                    'pooja_price')}}</b></td>\n                        </tr>\n                        <tr>\n                            <td><br></td>\n                        </tr>\n                        <tr>\n                            <td>\n                                Billed by:\n                            </td>\n                            <td>\n                                {{temple?.displayName}}\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                Date-Time\n                            </td>\n                            <td>\n                                {{getCurrentDate()}}\n                            </td>\n                        </tr>\n                    </tfoot>\n                </table>\n            </body>\n\n\n            <body *ngIf=\"type === 'expense' && size === 'bill' && expense\">\n                <div style=\"border-bottom: 1px dotted black; border-top: 1px dotted black;display: flex; flex-direction: column; justify-content: center; align-items: center; \"\n                    *ngIf=\"expense?.receipt_number\">\n                    <th>Receipt No: {{expense?.receipt_number}}</th>\n                </div>\n                <div\n                    style=\"border-bottom: 1px dotted black; border-top: 1px dotted black;display: flex; flex-direction: column; justify-content: center; align-items: center; \">\n                    <th><b>{{expense?.item === 'Salary' ? 'Salary Slip' : 'Expense Receipt'}}</b></th>\n                </div>\n                <br>\n                <table style=\"border-collapse: collapse;\">\n                    <tbody style=\"border-bottom: 1px dotted black\">\n                        <tr *ngIf=\"expense?.item\">\n                            <td>Item</td>\n                            <td>{{expense?.item}}</td>\n                        </tr>\n                        <tr *ngIf=\"expense?.description\">\n                            <td colspan=\"2\" *ngIf=\"expense.item !== 'Salary'; else salary\">{{expense?.description}}</td>\n                            <ng-template #salary>\n                                <td>Paid To:</td>\n                                <td>{{expense.description}}</td>\n                            </ng-template>\n                        </tr>\n                        <tr *ngIf=\"expense?.cost\">\n                            <td>Cost</td>\n                            <td>&#x20B9; {{expense?.cost}}</td>\n                        </tr>\n                    </tbody>\n                    <tfoot>\n                        <tr>\n                            <td><br></td>\n                        </tr>\n                        <tr style=\"border-bottom: 1px dashed black; margin-top: 10px; background-color: whitesmoke;\">\n                            <td style=\"font-size: 16px; font-weight: bold;\"><b>Total Amount</b></td>\n                            <td style=\"font-size: 16px; font-weight: bold;\"><b>&#x20B9; {{expense?.cost}}</b></td>\n                        </tr>\n                        <tr>\n                            <td><br></td>\n                        </tr>\n                        <tr>\n                            <td>\n                                Added by:\n                            </td>\n                            <td>\n                                {{expense?.added_by}}\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                Date\n                            </td>\n                            <td>\n                                {{expense?.expense_date}}\n                            </td>\n                        </tr>\n                    </tfoot>\n                </table>\n            </body>\n\n\n            <body *ngIf=\"type === 'donation' && size === 'bill' && donation\">\n                <div style=\"border-bottom: 1px dotted black; border-top: 1px dotted black;display: flex; flex-direction: column; justify-content: center; align-items: center; \"\n                    *ngIf=\"donation?.receipt_number\">\n                    <th>Receipt No: {{donation?.receipt_number}}</th>\n                </div>\n                <div\n                    style=\"border-bottom: 1px dotted black; border-top: 1px dotted black;display: flex; flex-direction: column; justify-content: center; align-items: center; \">\n                    <th><b>Donation Received</b></th>\n                </div>\n                <br>\n                <table style=\"border-collapse: collapse;\">\n                    <tbody style=\"border-bottom: 1px dotted black\">\n                        <tr *ngIf=\"donation?.name\">\n                            <td>Name</td>\n                            <td>{{donation?.name}}</td>\n                        </tr>\n                        <tr *ngIf=\"donation?.nakshatram\">\n                            <td>Nakshathram</td>\n                            <td>{{donation?.nakshatram}}</td>\n                        </tr>\n                        <tr *ngIf=\"donation?.address\">\n                            <td>\n                                <Address></Address>\n                            </td>\n                            <td>{{donation?.address}}</td>\n                        </tr>\n                        <tr *ngIf=\"donation?.phone_number\">\n                            <td>Phone</td>\n                            <td>{{donation?.phone_number}}</td>\n                        </tr>\n                        <tr *ngIf=\"donation?.amount\">\n                            <td>Amount</td>\n                            <td>&#x20B9; {{donation?.amount}}</td>\n                        </tr>\n                    </tbody>\n                    <tfoot>\n                        <tr>\n                            <td><br></td>\n                        </tr>\n                        <tr style=\"border-bottom: 1px dashed black; margin-top: 10px; background-color: whitesmoke;\">\n                            <td style=\"font-size: 16px; font-weight: bold;\"><b>Total Amount</b></td>\n                            <td style=\"font-size: 16px; font-weight: bold;\"><b>&#x20B9; {{donation?.amount}}</b></td>\n                        </tr>\n                        <tr>\n                            <td><br></td>\n                        </tr>\n                        <tr>\n                            <td>\n                                Added by:\n                            </td>\n                            <td>\n                                {{donation?.added_by}}\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                Date\n                            </td>\n                            <td>\n                                {{donation?.donation_date}}\n                            </td>\n                        </tr>\n                    </tfoot>\n                </table>\n            </body>\n\n\n            <body *ngIf=\"type === 'report' && reports\" class=\"report\">\n                <div\n                    style=\"border-bottom: 1px dotted black; border-top: 1px dotted black;display: flex; flex-direction: column; justify-content: center; align-items: center;\">\n                    <th><b>Consolidated Finance Report</b></th>\n                    <tr><span>period: {{reportPeriod}}</span></tr>\n                </div>\n                <br>\n                <section *ngFor=\"let report of reports\">\n                    <p style=\"font-weight: bold;padding-bottom: 10px; border-bottom: 1px solid dimgray;\">Date:\n                        <b>{{report.date}}</b>\n                    </p>\n                    <table *ngIf=\"report?.poojas.length\">\n                        <p class=\"heading\">Poojas</p>\n                        <tr><br><br></tr>\n                        <tbody style=\"border: 1px dotted black\">\n                            <tr>\n                                <td style=\"font-weight: bold;\">Date</td>\n                                <td style=\"font-weight: bold;\">Pooja Name</td>\n                                <td style=\"font-weight: bold;\">Person Name</td>\n                                <td style=\"font-weight: bold;\">Nakshathram</td>\n                                <td style=\"font-weight: bold;\">Phone</td>\n                                <td style=\"font-weight: bold;\">Amount</td>\n                            </tr>\n                            <tr *ngFor=\"let pooja of report.poojas\">\n                                <td>{{pooja.pooja_date}}</td>\n                                <td>{{pooja.pooja_name}}</td>\n                                <td>{{pooja.name}}</td>\n                                <td>{{pooja.nakshatram}}</td>\n                                <td>{{pooja.phone_number}}</td>\n                                <td><b>&#x20B9; {{pooja.pooja_price}}</b></td>\n                            </tr>\n                            <tr>\n                                <td colspan=\"5\" style=\"font-weight: bold;\">Total Amount</td>\n                                <td><b>&#x20B9; {{getTotalPrice(report.poojas, 'pooja_price')}}</b></td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    <br><br>\n                    <table *ngIf=\"report?.expenses.length\">\n                        <p class=\"heading\">Expenses</p>\n                        <tr><br></tr>\n                        <tbody style=\"border: 1px dotted black\">\n                            <tr>\n                                <td style=\"font-weight: bold;\">Date</td>\n                                <td style=\"font-weight: bold;\">Item</td>\n                                <td style=\"font-weight: bold;\">Description</td>\n                                <td style=\"font-weight: bold;\">Added By</td>\n                                <td style=\"font-weight: bold;\">Amount</td>\n                            </tr>\n                            <tr *ngFor=\"let expense of report.expenses\">\n                                <td>{{expense.expense_date}}</td>\n                                <td>{{expense.item}}</td>\n                                <td>{{expense.description}}</td>\n                                <td>{{expense.added_by}}</td>\n                                <td><b>&#x20B9; {{expense.cost}}</b></td>\n                            </tr>\n                            <tr>\n                                <td colspan=\"4\" style=\"font-weight: bold;\">Total Expense</td>\n                                <td><b>&#x20B9; {{getTotalPrice(report.expenses, 'cost')}}</b></td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    <br><br>\n\n                    <table *ngIf=\"report?.donations.length\">\n                        <p class=\"heading\">Donations</p>\n                        <br>\n                        <tbody style=\"border: 1px dotted black\">\n                            <tr>\n                                <td style=\"font-weight: bold;\">Date</td>\n                                <td style=\"font-weight: bold;\">Name</td>\n                                <td style=\"font-weight: bold;\">Nakshatram</td>\n                                <td style=\"font-weight: bold;\">Phone Number</td>\n                                <td style=\"font-weight: bold;\">Address</td>\n                                <td style=\"font-weight: bold;\">Added By</td>\n                                <td style=\"font-weight: bold;\">Amount</td>\n                            </tr>\n                            <tr *ngFor=\"let expense of report.donations\">\n                                <td>{{expense.donation_date}}</td>\n                                <td>{{expense.name}}</td>\n                                <td>{{expense.nakshatram}}</td>\n                                <td>{{expense.phone_number}}</td>\n                                <td>{{expense.address}}</td>\n                                <td>{{expense.added_by}}</td>\n                                <td><b>&#x20B9; {{expense.amount}}</b></td>\n                            </tr>\n                            <tr>\n                                <td colspan=\"6\" style=\"font-weight: bold;\">Total Donations</td>\n                                <td><b>&#x20B9; {{getTotalPrice(report.donations, 'amount')}}</b></td>\n                            </tr>\n                        </tbody>\n                        <br><br>\n                    </table>\n                </section>\n                <div>\n                    <br><br>\n                    <footer>\n                        Generated Date:\n                        {{getCurrentDate()}}\n                    </footer>\n                </div>\n\n            </body>\n\n        </div>\n    </div>\n\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/pwa/pwa.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/pwa/pwa.component.html ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"sw\">\n    <button *ngIf=\"Pwa.promptEvent\" class=\"install-button\" mdbBtn type=\"button\" gradient=\"purple\" rounded=\"true\" mdbWavesEffect\n        (click)=\"installPwa()\">Install App</button>\n    \n    <button *ngIf=\"Pwa.promptEvent\" class=\"update-button\" mdbBtn type=\"button\" gradient=\"blue\" rounded=\"true\" mdbWavesEffect\n        (click)=\"updateSoftware()\">Update App</button>\n</div>");
 
 /***/ }),
 
@@ -1664,6 +1677,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm5/ngx-toastr.js");
 /* harmony import */ var _interceptors_api_interceptor__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./interceptors/api.interceptor */ "./src/app/interceptors/api.interceptor.ts");
+/* harmony import */ var _angular_service_worker__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/service-worker */ "./node_modules/@angular/service-worker/fesm5/service-worker.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1689,6 +1703,7 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 // import { AngularFirestoreModule } from '@angular/fire/firestore';
 // import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 
 
 
@@ -1728,7 +1743,14 @@ var AppModule = /** @class */ (function () {
                     metaReducers: _reducers__WEBPACK_IMPORTED_MODULE_6__["metaReducers"]
                 }),
                 !_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].production ? _ngrx_store_devtools__WEBPACK_IMPORTED_MODULE_7__["StoreDevtoolsModule"].instrument() : [],
-                _ngrx_effects__WEBPACK_IMPORTED_MODULE_8__["EffectsModule"].forRoot([])
+                _ngrx_effects__WEBPACK_IMPORTED_MODULE_8__["EffectsModule"].forRoot([]),
+                _angular_service_worker__WEBPACK_IMPORTED_MODULE_18__["ServiceWorkerModule"].register('./ngsw-worker.js', {
+                    // enabled: environment.production,
+                    enabled: true,
+                    // Register the ServiceWorker as soon as the app is stable
+                    // or after 30 seconds (whichever comes first).
+                    registrationStrategy: 'registerWhenStable:30000'
+                })
             ],
             providers: [{ provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HTTP_INTERCEPTORS"], useClass: _interceptors_api_interceptor__WEBPACK_IMPORTED_MODULE_17__["APIInterceptor"], multi: true },],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]],
@@ -4376,6 +4398,80 @@ var PrinterComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shared/components/pwa/pwa.component.scss":
+/*!**********************************************************!*\
+  !*** ./src/app/shared/components/pwa/pwa.component.scss ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".sw {\n  position: fixed;\n  right: 20px;\n  bottom: 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Wb2x1bWVzL3N0b3JlIDEvY29kZS9BdWRpdC1VSS1Bbmd1bGFyL3NyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcHdhL3B3YS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcHdhL3B3YS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGVBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUVBLGFBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0FDQUoiLCJmaWxlIjoic3JjL2FwcC9zaGFyZWQvY29tcG9uZW50cy9wd2EvcHdhLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnN3IHtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgcmlnaHQ6IDIwcHg7XG4gICAgYm90dG9tOiAyMHB4O1xuXG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuIiwiLnN3IHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICByaWdodDogMjBweDtcbiAgYm90dG9tOiAyMHB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn0iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/shared/components/pwa/pwa.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/shared/components/pwa/pwa.component.ts ***!
+  \********************************************************/
+/*! exports provided: PwaComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PwaComponent", function() { return PwaComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_pwa_service_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/pwa-service.service */ "./src/app/shared/services/pwa-service.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+var PwaComponent = /** @class */ (function () {
+    function PwaComponent(Pwa) {
+        this.Pwa = Pwa;
+        this.showUpdateButton = false;
+    }
+    PwaComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.Pwa.askUserToUpdate.subscribe(function () {
+            _this.showUpdateButton = true;
+        });
+    };
+    PwaComponent.prototype.installPwa = function () {
+        this.Pwa.promptEvent.prompt();
+    };
+    PwaComponent.prototype.updateSoftware = function () {
+        this.Pwa.updateSoftware();
+    };
+    PwaComponent.ctorParameters = function () { return [
+        { type: _services_pwa_service_service__WEBPACK_IMPORTED_MODULE_1__["PwaService"] }
+    ]; };
+    PwaComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-pwa',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./pwa.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/components/pwa/pwa.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./pwa.component.scss */ "./src/app/shared/components/pwa/pwa.component.scss")).default]
+        }),
+        __metadata("design:paramtypes", [_services_pwa_service_service__WEBPACK_IMPORTED_MODULE_1__["PwaService"]])
+    ], PwaComponent);
+    return PwaComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/components/right-card/right-card.component.scss":
 /*!************************************************************************!*\
   !*** ./src/app/shared/components/right-card/right-card.component.scss ***!
@@ -4877,6 +4973,64 @@ var UsersListComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shared/services/pwa-service.service.ts":
+/*!********************************************************!*\
+  !*** ./src/app/shared/services/pwa-service.service.ts ***!
+  \********************************************************/
+/*! exports provided: PwaService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PwaService", function() { return PwaService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_service_worker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/service-worker */ "./node_modules/@angular/service-worker/fesm5/service-worker.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+var PwaService = /** @class */ (function () {
+    function PwaService(swUpdate) {
+        var _this = this;
+        this.swUpdate = swUpdate;
+        this.$askUserToUpdate = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.askUserToUpdate = this.$askUserToUpdate.asObservable();
+        this.swUpdate.available.subscribe(function (event) {
+            _this.$askUserToUpdate.next(event);
+        });
+        window.addEventListener('beforeinstallprompt', function (event) {
+            _this.promptEvent = event;
+        });
+    }
+    PwaService.prototype.updateSoftware = function () {
+        window.location.reload();
+    };
+    PwaService.ctorParameters = function () { return [
+        { type: _angular_service_worker__WEBPACK_IMPORTED_MODULE_1__["SwUpdate"] }
+    ]; };
+    PwaService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_service_worker__WEBPACK_IMPORTED_MODULE_1__["SwUpdate"]])
+    ], PwaService);
+    return PwaService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/shared.module.ts":
 /*!*****************************************!*\
   !*** ./src/app/shared/shared.module.ts ***!
@@ -4904,6 +5058,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_tabs_tab_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/tabs/tab.component */ "./src/app/shared/components/tabs/tab.component.ts");
 /* harmony import */ var _components_printer_printer_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/printer/printer.component */ "./src/app/shared/components/printer/printer.component.ts");
 /* harmony import */ var _expenses_indexedDB_indexedDB_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../expenses/indexedDB/indexedDB.module */ "./src/app/expenses/indexedDB/indexedDB.module.ts");
+/* harmony import */ var _components_pwa_pwa_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/pwa/pwa.component */ "./src/app/shared/components/pwa/pwa.component.ts");
+/* harmony import */ var _services_pwa_service_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/pwa-service.service */ "./src/app/shared/services/pwa-service.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4913,6 +5069,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
   return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+
+
 
 
 
@@ -4946,7 +5104,8 @@ var SharedModule = /** @class */ (function () {
                 _components_user_user_component__WEBPACK_IMPORTED_MODULE_12__["UserComponent"],
                 _components_tabs_tabs_component__WEBPACK_IMPORTED_MODULE_13__["TabsComponent"],
                 _components_tabs_tab_component__WEBPACK_IMPORTED_MODULE_14__["TabComponent"],
-                _components_printer_printer_component__WEBPACK_IMPORTED_MODULE_15__["PrinterComponent"]
+                _components_printer_printer_component__WEBPACK_IMPORTED_MODULE_15__["PrinterComponent"],
+                _components_pwa_pwa_component__WEBPACK_IMPORTED_MODULE_17__["PwaComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
@@ -4973,9 +5132,10 @@ var SharedModule = /** @class */ (function () {
                 _components_user_user_component__WEBPACK_IMPORTED_MODULE_12__["UserComponent"],
                 _components_tabs_tabs_component__WEBPACK_IMPORTED_MODULE_13__["TabsComponent"],
                 _components_tabs_tab_component__WEBPACK_IMPORTED_MODULE_14__["TabComponent"],
-                _components_printer_printer_component__WEBPACK_IMPORTED_MODULE_15__["PrinterComponent"]
+                _components_printer_printer_component__WEBPACK_IMPORTED_MODULE_15__["PrinterComponent"],
+                _components_pwa_pwa_component__WEBPACK_IMPORTED_MODULE_17__["PwaComponent"]
             ],
-            providers: [],
+            providers: [_services_pwa_service_service__WEBPACK_IMPORTED_MODULE_18__["PwaService"]],
             entryComponents: [
                 _components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_2__["ConfirmModalComponent"],
                 _components_customers_modal_customers_modal_component__WEBPACK_IMPORTED_MODULE_4__["CustomersModalComponent"],
