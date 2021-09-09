@@ -1,6 +1,5 @@
 {
   "configVersion": 1,
-<<<<<<< HEAD
   "timestamp": 1631171980671,
   "index": "/prod_app/index.html",
   "assetGroups": [
@@ -23,30 +22,6 @@
         "/prod_app/polyfills.a1c446000b2cf277f90f.js",
         "/prod_app/runtime.1d4bafb778dc54024cb3.js",
         "/prod_app/scripts.3ec1f18a8f983692acfe.js",
-=======
-  "timestamp": 1631169462566,
-  "index": "/prod_app/index.html",
-  "assetGroups": [
-    {
-      "name": "RR Portal",
-      "installMode": "prefetch",
-      "updateMode": "prefetch",
-      "urls": [
-        "/prod_app/1.40bffa20cd4962cb4369.js",
-        "/prod_app/10.f811805b840ca2f76eb9.js",
-        "/prod_app/6.a8ddfe378a7156cd61ba.js",
-        "/prod_app/7.697540d0d9a17587168f.js",
-        "/prod_app/8.2df1d2115462de21aa08.js",
-        "/prod_app/9.9f053f3dd5aa1cf7aca1.js",
-        "/prod_app/favicon.ico",
-        "/prod_app/index.html",
-        "/prod_app/main.5ca999c9743d1a46332f.js",
-        "/prod_app/manifest.webmanifest",
-        "/prod_app/polyfills-es5.fde58a02a5d484872287.js",
-        "/prod_app/polyfills.435646a308ef17c8a258.js",
-        "/prod_app/runtime.0a709c234251cc2730b9.js",
-        "/prod_app/scripts.b741082feb481cd86b51.js",
->>>>>>> 2e50435277b47858bf75b10f099992199a61e723
         "/prod_app/styles.8e8bb54e44b720c3bba8.css"
       ],
       "patterns": []
@@ -91,7 +66,6 @@
         "/prod_app/assets/datepicker/moment.js",
         "/prod_app/assets/datepicker/polyfill.js",
         "/prod_app/assets/datepicker/rome.standalone.js",
-<<<<<<< HEAD
         "/prod_app/assets/icons/RR-logo.png",
         "/prod_app/assets/icons/icon-128x128.png",
         "/prod_app/assets/icons/icon-144x144.png",
@@ -101,8 +75,6 @@
         "/prod_app/assets/icons/icon-512x512.png",
         "/prod_app/assets/icons/icon-72x72.png",
         "/prod_app/assets/icons/icon-96x96.png",
-=======
->>>>>>> 2e50435277b47858bf75b10f099992199a61e723
         "/prod_app/assets/images/RR-logo.png",
         "/prod_app/fa-brands-400.099a9556e1a63ece24f8.woff",
         "/prod_app/fa-brands-400.30cc681d4487d2f56103.eot",
@@ -134,19 +106,11 @@
     "/prod_app/07.f8da0281186df8f17f73.png": "078e49f4fa97e117da76cbef2b492e8cf92d0d45",
     "/prod_app/08.975f7e0074400e7561ba.png": "b3916a95cb81602b7bd41eaefa92eb3a8fd39b70",
     "/prod_app/09.fd19309a1932b4751387.png": "4d1c1ec2c710745ddcc43fdd0ae41d3095398a77",
-<<<<<<< HEAD
     "/prod_app/1.d52d70694edd7bd48f02.js": "6343f2a0476164e48cb0c15bdf267f6ae60abe43",
     "/prod_app/10.4729daffdd9f2991ff4c.js": "d9de4b15eb54b1111bbbd4341620467225d5adb2",
     "/prod_app/6.52ed90feef57be76e38b.js": "2af89d6ef26a91f8b38dd3b552685b4470bbe04d",
     "/prod_app/7.990fe13ea7bd2c815682.js": "7336a1b2f30487af3d7ab9f7bf635f4612edc8e0",
     "/prod_app/8.108ca7a5fcf39fe7dcb7.js": "e0ccf9f39aea7705ec16d530cf2c490b9d78c885",
-=======
-    "/prod_app/1.40bffa20cd4962cb4369.js": "6343f2a0476164e48cb0c15bdf267f6ae60abe43",
-    "/prod_app/10.f811805b840ca2f76eb9.js": "d9de4b15eb54b1111bbbd4341620467225d5adb2",
-    "/prod_app/6.a8ddfe378a7156cd61ba.js": "2af89d6ef26a91f8b38dd3b552685b4470bbe04d",
-    "/prod_app/7.697540d0d9a17587168f.js": "7336a1b2f30487af3d7ab9f7bf635f4612edc8e0",
-    "/prod_app/8.2df1d2115462de21aa08.js": "e0ccf9f39aea7705ec16d530cf2c490b9d78c885",
->>>>>>> 2e50435277b47858bf75b10f099992199a61e723
     "/prod_app/9.9f053f3dd5aa1cf7aca1.js": "e8d4bbbe627ddb86d41720d713d22447675139a3",
     "/prod_app/Roboto-Bold.39b2c3031be6b4ea96e2.woff2": "933b866d09c2b087707a98dab64b3888865eeb96",
     "/prod_app/Roboto-Bold.dc81817def276b4f2139.woff": "ee99cd87a59a9a5d4092c83232bb3eec67547425",
@@ -170,7 +134,6 @@
     "/prod_app/Roboto-Thin.dfe56a876d0282555d1e.eot": "0790a51a848dbe7292c98f9d0459218bf1a8ffdd",
     "/prod_app/arrow_left.270f72df47e036d9cfa1.svg": "fb5b615955042a7c6aa16b1f0e8dcbdb279a8ac0",
     "/prod_app/arrow_right.d9ccc77c8240ad0dc272.svg": "fac5123a15d035a642b74740b89636e2ace09810",
-<<<<<<< HEAD
     "/prod_app/assets/datepicker/material-datetime-picker.js": "ad90d9e7396be1257385922353b913559a7a76c1",
     "/prod_app/assets/datepicker/moment.js": "dc5ead07ca9ba438f20fb456e03a180ae32b6448",
     "/prod_app/assets/datepicker/polyfill.js": "a2a72d31a828a3784c11f58670e649c36b33d6e2",
@@ -184,12 +147,6 @@
     "/prod_app/assets/icons/icon-512x512.png": "17baa555a06341b1cf3a0559b7bc1f1241401300",
     "/prod_app/assets/icons/icon-72x72.png": "e6bbbffa4a5998e106fa3bae98a3a80b00167ac4",
     "/prod_app/assets/icons/icon-96x96.png": "1c661fb0139a7e469290fc5a8fc7a77b9becde95",
-=======
-    "/prod_app/assets/datepicker/material-datetime-picker.js": "80dc00db1084f480c2d039981117ef4b287d9432",
-    "/prod_app/assets/datepicker/moment.js": "dba99ac2753b7a55d51393f6b00a81ece7638310",
-    "/prod_app/assets/datepicker/polyfill.js": "7f042eb5fb6b579a579c5f2107872d7a8517ca45",
-    "/prod_app/assets/datepicker/rome.standalone.js": "1fe368b5374ebe8aa51222d0bda909a079f8d438",
->>>>>>> 2e50435277b47858bf75b10f099992199a61e723
     "/prod_app/assets/images/RR-logo.png": "bec6635817002afa6e03a853b35030063e8f2ec0",
     "/prod_app/fa-brands-400.099a9556e1a63ece24f8.woff": "5f8cab91347c553c1eb87f9b527f6bee8a28e40d",
     "/prod_app/fa-brands-400.30cc681d4487d2f56103.eot": "a400bc89d3cb4d45a3b90791800587a1e4ebafa6",
@@ -207,7 +164,6 @@
     "/prod_app/fa-solid-900.9fe5a17c8ab036d20e6c.woff": "52751432ded489dfdf27fb1cf64c570c4c27a1d7",
     "/prod_app/fa-solid-900.e8a427e15cc502bef99c.woff2": "a9922842a120a7f1eaced667480c5e185a106d69",
     "/prod_app/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-<<<<<<< HEAD
     "/prod_app/index.html": "4399267310ce554d8d6b2f21cee6e44222cae0df",
     "/prod_app/main.67baa494dd9be96074f2.js": "fcb5ff2f87e6a20575a4deb25ca76fbdafd9b5b6",
     "/prod_app/manifest.webmanifest": "1d65bd8ded681e2261d74d29a4d8c720e7506915",
@@ -215,15 +171,6 @@
     "/prod_app/polyfills.a1c446000b2cf277f90f.js": "77ceb42c942371064988ab17af606742ddb0b933",
     "/prod_app/runtime.1d4bafb778dc54024cb3.js": "eb5f879001977b2f5adda959db00db5d5f536b9f",
     "/prod_app/scripts.3ec1f18a8f983692acfe.js": "9d8894952faa89c453840202da6c73f5d10ef89c",
-=======
-    "/prod_app/index.html": "ee6f7eb542021412f8b6e468349fd3bf01a4a133",
-    "/prod_app/main.5ca999c9743d1a46332f.js": "0ef31de05bd774936a369b8abea3f2a714b38093",
-    "/prod_app/manifest.webmanifest": "a110f53de034445f62459ef4e9fe1ac264ba9cdc",
-    "/prod_app/polyfills-es5.fde58a02a5d484872287.js": "ccf8f8cad49564b9a84567f5bd4fa85f714d0f06",
-    "/prod_app/polyfills.435646a308ef17c8a258.js": "44f04ede7914cfd301ab7f870ea6024d333190d0",
-    "/prod_app/runtime.0a709c234251cc2730b9.js": "53177069a20d1c5a8fd599db2f289e227af0d1c0",
-    "/prod_app/scripts.b741082feb481cd86b51.js": "d975a70300b56b6b1560fcb5ccf4357a5ebd35f4",
->>>>>>> 2e50435277b47858bf75b10f099992199a61e723
     "/prod_app/styles.8e8bb54e44b720c3bba8.css": "c4dd514eff2bfe3107344f3f8ec951eeaac62b16"
   },
   "navigationUrls": [

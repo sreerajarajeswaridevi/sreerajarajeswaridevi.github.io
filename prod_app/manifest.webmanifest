@@ -4,13 +4,8 @@
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
-<<<<<<< HEAD
   "scope": "./android_app/",
   "start_url": "./android_app/",
-=======
-  "scope": "./",
-  "start_url": "./",
->>>>>>> 2e50435277b47858bf75b10f099992199a61e723
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
