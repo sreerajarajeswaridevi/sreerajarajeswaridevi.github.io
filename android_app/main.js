@@ -243,7 +243,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<button *ngIf=\"Pwa.promptEvent\" class=\"pwa\" mdbBtn type=\"button\" gradient=\"purple\" rounded=\"true\" mdbWavesEffect\n    (click)=\"installPwa()\">Install App</button>\n\n<button *ngIf=\"Pwa.promptEvent\" class=\"pwa\" mdbBtn type=\"button\" gradient=\"blue\" rounded=\"true\" mdbWavesEffect\n    (click)=\"updateSoftware()\">Update App</button>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"sw\">\n    <button *ngIf=\"Pwa.promptEvent\" class=\"install-button\" mdbBtn type=\"button\" gradient=\"purple\" rounded=\"true\" mdbWavesEffect\n        (click)=\"installPwa()\">Install App</button>\n    \n    <button *ngIf=\"Pwa.promptEvent\" class=\"update-button\" mdbBtn type=\"button\" gradient=\"blue\" rounded=\"true\" mdbWavesEffect\n        (click)=\"updateSoftware()\">Update App</button>\n</div>");
 
 /***/ }),
 
@@ -1744,7 +1744,7 @@ var AppModule = /** @class */ (function () {
                 }),
                 !_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].production ? _ngrx_store_devtools__WEBPACK_IMPORTED_MODULE_7__["StoreDevtoolsModule"].instrument() : [],
                 _ngrx_effects__WEBPACK_IMPORTED_MODULE_8__["EffectsModule"].forRoot([]),
-                _angular_service_worker__WEBPACK_IMPORTED_MODULE_18__["ServiceWorkerModule"].register('./ngsw-worker.js', {
+                _angular_service_worker__WEBPACK_IMPORTED_MODULE_18__["ServiceWorkerModule"].register('ngsw-worker.js', {
                     // enabled: environment.production,
                     enabled: true,
                     // Register the ServiceWorker as soon as the app is stable
@@ -4407,7 +4407,7 @@ var PrinterComponent = /** @class */ (function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".pwa {\n  position: fixed;\n  right: 20px;\n  bottom: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcHdhL0M6XFxnaXQgY29kZVxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcc2hhcmVkXFxjb21wb25lbnRzXFxwd2FcXHB3YS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcHdhL3B3YS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGVBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcHdhL3B3YS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5wd2Ege1xyXG4gICAgcG9zaXRpb246IGZpeGVkO1xyXG4gICAgcmlnaHQ6IDIwcHg7XHJcbiAgICBib3R0b206IDIwcHg7XHJcbn0iLCIucHdhIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICByaWdodDogMjBweDtcbiAgYm90dG9tOiAyMHB4O1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".sw {\n  position: fixed;\n  right: 20px;\n  bottom: 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcHdhL0M6XFxnaXQgY29kZVxcQXVkaXQtVUktQW5ndWxhci9zcmNcXGFwcFxcc2hhcmVkXFxjb21wb25lbnRzXFxwd2FcXHB3YS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvcHdhL3B3YS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGVBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUVBLGFBQUE7RUFDQSx1QkFBQTtFQUNBLG1CQUFBO0FDQUoiLCJmaWxlIjoic3JjL2FwcC9zaGFyZWQvY29tcG9uZW50cy9wd2EvcHdhLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnN3IHtcclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIHJpZ2h0OiAyMHB4O1xyXG4gICAgYm90dG9tOiAyMHB4O1xyXG5cclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn1cclxuIiwiLnN3IHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICByaWdodDogMjBweDtcbiAgYm90dG9tOiAyMHB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn0iXX0= */");
 
 /***/ }),
 
