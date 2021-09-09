@@ -243,7 +243,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"sw\">\n    <button *ngIf=\"Pwa.promptEvent\" class=\"install-button\" mdbBtn type=\"button\" gradient=\"purple\" rounded=\"true\" mdbWavesEffect\n        (click)=\"installPwa()\">Install App</button>\n    \n    <button *ngIf=\"Pwa.promptEvent\" class=\"update-button\" mdbBtn type=\"button\" gradient=\"blue\" rounded=\"true\" mdbWavesEffect\n        (click)=\"updateSoftware()\">Update App</button>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"sw\" *ngIf=\"Pwa.promptEvent\">\n    <button class=\"install-button\" mdbBtn type=\"button\" gradient=\"purple\" rounded=\"true\" mdbWavesEffect\n        (click)=\"installPwa()\">Install App</button>\n    \n    <button class=\"update-button\" mdbBtn type=\"button\" gradient=\"purple\" rounded=\"true\" mdbWavesEffect\n        (click)=\"updateSoftware()\">Update App</button>\n</div>");
 
 /***/ }),
 
