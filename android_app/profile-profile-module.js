@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white px-4 py-2\">\n  <blockquote class=\"text-left  blockquote bq-success col-md-6 col-sm-12\">\n    <h3 class=\"header\">Settings</h3>\n    <p class=\"py-0\" *ngIf=\"user.role === 'manager'\">Change your pooja and profile settings here</p>\n  </blockquote>\n\n  <div class=\"col-md-6 col-sm-12\">\n    <div class=\"btn-toolbar\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n      <blockquote class=\"text-left blockquote bq-success col-md-6 col-sm-12\">\n      </blockquote>\n      <div class=\"btn-group mr-2 mt-4 row w-100 d-flex-center\" role=\"group\" aria-label=\"First group\">\n        <span>Printer Page Size: </span> \n        <button mdbBtn type=\"button\" (click)=\"setPageSize('A4')\" [color]=\"pageSize === 'A4' ? 'primary' : 'white'\"\n          class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2 ml-2\" size=\"sm\" mdbWavesEffect>\n          A4\n        </button>\n        <button mdbBtn type=\"button\" (click)=\"setPageSize('bill')\" [color]=\"pageSize === 'bill' ? 'primary' : 'white'\"\n          class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n          Bill (2in)\n        </button>\n      </div>\n    </div>\n  </div>\n</div>\n\n<ng-container *ngIf=\"user.role === 'manager'\">\n  <app-pooja-list></app-pooja-list>\n  \n  <div class=\"white px-4 py-2\" >\n    <blockquote class=\"text-left  blockquote bq-success\">\n      <h3 class=\"header\">Add or remove Users</h3>\n    </blockquote>\n    <app-users-list [users]=\"users$ | async\" (addUser)=\"openAddUserModal($event)\"\n    (deleteUser)=\"onDeleteUser($event)\"></app-users-list>\n  </div>\n\n</ng-container>\n\n<div class=\"container py-5\">\n  <div class=\"row mx-auto py-5\">\n    <div class=\"col-md-4 mt-3\">\n      <app-profile-user [user]=\"user$ | async\" (logout)=\"logoutUser($event)\"></app-profile-user>\n    </div>\n    <div class=\"col-md-8 mt-3\">\n      <app-main-profile [user]=\"user$ | async\" (profileUpdate)=\"updateProfile($event)\"></app-main-profile>\n    </div>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white px-4 py-2\">\n  <blockquote class=\"text-left  blockquote bq-success col-md-6 col-sm-12\">\n    <h4 class=\"header\">Printer Settings</h4>\n    <p class=\"py-0\" *ngIf=\"user.role === 'manager'\">Change your printing preferences here</p>\n  </blockquote>\n\n  <div class=\"row\">\n    <div class=\"col-md-6 col-sm-12\">\n      <div class=\"btn-toolbar\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n        <blockquote class=\"text-left blockquote bq-success col-md-6 col-sm-12\">\n        </blockquote>\n        <div class=\"btn-group m-2 mt-4 row w-100 d-flex\" role=\"group\" aria-label=\"First group\">\n          <span>Printer Page Size: </span> \n          <button mdbBtn type=\"button\" (click)=\"setPageSize('A4')\" [color]=\"pageSize === 'A4' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2 ml-2\" size=\"sm\" mdbWavesEffect>\n            A4\n          </button>\n          <button mdbBtn type=\"button\" (click)=\"setPageSize('bill')\" [color]=\"pageSize === 'bill' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n            Bill (2in)\n          </button>\n        </div>\n      </div>\n      \n    </div>\n    <div class=\"col-md-6 col-sm-12\">\n      <div class=\"btn-group m-2 mt-4 row w-100 d-flex\" role=\"group\" aria-label=\"First group\">\n        <span>Print duplicate copy in: </span> \n        <button mdbBtn type=\"button\" (click)=\"setDuplicateCopyPage('same')\" [color]=\"duplicatePage === 'same' ? 'primary' : 'white'\"\n          class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2 ml-2\" size=\"sm\" mdbWavesEffect>\n          Same Page\n        </button>\n        <button mdbBtn type=\"button\" (click)=\"setDuplicateCopyPage('next')\" [color]=\"duplicatePage === 'next' ? 'primary' : 'white'\"\n          class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n          Next Page\n        </button>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<ng-container *ngIf=\"user.role === 'manager'\">\n  <app-pooja-list></app-pooja-list>\n  \n  <div class=\"white px-4 py-2\" >\n    <blockquote class=\"text-left  blockquote bq-success\">\n      <h3 class=\"header\">Add or remove Users</h3>\n    </blockquote>\n    <app-users-list [users]=\"users$ | async\" (addUser)=\"openAddUserModal($event)\"\n    (deleteUser)=\"onDeleteUser($event)\"></app-users-list>\n  </div>\n\n</ng-container>\n\n<div class=\"container py-5\">\n  <div class=\"row mx-auto py-5\">\n    <div class=\"col-md-4 mt-3\">\n      <app-profile-user [user]=\"user$ | async\" (logout)=\"logoutUser($event)\"></app-profile-user>\n    </div>\n    <div class=\"col-md-8 mt-3\">\n      <app-main-profile [user]=\"user$ | async\" (profileUpdate)=\"updateProfile($event)\"></app-main-profile>\n    </div>\n  </div>\n</div>");
 
 /***/ }),
 
@@ -257,6 +257,7 @@ var ProfileComponent = /** @class */ (function () {
         this.store = store;
         this.modalService = modalService;
         this.pageSize = 'A4';
+        this.duplicatePage = 'same';
         this.modalConfig = {
             class: 'modal-dialog-centered'
         };
@@ -275,6 +276,9 @@ var ProfileComponent = /** @class */ (function () {
         }));
         if (localStorage.getItem('printerPageSize')) {
             this.pageSize = localStorage.getItem('printerPageSize') + '';
+        }
+        if (localStorage.getItem('duplicateCopyPage')) {
+            this.duplicatePage = localStorage.getItem('duplicateCopyPage') + '';
         }
     };
     ProfileComponent.prototype.updateProfile = function (userData) {
@@ -319,6 +323,10 @@ var ProfileComponent = /** @class */ (function () {
     ProfileComponent.prototype.setPageSize = function (size) {
         this.pageSize = size;
         localStorage.setItem('printerPageSize', size);
+    };
+    ProfileComponent.prototype.setDuplicateCopyPage = function (page) {
+        this.duplicatePage = page;
+        localStorage.setItem('duplicateCopyPage', page);
     };
     ProfileComponent.ctorParameters = function () { return [
         { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"] },
