@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white px-4 py-2\">\n  <blockquote class=\"text-left  blockquote bq-success col-md-6 col-sm-12\">\n    <h4 class=\"header\">Printer Settings</h4>\n    <p class=\"py-0\" *ngIf=\"user.role === 'manager'\">Change your printing preferences here</p>\n  </blockquote>\n\n  <div class=\"row\">\n    <div class=\"col-md-6 col-sm-12\">\n      <div class=\"btn-toolbar\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n        <blockquote class=\"text-left blockquote bq-success col-md-6 col-sm-12\">\n        </blockquote>\n        <div class=\"btn-group m-2 mt-4 w-100 d-flex\" role=\"group\" aria-label=\"First group\">\n          <span>Printer Page Size: </span> \n          <button mdbBtn type=\"button\" (click)=\"setPageSize('A4')\" [color]=\"pageSize === 'A4' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2 ml-2\" size=\"sm\" mdbWavesEffect>\n            A4\n          </button>\n          <button mdbBtn type=\"button\" (click)=\"setPageSize('bill')\" [color]=\"pageSize === 'bill' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n            Bill (2in)\n          </button>\n        </div>\n      </div>\n      \n    </div>\n    <div class=\"col-md-6 col-sm-12\">\n      <div class=\"btn-group m-2 mt-4 w-100 d-flex\" role=\"group\" aria-label=\"First group\">\n        <span>Print duplicate copy in: </span> \n        <button mdbBtn type=\"button\" (click)=\"setDuplicateCopyPage('same')\" [color]=\"duplicatePage === 'same' ? 'primary' : 'white'\"\n          class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2 ml-2\" size=\"sm\" mdbWavesEffect>\n          Same Page\n        </button>\n        <button mdbBtn type=\"button\" (click)=\"setDuplicateCopyPage('next')\" [color]=\"duplicatePage === 'next' ? 'primary' : 'white'\"\n          class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n          Next Page\n        </button>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<ng-container *ngIf=\"user.role === 'manager'\">\n  <app-pooja-list></app-pooja-list>\n  \n  <div class=\"white px-4 py-2\" >\n    <blockquote class=\"text-left  blockquote bq-success\">\n      <h3 class=\"header\">Add or remove Users</h3>\n    </blockquote>\n    <app-users-list [users]=\"users$ | async\" (addUser)=\"openAddUserModal($event)\"\n    (deleteUser)=\"onDeleteUser($event)\"></app-users-list>\n  </div>\n\n</ng-container>\n\n<div class=\"container py-5\">\n  <div class=\"row mx-auto py-5\">\n    <div class=\"col-md-4 mt-3\">\n      <app-profile-user [user]=\"user$ | async\" (logout)=\"logoutUser($event)\"></app-profile-user>\n    </div>\n    <div class=\"col-md-8 mt-3\">\n      <app-main-profile [user]=\"user$ | async\" (profileUpdate)=\"updateProfile($event)\"></app-main-profile>\n    </div>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"white px-4 py-2\">\n  <blockquote class=\"text-left  blockquote bq-success col-md-6 col-sm-12\">\n    <h4 class=\"header\">Printer Settings</h4>\n    <p class=\"py-0\" *ngIf=\"user.role === 'manager'\">Change your printing preferences here</p>\n  </blockquote>\n\n  <div class=\"row\">\n    <div class=\"col-md-6 col-sm-12\">\n      <div class=\"btn-toolbar\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n        <blockquote class=\"text-left blockquote bq-success col-md-6 col-sm-12\">\n        </blockquote>\n        <div class=\"btn-group m-2 mt-4 w-100 d-flex\" role=\"group\" aria-label=\"First group\">\n          <span>Language</span> \n          <button mdbBtn type=\"button\" (click)=\"setLanguage('en')\" [color]=\"selectedLanguage === 'en' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2 ml-2\" size=\"sm\" mdbWavesEffect>\n            English\n          </button>\n          <button mdbBtn type=\"button\" (click)=\"setLanguage('ml')\" [color]=\"selectedLanguage === 'ml' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n            മലയാളം\n          </button>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"col-md-6 col-sm-12\">\n      <div class=\"btn-toolbar\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n        <blockquote class=\"text-left blockquote bq-success col-md-6 col-sm-12\">\n        </blockquote>\n        <div class=\"btn-group m-2 mt-4 w-100 d-flex\" role=\"group\" aria-label=\"First group\">\n          <span>Printer Page Size: </span> \n          <button mdbBtn type=\"button\" (click)=\"setPageSize('A4')\" [color]=\"pageSize === 'A4' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2 ml-2\" size=\"sm\" mdbWavesEffect>\n            A4\n          </button>\n          <button mdbBtn type=\"button\" (click)=\"setPageSize('bill')\" [color]=\"pageSize === 'bill' ? 'primary' : 'white'\"\n            class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n            Bill (2in)\n          </button>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"col-md-6 col-sm-12\">\n      <div class=\"btn-group m-2 mt-4 w-100 d-flex\" role=\"group\" aria-label=\"First group\">\n        <span>Print duplicate copy in: </span> \n        <button mdbBtn type=\"button\" (click)=\"setDuplicateCopyPage('same')\" [color]=\"duplicatePage === 'same' ? 'primary' : 'white'\"\n          class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2 ml-2\" size=\"sm\" mdbWavesEffect>\n          Same Page\n        </button>\n        <button mdbBtn type=\"button\" (click)=\"setDuplicateCopyPage('next')\" [color]=\"duplicatePage === 'next' ? 'primary' : 'white'\"\n          class=\"waves-light col-4 col-md-4 col-lg-3 col-xl-2\" size=\"sm\" mdbWavesEffect>\n          Next Page\n        </button>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<ng-container *ngIf=\"user.role === 'manager'\">\n  <app-pooja-list></app-pooja-list>\n  \n  <div class=\"white px-4 py-2\" >\n    <blockquote class=\"text-left  blockquote bq-success\">\n      <h3 class=\"header\">Add or remove Users</h3>\n    </blockquote>\n    <app-users-list [users]=\"users$ | async\" (addUser)=\"openAddUserModal($event)\"\n    (deleteUser)=\"onDeleteUser($event)\"></app-users-list>\n  </div>\n\n</ng-container>\n\n<div class=\"container py-5\">\n  <div class=\"row mx-auto py-5\">\n    <div class=\"col-md-4 mt-3\">\n      <app-profile-user [user]=\"user$ | async\" (logout)=\"logoutUser($event)\"></app-profile-user>\n    </div>\n    <div class=\"col-md-8 mt-3\">\n      <app-main-profile [user]=\"user$ | async\" (profileUpdate)=\"updateProfile($event)\"></app-main-profile>\n    </div>\n  </div>\n</div>");
 
 /***/ }),
 
@@ -218,6 +218,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/components/confirm-modal/confirm-modal.component */ "./src/app/shared/components/confirm-modal/confirm-modal.component.ts");
 /* harmony import */ var angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! angular-bootstrap-md */ "./node_modules/angular-bootstrap-md/fesm5/angular-bootstrap-md.js");
 /* harmony import */ var src_app_shared_components_user_modal_user_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/user-modal/user-modal.component */ "./src/app/shared/components/user-modal/user-modal.component.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -251,13 +252,16 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var ProfileComponent = /** @class */ (function () {
-    function ProfileComponent(store, modalService) {
+    function ProfileComponent(store, modalService, translate) {
         var _this = this;
         this.store = store;
         this.modalService = modalService;
+        this.translate = translate;
         this.pageSize = 'A4';
         this.duplicatePage = 'same';
+        this.selectedLanguage = 'en';
         this.modalConfig = {
             class: 'modal-dialog-centered'
         };
@@ -279,6 +283,9 @@ var ProfileComponent = /** @class */ (function () {
         }
         if (localStorage.getItem('duplicateCopyPage')) {
             this.duplicatePage = localStorage.getItem('duplicateCopyPage') + '';
+        }
+        if (localStorage.getItem('language')) {
+            this.selectedLanguage = localStorage.getItem('language') + '';
         }
     };
     ProfileComponent.prototype.updateProfile = function (userData) {
@@ -328,9 +335,15 @@ var ProfileComponent = /** @class */ (function () {
         this.duplicatePage = page;
         localStorage.setItem('duplicateCopyPage', page);
     };
+    ProfileComponent.prototype.setLanguage = function (language) {
+        this.selectedLanguage = language;
+        localStorage.setItem('language', language);
+        this.translate.use(language);
+    };
     ProfileComponent.ctorParameters = function () { return [
         { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"] },
-        { type: angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__["MDBModalService"] }
+        { type: angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__["MDBModalService"] },
+        { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"] }
     ]; };
     ProfileComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -339,7 +352,8 @@ var ProfileComponent = /** @class */ (function () {
             styles: [__importDefault(__webpack_require__(/*! ./profile.component.scss */ "./src/app/profile/containers/profile.component.scss")).default]
         }),
         __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"],
-            angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__["MDBModalService"]])
+            angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_8__["MDBModalService"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateService"]])
     ], ProfileComponent);
     return ProfileComponent;
 }());
