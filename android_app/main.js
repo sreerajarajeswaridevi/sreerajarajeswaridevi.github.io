@@ -1863,8 +1863,8 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 function HttpLoaderFactory(http) {
-    // return new TranslateHttpLoader(http, './assets/i18n/');
-    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_20__["TranslateHttpLoader"](http, "./" + _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].baseHref + "/");
+    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_20__["TranslateHttpLoader"](http, './assets/i18n/');
+    // return new TranslateHttpLoader(http, `./${environment.baseHref}/`);
 }
 var AppModule = /** @class */ (function () {
     function AppModule() {
