@@ -1864,7 +1864,7 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 function HttpLoaderFactory(http) {
     // return new TranslateHttpLoader(http, './assets/i18n/');
-    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_20__["TranslateHttpLoader"](http);
+    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_20__["TranslateHttpLoader"](http, "./" + _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].baseHref + "/");
 }
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -9673,7 +9673,8 @@ var environment = {
     production: false,
     firebase: {},
     // apiUrl: 'https://reqres.in/api'
-    apiUrl: 'https://api.sreerajarajeswaridevi.org/dev/api_exec'
+    apiUrl: 'https://api.sreerajarajeswaridevi.org/dev/api_exec',
+    baseHref: 'android_app'
 };
 /*
  * In development mode, to ignore zone related error stack frames such as
