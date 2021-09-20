@@ -3864,19 +3864,31 @@ function migrationFactory() {
     return {
         1: function (db, transaction) {
             console.log(db);
+            console.log(transaction);
+        },
+        2: function (db, transaction) {
+            console.log(db);
             var store1 = transaction.objectStore('expenses');
-            store1.createIndex('item', 'item', { unique: true });
-            store1.createIndex('frequency', 'frequency', { unique: false });
+            if (!store1.indexNames.contains('item')) {
+                store1.createIndex('item', 'item', { unique: true });
+            }
+            // store1.createIndex('frequency', 'frequency', { unique: false });
             var store2 = transaction.objectStore('salary');
-            store2.createIndex('person', 'person', { unique: true });
-            store2.createIndex('amount', 'amount', { unique: false });
-            store2.createIndex('frequency', 'frequency', { unique: false });
-        }
+            if (!store2.indexNames.contains('person')) {
+                store2.createIndex('person', 'person', { unique: true });
+            }
+            var store3 = transaction.objectStore('donations');
+            if (!store3.indexNames.contains('donationItem')) {
+                store3.createIndex('donationItem', 'donationItem', { unique: true });
+            }
+            // store2.createIndex('amount', 'amount', { unique: false });
+            // store2.createIndex('frequency', 'frequency', { unique: false });
+        },
     };
 }
 var dbConfig = {
     name: 'RRDB',
-    version: 1,
+    version: 2,
     objectStoresMeta: [{
             store: 'expenses',
             storeConfig: { keyPath: 'item', autoIncrement: false },
@@ -3884,7 +3896,16 @@ var dbConfig = {
                 { name: 'item', keypath: 'item', options: { unique: true } },
                 { name: 'frequency', keypath: 'frequency', options: { unique: false } }
             ]
-        }, {
+        },
+        {
+            store: 'donations',
+            storeConfig: { keyPath: 'donationItem', autoIncrement: false },
+            storeSchema: [
+                { name: 'donationItem', keypath: 'donationItem', options: { unique: true } },
+                { name: 'frequency', keypath: 'frequency', options: { unique: false } }
+            ]
+        },
+        {
             store: 'salary',
             storeConfig: { keyPath: 'person', autoIncrement: false },
             storeSchema: [

@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-split-body [isLoading$]=\"!isLoading$\">\n  <div class=\"left-section\">\n    <mdb-card>\n      <mdb-card-header class=\"w-100 d-flex justify-space-between bg-primary white-text\">\n        <div>\n          <blockquote class=\"text-left  blockquote bq-success\">\n            <h3 class=\"header\">{{\"DONATIONS.Add_Donations\" | translate}}</h3>\n            <p class=\"py-0\" *ngIf=\"donationForm.valid\">{{\"DONATIONS.Add_Donations_Desc\" | translate}} <span class=\"price\">&#x20B9;{{donationForm?.value.amount}}</span> from {{donationForm?.value.name}}</p>\n          </blockquote>\n        </div>\n        <button mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"donationDate\" [endDate]=\"endDate\" [startDate]=\"startDate\"\n        header=\"Select Date\" (dateSelected)=\"donDatePicked($event)\">\n        <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> <span appDateTransform [date]=\"donationDate.format('YYYY-MM-DD')\"></span>\n      </button>\n      </mdb-card-header>\n      <mdb-card-body class=\"py-2\">\n        <form #donationForm=\"ngForm\">\n        <div class=\"modal-content\">\n          <div class=\"modal-body\">\n            <div class=\"left-section\">\n                <div class=\"md-form\">\n                  <input type=\"text\" id=\"name\" name=\"name\" class=\"form-control\" [(ngModel)]=\"donation.name\" mdbInput mdbValidate\n                    [validateSuccess]=\"false\" #name=\"ngModel\" required>\n                  <label for=\"name\">{{\"DONATIONS.Name\" | translate}}</label>\n                  <mdb-error *ngIf=\"name && name.invalid && (name.dirty || name.touched)\">{{\"DONATIONS.Name\" | translate}} {{\"is_required\" | translate}}</mdb-error>\n                </div>\n        \n                <div class=\"btn-toolbar star-container\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n                  <div class=\"md-form hidden\">\n                    <input type=\"text\" id=\"star\" name=\"star\" class=\"form-control\" [(ngModel)]=\"donation.nakshatram\" mdbInput mdbValidate\n                      [validateSuccess]=\"false\" #star=\"ngModel\" required>\n                    <label for=\"star\">{{\"DONATIONS.Star\" | translate}}</label>\n                  </div>\n                  <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\n                      <button (click)=\"selectStar(star)\" \n                      *ngFor=\"let star of starSigns\" mdbBtn type=\"button\" color=\"warning\" [class.selected]=\"star === donation.nakshatram\"\n                       mdbWavesEffect>{{star}}</button>\n                  </div>\n                </div>\n                <div class=\"md-form\">\n                  <textarea required type=\"text\" id=\"address\" name=\"address\" class=\"md-textarea form-control\" #address=\"ngModel\"\n                    [(ngModel)]=\"donation.address\" mdbInput mdbValidate [validateSuccess]=\"false\"></textarea>\n                  <label for=\"address\">{{\"DONATIONS.Address\" | translate}}</label>\n                </div>\n          \n              \n            </div>\n            <div class=\"right-section\">\n              <mdb-card class=\"text-center\">\n                <mdb-card-body>\n                  <div class=\"md-form phone\">\n                    <input type=\"number\" id=\"phone\" name=\"phone\" class=\"form-control\" #phone=\"ngModel\" [(ngModel)]=\"donation.phone_number\" mdbInput mdbValidate\n                      [validateSuccess]=\"false\" required>\n                    <label for=\"phone\">{{\"DONATIONS.Phone_Number\" | translate}}</label>\n                    <mdb-error *ngIf=\"phone && phone.invalid && (phone.dirty || phone.touched)\">{{\"DONATIONS.Phone_Number\" | translate}} {{\"is_required\" | translate}}</mdb-error>\n                  </div>\n                  <div class=\"text-lg mt-4 amount\">\n                    <label for=\"amount\" class=\"grey-text\">{{\"DONATIONS.Amount\" | translate}}</label>\n                    <div class=\"md-form mt-0\">\n                      <span class=\"d-flex\">\n                        <span class=\"price\">&#x20B9;</span>\n                        <input type=\"number\" class=\"form-control price\" id=\"amount\" name=\"amount\" [(ngModel)]=\"donation.amount\" #amount=\"ngModel\" mdbValidate [validateSuccess]=\"false\" required>\n                      </span>\n                      <mdb-error class=\"ml-3\" *ngIf=\"amount && amount.invalid && (amount.dirty || amount.touched)\">{{\"DONATIONS.Amount\" | translate}} {{\"is_required\" | translate}}</mdb-error>\n                    </div>\n                  </div>\n                </mdb-card-body>\n              </mdb-card>\n            </div>\n          </div>\n       \n\n        </div>\n      </form>\n      </mdb-card-body>\n      <mdb-card-footer class=\"modal-footer\">\n          <div class=\"d-flex\">\n            <button type=\"button\" mdbBtn class=\"waves-light\" aria-label=\"Close\" (click)=\"resetForm()\"\n              mdbWavesEffect>{{\"DONATIONS.Clear\" | translate}}</button>\n            <button type=\"button\" mdbBtn color=\"success\" [disabled]=\"donationForm.invalid\" class=\"relative waves-light\" \n            mdbWavesEffect (click)=\"onSave()\">{{\"Save\" | translate}}</button>\n            <app-printer #appPrinter [type]=\"'donation'\" [hidden]=\"true\"></app-printer>\n          </div>\n      </mdb-card-footer>\n    </mdb-card>\n    \n  </div>\n  <div class=\"right-section\">\n    <app-right-card [header]=\"'Todays Donations'\" >\n      <div class=\"card-header bg-primary white-text\">\n        <span class=\"icon-button\" (click)=\"prevDate()\">\n          <mdb-icon *ngIf=\"isManager$ | async\" fas icon=\"chevron-left\" class=\"ml-1 float-left delete cursor-pointer white-text\" alt=\"Left\"></mdb-icon>\n        </span>\n        <span>\n          {{\"DONATIONS.Donations_on\" | translate}} \n          <button [disabled]=\"!(isManager$ | async)\" mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"defaultDate\" [endDate]=\"defaultDate\"\n          (click)=\"dateClicked($event)\" header=\"Select Date\" (dateSelected)=\"datePicked($event)\">\n            <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> {{ formattedDate }}\n          </button>\n        </span>\n        <span class=\"icon-button\" (click)=\"nextDate()\">\n          <mdb-icon *ngIf=\"(isManager$ | async) && selectedDate.format('DD/MM/YYYY') !== defaultDate.format('DD/MM/YYYY')\" mdbtn fas icon=\"chevron-right\" class=\"ml-1 float-right delete cursor-pointer white-text\" alt=\"Right\"></mdb-icon>\n        </span>\n      </div>\n      <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\">\n        <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n          <span class=\"sr-only\">Loading...</span>\n        </div>\n      </div>\n      <table mdbTable small=\"true\" striped=\"true\" *ngIf=\"!(isLoading$ | async) && todaysDonationList.length > 0\">\n        <thead>\n          <tr>\n            <th>{{\"DONATIONS.Name\" | translate}}</th>\n            <th>{{\"DONATIONS.Nakshathram\" | translate}}</th>\n            <th colspan=\"2\">{{\"DONATIONS.Amount\" | translate}}</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let item of todaysDonationList\">\n            <td scope=\"row\">{{ item?.name }}</td>\n            <td>{{ item?.nakshatram }}</td>\n            <td class=\"table-price\">&#x20B9;{{ item?.amount }}\n            </td>\n            <td *ngIf=\"isManager$ | async\" >\n              <mdb-icon fas icon=\"trash\" class=\"ml-1 delete grey-text\" (click)=\"onDelete(item?.uuid)\" alt=\"Delete\"></mdb-icon>\n            </td>\n            <td>\n              <app-printer [type]=\"'donation'\" [donation]=\"item\"></app-printer> \n            </td>\n          </tr>\n\n          <tr>\n          </tr>\n        </tbody>\n      </table>\n      <div role=\"footer\" *ngIf=\"!(isLoading$ | async)\">\n        <div class=\"card-footer text-muted\">\n          {{\"Total\" | translate}}: <b class=\"price total-amount\">&#x20B9;{{getTotalAmount()}}</b>\n        </div>\n      </div>\n    </app-right-card>\n  </div>\n</app-split-body>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-split-body [isLoading$]=\"!isLoading$\">\n  <div class=\"left-section\">\n    <mdb-card>\n      <mdb-card-header class=\"w-100 d-flex justify-space-between bg-primary white-text\">\n        <div>\n          <blockquote class=\"text-left  blockquote bq-success\">\n            <h3 class=\"header\">{{\"DONATIONS.Add_Donations\" | translate}}</h3>\n            <p class=\"py-0\" *ngIf=\"donationForm.valid\">{{\"DONATIONS.Add_Donations_Desc\" | translate}} <span class=\"price\">&#x20B9;{{donationForm?.value.amount}}</span> from {{donationForm?.value.name}}</p>\n          </blockquote>\n        </div>\n        <button mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"donationDate\" [endDate]=\"endDate\" [startDate]=\"startDate\"\n        header=\"Select Date\" (dateSelected)=\"donDatePicked($event)\">\n        <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> <span appDateTransform [date]=\"donationDate.format('YYYY-MM-DD')\"></span>\n      </button>\n      </mdb-card-header>\n      <mdb-card-body class=\"py-2\">\n        <form #donationForm=\"ngForm\">\n        <div class=\"modal-content\">\n          <div class=\"modal-body\">\n            <div class=\"left-section\">\n                <div class=\"md-form\">\n                  <input type=\"text\" id=\"name\" name=\"name\" class=\"form-control\" [(ngModel)]=\"donation.name\" mdbInput mdbValidate\n                    [validateSuccess]=\"false\" #name=\"ngModel\" required>\n                  <label for=\"name\">{{\"DONATIONS.Name\" | translate}}</label>\n                  <mdb-error *ngIf=\"name && name.invalid && (name.dirty || name.touched)\">{{\"DONATIONS.Name\" | translate}} {{\"is_required\" | translate}}</mdb-error>\n                </div>\n        \n                <div class=\"btn-toolbar star-container\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">\n                  <div class=\"md-form hidden\">\n                    <input type=\"text\" id=\"star\" name=\"star\" class=\"form-control\" [(ngModel)]=\"donation.nakshatram\" mdbInput mdbValidate\n                      [validateSuccess]=\"false\" #star=\"ngModel\" required>\n                    <label for=\"star\">{{\"DONATIONS.Star\" | translate}}</label>\n                  </div>\n                  <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\n                      <button (click)=\"selectStar(star)\" \n                      *ngFor=\"let star of starSigns\" mdbBtn type=\"button\" color=\"warning\" [class.selected]=\"star === donation.nakshatram\"\n                       mdbWavesEffect>{{star}}</button>\n                  </div>\n                </div>\n                <div class=\"md-form\">\n                  <textarea required type=\"text\" id=\"address\" name=\"address\" class=\"md-textarea form-control\" #address=\"ngModel\"\n                    [(ngModel)]=\"donation.address\" mdbInput mdbValidate [validateSuccess]=\"false\"></textarea>\n                  <label for=\"address\">{{\"DONATIONS.Address\" | translate}}</label>\n                </div>\n          \n              \n            </div>\n            <div class=\"right-section\">\n              <mdb-card class=\"text-center\">\n                <mdb-card-body>\n                  <div class=\"md-form phone\">\n                    <input type=\"number\" id=\"phone\" name=\"phone\" class=\"form-control\" #phone=\"ngModel\" [(ngModel)]=\"donation.phone_number\" mdbInput mdbValidate\n                      [validateSuccess]=\"false\" required>\n                    <label for=\"phone\">{{\"DONATIONS.Phone_Number\" | translate}}</label>\n                    <mdb-error *ngIf=\"phone && phone.invalid && (phone.dirty || phone.touched)\">{{\"DONATIONS.Phone_Number\" | translate}} {{\"is_required\" | translate}}</mdb-error>\n                  </div>\n                  <div class=\"d-flex d-flex-col-md\">\n                  <div class=\"md-form w-50\">\n                    <input type=\"text\" id=\"item\" name=\"item\" class=\"form-control\" #phone=\"ngModel\" [(ngModel)]=\"donation.item\" mdbInput mdbValidate\n                      [validateSuccess]=\"false\" required>\n                    <label for=\"phone\">{{\"DONATIONS.Item\" | translate}}</label>\n                    <mdb-error *ngIf=\"phone && phone.invalid && (phone.dirty || phone.touched)\">{{\"DONATIONS.item\" | translate}} {{\"is_required\" | translate}}</mdb-error>\n                  </div>\n                  <div class=\"suggestion-container\" *ngIf=\"frequentItems?.length\">\n                    <mdb-badge class=\"cursor-pointer mr-1 p-2\" *ngFor=\"let donationItem of frequentItems\" pill=\"true\" [info]=\"donation?.item !== donationItem\" [success]=\"donation?.item === donationItem\" (click)=\"donation.item = donationItem\">{{ donationItem }}</mdb-badge>\n                  </div>\n                  </div>\n                  <div class=\"text-lg mt-4 amount\">\n                    <label for=\"amount\" class=\"grey-text\">{{\"DONATIONS.Amount\" | translate}}</label>\n                    <div class=\"md-form mt-0\">\n                      <span class=\"d-flex\">\n                        <span class=\"price\">&#x20B9;</span>\n                        <input type=\"number\" class=\"form-control price\" id=\"amount\" name=\"amount\" [(ngModel)]=\"donation.amount\" #amount=\"ngModel\" mdbValidate [validateSuccess]=\"false\" required>\n                      </span>\n                      <mdb-error class=\"ml-3\" *ngIf=\"amount && amount.invalid && (amount.dirty || amount.touched)\">{{\"DONATIONS.Amount\" | translate}} {{\"is_required\" | translate}}</mdb-error>\n                    </div>\n                  </div>\n                </mdb-card-body>\n              </mdb-card>\n            </div>\n          </div>\n       \n\n        </div>\n      </form>\n      </mdb-card-body>\n      <mdb-card-footer class=\"modal-footer\">\n          <div class=\"d-flex\">\n            <button type=\"button\" mdbBtn class=\"waves-light\" aria-label=\"Close\" (click)=\"resetForm()\"\n              mdbWavesEffect>{{\"DONATIONS.Clear\" | translate}}</button>\n            <button type=\"button\" mdbBtn color=\"success\" [disabled]=\"donationForm.invalid\" class=\"relative waves-light\" \n            mdbWavesEffect (click)=\"onSave()\">{{\"Save\" | translate}}</button>\n            <app-printer #appPrinter [type]=\"'donation'\" [hidden]=\"true\"></app-printer>\n          </div>\n      </mdb-card-footer>\n    </mdb-card>\n    \n  </div>\n  <div class=\"right-section\">\n    <app-right-card [header]=\"'Todays Donations'\" >\n      <div class=\"card-header bg-primary white-text\">\n        <span class=\"icon-button\" (click)=\"prevDate()\">\n          <mdb-icon *ngIf=\"isManager$ | async\" fas icon=\"chevron-left\" class=\"ml-1 float-left delete cursor-pointer white-text\" alt=\"Left\"></mdb-icon>\n        </span>\n        <span>\n          {{\"DONATIONS.Donations_on\" | translate}} \n          <button [disabled]=\"!(isManager$ | async)\" mdbWavesEffect mdbBtn type=\"button\" rounded=\"true\" color=\"white\" class=\"pull-right text-lg btn-primary\" rrDatePicker [date]=\"defaultDate\" [endDate]=\"defaultDate\"\n          (click)=\"dateClicked($event)\" header=\"Select Date\" (dateSelected)=\"datePicked($event)\">\n            <mdb-icon fas icon=\"calendar-alt mr-2\" size=\"lg\" class=\"calendar\" alt=\"date\"></mdb-icon> {{ formattedDate }}\n          </button>\n        </span>\n        <span class=\"icon-button\" (click)=\"nextDate()\">\n          <mdb-icon *ngIf=\"(isManager$ | async) && selectedDate.format('DD/MM/YYYY') !== defaultDate.format('DD/MM/YYYY')\" mdbtn fas icon=\"chevron-right\" class=\"ml-1 float-right delete cursor-pointer white-text\" alt=\"Right\"></mdb-icon>\n        </span>\n      </div>\n      <div *ngIf=\"isLoading$ | async\" class=\"d-flex justify-content-center align-items-center\">\n        <div class=\"spinner-grow text-primary\" role=\"status\" style=\"width: 4rem; height: 4rem;\">\n          <span class=\"sr-only\">Loading...</span>\n        </div>\n      </div>\n      <table mdbTable small=\"true\" striped=\"true\" *ngIf=\"!(isLoading$ | async) && todaysDonationList.length > 0\">\n        <thead>\n          <tr>\n            <th>{{\"DONATIONS.Name\" | translate}}</th>\n            <th>{{\"DONATIONS.Nakshathram\" | translate}}</th>\n            <th>{{\"DONATIONS.Item\" | translate}}</th>\n            <th colspan=\"2\">{{\"DONATIONS.Amount\" | translate}}</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let item of todaysDonationList\">\n            <td scope=\"row\">{{ item?.name }}</td>\n            <td>{{ item?.nakshatram }}</td>\n            <td>{{ item?.item }}</td>\n            <td class=\"table-price\">&#x20B9;{{ item?.amount }}\n            </td>\n            <td *ngIf=\"isManager$ | async\" >\n              <mdb-icon fas icon=\"trash\" class=\"ml-1 delete grey-text\" (click)=\"onDelete(item?.uuid)\" alt=\"Delete\"></mdb-icon>\n            </td>\n            <td>\n              <app-printer [type]=\"'donation'\" [donation]=\"item\"></app-printer> \n            </td>\n          </tr>\n\n          <tr>\n          </tr>\n        </tbody>\n      </table>\n      <div role=\"footer\" *ngIf=\"!(isLoading$ | async)\">\n        <div class=\"card-footer text-muted\">\n          {{\"Total\" | translate}}: <b class=\"price total-amount\">&#x20B9;{{getTotalAmount()}}</b>\n        </div>\n      </div>\n    </app-right-card>\n  </div>\n</app-split-body>\n\n");
 
 /***/ }),
 
@@ -49,6 +49,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_donations_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../store/donations.actions */ "./src/app/donations/store/donations.actions.ts");
 /* harmony import */ var src_app_shared_components_printer_printer_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/components/printer/printer.component */ "./src/app/shared/components/printer/printer.component.ts");
 /* harmony import */ var _services_donations_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../services/donations.service */ "./src/app/donations/services/donations.service.ts");
+/* harmony import */ var ngx_indexed_db__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ngx-indexed-db */ "./node_modules/ngx-indexed-db/fesm2015/ngx-indexed-db.js");
 var __assign = (undefined && undefined.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -85,19 +86,22 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var moment = __webpack_require__(/*! ../../../assets/datepicker/moment.js */ "./src/assets/datepicker/moment.js");
 var DonationsComponent = /** @class */ (function () {
-    function DonationsComponent(store, modalService, donationsService) {
+    function DonationsComponent(store, modalService, donationsService, idbService) {
         this.store = store;
         this.modalService = modalService;
         this.donationsService = donationsService;
+        this.idbService = idbService;
         this.donationDate = moment();
         this.defaultDate = moment();
         this.startDate = moment().subtract(60, 'days');
         this.endDate = moment().add('30', 'days');
         this.selectedDate = moment();
         this.donation = {
-            ist_YYYYMMDD: moment().format('YYYY-MM-DD')
+            ist_YYYYMMDD: moment().format('YYYY-MM-DD'),
+            item: 'cash'
         };
         this.expenseData = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
         this.starSigns = src_app_poojas_models_poojas_model__WEBPACK_IMPORTED_MODULE_6__["starSigns"];
@@ -126,9 +130,29 @@ var DonationsComponent = /** @class */ (function () {
             _this.appPrinter.donation = printData;
             // this.appPrinter.triggerPrint();
         });
+        this.fetchFrequentItems();
         this.isLoading$ = this.store.select(_store_donations_selectors__WEBPACK_IMPORTED_MODULE_9__["getIsLoading"]);
         this.isManager$ = this.store.select(_auth_store_auth_selectors__WEBPACK_IMPORTED_MODULE_7__["isManager"]);
         this.store.dispatch(new _store_donations_actions__WEBPACK_IMPORTED_MODULE_10__["DonationsQuery"](this.selectedDate.format('YYYY-MM-DD')));
+    };
+    DonationsComponent.prototype.fetchFrequentItems = function () {
+        var _this = this;
+        this.idbService
+            .getAll('donations')
+            .subscribe(function (items) {
+            if (items && items.length > 0) {
+                items = items.sort(function (a, b) {
+                    if (a.frequency > b.frequency) {
+                        return -1;
+                    }
+                    else if (a.frequency > b.frequency) {
+                        return 1;
+                    }
+                    return 0;
+                }).splice(0, 5);
+                _this.frequentItems = items.map(function (data) { return data.donationItem; });
+            }
+        });
     };
     DonationsComponent.prototype.dateClicked = function (date) {
         console.log(date);
@@ -148,8 +172,34 @@ var DonationsComponent = /** @class */ (function () {
         this.datePicked(this.selectedDate.add('1', 'days'));
     };
     DonationsComponent.prototype.onSave = function () {
+        var _this = this;
+        var self = this;
         this.donationCopy = JSON.parse(JSON.stringify(this.donation));
         this.store.dispatch(new _store_donations_actions__WEBPACK_IMPORTED_MODULE_10__["DonationsAddQuery"](this.donationCopy));
+        this.idbService
+            .getByKey('donations', this.donationCopy.item)
+            .subscribe(function (data) {
+            if (!data) {
+                _this.idbService.add('donations', {
+                    donationItem: self.donationCopy.item,
+                    frequency: 1
+                }).subscribe(function (added) {
+                    console.log(added, 'added to idb');
+                }, (function (error) {
+                    console.log(error);
+                }));
+            }
+            else {
+                _this.idbService.update('donations', {
+                    donationItem: self.donationCopy.item,
+                    frequency: data.frequency + 1
+                }, data.key).subscribe(function (added) {
+                    console.log(added, 'added to idb');
+                }, (function (error) {
+                    console.log(error);
+                }));
+            }
+        });
         this.resetForm();
     };
     DonationsComponent.prototype.getTotalAmount = function () {
@@ -163,8 +213,10 @@ var DonationsComponent = /** @class */ (function () {
     };
     DonationsComponent.prototype.resetForm = function () {
         this.donationForm.reset();
+        this.donationForm.controls.item.setValue('cash');
         this.donation = {
-            ist_YYYYMMDD: moment().format('YYYY-MM-DD')
+            ist_YYYYMMDD: moment().format('YYYY-MM-DD'),
+            item: 'cash'
         };
         this.selectedDate = moment();
         this.donationDate = moment();
@@ -183,7 +235,8 @@ var DonationsComponent = /** @class */ (function () {
     DonationsComponent.ctorParameters = function () { return [
         { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"] },
         { type: angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["MDBModalService"] },
-        { type: _services_donations_service__WEBPACK_IMPORTED_MODULE_12__["DonationsService"] }
+        { type: _services_donations_service__WEBPACK_IMPORTED_MODULE_12__["DonationsService"] },
+        { type: ngx_indexed_db__WEBPACK_IMPORTED_MODULE_13__["NgxIndexedDBService"] }
     ]; };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('donationForm', { static: true }),
@@ -201,7 +254,8 @@ var DonationsComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["Store"],
             angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_3__["MDBModalService"],
-            _services_donations_service__WEBPACK_IMPORTED_MODULE_12__["DonationsService"]])
+            _services_donations_service__WEBPACK_IMPORTED_MODULE_12__["DonationsService"],
+            ngx_indexed_db__WEBPACK_IMPORTED_MODULE_13__["NgxIndexedDBService"]])
     ], DonationsComponent);
     return DonationsComponent;
 }());
@@ -309,6 +363,7 @@ var DonationsModule = /** @class */ (function () {
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["InputUtilitiesModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["InputsModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["IconsModule"],
+                angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["BadgeModule"],
                 angular_bootstrap_md__WEBPACK_IMPORTED_MODULE_5__["TableModule"],
                 _core_core_module__WEBPACK_IMPORTED_MODULE_10__["CoreModule"],
                 _shared_shared_module__WEBPACK_IMPORTED_MODULE_11__["SharedModule"],

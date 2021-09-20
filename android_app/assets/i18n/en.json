@@ -24,6 +24,7 @@
     "Authorized_Signature": "Authorized Signature",
     "ThankYou": "Thank you. Please contact {{phone_number}} or email us at {{email}} for any queries/bookings",
     "Receipt": "Receipt #",
+    "Recalculate": "RE-CALCULATE",
 
 
     "LOGIN": {
@@ -103,6 +104,7 @@
         "Donations": "Donations",
         "Add_Donations": "Add Donations",
         "Add_Donations_Desc": "Adding a donation of",
+        "Item": "Item",
         "Name": "Name",
         "Nakshathram": "Nakshathram",
         "Address": "Address",
