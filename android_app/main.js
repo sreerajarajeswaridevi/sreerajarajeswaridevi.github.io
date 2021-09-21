@@ -4724,7 +4724,7 @@ var PrinterComponent = /** @class */ (function () {
         printerWindow.document.close();
         printerWindow.focus();
         printerWindow.print();
-        // printerWindow.onfocus = function () { setTimeout(function () { printerWindow.close(); }, 500); }
+        printerWindow.onfocus = function () { setTimeout(function () { printerWindow.close(); }, 500); };
     };
     PrinterComponent.ctorParameters = function () { return [
         { type: _ngrx_store__WEBPACK_IMPORTED_MODULE_1__["Store"] },
