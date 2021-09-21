@@ -357,8 +357,9 @@ var PoojasComponent = /** @class */ (function () {
             //response.receipt_number
             if (response != null && _this.newPoojaCacheHolder) {
                 var poojaDetails_1 = _this.newPoojaCacheHolder;
+                var per_pooja_price_1 = (+(poojaDetails_1.pooja_price) / poojaDetails_1.bhakthar.length).toFixed(2);
                 _this.appPrinter.poojas = _this.newPoojaCacheHolder.bhakthar.map(function (person) {
-                    return __assign({}, person, poojaDetails_1, { receipt_number: response.receipt_number, pooja_name: _this.getPoojaNameFromCode(_this.newPoojaCacheHolder.pooja_code) });
+                    return __assign({}, person, poojaDetails_1, { pooja_price: per_pooja_price_1, receipt_number: response.receipt_number, pooja_name: _this.getPoojaNameFromCode(_this.newPoojaCacheHolder.pooja_code) });
                 });
                 if (_this.poojasService.$printClicked.value) {
                     _this.appPrinter.triggerPrint();
