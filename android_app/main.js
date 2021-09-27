@@ -3949,11 +3949,18 @@ function migrationFactory() {
             // store2.createIndex('amount', 'amount', { unique: false });
             // store2.createIndex('frequency', 'frequency', { unique: false });
         },
+        3: function (db, transaction) {
+            console.log(db);
+            var store4 = transaction.objectStore('poojaType');
+            if (!store4.indexNames.contains('pooja_code')) {
+                store4.createIndex('pooja_code', 'pooja_code', { unique: true });
+            }
+        }
     };
 }
 var dbConfig = {
     name: 'RRDB',
-    version: 2,
+    version: 3,
     objectStoresMeta: [{
             store: 'expenses',
             storeConfig: { keyPath: 'item', autoIncrement: false },
@@ -3976,6 +3983,13 @@ var dbConfig = {
             storeSchema: [
                 { name: 'person', keypath: 'person', options: { unique: true } },
                 { name: 'amount', keypath: 'amount', options: { unique: false } },
+                { name: 'frequency', keypath: 'frequency', options: { unique: false } }
+            ]
+        }, {
+            store: 'poojaType',
+            storeConfig: { keyPath: 'pooja_code', autoIncrement: false },
+            storeSchema: [
+                { name: 'pooja_code', keypath: 'pooja_code', options: { unique: true } },
                 { name: 'frequency', keypath: 'frequency', options: { unique: false } }
             ]
         }],
