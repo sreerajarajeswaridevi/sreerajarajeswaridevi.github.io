@@ -59,7 +59,8 @@
         "Poojas_by_date": "Poojas by date ",
         "Tomorrows_Poojas": "Tomorrows Poojas",
         "Todays_Poojas": "Todays Poojas",
-        "No_Poojas_on": "No Poojas on"
+        "No_Poojas_on": "No Poojas on",
+        "Search": "Search Poojas by name/description/cost"
     },
     "POOJAS_LIST": {
         "Poojas_List": "Poojas List",
@@ -118,7 +119,7 @@
     },
     "REPORTS": {
         "Financial_Reports": "Financial Reports",
-        "desc": "Visualisation of consolidated accounts data",
+        "desc": "Visualisation of consolidated accounts data. Way to calculate Profit/Loss = Poojas + Donations - Expenses",
         "day": "day",
         "week": "week",
         "month": "month",
@@ -131,9 +132,12 @@
         "Amount": "Amount",
         "Pooja_Name": "Pooja Name",
         "Total_Amount_Received": "Total Amount Received",
-        "This_Weeks_ProfitLoss": "This Week's Profit/Loss",
-        "This_Months_ProfitLoss": "This Month's Profit/Loss",
-        "This_Years_ProfitLoss": "This Year's Profit/Loss",
+        "This_Weeks_ProfitLoss": "This Week's",
+        "This_Months_ProfitLoss": "This Month's",
+        "This_Years_ProfitLoss": "This Year's",
+        "This_Periods_ProfitLoss": "This Period's",
+        "Profit": "Profit",
+        "Loss": "Loss",
         "GetData": "GET DATA"
     },
     "SETTINGS": {
