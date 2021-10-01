@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1632826020422,
+  "timestamp": 1633077995212,
   "index": "/android_app/index.html",
   "assetGroups": [
     {
@@ -171,7 +171,7 @@
     "/android_app/fa-solid-900.woff2": "0ccb2c814a7e4ca12c4778821633809cb0361eaa",
     "/android_app/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
     "/android_app/index.html": "7acc56d786115cf8c5cc55f6493bf2e2ef2eae8e",
-    "/android_app/main.js": "dee0e1569c4c669f1cfb3bc904fdadb86d95bd9d",
+    "/android_app/main.js": "6cebddc539bc13fbf95388ec691a310ba38ff8e0",
     "/android_app/manifest.webmanifest": "d7811220610d7a591cec803d97baaf506bdb9518",
     "/android_app/polyfills-es5.js": "a8d0ed85cadc5df64c512b5da6bb460fa23387d3",
     "/android_app/polyfills.js": "dcb361b95ab6e2824394ab628dc1403666b26d6f",

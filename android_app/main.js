@@ -4613,8 +4613,8 @@ var PoojasModalComponent = /** @class */ (function () {
     };
     PoojasModalComponent.prototype.fetchPeopleData = function (phoneNumber) {
         var _this = this;
-        this.peopleFetching = true;
         if (phoneNumber.length > 3) {
+            this.peopleFetching = true;
             this.poojaService.getPersonsByPhoneNumber(phoneNumber).subscribe(function (data) {
                 _this.peopleFetching = false;
                 if (data && data.persons) {
