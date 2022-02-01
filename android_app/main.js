@@ -4795,6 +4795,7 @@ var PrinterComponent = /** @class */ (function () {
         setTimeout(function () {
             // added delay for loading image logo for bill
             printerWindow.print();
+            window.close();
         }, 20);
         printerWindow.onfocus = function () { setTimeout(function () { printerWindow.close(); }, 500); };
     };
