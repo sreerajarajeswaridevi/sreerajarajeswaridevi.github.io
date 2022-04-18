@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1650270819667,
+  "timestamp": 1650296027833,
   "index": "/android_app/index.html",
   "assetGroups": [
     {
@@ -152,7 +152,7 @@
     "/android_app/assets/schema.json": "eda9277d30c59a1285db458a11533fda6c3a839e",
     "/android_app/charts-charts-module.js": "adf1c9cc6e234cc51800bc72dac89bba0c6c66ae",
     "/android_app/default~poojas-poojas-module~profile-profile-module.js": "ee869d92fc6b65857cde59981d26ec9c85c8713d",
-    "/android_app/donations-donations-module.js": "b4519f6d04548962cd69cb0bcad7ea0173ada505",
+    "/android_app/donations-donations-module.js": "7cd0d5165dd8eb3c01a222e2cc951db8dd0deb8e",
     "/android_app/expenses-expenses-module.js": "0f09d37c52ac0567e3f7f2358ee177ef4d0eb920",
     "/android_app/fa-brands-400.eot": "d1ffd6340cdbf72890ccb67f32015eafc5df51a7",
     "/android_app/fa-brands-400.svg": "907bfbbe295332750575900984a00136de0f0e90",
