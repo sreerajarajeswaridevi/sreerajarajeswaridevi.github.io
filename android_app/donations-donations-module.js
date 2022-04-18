@@ -140,7 +140,7 @@ var DonationsComponent = /** @class */ (function () {
             item: 'festival',
             name: '',
             description: '',
-            nakshatram: 'festival',
+            nakshatram: '',
             phone_number: 0,
             address: ''
         };

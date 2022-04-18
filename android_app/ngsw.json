@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1650270244015,
+  "timestamp": 1650270819667,
   "index": "/android_app/index.html",
   "assetGroups": [
     {
@@ -137,7 +137,7 @@
     "/android_app/assets/datepicker/polyfill.js": "a2a72d31a828a3784c11f58670e649c36b33d6e2",
     "/android_app/assets/datepicker/rome.standalone.js": "e0485684df256b3f68dcfd316b0780ea0f0dea2d",
     "/android_app/assets/i18n/en.json": "df7cf06434c72f0b5c156e607ae7b6d67c25608b",
-    "/android_app/assets/i18n/ml.json": "d5d5771d1b09eef1a250cc325e9dc9d05b71fb75",
+    "/android_app/assets/i18n/ml.json": "ef5c2d66b88d20bc2042123df9d0c12fece65c4f",
     "/android_app/assets/icons/RR-logo.png": "bec6635817002afa6e03a853b35030063e8f2ec0",
     "/android_app/assets/icons/icon-128x128.png": "e26d5fdcaa05dce87755460a5001fda4961debf3",
     "/android_app/assets/icons/icon-144x144.png": "fa29067d562fd4780b5e8b12b57711e2e2ced23c",
@@ -152,7 +152,7 @@
     "/android_app/assets/schema.json": "eda9277d30c59a1285db458a11533fda6c3a839e",
     "/android_app/charts-charts-module.js": "adf1c9cc6e234cc51800bc72dac89bba0c6c66ae",
     "/android_app/default~poojas-poojas-module~profile-profile-module.js": "ee869d92fc6b65857cde59981d26ec9c85c8713d",
-    "/android_app/donations-donations-module.js": "a35ef798bb29afd2e88c5bba02e8096f365b7cd9",
+    "/android_app/donations-donations-module.js": "b4519f6d04548962cd69cb0bcad7ea0173ada505",
     "/android_app/expenses-expenses-module.js": "0f09d37c52ac0567e3f7f2358ee177ef4d0eb920",
     "/android_app/fa-brands-400.eot": "d1ffd6340cdbf72890ccb67f32015eafc5df51a7",
     "/android_app/fa-brands-400.svg": "907bfbbe295332750575900984a00136de0f0e90",
@@ -171,7 +171,7 @@
     "/android_app/fa-solid-900.woff2": "0ccb2c814a7e4ca12c4778821633809cb0361eaa",
     "/android_app/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
     "/android_app/index.html": "7acc56d786115cf8c5cc55f6493bf2e2ef2eae8e",
-    "/android_app/main.js": "296c5ede5aff4a0671403bb1889d5e52c0a2f33b",
+    "/android_app/main.js": "d49ae8524c044804c2bc9ae3db026955247d61a8",
     "/android_app/manifest.webmanifest": "d7811220610d7a591cec803d97baaf506bdb9518",
     "/android_app/polyfills-es5.js": "a8d0ed85cadc5df64c512b5da6bb460fa23387d3",
     "/android_app/polyfills.js": "dcb361b95ab6e2824394ab628dc1403666b26d6f",
