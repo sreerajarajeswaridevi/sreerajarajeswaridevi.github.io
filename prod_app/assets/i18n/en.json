@@ -1,4 +1,4 @@
-{ 
+{
     "Loading": "Loading",
     "is_required": "is required",
     "Install_App": "Install App",
@@ -6,7 +6,7 @@
     "Save": "Save",
     "Total": "Total",
     "Update_App": "Update App",
-    
+
     "Date": "Date",
     "Name": "Name",
     "Nakshathram": "Nakshathram",
@@ -121,7 +121,11 @@
         "Donations_on": "Donations on",
         "Vanji": "Vanji donations",
         "Vanji_Name": "Vanji Name",
-        "Festival": "Festival donations"
+        "Festival": "Festival donations",
+        "Payment": "Payment",
+        "TotalCash": "Total Cash",
+        "TotalUPI": "Total UPI",
+        "TotalBankTransfer": "Total Bank Transfer"
     },
     "REPORTS": {
         "Financial_Reports": "Financial Reports",
