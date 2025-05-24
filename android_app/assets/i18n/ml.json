@@ -1,4 +1,4 @@
-{ 
+{
     "Loading": "ലോഡിംഗ്",
     "is_required": "നിർബന്ധമാണ്",
     "Install_App": "ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്യുക",
@@ -6,7 +6,7 @@
     "Save": "സേവ്",
     "Total": "ആകെ",
     "Update_App": "ആപ്പ് അപ്ഡേറ്റ് ചെയ്യുക",
-    
+
     "Date": "തീയതി",
     "Name": "പേര്",
     "Nakshathram": "നക്ഷത്രം",
@@ -120,7 +120,12 @@
         "Donations_on": "സംഭാവനകൾ",
         "Vanji": "വഞ്ചി സംഭാവന",
         "Vanji_Name": "ഏത് വഞ്ചി",
-        "Festival": "ഉത്സവ സംഭാവന"
+        "Festival": "ഉത്സവ സംഭാവന",
+        "Payment": "പേയ്മെന്റ്",
+        "TotalCash": "മൊത്തം പണം",
+        "TotalUPI": "മൊത്തം UPI",
+        "TotalBankTransfer": "മൊത്തം ബാങ്ക് ട്രാൻസ്ഫർ"
+    }
     },
     "REPORTS": {
         "Financial_Reports": "സാമ്പത്തിക റിപ്പോർട്ടുകൾ",
